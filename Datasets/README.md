@@ -35,7 +35,7 @@ Folders named after dataset's code contains code_normal.txt file which is a matr
 | Url/source | https://www.bafu.admin.ch/bafu/en/home.html |
 |  |  |
 | Granularity | inconsistent, average distance between measurements d <= 36 minutes +/- variance |
-| Observations | spans years 2005 to 2015 |
+| Observations | spans years 1974 to 2015 |
 |  |  |
 | Dataset dimensions | N=85203 M=12 |
 
@@ -196,7 +196,7 @@ Example: 13 = observation period 12:41 to 13:40
 
 #### Dataset description
 
-Only a subset of columns was taken to construct M=12 datasets from both drift6 and drift10 (to make a healthy set of correlations).
+Only a subset of columns was taken to construct M=12 datasets from both drift6 and drift10.
 
 - Batch 6: columns # 3,  2,  7,  41, 42, 34, 16, 51, 98, 66, 74, 10
 - Batch 10: columns # 1, 6, 10, 28, 18, 58, 17, 21, 52, 124, 110, 36
@@ -251,7 +251,7 @@ Batch 10
 
 #### Dataset description
 
-Only a subset of columns was taken to construct M=12 dataset (to make a healthy set of correlations).
+Only a subset of columns was taken to construct M=12 dataset.
 
 - columns # 1, 374, 299, 428, 417, 105, 240, 383, 222, 40, 105, 409
 
