@@ -20,7 +20,7 @@ or
 - Open terminal in a folder you want to put the project to:
 ```bash
     $ git init
-    $ git clone https://github.com/eXascaleInfolab/2018-revival-bench.git
+    $ git clone https://github.com/eXascaleInfolab/InCD_benchmark.git
 ```
 - macOS only: if at `git init` step or any time later a prompt about developer tools appears, choose "install", then repeat the last command you tried.
 
