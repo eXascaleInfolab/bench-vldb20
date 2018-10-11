@@ -1,0 +1,148 @@
+This is a README for an experimental code of the paper 
+
+Temporal Regularized Matrix Factorization for High Dimensional Time Series Prediction.
+
+
+Requirements
+============
+	g++: note that clang++ shipped by Mac is not supported. Please ``brew install g++'' using Mac Homebrew on a Mac machine. 
+	matlab/octave: Please ``brew install octave'' using Mac Brew if you are on a Mac machine.
+
+Install
+=======
+	on a matlab/octave shell, type 
+	
+	> install
+
+
+Data Set
+========
+	See data/ folder for traffic and electricity datasets
+
+
+Usage of trmf_train.m
+=====================
+function model = trmf_train(siz, Ycoo, lag_idx, k, lambdas, maxit, missing, do_lasso, model0);
+
+	siz = (n, T) : the dimension of the observation matrix
+	Ycoo         : size(Ycoo) = a matrix of |\Omega|-by-3 for all the observations (coordinate format)
+	lag_idx      : an array of lag indices included in L
+	k            : the latent dimension
+	lambdas      : an array of length 3, lambdas = [lambdaF, lambdaX, lambdaw]
+	maxit        : max number of iterations
+	missing      : whether there are missing values in Y. In our experiments, you can always use 1
+	do_lasso     : impost L1-regularization on w or not, you can always use 0
+	model0       : the initial model to start with.
+
+/* MY COMMENTS
+
+//
+// TEST [ELEC]
+//
+
+open '../data/electriciy.mat';
+
+lag_idx = [1:10];
+
+n = elec.size(1);
+T = elec.size(2);
+k = n+1;
+
+model.F = rand(n, k);
+model.X = rand(k, T);
+model.lag_idx = lag_idx;
+model.lag_val = zeros(k,10) + 0.5;
+0; % END INIT
+
+model2 = trmf_train(elec.size, elec.Ycoo, lag_idx, k, [0.2, 0.2, 0.2], 75, 1, 0, model);
+
+//
+// TEST [HYDRO]
+//
+
+%%% global init %%%
+size = [10, 8700]
+
+n = size(1);
+T = size(2);
+k = n*2;
+
+lag_idx = [1:10];
+
+%%% pred %%%
+M = dlmread("../data/hydroTRMF_sparce.txt");
+
+model.F = rand(n, k);
+model.X = rand(k, T);
+model.lag_idx = lag_idx;
+model.lag_val = rand(k,10);% + 0.2;
+
+model2 = trmf_train(size, M, lag_idx, k, [0.2, 0.2, 0.2], 100, 1, 0, model);
+
+[Ynew, Xnew] = trmf_forecast(model2, 20);
+
+%%% impute %%%
+
+M_full = dlmread("../data/hydroTRMF_obs.txt");
+M_obs = dlmread("../data/hydroTRMF_indic.txt");
+
+ret = imputation_trmf(M_full, M_obs, lag_idx, k, [0.2, 0.2, 0.2], 100); %TBA
+
+impF = ret.model.F;
+impX = ret.model.X;
+impY = impF * impX;
+temp = impY(3001:3101, 1);
+
+*/
+	Output model:
+		model.F = F;
+		model.X = X;
+		model.lag_idx = lag_idx;
+		model.lag_val = lag_val;
+	
+Usage of trmf_forcast.m
+=======================
+function [Ynew, Xnew] = trmf_forecast(model, len)
+
+	model         : the model obtained by trmf_train
+	len           : forecast the next `len` values
+
+	Output: 
+		Ynew      : n-by-len array, observation forecast
+		Xnew      : k-by-len array, temporal embedding forecast 
+
+
+Usage of rolling_forecast_trmf.m
+================================
+function [ret] = rolling_foreast_trmf(Ycoo, lag_idx, k, lambdas, maxit, do_lasso, window_size, nr_windows, missing)
+		
+	window_size   : the size of forecast period
+	nr_windows    : number of rolling forecast periods
+	other parameters are the same as trmf_train
+
+
+Usage of grid_forecast_trmf
+===========================
+function [cv_result, best] = grid_forecast_trmf(Ycoo, kset, lambda1, lambda2, lambda3, window_size, nr_window, lag_set)
+
+	Ycoo            : size(Y) = a matrix of |\Omega|-by-3 for all the observations (coordinate format)
+	kset            : an array of possible values for `k` 
+	lamdda1         : an array of possible values for `lambdaF`
+	lamdda2         : an array of possible values for `lambdaX`
+	lamdda3         : an array of possible values for `lambdaw`
+
+
+Usage of imputation_trmf
+========================
+function [ret] = imputation_trmf(Ymat, observed, lag_idx, k, lambdas, maxit)
+
+	Ymat            : n-by-T array, the entire observation Y
+	observed        : a sparse indicator matrix for the observation in Y
+
+	ret.model       : the TRMF model obtained by running the TRMF algorithm on the observed entries
+
+
+
+
+For any questions and comments, please send your email to
+rofuyu AT cs dot utexas dot edu

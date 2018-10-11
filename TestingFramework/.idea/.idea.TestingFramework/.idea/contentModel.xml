@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="/18883ae3" t="IncludeRecursive" />
+    <e p="/app" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_TestingFramework.-1733660402.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Algorithms" t="Include">
+        <e p="AlgoPack.cs" t="Include" />
+        <e p="Algorithm.cs" t="Include" />
+        <e p="CentroidDecompositionAlgorithm.cs" t="Include" />
+        <e p="GrouseAlgorithm.cs" t="Include" />
+        <e p="IncrementalCentroidDecompositionAlgorithm.cs" t="Include" />
+        <e p="NnmfAlgorithm.cs" t="Include" />
+        <e p="SpiritAlgorithm.cs" t="Include" />
+        <e p="StmvlAlgorithm.cs" t="Include" />
+        <e p="TkcmAlgorithm.cs" t="Include" />
+        <e p="TrmfAlgorithm.cs" t="Include" />
+      </e>
+      <e p="App.config" t="Include" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Testing" t="Include">
+        <e p="DataWorks.cs" t="Include" />
+        <e p="HelperClasses.cs" t="Include" />
+        <e p="SingularExperiments.cs" t="Include" />
+        <e p="TestRoutines.cs" t="Include" />
+        <e p="Utils.cs" t="Include" />
+      </e>
+      <e p="TestingFramework.csproj" t="IncludeRecursive" />
+      <e p="TestingFramework.sln" t="IncludeFlat" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

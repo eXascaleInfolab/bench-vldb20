@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{2A0CC882-0A03-466B-AD73-8DE954549BF4}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="23" Column="49" />
+      <File FileName="DataWorks.cs" Line="57" Column="10" />
+      <File FileName="Utils.cs" Line="118" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TestingFramework PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Sandbox PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
