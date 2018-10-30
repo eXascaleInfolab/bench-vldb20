@@ -40,11 +40,11 @@ or
     $ sudo apt-get install python-pandas
 ```
 - Mono Runtime and Compiler:
+
+- install `mono-devel`, but in addition perform the step #1 from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
+
 ```bash
     $ sudo apt-get install mono-devel
-```
-- If compilation of mono projects doesn't work: anyway install `mono-devel`, but in addition perform the step #1 from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
-```bash
     $ sudo apt-get update
     $ sudo apt-get upgrade
 ```
