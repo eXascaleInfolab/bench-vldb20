@@ -102,9 +102,5 @@ or
 ```bash
     (from the root folder of the repository)
     $ cd TestingFramework/bin/Debug/
-    OR
-    (from the folder with the config)
-    $ cd bin/Debug/
-    
     $ mono TestingFramework.exe
 ```
