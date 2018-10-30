@@ -41,7 +41,7 @@ or
 ```
 - Mono Runtime and Compiler:
 
-- install `mono-devel`, but in addition perform the step #1 from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
+- install `mono-devel` from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
 
 ```bash
     $ sudo apt-get install mono-devel
