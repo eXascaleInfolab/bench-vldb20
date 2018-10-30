@@ -39,9 +39,7 @@ or
     $ sudo apt-get install python-sklearn
     $ sudo apt-get install python-pandas
 ```
-- Mono Runtime and Compiler:
-
-- install `mono-devel` from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
+- Mono Runtime and Compiler: install `mono-devel` from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
 
 ```bash
     $ sudo apt-get install mono-devel
