@@ -29,7 +29,7 @@ or
 
 - C/C++ compilers:
 ```bash
-    $ sudo apt-get install build-essentials
+    $ sudo apt-get install build-essential
 ```
 - Python and python libraries:
 ```bash
