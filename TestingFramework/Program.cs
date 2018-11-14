@@ -13,6 +13,8 @@ namespace TestingFramework
             string[] codes = null;
             string[] codesLimited = null;
 
+            List<string> ignoreList = new List<string>();
+
             Dictionary<string, string> config =
                 args.Length == 0
                     ? Utils.ReadConfigFile()
@@ -60,6 +62,10 @@ namespace TestingFramework
                     case "UseBatchCd":
                         useBatchCd = Convert.ToBoolean(entry.Value);
                         break;
+
+                    case "IgnoreAlgorithms":
+                        ignoreList.AddRange(entry.Value.Split(',').Select(x => x.Trim().ToLower()));
+                        break;
                     
                     case "MulticolumnType":
                         TestRoutines.MulticolumnType = entry.Value.Trim();
@@ -89,6 +95,10 @@ namespace TestingFramework
 
             Algorithm cdVersion = useBatchCd ? AlgoPack.Cd : AlgoPack.InCd;
 
+            ignoreList = useBatchCd
+                ? ignoreList.Select(x => x == "incd" ? "cd" : x).ToList()
+                : ignoreList.Select(x => x == "cd" ? "incd" : x).ToList();
+
             var listStd = new List<Algorithm> {cdVersion};
 
             listStd.AddRange(new[] {AlgoPack.Stmvl, AlgoPack.Tkcm, AlgoPack.Spirit, AlgoPack.Nnmf, AlgoPack.Grouse});
@@ -97,6 +107,8 @@ namespace TestingFramework
             {
                 listStd.Add(AlgoPack.Trmf);
             }
+
+            listStd = listStd.Where(x => !ignoreList.Contains(x.AlgCode.ToLower())).ToList();
             
             AlgoPack.ListAlgorithms = listStd.ToArray();
 
