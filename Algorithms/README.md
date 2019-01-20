@@ -29,8 +29,8 @@ Parameters:
 
 Parameters (suggested values):
 - lambda = 1.0
-- k0 = 3
-- w = 6
+- k0 = 3 (hidden variables)
+- w = 6 (AR coefficients)
 
 ## TKCM
 
@@ -48,7 +48,7 @@ Parameters:
 
 Parameters:
 - lag_idx = array(1...10)
-- k = m * 2 (changes with varying M for column-test)
+- k = M * 2 (changes with varying M for column-test)
 - learning_factors = [0.75, 0.75, 0.75]
 - max_iterations = 100
 
