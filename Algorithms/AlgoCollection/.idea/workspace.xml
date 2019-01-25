@@ -44,8 +44,8 @@
       <file leaf-file-name="Benchmark.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Performance/Benchmark.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="54" lean-forward="true" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+            <state relative-caret-position="425">
+              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
                 <element signature="e#43#60#0" expanded="true" />
               </folding>
@@ -53,25 +53,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CDMissingValueRecovery.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.cpp">
+      <file leaf-file-name="MatrixReadWrite.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MathIO/MatrixReadWrite.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1876">
-              <caret line="173" column="12" lean-forward="true" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="12" />
+            <state relative-caret-position="2640">
+              <caret line="305" column="19" selection-start-line="305" selection-start-column="5" selection-end-line="305" selection-end-column="19" />
               <folding>
-                <element signature="e#41#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CDMissingValueRecovery.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
-              <folding>
-                <element signature="e#55#71#0" expanded="true" />
+                <element signature="e#43#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,6 +96,7 @@
       <find>std::chrono::microseconds</find>
       <find>svd</find>
       <find>std::chrono::milliseconds</find>
+      <find>MatrixReader::</find>
     </findStrings>
     <replaceStrings>
       <replace>std::isnan(</replace>
@@ -396,20 +385,20 @@
       <workItem from="1546524204978" duration="13341000" />
       <workItem from="1546607708759" duration="126593000" />
       <workItem from="1547556912890" duration="104351000" />
-      <workItem from="1548245936392" duration="21684000" />
+      <workItem from="1548245936392" duration="22495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="515647000" />
+    <option name="totallyTimeSpent" value="516458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1922" height="1056" extended-state="7" />
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.10989583" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.10989583" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4578125" visible="true" weight="0.30494216" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4578125" visible="true" weight="0.30494216" />
       <window_info anchor="bottom" id="CMake" order="0" weight="0.32912722" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5421875" side_tool="true" visible="true" weight="0.30494216" />
       <window_info anchor="bottom" id="Run" order="11" sideWeight="0.49635416" weight="0.27444795" />
@@ -637,16 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MathIO/MatrixReadWrite.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="869">
-          <caret line="183" column="23" selection-start-line="183" selection-start-column="23" selection-end-line="183" selection-end-column="23" />
-          <folding>
-            <element signature="e#43#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Algebra/Auxiliary.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -822,10 +801,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MathIO/MatrixReadWrite.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="305" column="19" selection-start-line="305" selection-start-column="5" selection-end-line="305" selection-end-column="19" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Performance/Benchmark.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="54" lean-forward="true" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+        <state relative-caret-position="425">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding>
             <element signature="e#43#60#0" expanded="true" />
           </folding>

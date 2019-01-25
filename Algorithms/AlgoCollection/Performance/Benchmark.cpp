@@ -47,7 +47,7 @@ int64_t Recovery_CD(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (CD): " << result << std::endl;
     
-    return (signed)rmv.lastIterations;
+    return result;
 }
 
 int64_t Recovery_TKCM(arma::mat &mat, uint64_t truncation)
