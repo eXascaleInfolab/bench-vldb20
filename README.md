@@ -9,7 +9,7 @@ Each directory contains its own README file with the descriptions of details.
 
 #### List of dependencies
 
-- Ubuntu 14 and higher (or Ubuntu derivatives like Xubuntu)
+- Ubuntu 14 and higher (or Ubuntu derivatives like Xubuntu, preferably 16 or higher)
 
 or
 - Supported version of macOS (10.11+)
@@ -20,7 +20,7 @@ or
 - Open terminal in a folder you want to put the project to:
 ```bash
     $ git init
-    $ git clone https://github.com/eXascaleInfolab/InCD_benchmark.git
+    $ git clone https://github.com/eXascaleInfolab/InCD_bench-19.git
 ```
 - macOS only: if at `git init` step or any time later a prompt about developer tools appears, choose "install", then repeat the last command you tried.
 
@@ -31,13 +31,13 @@ or
 ```bash
     $ sudo apt-get install build-essential
 ```
-- Python and python libraries:
+- C/C++ linear algebra libraries:
 ```bash
-    $ sudo apt-get install python-all
-    $ sudo apt-get install python-numpy
-    $ sudo apt-get install python-scipy
-    $ sudo apt-get install python-sklearn
-    $ sudo apt-get install python-pandas
+    $ sudo apt-get install cmake
+    $ sudo apt-get install libopenblas-dev
+    $ sudo apt-get install liblapack-dev
+    $ sudo apt-get install libarmadillo-dev
+    $ sudo apt-get install libmlpack-dev
 ```
 - Mono Runtime and Compiler: install `mono-devel` from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
 
