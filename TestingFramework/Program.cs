@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TestingFramework.Algorithms;
 using TestingFramework.Testing;
@@ -80,17 +81,17 @@ namespace TestingFramework
             // verificaiton that all necessary entries are provided
             if (DataWorks.FolderPlotsRemoteBase == null)
             {
-                throw new InvalidProgramException("Incorrect config file: plots folder has to be supplied (PlotsFolder=)");
+                throw new InvalidProgramException("Invalid config file: plots folder has to be supplied (PlotsFolder=)");
             }
             
             if (AlgoPack.GlobalAlgorithmsLocation == null)
             {
-                throw new InvalidProgramException("Incorrect config file: algorithms folder has to be supplied (AlgorithmsLocation=)");
+                throw new InvalidProgramException("Invalid config file: algorithms folder has to be supplied (AlgorithmsLocation=)");
             }
             
             if (codes == null || codes.Length == 0)
             {
-                throw new InvalidProgramException("Incorrect config file: datasets are not supplied (Datasets=) or the list is empty");
+                throw new InvalidProgramException("Invalid config file: datasets are not supplied (Datasets=) or the list is empty");
             }
 
             Algorithm cdVersion = useBatchCd ? AlgoPack.Cd : AlgoPack.InCd;
@@ -124,24 +125,24 @@ namespace TestingFramework
                 if (EnumMethods.EnableContinuous)
                 {
                     codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
-                    //codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
-                    //codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
+                    codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
+                    codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
                 }
 
                 codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
-                //codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
-                //codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
+                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
+                codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
             }
             void FullRuntime()
             {
                 if (EnumMethods.EnableContinuous)
                 {
-                    //codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
+                    codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
                     codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
                     codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
                 }
 
-                //codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
+                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
                 codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
                 codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
             }
@@ -170,7 +171,7 @@ namespace TestingFramework
                 codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.MissingMultiColumn, c, 1000));
             }
             
-            if (EnumMethods.EnableStreaming) FullStreaming();
+            if (EnumMethods.EnableStreaming) throw new Exception("Streaming can't be enabled in this version of the benchmark.");
             
             FullPrecision();
             
@@ -210,11 +211,25 @@ namespace TestingFramework
 
             //SingularExperiments.MsePerformanceReport(codes, codesLimited);
             //SingularExperiments.RMSE("~/MVR/CD-RMV/incCD/_data/out/cdmvr200_k3.txt", "~/Downloads/bafu_int.csv", (0, 50, 100));
-            
+
+            #if false
+            {
+                string cmptype = "meaninit_vert";
+                
+                var sw_prec = new StreamWriter(File.Open($"prec_report_{cmptype}.txt", FileMode.Create));
+                var sw_rt = new StreamWriter(File.Open($"rt_report_{cmptype}.txt", FileMode.Create));
+                
+                SingularExperiments.MsePerformanceReport(codes, codesLimited, sw_prec.WriteLine, cmptype);
+                SingularExperiments.SSVIterPerformanceReport(codes, codesLimited, sw_rt.WriteLine, cmptype);
+                
+                sw_prec.Close();
+                sw_rt.Close();
+            }
+            #endif  
             //
             // time series
             //
-
+            
             #if false
             {
                 //var data = DataWorks.TimeSeries("BAFU", "*.asc", 3, Utils.Specific.ParseWasserstand, new DateTime(2005, 1, 1), true);

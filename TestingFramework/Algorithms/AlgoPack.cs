@@ -28,6 +28,8 @@ namespace TestingFramework.Algorithms
         public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse };
         public static Algorithm[] ListAlgorithmsStreaming = { InCd, Tkcm, Spirit };
 
+        public const int TypicalTruncation = 3;
+
         public static void PurgeAllIntermediateFiles()
         {
             ListAlgorithms.ForEach(x => x.DataCleanUp());
@@ -94,7 +96,7 @@ namespace TestingFramework.Algorithms
     public partial class CentroidDecompositionAlgorithm
     {
         public override string AlgCode => "cd";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}CD/_data/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
     }
@@ -102,7 +104,7 @@ namespace TestingFramework.Algorithms
     public partial class IncrementalCentroidDecompositionAlgorithm
     {
         public override string AlgCode => "incd";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}CD/_data/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
     }
@@ -110,32 +112,32 @@ namespace TestingFramework.Algorithms
     public partial class NnmfAlgorithm
     {
         public override string AlgCode => "nnmf";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}nnmf/";
-        protected override string SubFolderDataIn => "_data/in/";
-        protected override string SubFolderDataOut => "_data/out/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => true;
     }
 
     public partial class SpiritAlgorithm
     {
         public override string AlgCode => "spirit";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}SPIRIT/";
-        protected override string SubFolderDataIn => "data/in/";
-        protected override string SubFolderDataOut => "data/out/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
     }
 
     public partial class StmvlAlgorithm
     {
         public override string AlgCode => "stmvl";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ST-MVL/STMVL/bin/Release/";
-        protected override string SubFolderDataIn => "Data/in/";
-        protected override string SubFolderDataOut => "Data/out/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
     }
 
     public partial class TkcmAlgorithm
     {
         public override string AlgCode => "tkcm";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}tkcm/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
     }
@@ -151,9 +153,9 @@ namespace TestingFramework.Algorithms
     public partial class GrouseAlgorithm
     {
         public override string AlgCode => "grouse";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}GROUSE/";
-        protected override string SubFolderDataIn => "data/in/";
-        protected override string SubFolderDataOut => "data/out/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => true;
     }
 

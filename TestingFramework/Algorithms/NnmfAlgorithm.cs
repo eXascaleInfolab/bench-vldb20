@@ -48,7 +48,7 @@ namespace TestingFramework.Algorithms
             (int rFrom, int rTo) = rowRange;
             (int cFrom, int cTo) = columnRange;
             
-            double[][] res = DataWorks.GetDataLimited(sourceFile, rTo, cTo);
+            double[][] res = DataWorks.GetDataLimited(sourceFile, rTo - rFrom, cTo - cFrom);
             
             int n = rTo > res.Length ? res.Length : rTo;
             int m = cTo > res[0].Length ? res[0].Length : cTo;
@@ -76,7 +76,6 @@ namespace TestingFramework.Algorithms
             string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
             
             if (File.Exists(destination)) File.Delete(destination);
-            
             File.AppendAllText(destination, data.ToString());
         }
 
@@ -85,16 +84,15 @@ namespace TestingFramework.Algorithms
             Process nnmfproc = new Process();
             
             nnmfproc.StartInfo.WorkingDirectory = EnvPath;
-            nnmfproc.StartInfo.FileName = "python";
+            nnmfproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             nnmfproc.StartInfo.CreateNoWindow = true;
             nnmfproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             nnmfproc.StartInfo.UseShellExecute = false;
 
-            //def recover(filename, output, runtime, rtstream):
-            string functionArgs = $"\"{SubFolderDataIn}{data.Code}_m{len}.txt\", \"{SubFolderDataOut}{AlgCode}{len}.txt\", {rtVal}, {rtStrVal}";
-            
-            nnmfproc.StartInfo.Arguments = "-c 'from main import recover; " +
-                                           $"recover({functionArgs})'";
+            string testType = rtVal == "True" ? "rt" : "o";
+            nnmfproc.StartInfo.Arguments = $"-alg nnmf -test {testType} -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                           $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                           $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return nnmfproc;
         }

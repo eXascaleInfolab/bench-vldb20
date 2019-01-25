@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="incCD"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="incCD">
+				<Option output="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/incCD" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 incCD"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="incCD/fast">
+				<Option output="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/incCD" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 incCD/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algebra/Auxiliary.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algebra/Auxiliary.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algebra/CentroidDecomposition.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algebra/CentroidDecomposition.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algebra/MissingBlock.hpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/CDMissingValueRecovery.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/CDMissingValueRecovery.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/DynaMMo.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/DynaMMo.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/GROUSE.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/GROUSE.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/IterativeSVD.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/IterativeSVD.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/NMFMissingValueRecovery.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/NMFMissingValueRecovery.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/ROSL.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/ROSL.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SPIRIT.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SPIRIT.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/ST_MVL.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/ST_MVL.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SVT.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SVT.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SoftImpute.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/SoftImpute.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/TKCM.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Algorithms/TKCM.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/MathIO/CommandLine.hpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/MathIO/MatrixReadWrite.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/MathIO/MatrixReadWrite.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Performance/Benchmark.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Performance/Benchmark.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Stats/Correlation.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Stats/Correlation.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Testing.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/Testing.h">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/main.cpp">
+			<Option target="incCD"/>
+		</Unit>
+		<Unit filename="/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

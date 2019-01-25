@@ -42,13 +42,14 @@ namespace TestingFramework.Algorithms
             Process spiritproc = new Process();
             
             spiritproc.StartInfo.WorkingDirectory = EnvPath;
-            spiritproc.StartInfo.FileName = "octave";
+            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             spiritproc.StartInfo.CreateNoWindow = true;
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            string functionArgs = $"{tcase}, '{data.Code}'";
-            spiritproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 0)\"";
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                             $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
+                                             $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 
             return spiritproc;
         }
@@ -58,14 +59,14 @@ namespace TestingFramework.Algorithms
             Process spiritproc = new Process();
             
             spiritproc.StartInfo.WorkingDirectory = EnvPath;
-            spiritproc.StartInfo.FileName = "octave";
+            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             spiritproc.StartInfo.CreateNoWindow = true;
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            string functionArgs = $"{tcase}, '{data.Code}'";
-            spiritproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, " +
-                                             $"{(streaming ? 2 : 1)})\"";
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                             $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
+                                             $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 
             return spiritproc;
         }
@@ -85,8 +86,8 @@ namespace TestingFramework.Algorithms
             RunSpirit(GetRuntimeSpiritProcess(data, tcase, et == ExperimentType.Streaming));
         }
 
-        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks, (int, int) rowRange,
-            (int, int) columnRange)
+        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
+            (int, int) rowRange, (int, int) columnRange)
         {
             sourceFile = DataWorks.FolderData + sourceFile;
             
@@ -108,7 +109,7 @@ namespace TestingFramework.Algorithms
                 {
                     if (Utils.IsMissing(missingBlocks, i, j))
                     {
-                        line += 0 + " ";
+                        line += "NaN" + " ";
                     }
                     else
                     {
@@ -117,21 +118,11 @@ namespace TestingFramework.Algorithms
                 }
                 data.Append(line.Trim() + Environment.NewLine);
             }
-            
-            string range = "0 0";
-            if (missingBlocks.Any())
-            {
-                range = $"{missingBlocks[0].Item2} {missingBlocks[0].Item2 + missingBlocks[0].Item3}";
-            }
 
             string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
-            string destinationRange = EnvPath + SubFolderDataIn + $"{code}_m{tcase}_range.txt";
             
             if (File.Exists(destination)) File.Delete(destination);
             File.AppendAllText(destination, data.ToString());
-            
-            if (File.Exists(destinationRange)) File.Delete(destinationRange);
-            File.AppendAllText(destinationRange, range);
         }
     }
 }

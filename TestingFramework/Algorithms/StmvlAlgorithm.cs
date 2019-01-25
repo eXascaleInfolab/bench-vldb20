@@ -41,17 +41,15 @@ namespace TestingFramework.Algorithms
             Process stmvlproc = new Process();
 
             stmvlproc.StartInfo.WorkingDirectory = EnvPath;
-            stmvlproc.StartInfo.FileName = "mono";
+            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             stmvlproc.StartInfo.CreateNoWindow = true;
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;
 
-            //necessary to send a key to circumvent ReadKey() in main
-            stmvlproc.StartInfo.RedirectStandardInput = true;
-
-            string cli = $"{data.Code} {finalN} {finalM} {len} nonrt";
-
-            stmvlproc.StartInfo.Arguments = "STMVL.exe " + cli;
+            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                            $"-xtra {SubFolderDataIn}{data.Code}_m{len}_latlng.txt " +
+                                            $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                            $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return stmvlproc;
         }
@@ -61,17 +59,15 @@ namespace TestingFramework.Algorithms
             Process stmvlproc = new Process();
 
             stmvlproc.StartInfo.WorkingDirectory = EnvPath;
-            stmvlproc.StartInfo.FileName = "mono";
+            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             stmvlproc.StartInfo.CreateNoWindow = true;
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;
 
-            //necessary to send a key to circumvent ReadKey() in main
-            stmvlproc.StartInfo.RedirectStandardInput = true;
-
-            string cli = $"{data.Code} {finalN} {finalM} {len} rt";
-
-            stmvlproc.StartInfo.Arguments = "STMVL.exe " + cli;
+            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                            $"-xtra {SubFolderDataIn}{data.Code}_m{len}_latlng.txt " +
+                                            $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                            $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return stmvlproc;
         }
@@ -79,7 +75,7 @@ namespace TestingFramework.Algorithms
         private void RunStmvl(Process stmvlproc)
         {
             stmvlproc.Start();
-            stmvlproc.StandardInput.Write(Environment.NewLine);
+            //stmvlproc.StandardInput.Write(Environment.NewLine); not in c++ version
             stmvlproc.WaitForExit();
                 
             if (stmvlproc.ExitCode != 0) Console.WriteLine($"[WARNING] STMVL returned code {stmvlproc.ExitCode} on exit.{Environment.NewLine}" +
@@ -92,8 +88,8 @@ namespace TestingFramework.Algorithms
             RunStmvl(GetRuntimeStmvlProcess(data.N, data.M, data, tcase));
         }
 
-        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks, (int, int) rowRange,
-            (int, int) columnRange)
+        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
+            (int, int) rowRange, (int, int) columnRange)
         {
             sourceFile = DataWorks.FolderData + sourceFile;
             
@@ -105,11 +101,9 @@ namespace TestingFramework.Algorithms
             int n = rTo > res.Length ? res.Length : rTo;
             int m = cTo > res[0].Length ? res[0].Length : cTo;
             
+            var data = new StringBuilder();
             var sensors = new List<string>();
-            var dataHeader = new StringBuilder("datetime");
-
-            // transform \\
-
+            
             decimal lat = new Decimal(39.954047);
             decimal lng = new Decimal(116.348991);
 
@@ -118,7 +112,6 @@ namespace TestingFramework.Algorithms
                 // time series - generate sensors with coordinates
                 int sensorId = 1000 + i;
                 sensors.Add(sensorId + "," + lat + "," + lng);
-                dataHeader.Append(",").Append(sensorId);
                 // variate coordinates
                 if (i % 2 == 0)
                 {
@@ -129,49 +122,36 @@ namespace TestingFramework.Algorithms
                     lng += new Decimal(0.01);   
                 }
             }
-
-            dataHeader.Append(Environment.NewLine);
-
-            var dataMissing = new List<string>();
-            var temporal = new DateTime(2014, 05, 01, 00, 00, 00);
-
-            for (int j = rFrom; j < n; j++)
+            
+            for (int i = rFrom; i < n; i++)
             {
-                temporal = temporal.AddHours(1);
+                string line = "";
 
-                string lineMissing = temporal.ToString(@"yyyy\/MM\/yy HH:mm:ss") + ",";
-
-                for (int i = cFrom; i < m; i++)
+                for (int j = cFrom; j < m; j++)
                 {
-                    // data with a missing block
-                    if (Utils.IsMissing(missingBlocks, j, i))
+                    if (Utils.IsMissing(missingBlocks, i, j))
                     {
-                        // missing
-                        lineMissing += ",";
+                        line += "NaN" + " ";
                     }
                     else
                     {
-                        lineMissing += res[j][i] + ",";
+                        line += res[i][j] + " ";
                     }
                 }
-
-                lineMissing = lineMissing.Trim(',');
-                dataMissing.Add(lineMissing);
+                data.Append(line.Trim() + Environment.NewLine);
             }
 
-            // dump \\
-            string destinationMissing = EnvPath + SubFolderDataIn + $"{code}_m{tcase}_missing.txt";
+            string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
             string destinationLatlng = EnvPath + SubFolderDataIn + $"{code}_m{tcase}_latlng.txt";
 
             // latlng
             if (File.Exists(destinationLatlng)) File.Delete(destinationLatlng);
             File.AppendAllText(destinationLatlng, "sensor_id,latitude,longitude" + Environment.NewLine);
             File.AppendAllLines(destinationLatlng, sensors);
-
+            
             // data
-            if (File.Exists(destinationMissing)) File.Delete(destinationMissing);
-            File.AppendAllText(destinationMissing, dataHeader.ToString());
-            File.AppendAllLines(destinationMissing, dataMissing);
+            if (File.Exists(destination)) File.Delete(destination);
+            File.AppendAllText(destination, data.ToString());
         }
     }
 }

@@ -44,8 +44,8 @@ namespace TestingFramework.Algorithms
             }
         }
 
-        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks, (int, int) rowRange,
-            (int, int) columnRange)
+        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
+            (int, int) rowRange, (int, int) columnRange)
         {
             sourceFile = DataWorks.FolderData + sourceFile;
             
@@ -67,7 +67,7 @@ namespace TestingFramework.Algorithms
                 {
                     if (Utils.IsMissing(missingBlocks, i, j))
                     {
-                        line += 0 + " ";
+                        line += "NaN" + " ";
                     }
                     else
                     {
@@ -80,7 +80,6 @@ namespace TestingFramework.Algorithms
             string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
             
             if (File.Exists(destination)) File.Delete(destination);
-            
             File.AppendAllText(destination, data.ToString());
         }
 
@@ -89,16 +88,14 @@ namespace TestingFramework.Algorithms
             Process tkcmproc = new Process();
             
             tkcmproc.StartInfo.WorkingDirectory = EnvPath;
-            tkcmproc.StartInfo.FileName = "python";
+            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             tkcmproc.StartInfo.CreateNoWindow = true;
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;
-
-            //def experimentRun(n, m, code, missing, missing_start, tcase):
-            string functionArgs = $"{data.N}, {data.M}, \"{data.Code}\", {data.MissingBlocks[0].Item3}, {data.MissingBlocks[0].Item2}, {len}";
             
-            tkcmproc.StartInfo.Arguments = "-c 'from _tests.testscript import experimentRun; " +
-                                           $"experimentRun({functionArgs})'";
+            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                           $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                           $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return tkcmproc;
         }
@@ -108,16 +105,14 @@ namespace TestingFramework.Algorithms
             Process tkcmproc = new Process();
             
             tkcmproc.StartInfo.WorkingDirectory = EnvPath;
-            tkcmproc.StartInfo.FileName = "python";
+            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             tkcmproc.StartInfo.CreateNoWindow = true;
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;
-
-            //def experimentRun(n, m, code, missing, missing_start, tcase):
-            string functionArgs = $"{data.N}, {data.M}, \"{data.Code}\", {data.MissingBlocks[0].Item3}, {data.MissingBlocks[0].Item2}, {len}";
             
-            tkcmproc.StartInfo.Arguments = "-c 'from _tests.testscript import runtimeExperimentRun; " +
-                                           $"runtimeExperimentRun({functionArgs})'";
+            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                           $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                           $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return tkcmproc;
         }

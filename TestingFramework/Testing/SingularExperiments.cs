@@ -9,7 +9,7 @@ namespace TestingFramework.Testing
     public static class SingularExperiments
     {
         // todo: docs
-        public static void MsePerformanceReport(string[] codes, string[] codes_limited)
+        public static void MsePerformanceReport(string[] codes, string[] codes_limited, Action<string> desination, string cmptype)
         {
             int equals = 0,
                 almost = 0,
@@ -18,17 +18,17 @@ namespace TestingFramework.Testing
                 algorithm2 = 0,
                 algorithm2_big = 0;
 
-            const string algorithm1name = "CD_SSV+";
-            const string algorithm2name = "inCD_SSV+";
+            string algorithm1name = "CD_reference";
+            string algorithm2name = $"CD_{cmptype}";
             
-            const string part1 = "/home/zakhar/MVR/plots/precision/";
-            const string part2 = "/home/zakhar/MVR/plots/precision2/";
+            string part1 = "/home/zakhar/MVR/VLDB19/Project/cd_eval/reference/precision/";
+            string part2 = $"/home/zakhar/MVR/VLDB19/Project/cd_eval/{cmptype}/precision/";
             
             const double eps = 1E-14;
             const double eps2 = 1E-7;
             const double eps_big = 0.05;
 
-            var writer = new Utils.ContinuousWriter();
+            var writer = new Utils.ContinuousWriter(desination);
             
             EnumMethods.AllExperimentTypes().Where(x => x != ExperimentType.Streaming)
                 .Select(EnumMethods.ToLongString).ForEach(et =>
@@ -54,7 +54,7 @@ namespace TestingFramework.Testing
                         
                         new[] { 2, 3 }.ForEach(k =>
                         {
-                            string file1 = folder1 + $"RMSE_cd_k{k}.dat";
+                            string file1 = folder1 + $"RMSE_incd_k{k}.dat";
                             string file2 = folder2 + $"RMSE_incd_k{k}.dat";
 
                             string[] lines1 = File.ReadAllLines(file1).Skip(1).ToArray();
@@ -80,15 +80,137 @@ namespace TestingFramework.Testing
                                     writer.WriteLine($"CD k={k}; case = {tcase}; ALMOST");
                                     almost++;
                                 }
-                                else if (diff > 0)
+                                else if (diff < 0) // LOWER IS BETTER, NOT HIGHER
                                 {
-                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm1name} BETTER; diff={diff:F7}");
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm1name} BETTER; diff={diff:F7}; LOWER={val1}");
                                     algorithm1++;
                                     if (Math.Abs(diff) > eps_big) algorithm1_big++;
                                 }
                                 else
                                 {
-                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm2name} BETTER; diff={diff:F7}");
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm2name} BETTER; diff={diff:F7}; LOWER={val2}");
+                                    algorithm2++;
+                                    if (Math.Abs(diff) > eps_big) algorithm2_big++;
+                                }
+                            });
+                            
+                            writer.WriteLine();
+                        });
+                        
+                        writer.UnIndent();
+                    });
+                    
+                    writer.UnIndent();
+                    writer.WriteLine($"Exiting Test Scenario = {es}");
+                    writer.WriteLine();
+                });
+                
+                writer.UnIndent();
+                writer.WriteLine($"Exiting Test Type = {et}");
+            });
+
+            writer.WriteLine();
+            writer.WriteLine("REPORT:");
+            writer.Indent();
+            writer.WriteLine($"TOTAL VALUES: {equals+almost+algorithm1+algorithm2}");
+            writer.WriteLine($"EQUAL (diff < {eps:E1}): {equals}");
+            writer.WriteLine($"ALMOST (diff < {eps2:E1}): {almost}");
+            
+            writer.WriteLine();
+            
+            writer.WriteLine($"{algorithm1name} BETTER: {algorithm1}");
+            writer.Indent();
+            writer.WriteLine($"OF THOSE diff > {eps_big}: {algorithm1_big}");
+            writer.UnIndent();
+            
+            writer.WriteLine($"{algorithm2name} BETTER: {algorithm2}");
+            writer.Indent();
+            writer.WriteLine($"OF THOSE diff > {eps_big}: {algorithm2_big}");
+            writer.UnIndent();
+            writer.UnIndent();
+            writer.WriteLine("END REPORT");
+        }
+
+        public static void RtPerformanceReport(string[] codes, string[] codes_limited, Action<string> desination, string cmptype)
+        {
+            int equals = 0,
+                almost = 0,
+                algorithm1 = 0,
+                algorithm1_big = 0,
+                algorithm2 = 0,
+                algorithm2_big = 0;
+
+            string algorithm1name = "CD_ref";
+            string algorithm2name = $"CD_{cmptype}";
+            
+            string part1 = "/home/zakhar/MVR/VLDB19/Project/cd_eval/reference/runtime/";
+            string part2 = $"/home/zakhar/MVR/VLDB19/Project/cd_eval/{cmptype}/runtime/";
+            
+            const double eps = 2.1;
+            const double eps2 = 4.1;
+            const double eps_big = 29.99;
+
+            var writer = new Utils.ContinuousWriter(desination);
+            
+            EnumMethods.AllExperimentTypes().Where(x => x != ExperimentType.Streaming)
+                .Select(EnumMethods.ToLongString).ForEach(et =>
+            {
+                writer.WriteLine($"Entering Test Type = {et}");
+                writer.Indent();
+                
+                EnumMethods.AllExperimentScenarios().Where(x => x != ExperimentScenario.MissingMultiColumn)
+                    .Select(EnumMethods.ToLongString).ForEach(es =>
+                {
+                    writer.WriteLine($"Entering Test Scenario = {es}");
+                    writer.Indent();
+                    
+                    string[] activeCodes = es == "columns" ? codes_limited : codes;
+                    
+                    activeCodes.ForEach(code =>
+                    {
+                        writer.WriteLine($"Dataset = {code}");
+                        writer.Indent();
+                        
+                        string folder1 = part1 + et + "/" + es + "/" + code + "/results/";
+                        string folder2 = part2 + et + "/" + es + "/" + code + "/results/";
+                        
+                        new[] { 2, 3 }.ForEach(k =>
+                        {
+                            string file1 = folder1 + $"incd_k{k}_runtime.txt";
+                            string file2 = folder2 + $"incd_k{k}_runtime.txt";
+
+                            string[] lines1 = File.ReadAllLines(file1).Skip(1).ToArray();
+                            string[] lines2 = File.ReadAllLines(file2).Skip(1).ToArray();
+
+                            IEnumerable<(int, double)> cases1 = lines1.Select(l => (Int32.Parse(l.Split(' ')[0]), Double.Parse(l.Split(' ')[1])));
+                            IEnumerable<(int, double)> cases2 = lines2.Select(l => (Int32.Parse(l.Split(' ')[0]), Double.Parse(l.Split(' ')[1])));
+                            
+                            cases1.ForEach(c =>
+                            {
+                                (int tcase, double val1) = c;
+                                double val2 = cases2.Where(c2 => c2.Item1 == tcase).Select(x => x.Item2).First();
+
+                                double diff = val1 - val2;
+                                
+                                if (Math.Abs(diff) < eps)
+                                {
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; EQUAL");
+                                    equals++;
+                                }
+                                else if (Math.Abs(diff) < eps2)
+                                {
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; ALMOST");
+                                    almost++;
+                                }
+                                else if (diff < 0) // LOWER IS BETTER, NOT HIGHER
+                                {
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm1name} BETTER; diff={diff:F7}; LOWER={val1}");
+                                    algorithm1++;
+                                    if (Math.Abs(diff) > eps_big) algorithm1_big++;
+                                }
+                                else
+                                {
+                                    writer.WriteLine($"CD k={k}; case = {tcase}; {algorithm2name} BETTER; diff={diff:F7}; LOWER={val2}");
                                     algorithm2++;
                                     if (Math.Abs(diff) > eps_big) algorithm2_big++;
                                 }

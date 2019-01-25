@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="incCD" targetName="incCD" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" BUILD_OPTIONS="-j 4" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="897d3785-712b-47b9-842b-ffc6119f12b3" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Benchmark.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Performance/Benchmark.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="47" column="54" lean-forward="true" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+              <folding>
+                <element signature="e#43#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDMissingValueRecovery.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1876">
+              <caret line="173" column="12" lean-forward="true" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="12" />
+              <folding>
+                <element signature="e#41#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDMissingValueRecovery.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+              <folding>
+                <element signature="e#55#71#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find />
+      <find>CentroidDecomposition::</find>
+      <find>MissingValueRecovery::</find>
+      <find>corella</find>
+      <find>cm.</find>
+      <find>CorrelationMatrix::</find>
+      <find>dimN()</find>
+      <find>dimM()</find>
+      <find>.dim()</find>
+      <find>isValidStrategy</find>
+      <find>_CD</find>
+      <find>CDSignVectorStrategy</find>
+      <find>arma</find>
+      <find>.dimN()</find>
+      <find>Algebra::Vector</find>
+      <find>.dimM()</find>
+      <find>insert_</find>
+      <find>Algebra::Matrix</find>
+      <find>DataSets::</find>
+      <find>&quot;)</find>
+      <find>arma::ma</find>
+      <find>todo</find>
+      <find>arma::mat</find>
+      <find>.at</find>
+      <find>std::chrono::microseconds</find>
+      <find>svd</find>
+      <find>std::chrono::milliseconds</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>std::isnan(</replace>
+      <replace>std::numeric_limits&lt;double&gt;::quiet_NaN()</replace>
+      <replace>sqrt</replace>
+      <replace>abs</replace>
+      <replace>ismissing</replace>
+      <replace>row</replace>
+      <replace>arma::dot</replace>
+      <replace>::microseconds</replace>
+      <replace>ST_MVL_arma::</replace>
+      <replace>[i]</replace>
+      <replace />
+      <replace>.t()</replace>
+      <replace>//</replace>
+      <replace>CentroidDecomposition_ARMA::</replace>
+      <replace>MissingValueRecovery_ARMA::</replace>
+      <replace>CorrelationMatrix_ARMA::</replace>
+      <replace>n_rows</replace>
+      <replace>n_cols</replace>
+      <replace>.n_elem</replace>
+      <replace>CDSignVectorStrategy_2</replace>
+      <replace>.n_rows</replace>
+      <replace>arma::vec</replace>
+      <replace>.n_cols</replace>
+      <replace>arma::mat</replace>
+      <replace>std::chrono::milliseconds</replace>
+      <replace>std::chrono::microseconds</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Testing.h" />
+        <option value="$PROJECT_DIR$/Algebra/Matrix.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/CentroidDecomposition.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/SPIRIT_arma.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/GROUSE.h" />
+        <option value="$PROJECT_DIR$/Algorithms/NMFMissingValueRecovery.h" />
+        <option value="$PROJECT_DIR$/Algorithms/AlgorithmTemplate.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/AlgorithmTemplate.h" />
+        <option value="$PROJECT_DIR$/Algorithms/ST_MVL_arma.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/SPIRIT_arma.h" />
+        <option value="$PROJECT_DIR$/Algorithms/SPIRIT.h" />
+        <option value="$PROJECT_DIR$/Algorithms/ST_MVL_arma.h" />
+        <option value="$PROJECT_DIR$/Algorithms/SVT.h" />
+        <option value="$PROJECT_DIR$/Algorithms/ROSL.h" />
+        <option value="$PROJECT_DIR$/Algebra/Auxiliar.h" />
+        <option value="$PROJECT_DIR$/Algorithms/DynaMMo.h" />
+        <option value="$PROJECT_DIR$/Algorithms/ROSL.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/IterativeSVD.h" />
+        <option value="$PROJECT_DIR$/Algorithms/SoftImpute.h" />
+        <option value="$PROJECT_DIR$/Algebra/MissingBlock_ARMA.hpp" />
+        <option value="$PROJECT_DIR$/Stats/Correlation.h" />
+        <option value="$PROJECT_DIR$/Stats/Correlation_ARMA.cpp" />
+        <option value="$PROJECT_DIR$/Stats/Correlation_ARMA.h" />
+        <option value="$PROJECT_DIR$/Algorithms/CDMissingValueRecovery_ARMA.h" />
+        <option value="$PROJECT_DIR$/Algorithms/CentroidDecomposition_ARMA.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/CentroidDecomposition_ARMA.h" />
+        <option value="$PROJECT_DIR$/Algorithms/CDMissingValueRecovery_ARMA.cpp" />
+        <option value="$PROJECT_DIR$/MathIO/MatrixReadWrite.h" />
+        <option value="$PROJECT_DIR$/Performance/Benchmark.h" />
+        <option value="$PROJECT_DIR$/MathIO/MatrixReadWrite.cpp" />
+        <option value="$PROJECT_DIR$/Algebra/Auxiliary.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Stats/Correlation.cpp" />
+        <option value="$PROJECT_DIR$/Testing.cpp" />
+        <option value="$PROJECT_DIR$/Algebra/Auxiliary.cpp" />
+        <option value="$PROJECT_DIR$/Algebra/CentroidDecomposition.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/ST_MVL.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/ST_MVL.h" />
+        <option value="$PROJECT_DIR$/Algorithms/SPIRIT.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/NMFMissingValueRecovery.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/DynaMMo.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/SVT.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/IterativeSVD.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/SoftImpute.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/GROUSE.cpp" />
+        <option value="$PROJECT_DIR$/Algorithms/TKCM.h" />
+        <option value="$PROJECT_DIR$/Algorithms/TKCM.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.h" />
+        <option value="$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.cpp" />
+        <option value="$PROJECT_DIR$/Performance/Benchmark.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="y" value="25" />
+    <option name="width" value="960" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>C/C++</id>
+          </State>
+          <State>
+            <id>GeneralC/C++</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>ClangTidyInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers Scope="true" ProjectPane="false" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Source Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="AlgoCollection" type="cbb8eebc:String" user="AlgoCollection" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="AlgoCollection" type="cbb8eebc:String" user="AlgoCollection" />
+              <item name="LinearAlgebra" type="cbb8eebc:String" user="LinearAlgebra" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="AlgoCollection" type="cbb8eebc:String" user="AlgoCollection" />
+              <item name="Performance" type="cbb8eebc:String" user="Performance" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Project Non-Source Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="incCD" type="cbb8eebc:String" user="incCD" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="incCD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoCollection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="incCD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoCollection" type="462c0819:PsiDirectoryNode" />
+              <item name="Algebra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="incCD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoCollection" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="incCD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoCollection" type="462c0819:PsiDirectoryNode" />
+              <item name="MathIO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="incCD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoCollection" type="462c0819:PsiDirectoryNode" />
+              <item name="Performance" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Stats" />
+      <recent name="$PROJECT_DIR$/Algebra" />
+      <recent name="$PROJECT_DIR$/Algorithms" />
+      <recent name="$PROJECT_DIR$/LinearAlgebra" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Algebra" />
+      <recent name="$PROJECT_DIR$/Algorithms/" />
+      <recent name="$PROJECT_DIR$/Algorithms" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.incCD - [CD-MVR]">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="incCD - [CD-MVR]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg cd -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [DEBUG]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-alg tkcm -test o -n 1000 -m 12 -k 3 -in ./in/bafu_m100.txt -out ./out/tkcm100.txt" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [DynaMMo]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg dynammo -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [GROUSE]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg grouse -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [IterativeSVD]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg itersvd -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [NMF]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg nnmf -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [ROSL]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg rosl -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [SPIRIT]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg spirit -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [ST-MVL] SampleData" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg st-mvl -in pm25_missing.txt -out samplerec.txt -xtra pm25_latlng.txt -k 7" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [ST-MVL]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg st-mvl -in testmat.txt -out testrec.txt -xtra latlong.txt" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [SVT]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg svt -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [SoftImpute]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg softimpute -in testmat.txt -out testrec.txt -k 3" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [TKCM]" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-test o -alg tkcm -in testmat.txt -out testrec.txt" WORKING_DIR="file://../_data/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <configuration name="incCD - [Testing]" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="incCD" TARGET_NAME="incCD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="incCD" RUN_TARGET_NAME="incCD" />
+    <list>
+      <item itemvalue="Application.incCD - [Testing]" />
+      <item itemvalue="Application.incCD - [DEBUG]" />
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.incCD - [CD-MVR]" />
+      <item itemvalue="Application.incCD - [TKCM]" />
+      <item itemvalue="Application.incCD - [ST-MVL]" />
+      <item itemvalue="Application.incCD - [ST-MVL] SampleData" />
+      <item itemvalue="Application.incCD - [SPIRIT]" />
+      <item itemvalue="Application.incCD - [GROUSE]" />
+      <item itemvalue="Application.incCD - [NMF]" />
+      <item itemvalue="Application.incCD - [DynaMMo]" />
+      <item itemvalue="Application.incCD - [SVT]" />
+      <item itemvalue="Application.incCD - [ROSL]" />
+      <item itemvalue="Application.incCD - [IterativeSVD]" />
+      <item itemvalue="Application.incCD - [SoftImpute]" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="897d3785-712b-47b9-842b-ffc6119f12b3" name="Default" comment="" />
+      <created>1520241361302</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520241361302</updated>
+      <workItem from="1520241363073" duration="33994000" />
+      <workItem from="1520417394835" duration="73000" />
+      <workItem from="1520417478513" duration="61403000" />
+      <workItem from="1521117543970" duration="25882000" />
+      <workItem from="1522241921356" duration="1713000" />
+      <workItem from="1522746654610" duration="32000" />
+      <workItem from="1522746709046" duration="7632000" />
+      <workItem from="1523022005456" duration="27905000" />
+      <workItem from="1524216312355" duration="6663000" />
+      <workItem from="1524834419218" duration="1663000" />
+      <workItem from="1525263407861" duration="4325000" />
+      <workItem from="1525790903802" duration="32519000" />
+      <workItem from="1528807667323" duration="111000" />
+      <workItem from="1529399325491" duration="1230000" />
+      <workItem from="1529919012454" duration="614000" />
+      <workItem from="1530546016614" duration="853000" />
+      <workItem from="1530602340973" duration="1235000" />
+      <workItem from="1530627967325" duration="7555000" />
+      <workItem from="1530711138172" duration="1417000" />
+      <workItem from="1531129032957" duration="6594000" />
+      <workItem from="1532531779331" duration="16373000" />
+      <workItem from="1533048166074" duration="5000" />
+      <workItem from="1533287974025" duration="9712000" />
+      <workItem from="1533893684785" duration="75000" />
+      <workItem from="1535706193411" duration="2000" />
+      <workItem from="1546524076340" duration="98000" />
+      <workItem from="1546524204978" duration="13341000" />
+      <workItem from="1546607708759" duration="126593000" />
+      <workItem from="1547556912890" duration="104351000" />
+      <workItem from="1548245936392" duration="21684000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="515647000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.10989583" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4578125" visible="true" weight="0.30494216" />
+      <window_info anchor="bottom" id="CMake" order="0" weight="0.32912722" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5421875" side_tool="true" visible="true" weight="0.30494216" />
+      <window_info anchor="bottom" id="Run" order="11" sideWeight="0.49635416" weight="0.27444795" />
+      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49947917" weight="0.32912722" />
+      <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.6625" weight="0.39747635" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49583334" weight="0.3280757" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="92" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Performance/Benchmark.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding>
+            <element signature="e#43#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ST_MVL.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+          <folding>
+            <element signature="e#55#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ST_MVL.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="842" selection-start-line="842" selection-end-line="842" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/multi_index_container.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="812" selection-start-line="812" selection-end-line="812" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/mlpack/methods/amf/init_rules/random_acol_init.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/NMFMissingValueRecovery.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/GROUSE.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/armadillo_bits/Col_bones.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/SPIRIT.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="e#55#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/SVDecomposition.cpp" />
+    <entry file="file://$PROJECT_DIR$/Algorithms/SVT.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/DynaMMo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ROSL.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="66" column="58" lean-forward="true" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/AlgorithmTemplate.h" />
+    <entry file="file://$PROJECT_DIR$/Algorithms/AlgorithmTemplate.cpp" />
+    <entry file="file://$PROJECT_DIR$/Algorithms/IterativeSVD.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="70" lean-forward="true" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/SoftImpute.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stats/Correlation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stats/Correlation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/7/bits/vector.tcc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="443" selection-start-line="443" selection-end-line="443" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/MissingBlock.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MathIO/MatrixReadWrite.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#57#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Performance/Benchmark.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#57#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testing.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stats/Correlation.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MathIO/MatrixReadWrite.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="869">
+          <caret line="183" column="23" selection-start-line="183" selection-start-column="23" selection-end-line="183" selection-end-column="23" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/Auxiliary.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/CentroidDecomposition.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/CentroidDecomposition.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="257" column="60" lean-forward="true" selection-start-line="257" selection-start-column="60" selection-end-line="257" selection-end-column="60" />
+          <folding>
+            <element signature="e#43#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algebra/Auxiliary.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ST_MVL.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="90" column="75" selection-start-line="90" selection-start-column="75" selection-end-line="90" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ST_MVL.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="581" column="1" selection-start-line="581" selection-start-column="1" selection-end-line="581" selection-end-column="1" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/NMFMissingValueRecovery.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="87" column="18" lean-forward="true" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/DynaMMo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="178" column="30" lean-forward="true" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+          <folding>
+            <element signature="e#41#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/IterativeSVD.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/SoftImpute.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="72" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/SVT.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="124" column="37" lean-forward="true" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/armadillo_bits/debug.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/TKCM.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/TKCM.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/GROUSE.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding>
+            <element signature="e#1996#2837#0" expanded="true" />
+            <element signature="e#3076#4399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/ROSL.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="263" column="23" lean-forward="true" selection-start-line="263" selection-start-column="23" selection-end-line="263" selection-end-column="23" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+          <folding>
+            <element signature="e#55#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/SPIRIT.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="221" column="15" lean-forward="true" selection-start-line="221" selection-start-column="15" selection-end-line="221" selection-end-column="15" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/CDMissingValueRecovery.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1876">
+          <caret line="173" column="12" lean-forward="true" selection-start-line="173" selection-start-column="12" selection-end-line="173" selection-end-column="12" />
+          <folding>
+            <element signature="e#41#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Performance/Benchmark.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="47" column="54" lean-forward="true" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+          <folding>
+            <element signature="e#43#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -41,7 +41,7 @@ namespace TestingFramework.Algorithms
             Process trmfproc = new Process();
             
             trmfproc.StartInfo.WorkingDirectory = EnvPath;
-            trmfproc.StartInfo.FileName = "octave";
+            trmfproc.StartInfo.FileName = "octave-cli";
             trmfproc.StartInfo.CreateNoWindow = true;
             trmfproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             trmfproc.StartInfo.UseShellExecute = false;
@@ -57,7 +57,7 @@ namespace TestingFramework.Algorithms
             Process trmfproc = new Process();
             
             trmfproc.StartInfo.WorkingDirectory = EnvPath;
-            trmfproc.StartInfo.FileName = "octave";
+            trmfproc.StartInfo.FileName = "octave-cli";
             trmfproc.StartInfo.CreateNoWindow = true;
             trmfproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             trmfproc.StartInfo.UseShellExecute = false;

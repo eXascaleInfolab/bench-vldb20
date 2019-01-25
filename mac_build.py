@@ -64,18 +64,5 @@ with open(filename, 'w') as f:
     f.writelines(lines);
 
 
-# CD
-launchProcess("make", "all", "Algorithms/CD");
-
-# ST-MVL
-launchProcess("msbuild", "STMVL.sln /p:Configuration=Release", "Algorithms/ST-MVL");
-
-# TKCM
-# not needed (built from TestingFramework)
-
-# NNMF
-# not needed (python only)
-
-# SPIRIT
-# not needed (matlab/octave only)
-
+# All others
+launchProcess("make", "all", "Algorithms/AlgoCollection");

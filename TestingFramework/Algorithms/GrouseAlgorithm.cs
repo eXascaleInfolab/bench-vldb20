@@ -15,7 +15,7 @@ namespace TestingFramework.Algorithms
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
         {
-            return new[] { $"{dataCode}_m{tcase}_sparce.txt" };
+            return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
         private static string Style => "linespoints lt 8 dt 2 lw 3 pt 7 lc rgbcolor \"yellow\" pointsize 2";//todo: style
@@ -41,14 +41,14 @@ namespace TestingFramework.Algorithms
             Process grouseproc = new Process();
             
             grouseproc.StartInfo.WorkingDirectory = EnvPath;
-            grouseproc.StartInfo.FileName = "octave";
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             grouseproc.StartInfo.CreateNoWindow = true;
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;
 
-            // transposed matrix to meet grouse prereq
-            string functionArgs = $"{len}, '{data.Code}', {data.M}, {data.N}";
-            grouseproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 0)\"";
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                         $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                         $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return grouseproc;
         }
@@ -58,14 +58,14 @@ namespace TestingFramework.Algorithms
             Process grouseproc = new Process();
             
             grouseproc.StartInfo.WorkingDirectory = EnvPath;
-            grouseproc.StartInfo.FileName = "octave";
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
             grouseproc.StartInfo.CreateNoWindow = true;
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;
 
-            // transposed matrix to meet grouse prereq
-            string functionArgs = $"{len}, '{data.Code}', {data.M}, {data.N}";
-            grouseproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 1)\"";
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+                                             $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
+                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
             return grouseproc;
         }
@@ -104,28 +104,30 @@ namespace TestingFramework.Algorithms
             int n = rTo > res.Length ? res.Length : rTo;
             int m = cTo > res[0].Length ? res[0].Length : cTo;
             
-            StringBuilder dataSparce = new StringBuilder();
-            
+            var data = new StringBuilder();
+
             for (int i = rFrom; i < n; i++)
             {
-                string lineSparce = "";
+                string line = "";
 
                 for (int j = cFrom; j < m; j++)
                 {
-                    if (!Utils.IsMissing(missingBlocks, i, j))
+                    if (Utils.IsMissing(missingBlocks, i, j))
                     {
-                        // transposed matrix to meet grouse prereq
-                        lineSparce += (j + 1) + " " + (i + 1) + " " + res[i][j] + Environment.NewLine;
+                        line += "NaN" + " ";
+                    }
+                    else
+                    {
+                        line += res[i][j] + " ";
                     }
                 }
-
-                dataSparce.Append(lineSparce);
+                data.Append(line.Trim() + Environment.NewLine);
             }
 
-            string destinationSparce = EnvPath + SubFolderDataIn + $"{code}_m{tcase}_sparce.txt";
+            string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
             
-            if (File.Exists(destinationSparce)) File.Delete(destinationSparce);
-            File.AppendAllText(destinationSparce, dataSparce.ToString());
+            if (File.Exists(destination)) File.Delete(destination);
+            File.AppendAllText(destination, data.ToString());
         }
     }
 }

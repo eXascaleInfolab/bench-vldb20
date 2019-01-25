@@ -50,7 +50,7 @@ namespace TestingFramework.Algorithms
             cdproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cdproc.StartInfo.UseShellExecute = false;
 
-            cdproc.StartInfo.Arguments = $"-test rc -n {n} -m {m} -k {k} " +
+            cdproc.StartInfo.Arguments = $"-alg cd -test o -n {n} -m {m} -k {k} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}_k{k}.txt";
 
@@ -135,7 +135,7 @@ namespace TestingFramework.Algorithms
             cdproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cdproc.StartInfo.UseShellExecute = false;
 
-            cdproc.StartInfo.Arguments = $"-test rtc -n {n} -m {m} -k {k} " +
+            cdproc.StartInfo.Arguments = $"-alg cd -test rt -n {n} -m {m} -k {k} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}_k{k}.txt";
 
@@ -156,7 +156,7 @@ namespace TestingFramework.Algorithms
             int max = n;
             n = max - istep;
 
-            cdproc.StartInfo.Arguments = $"-test rs -n {n} -m {m} -k {k} " +
+            cdproc.StartInfo.Arguments = $"-test rt -n {n} -m {m} -k {k} " +
                                          $"-istep {istep} -max {max} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}_k{k}.txt";
