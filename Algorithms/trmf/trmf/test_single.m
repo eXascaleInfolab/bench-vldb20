@@ -6,11 +6,11 @@ function [timeSpan, impY] = test_single(matname, lag_idx, maxit)
   
   n = columns(M_obs);
   T = rows(M_obs);
-  k = n*2;
+  k = 3;
   
   id = tic();
   ret = imputation_trmf(M_full, M_obs, lag_idx, k, [0.75, 0.75, 0.75], maxit);
-  timeSpan = toc(id) * 1000;
+  timeSpan = toc(id) * 1000 * 1000;
   
   printf(num2str(timeSpan)); printf("\n");
   

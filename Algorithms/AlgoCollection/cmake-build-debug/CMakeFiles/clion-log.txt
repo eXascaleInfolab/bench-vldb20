@@ -1,6 +1,0 @@
-/home/zakhar/.clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection
--- A library with BLAS API found.
--- A library with LAPACK API found.
--- Configuring done
--- Generating done
--- Build files have been written to: /home/zakhar/MVR/VLDB19/Project/InCD_bench-19/Algorithms/AlgoCollection/cmake-build-debug

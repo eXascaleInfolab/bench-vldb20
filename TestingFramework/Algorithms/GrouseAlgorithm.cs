@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 7 lc rgbcolor \"yellow\" pointsize 2";//todo: style
+        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 7 lc rgbcolor \"yellow\" pointsize 1";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -41,7 +41,7 @@ namespace TestingFramework.Algorithms
             Process grouseproc = new Process();
             
             grouseproc.StartInfo.WorkingDirectory = EnvPath;
-            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             grouseproc.StartInfo.CreateNoWindow = true;
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;
@@ -58,7 +58,7 @@ namespace TestingFramework.Algorithms
             Process grouseproc = new Process();
             
             grouseproc.StartInfo.WorkingDirectory = EnvPath;
-            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             grouseproc.StartInfo.CreateNoWindow = true;
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;

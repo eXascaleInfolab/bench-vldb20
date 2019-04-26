@@ -9,7 +9,7 @@ include(FindLAPACK)
 find_package(Armadillo REQUIRED)
 
 add_executable(
-        incCD
+        algoCollection
 
         main.cpp
         MathIO/CommandLine.hpp
@@ -35,10 +35,10 @@ add_executable(
         Algebra/CentroidDecomposition.cpp Algebra/CentroidDecomposition.h
         Algebra/MissingBlock.hpp
         Stats/Correlation.cpp Stats/Correlation.h
-)
+        Algebra/RSVD.cpp Algebra/RSVD.h)
 
 target_link_libraries(
-        incCD
+        algoCollection
         ${LAPACK_LIBRARIES}
         ${Armadillo_LIBRARIES}
         -lmlpack

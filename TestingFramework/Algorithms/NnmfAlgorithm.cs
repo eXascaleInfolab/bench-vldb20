@@ -84,7 +84,7 @@ namespace TestingFramework.Algorithms
             Process nnmfproc = new Process();
             
             nnmfproc.StartInfo.WorkingDirectory = EnvPath;
-            nnmfproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            nnmfproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             nnmfproc.StartInfo.CreateNoWindow = true;
             nnmfproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             nnmfproc.StartInfo.UseShellExecute = false;

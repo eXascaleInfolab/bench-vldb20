@@ -2,6 +2,10 @@
 // Created by zakhar on 20/01/19.
 //
 
+//
+// Code for ROSL taken directly from implementation: https://github.com/tjof2/robustpca
+//
+
 #include <iostream>
 #include <iomanip>
 
@@ -88,7 +92,7 @@ void ROSL::runROSL(arma::mat *X)
         case 1:
             // For sub-sampled ROSL+
             arma::uvec rowall, colall;
-            arma::arma_rng::set_seed_random();
+            arma::arma_rng::set_seed(18931);
             rowall = (Sh == m) ? arma::linspace<arma::uvec>(0, m - 1, m) : arma::shuffle(
                     arma::linspace<arma::uvec>(0, m - 1, m));
             colall = (Sl == n) ? arma::linspace<arma::uvec>(0, n - 1, n) : arma::shuffle(
@@ -155,7 +159,7 @@ void ROSL::InexactALM_ROSL(arma::mat *X)
     error.set_size(m, n);
     
     // Initialize alpha randomly
-    arma::arma_rng::set_seed_random();
+    arma::arma_rng::set_seed(18931);
     alpha.randu();
     
     // Set all other matrices

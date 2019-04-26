@@ -7,24 +7,32 @@
 namespace Algorithms
 {
 
-void SVT::doSVT(arma::mat &X, uint64_t rank)
+void SVT::doSVT(arma::mat &X)
 {
     // const parameters
-    constexpr double oversampling = 2;
     constexpr uint64_t incre = 5;
+    constexpr uint64_t rInc = 4;
+    uint64_t r = 3;
     
     // dynamic parameters
     
     uint64_t n1 = X.n_rows;
     uint64_t n2 = X.n_cols;
+    
+    if (n2 > 30)
+    {
+        r = (n2 - 1) / 10;
+        r++;
+    }
+    
     bool SMALLSCALE = n1 * n2 < 100 * 100;
     
-    double df = (double)(rank * (n1 + n2 - rank));
-    double m = std::min(oversampling * df, round(.99 * (double)(n1 * n2)));
+    double df = (double)(r * (n1 + n2 - r));
+    double m = std::min(5 * df, round(.99 * (double)(n1 * n2)));
     double p = m / (double)(n1 * n2);
     
-    double tau = 5 * sqrt((double)(n1 * n2));
-    double delta = 1.2 / p * 0.80;
+    double tau = 2 * sqrt((double)(n1 * n2)); // modified from 5 * sqrt(...)
+    double delta = 1.2 / p;
     
     // initialization of sparse matrix
     
@@ -52,11 +60,11 @@ void SVT::doSVT(arma::mat &X, uint64_t rank)
     
     arma::vec b = X.elem(omega);
     
-    arma::sp_mat Y(observed, data);
+    arma::sp_mat Y(observed, data, X.n_rows, X.n_cols);
     
     // rest of parameters & init process
     
-    rank = 0;
+    uint64_t rank = 0;
     double k0 = std::ceil(tau / (delta * arma::norm(Y, 2)));
     double normb = arma::norm(b);
     
@@ -71,12 +79,16 @@ void SVT::doSVT(arma::mat &X, uint64_t rank)
     
     for (uint64_t k = 0; k < max_iter; ++k)
     {
-        uint64_t rInc = 4;
         uint64_t s = std::min(rank + rInc, std::min(n1, n2));
         
         if (SMALLSCALE)
         {
-            arma::svd_econ(U, S, V, arma::mat(Y), "both", "std"); // mat() constructor to convert to dense
+            bool code = arma::svd_econ(U, S, V, arma::mat(Y), "both", "std"); // mat() constructor to convert to dense
+            if (!code)
+            {
+                std::cout << "economical svd failed, aborting recovery" << std::endl;
+                return;
+            }
         }
         else
         {
@@ -84,13 +96,27 @@ void SVT::doSVT(arma::mat &X, uint64_t rank)
             
             while (!OK)
             {
-                arma::svds(U, S, V, Y, s);
-                OK = (S(s - 1) <= tau) || (s == std::min(n1, n2));
+                bool code = arma::svds(U, S, V, Y, s);
+                if (!code)
+                {
+                    std::cout << "sparse svd failed, aborting recovery" << std::endl;
+                    return;
+                }
+                if (S.n_elem < s)
+                {
+                    OK = true;
+                }
+                else
+                {
+                    OK = (S(s - 1) <= tau) || (s == std::min(n1, n2));
+                }
                 s = std::min(s + incre, std::min(n1, n2));
             }
         }
         
         rank = arma::sum(S > tau);
+        
+        rank = rank > 0 ? rank : 1;
         
         U = U.submat(arma::span::all, arma::span(0, rank - 1));
         V = V.submat(arma::span::all, arma::span(0, rank - 1));
@@ -113,6 +139,7 @@ void SVT::doSVT(arma::mat &X, uint64_t rank)
         if (arma::norm(x - b) / normb > 1e5)
         {
             std::cout << "Divergence!" << std::endl;
+            X = U * arma::diagmat(S) * V.t();
             break;
         }
         

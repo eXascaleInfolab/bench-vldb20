@@ -9,10 +9,6 @@
 
 using namespace std;
 
-/* TODO[]
- * - persistent normalization for inc. recovery (lockable manually)
- */
-
 int main(int argc, char *argv[])
 {
     // test suite

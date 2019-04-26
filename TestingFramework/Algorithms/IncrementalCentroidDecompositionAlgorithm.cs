@@ -11,6 +11,7 @@ namespace TestingFramework.Algorithms
     public partial class IncrementalCentroidDecompositionAlgorithm : Algorithm
     {
         public List<int> KList = new List<int>(new[] { 3, 2, 1 });
+        //public List<int> KList = new List<int>(new[] { AlgoPack.TypicalTruncation });
 
         private static bool _init = false;
         public IncrementalCentroidDecompositionAlgorithm() : base(ref _init)
@@ -45,7 +46,7 @@ namespace TestingFramework.Algorithms
             Process cdproc = new Process();
 
             cdproc.StartInfo.WorkingDirectory = EnvPath;
-            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             cdproc.StartInfo.CreateNoWindow = true;
             cdproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cdproc.StartInfo.UseShellExecute = false;
@@ -130,7 +131,7 @@ namespace TestingFramework.Algorithms
             Process cdproc = new Process();
 
             cdproc.StartInfo.WorkingDirectory = EnvPath;
-            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             cdproc.StartInfo.CreateNoWindow = true;
             cdproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cdproc.StartInfo.UseShellExecute = false;
@@ -147,7 +148,7 @@ namespace TestingFramework.Algorithms
             Process cdproc = new Process();
 
             cdproc.StartInfo.WorkingDirectory = EnvPath;
-            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            cdproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             cdproc.StartInfo.CreateNoWindow = true;
             cdproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             cdproc.StartInfo.UseShellExecute = false;

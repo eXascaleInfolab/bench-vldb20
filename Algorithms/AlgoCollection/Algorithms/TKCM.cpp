@@ -2,6 +2,10 @@
 // Created by zakhar on 03/01/19.
 //
 
+//
+// Code taken directly from: https://www.ifi.uzh.ch/en/dbtg/Staff/wellenzohn/dasa.html and adapted for C++
+//
+
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -102,11 +106,6 @@ void TKCM::performRecovery()
             L = i;
             break;
         }
-    }
-    
-    if (L < 51)
-    {
-        l = 20;
     }
     
     uint64_t offset = 0;

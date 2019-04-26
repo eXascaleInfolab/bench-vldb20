@@ -1,7 +1,0 @@
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/bin/Debug/TestingFramework.exe.config
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/bin/Debug/TestingFramework.exe
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/bin/Debug/TestingFramework.pdb
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/obj/Debug/TestingFramework.csprojResolveAssemblyReference.cache
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/obj/Debug/TestingFramework.csproj.CoreCompileInputs.cache
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/obj/Debug/TestingFramework.exe
-/home/zakhar/MVR/VLDB19/Project/InCD_bench-19/TestingFramework/obj/Debug/TestingFramework.pdb

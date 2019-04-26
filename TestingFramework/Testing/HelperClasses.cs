@@ -8,7 +8,6 @@ namespace TestingFramework.Testing
     {
         public static bool EnableStreaming = false;
         public static bool EnableContinuous = false;
-        public static bool EnableMulticolumn = false;
         
         //
         // Experiments
@@ -83,7 +82,11 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.Missing: return "mis";
                 case ExperimentScenario.Length: return "len";
                 case ExperimentScenario.Columns: return "col";
-                case ExperimentScenario.MissingMultiColumn: return "mmc";
+                case ExperimentScenario.MultiColumnDisjoint: return "mc-dj";
+                case ExperimentScenario.MulticolumnOverlap: return "mc-ol";
+                case ExperimentScenario.MissingSubMatrix: return "mis-mx";
+                case ExperimentScenario.Fullrow: return "frow";
+                case ExperimentScenario.Fullcolumn: return "fcol";
                 default: throw new InvalidDataException();
             }
         }
@@ -95,7 +98,11 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.Missing: return "missingpercentage";
                 case ExperimentScenario.Length: return "length";
                 case ExperimentScenario.Columns: return "columns";
-                case ExperimentScenario.MissingMultiColumn: return "missingmulticolumn";
+                case ExperimentScenario.MultiColumnDisjoint: return "multicol-disjoint";
+                case ExperimentScenario.MulticolumnOverlap: return "multicol-overlap";
+                case ExperimentScenario.MissingSubMatrix: return "missingpercentange-matrix";
+                case ExperimentScenario.Fullrow: return "fullrow";
+                case ExperimentScenario.Fullcolumn: return "fullcolumn";
                 default: throw new InvalidDataException();
             }
         }
@@ -107,7 +114,15 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.Missing: return "number of missing values";
                 case ExperimentScenario.Length: return "number of rows";
                 case ExperimentScenario.Columns: return "number of columns";
-                case ExperimentScenario.MissingMultiColumn: return "number of missing values";
+                
+                case ExperimentScenario.MulticolumnOverlap:
+                case ExperimentScenario.MultiColumnDisjoint: return "number of columns with missing values";
+                
+                case ExperimentScenario.Fullrow: return "number of missing rows";
+                case ExperimentScenario.Fullcolumn: return "number of missing columns";
+                
+                case ExperimentScenario.MissingSubMatrix: return "percentage of missing values";
+                
                 default: throw new InvalidDataException();
             }
         }
@@ -115,9 +130,30 @@ namespace TestingFramework.Testing
         public static IEnumerable<ExperimentScenario> AllExperimentScenarios()
         {
             yield return ExperimentScenario.Missing;
-            if (EnableMulticolumn) yield return ExperimentScenario.MissingMultiColumn;
             yield return ExperimentScenario.Length;
             yield return ExperimentScenario.Columns;
+            yield return ExperimentScenario.MultiColumnDisjoint;
+            yield return ExperimentScenario.MulticolumnOverlap;
+            yield return ExperimentScenario.MissingSubMatrix;
+            yield return ExperimentScenario.Fullrow;
+            yield return ExperimentScenario.Fullcolumn;
+        }
+
+        public static bool IsLimited(this ExperimentScenario es)
+        {
+            return es == ExperimentScenario.Columns;
+        }
+
+        public static bool IsContinuous(this ExperimentScenario es)
+        {
+            return es == ExperimentScenario.Missing || es == ExperimentScenario.Length ||
+                   es == ExperimentScenario.Columns || es == ExperimentScenario.Fullrow;
+        }
+
+        public static bool IsSingleColumn(this ExperimentScenario es)
+        {
+            return es == ExperimentScenario.Missing || es == ExperimentScenario.Length ||
+                   es == ExperimentScenario.Columns;
         }
     }
     public enum Experiment
@@ -132,7 +168,7 @@ namespace TestingFramework.Testing
 
     public enum ExperimentScenario
     {
-        Length, Missing, Columns, MissingMultiColumn
+        Length, Missing, Columns, MultiColumnDisjoint, MulticolumnOverlap, Fullrow, Fullcolumn, MissingSubMatrix
     }
 
     [ImmutableObject(true)]

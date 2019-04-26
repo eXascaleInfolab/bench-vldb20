@@ -16,7 +16,7 @@ void insert_vector_at_column(arma::mat &matrix, uint64_t j, const arma::vec &vec
     
     for (uint64_t i = 0; i < matrix.n_rows; ++i)
     {
-        matrix(i, j) = vector[i];
+        matrix.at(i, j) = vector[i];
     }
 }
 
@@ -26,7 +26,7 @@ void insert_vector_at_row(arma::mat &matrix, uint64_t i, const arma::vec &vector
     
     for (uint64_t j = 0; j < matrix.n_rows; ++j)
     {
-        matrix(i, j) = vector[j];
+        matrix.at(i, j) = vector[j];
     }
 }
 
@@ -150,8 +150,8 @@ void interpolate(arma::mat &X, bool horizontal_interp, std::vector<arma::uvec> *
                 
                 if (std::isnan(val1) && std::isnan(val2))
                 {
-                    // starting conditions violation
-                    throw std::runtime_error("Can't perform linear interpolation: the entire time series is undefined");
+                    val1 = 0.0;
+                    step = 0;
                 }
                 else if (std::isnan(val1)) // start block is missing
                 {
@@ -221,8 +221,8 @@ void interpolate(arma::mat &X, bool horizontal_interp, std::vector<arma::uvec> *
             
                 if (std::isnan(val1) && std::isnan(val2))
                 {
-                    // starting conditions violation
-                    throw std::runtime_error("Can't perform linear interpolation: the entire time series is undefined");
+                    val1 = 0.0;
+                    step = 0;
                 }
                 else if (std::isnan(val1)) // start block is missing
                 {

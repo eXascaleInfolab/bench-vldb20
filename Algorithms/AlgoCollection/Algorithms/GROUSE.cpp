@@ -36,7 +36,15 @@ void Algorithms::GROUSE::doGROUSE(arma::mat &input, uint64_t maxrank)
             // Predict the best approximation of v_Omega by u_Omega.
             // That is, find weights to minimize ||U_Omega*weights-v_Omega||^2
             
-            arma::vec weights = arma::solve(U_Omega, v_Omega);
+            arma::vec weights;
+            bool success = arma::solve(weights, U_Omega, v_Omega);
+            
+            if (!success)
+            {
+                std::cout << "arma::solve has failed, aborting remaining recovery" << std::endl;
+                return;
+            }
+            
             //arma::vec weights = arma::pinv(U_Omega) * v_Omega;
             double norm_weights = arma::norm(weights); (void) norm_weights;
             
@@ -44,7 +52,7 @@ void Algorithms::GROUSE::doGROUSE(arma::mat &input, uint64_t maxrank)
             
             arma::vec p = U_Omega * weights;
             arma::vec residual = v_Omega - p;
-            //double norm_residual = arma::norm(residual);
+            double norm_residual = arma::norm(residual);
             
             //if (norm_residual < 0.000000001)
             //{
@@ -55,8 +63,8 @@ void Algorithms::GROUSE::doGROUSE(arma::mat &input, uint64_t maxrank)
             // projection algorithm with a diminishing step-size rule from SGD.  A
             // different step size rule could suffice here...
             
-            // todo: this is matlab version
-            #if false
+            // this is matlab version
+            #if true
             {
                 double sG = norm_residual*norm_weights;
                 if (norm_residual < 0.000000001)
@@ -81,7 +89,7 @@ void Algorithms::GROUSE::doGROUSE(arma::mat &input, uint64_t maxrank)
             }
             #endif
             
-            // todo: this is python version
+            // this is python version
             #if false
             {
                 double norm_p = arma::norm(p);

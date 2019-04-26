@@ -58,7 +58,7 @@ or
 #### Build & tests
 
 - Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
-- Build all the algorithms and Testing Framework using a script in the root folder (takes around ~1min):
+- Build all the algorithms and Testing Framework using a script in the root folder:
 ```bash
     $ python linux_build.py
 ```

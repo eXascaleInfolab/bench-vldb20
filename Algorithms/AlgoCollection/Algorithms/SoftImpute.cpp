@@ -3,6 +3,7 @@
 //
 
 #include "SoftImpute.h"
+#include "../Algebra/RSVD.h"
 
 #include <iostream>
 
@@ -32,7 +33,15 @@ arma::mat _svd_step(arma::mat &X, double shrinkage_value, uint64_t max_rank, uin
     arma::vec S;
     arma::mat V;
     
-    arma::svd(U, S, V, X, "std");
+    int code = Algebra::Algorithms::RSVD::rsvd(U, S, V, X, max_rank);
+    
+    if (code != 0)
+    {
+        std::cout << "RSVD returned an error: ";
+        Algebra::Algorithms::RSVD::print_error(code);
+        std::cout << ", aborting remaining recovery" << std::endl;
+        return arma::mat();
+    }
     
     for (uint64_t i = 0; i < S.n_elem; ++i)
     {
@@ -90,6 +99,11 @@ void SoftImpute::doSoftImpute(arma::mat &X, uint64_t max_rank)
     {
         uint64_t rank = 0;
         arma::mat X_reconstructed = _svd_step(X, shrinkage_value, max_rank, rank);
+        
+        if (X_reconstructed.n_elem == 0)
+        {
+            return;
+        }
     
         bool conv = _converged(X, X_reconstructed, indices, threshold);
         

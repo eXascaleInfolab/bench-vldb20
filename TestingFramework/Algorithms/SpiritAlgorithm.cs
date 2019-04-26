@@ -42,12 +42,12 @@ namespace TestingFramework.Algorithms
             Process spiritproc = new Process();
             
             spiritproc.StartInfo.WorkingDirectory = EnvPath;
-            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             spiritproc.StartInfo.CreateNoWindow = true;
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            spiritproc.StartInfo.Arguments = $"-alg spirit -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test o -n {data.N} -m {data.M} -k 4 " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 
@@ -59,12 +59,12 @@ namespace TestingFramework.Algorithms
             Process spiritproc = new Process();
             
             spiritproc.StartInfo.WorkingDirectory = EnvPath;
-            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            spiritproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             spiritproc.StartInfo.CreateNoWindow = true;
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            spiritproc.StartInfo.Arguments = $"-alg spirit -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test rt -n {data.N} -m {data.M} -k 4 " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 

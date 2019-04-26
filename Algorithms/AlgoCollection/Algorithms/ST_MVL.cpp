@@ -590,7 +590,7 @@ void ST_MVL::FourView(uint64_t sensorCount)
     std::ofstream sw;
     sw.open(equationFile, std::ios::out);
     sw << std::setprecision(15);//appx. matches C#
-    std::cout << "training error(MAE): " << std::endl;
+    //std::cout << "training error(MAE): " << std::endl;
     
     for (uint64_t j = 0; j < sensorCount; j++)
     {
@@ -655,7 +655,7 @@ void ST_MVL::FourView(uint64_t sensorCount)
             double vvv = a[0] * x(0, i) + a[1] * x(1, i) + a[2] * x(2, i) + a[3] * x(3, i) + a[4];
             error += fabs(vvv - y[i]);
         }
-        std::cout << j << "th sensor: " << error / (double)rowNum << std::endl;
+        //std::cout << j << "th sensor: " << error / (double)rowNum << std::endl;
     }
     
     sw.close();
@@ -677,7 +677,7 @@ void ST_MVL::sqt2(const arma::mat &x,
     for (j = 0; j <= m - 1; j++)
     {
         p = 0.0;
-        for (i = 0; i <= n - 1; i++)
+        for (i = 0; i < n; i++)
         {
             p = p + x.at(j, i);
         }
@@ -689,7 +689,7 @@ void ST_MVL::sqt2(const arma::mat &x,
         for (j = i; j <= m - 1; j++)
         {
             p = 0.0;
-            for (k = 0; k <= n - 1; k++)
+            for (k = 0; k < n; k++)
             {
                 p = p + x.at(i, k) * x.at(j, k);
             }
@@ -698,28 +698,28 @@ void ST_MVL::sqt2(const arma::mat &x,
         }
     }
     a[m] = 0.0;
-    for (i = 0; i <= n - 1; i++)
+    for (i = 0; i < n; i++)
     {
         a[m] = a[m] + y[i];
     }
     for (i = 0; i <= m - 1; i++)
     {
         a[i] = 0.0;
-        for (j = 0; j <= n - 1; j++)
+        for (j = 0; j < n; j++)
         {
             a[i] = a[i] + x.at(i, j) * y[j];
         }
     }
     (void)chlk(b, mm, 1, a);
     yy = 0.0;
-    for (i = 0; i <= n - 1; i++)
+    for (i = 0; i < n; i++)
     {
         yy = yy + y[i] / (double)n;
     }
     q = 0.0;
     e = 0.0;
     u = 0.0;
-    for (i = 0; i <= n - 1; i++)
+    for (i = 0; n != 0 && i < n; i++)
     {
         p = a[m];
         for (j = 0; j <= m - 1; j++)
@@ -735,7 +735,7 @@ void ST_MVL::sqt2(const arma::mat &x,
     for (j = 0; j <= m - 1; j++)
     {
         p = 0.0;
-        for (i = 0; i <= n - 1; i++)
+        for (i = 0; i < n; i++)
         {
             pp = a[m];
             for (k = 0; k <= m - 1; k++)
@@ -764,11 +764,11 @@ int ST_MVL::chlk(arma::vec &a, uint64_t n, uint64_t m, std::array<double, viewCo
         return (-2);
     }
     a[0] = sqrt(a[0]);
-    for (j = 1; j <= n - 1; j++)
+    for (j = 1; j < n; j++)
     {
         a[j] = a[j] / a[0];
     }
-    for (i = 1; i <= n - 1; i++)
+    for (i = 1; i < n; i++)
     {
         u = i * n + i;
         for (j = 1; j <= i; j++)
@@ -784,7 +784,7 @@ int ST_MVL::chlk(arma::vec &a, uint64_t n, uint64_t m, std::array<double, viewCo
         a[u] = sqrt(a[u]);
         if (i != (n - 1))
         {
-            for (j = i + 1; j <= n - 1; j++)
+            for (j = i + 1; j < n; j++)
             {
                 v = i * n + j;
                 for (k = 1; k <= i; k++)
@@ -798,7 +798,7 @@ int ST_MVL::chlk(arma::vec &a, uint64_t n, uint64_t m, std::array<double, viewCo
     for (j = 0; j <= m - 1; j++)
     {
         d[j] = d[j] / a[0];
-        for (i = 1; i <= n - 1; i++)
+        for (i = 1; i < n; i++)
         {
             u = i * n + i;
             v = i * m + j;

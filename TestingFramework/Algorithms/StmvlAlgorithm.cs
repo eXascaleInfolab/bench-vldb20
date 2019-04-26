@@ -41,7 +41,7 @@ namespace TestingFramework.Algorithms
             Process stmvlproc = new Process();
 
             stmvlproc.StartInfo.WorkingDirectory = EnvPath;
-            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             stmvlproc.StartInfo.CreateNoWindow = true;
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;
@@ -59,7 +59,7 @@ namespace TestingFramework.Algorithms
             Process stmvlproc = new Process();
 
             stmvlproc.StartInfo.WorkingDirectory = EnvPath;
-            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            stmvlproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             stmvlproc.StartInfo.CreateNoWindow = true;
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;

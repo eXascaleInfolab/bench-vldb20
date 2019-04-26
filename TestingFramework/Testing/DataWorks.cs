@@ -50,6 +50,17 @@ namespace TestingFramework.Testing
         }
         
         /// <summary>
+        /// A hack #2
+        /// </summary>
+        /// <param name="fileInput">count 'em here</param>
+        public static int CountMatrixRows(string fileInput)
+        {
+            fileInput = FolderData + fileInput;
+
+            return File.ReadAllLines(fileInput).Count(x => !String.IsNullOrEmpty(x));
+        }
+        
+        /// <summary>
         /// Gets an array representing a matrix from a <paramref name="path"/>
         /// of size <paramref name="rowLimit"/> by <paramref name="colLimit"/>.
         /// </summary>
@@ -356,6 +367,7 @@ namespace TestingFramework.Testing
 
             string rmse = allAlgos.StringJoin(Environment.NewLine + "\t");
             string mse = rmse.Replace("RMSE", "MSE").Replace("rmse", "mse"); //strip R
+            string mae = rmse.Replace("RMSE", "MAE").Replace("rmse", "mae"); //place mae
             
             Utils.FileFindAndReplace(FolderResults + "plotfiles/template_mse.plt",
                 $"{FolderResults}plotfiles/out/{code}_mse.plt",
@@ -365,7 +377,8 @@ namespace TestingFramework.Testing
                 ("{caseEnd}", caseEnd.ToString()),
                 ("{caseTick}", caseTick.ToString()),
                 ("{rmse}", rmse),
-                ("{mse}", mse));
+                ("{mse}", mse),
+                ("{mae}", mae));
         }
         
         public static void GenerateRuntimeGnuPlot(IEnumerable<Algorithm> algorithms, string code, int caseStart, int caseEnd, int caseTick, ExperimentType et, ExperimentScenario es)

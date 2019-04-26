@@ -7,42 +7,40 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 void printUsage()
 {
-    cout << endl << "Usage: ./incCD -obligatory arg [-optional arg]" << endl
-         << endl
-         << "-test {arg}, -t {arg}" << endl
-         << "    | arg:" << endl
-         << "        | out, o      - the result of the recovery" << endl
-         << "        | runtime, rt - runtime of the recovery" << endl
-         << "    | choose what to output from the action" << endl
-         << endl
-         << "-algorithm {str}, -alg {str}" << endl
-         << "    | codename of the algorithm to run the recovery on" << endl
-         << endl
-         << "-input {str}, -in {str}" << endl
-         << "    | file name, where to take the input matrix from" << endl
-         << endl
-         << "-output {str}, -out {str}" << endl
-         << "    | file name, where to store the result of <test>" << endl
-         << endl
-         << "[-n {int}] default(0)" << endl
-         << "    | amount of rows to load from the input file" << endl
-         << "    | 0 - load all of them" << endl
-         << endl
-         << "[-m {int}] default(0)" << endl
-         << "    | amount of columns to load from the input file" << endl
-         << "    | 0 - load all of them" << endl
-         << endl
-         << "[-k {int}] default(m)" << endl
-         << "    | amount of columns of truncated decomposition to keep" << endl
-         << "    | 0 (dec) - will be set to be equal to m" << endl
-         << "    | 0 (rec) - will be automatically detected" << endl
-         << "[-xtra {string}] default(\"\")" << endl
-         << "    | extra string to be passed to the algorithm" << endl
-         << endl;
+    std::cout << std::endl << "Usage: ./incCD -obligatory arg [-optional arg]" << std::endl
+         << std::endl
+         << "-test {arg}, -t {arg}" << std::endl
+         << "    | arg:" << std::endl
+         << "        | out, o      - the result of the recovery" << std::endl
+         << "        | runtime, rt - runtime of the recovery" << std::endl
+         << "    | choose what to output from the action" << std::endl
+         << std::endl
+         << "-algorithm {str}, -alg {str}" << std::endl
+         << "    | codename of the algorithm to run the recovery on" << std::endl
+         << std::endl
+         << "-input {str}, -in {str}" << std::endl
+         << "    | file name, where to take the input matrix from" << std::endl
+         << std::endl
+         << "-output {str}, -out {str}" << std::endl
+         << "    | file name, where to store the result of <test>" << std::endl
+         << std::endl
+         << "[-n {int}] default(0)" << std::endl
+         << "    | amount of rows to load from the input file" << std::endl
+         << "    | 0 - load all of them" << std::endl
+         << std::endl
+         << "[-m {int}] default(0)" << std::endl
+         << "    | amount of columns to load from the input file" << std::endl
+         << "    | 0 - load all of them" << std::endl
+         << std::endl
+         << "[-k {int}] default(m)" << std::endl
+         << "    | amount of columns of truncated decomposition to keep" << std::endl
+         << "    | 0 (dec) - will be set to be equal to m" << std::endl
+         << "    | 0 (rec) - will be automatically detected" << std::endl
+         << "[-xtra {string}] default(\"\")" << std::endl
+         << "    | extra string to be passed to the algorithm" << std::endl
+         << std::endl;
 }
 
 enum class PTestType
@@ -57,7 +55,7 @@ int CommandLine2(
         uint64_t &n, uint64_t &m, uint64_t &k
 )
 {
-    string temp;
+    std::string temp;
     for (int i = 1; i < argc; ++i)
     {
         temp = argv[i];
@@ -89,7 +87,7 @@ int CommandLine2(
             }
             else
             {
-                cout << "Unrecognized -test argument" << endl;
+                std::cout << "Unrecognized -test argument" << std::endl;
                 printUsage();
                 return EXIT_FAILURE;
             }
@@ -144,7 +142,7 @@ int CommandLine2(
         
         else
         {
-            cout << "Unrecognized CLI parameter" << endl;
+            std::cout << "Unrecognized CLI parameter" << std::endl;
             printUsage();
             return EXIT_FAILURE;
         }

@@ -10,8 +10,6 @@ namespace Testing
 //
 // Test scenarios
 //
-void TestArmadillo();
-
 void TestCorr();
 
 void TestCD_RMV();

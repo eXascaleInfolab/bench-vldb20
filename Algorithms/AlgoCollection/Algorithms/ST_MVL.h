@@ -32,6 +32,7 @@ class ST_MVL
     uint64_t windowSize;
     
     const double default_missing  = std::numeric_limits<double>::quiet_NaN();
+    //const double default_missing  = 0.010101010101010101;
     
     arma::mat &missingMatrix;
     arma::mat predictMatrix;

@@ -10,7 +10,7 @@ namespace Algorithms
 
 void DynaMMo::doDynaMMo(arma::mat &X, uint64_t H, uint64_t maxIter, bool FAST)
 {
-    arma::arma_rng::set_seed_random();
+    arma::arma_rng::set_seed(18931);
     
     uint64_t N = X.n_cols;
     uint64_t M = X.n_rows;
@@ -121,9 +121,8 @@ DynaMMo::forward(const arma::mat &X, const DynaMMoModel &model, uint64_t N, uint
         arma::mat invSig;
         if (FAST)
         {
-            //arma::mat sol = invRC / (inv(KP) + invCRC) * invRC.t();
             arma::mat sol = arma::solve((arma::inv(KP) + invCRC).t(), invRC.t()).t();
-            invSig = invR - sol * invRC.t(); //todo: is this mat-division?
+            invSig = invR - sol * invRC.t();
         }
         else
         {
@@ -156,7 +155,7 @@ DynaMMo::backward(const std::vector<arma::vec> &mu, const std::vector<arma::mat>
     for (uint64_t ii = N - 1; ii > 0; --ii)
     {
         uint64_t i = ii - 1;
-        //arma::mat J = (V[i] * model.A.t()) / P[i];
+        
         arma::mat J = arma::solve(P[i].t(), (V[i] * model.A.t()).t()).t();
         Ez[i] = mu[i] + J * (Ez[i + 1] - model.A * mu[i]);
         Ez1z[i] = Vhat * J.t() + Ez[i + 1] * Ez[i].t();
@@ -194,18 +193,6 @@ void DynaMMo::MLE_lds(uint64_t N, uint64_t M, uint64_t H, const arma::mat &X, Dy
     
     model.A = arma::solve(SzzN.t(), Sz1z.t()).t();
     
-    /*
-    if (any(strcmp("DiagQ", varargin)))
-    {
-        model.Q = diag((diag(Szz) - diag(Ezz{1}) - 2 * diag(model.A * Sz1z.t()) + diag(model.A * SzzN * model.A.t())) / (N - 1));
-    }
-    else if (any(strcmp("FullQ", varargin)))
-    {
-        arma::mat tmp = model.A * Sz1z.t();
-        model.Q = (Szz - Ezz{1} - tmp - tmp.t()) + model.A * SzzN * model.A.t() / (N - 1);
-    }
-    else
-    */
     {
         double delta = ((
                 arma::trace(Szz)
@@ -218,24 +205,13 @@ void DynaMMo::MLE_lds(uint64_t N, uint64_t M, uint64_t H, const arma::mat &X, Dy
     
     model.C = arma::solve(Szz.t(), Sxz.t()).t();
     
-    /*
-    if (any(strcmp("DiagR", varargin)))
-    {
-        model.R = diag((diag(X * X.t()) - 2 * diag(model.C * Sxz.t()) + diag(model.C * Szz * model.C.t())) / N);
-        elseif(any(strcmp(.t()
-        FullR.t(), varargin)))
-        tmp = model.C * Sxz.t();
-        model.R = (X * X.t() - tmp - tmp.t() + model.C * Szz * model.C.t()) / N;
-    }
-    else
-     */
     {
         double delta = (
                 arma::trace(X * X.t())
                 - 2 * arma::trace(model.C * Sxz.t())
                 + arma::trace(model.C * Szz * model.C.t())
                        ) / (double)N / (double)M;
-        //model.R = diag(repmat(delta, M, 1));
+        
         model.R = arma::eye<arma::mat>(M, M) * delta;
     }
 }

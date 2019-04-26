@@ -3,6 +3,7 @@
 //
 
 #include "IterativeSVD.h"
+#include "../Algebra/RSVD.h"
 
 #include <iostream>
 
@@ -40,7 +41,7 @@ void IterativeSVD::recoveryIterativeSVD(arma::mat &X, uint64_t rank)
     // max_iters=200
     // gradual_rank_increase=True
     
-    constexpr bool gradual_rank_increase = true;
+    bool gradual_rank_increase = true;
     constexpr uint64_t max_iters = 100;
     constexpr double threshold = 0.00001;
     
@@ -72,13 +73,26 @@ void IterativeSVD::recoveryIterativeSVD(arma::mat &X, uint64_t rank)
         if (gradual_rank_increase)
         {
             curr_rank = std::min((uint64_t )std::pow(2, iter), rank);
+            
+            if (iter >= 20) //overflows into 0 due to 2^iter > 2^64
+            {
+                gradual_rank_increase = false;
+            }
         }
         else
         {
             curr_rank = rank;
         }
         
-        arma::svd(U, S, V, X);
+        int code = Algebra::Algorithms::RSVD::rsvd(U, S, V, X, curr_rank);
+        
+        if (code != 0)
+        {
+            std::cout << "RSVD returned an error: ";
+            Algebra::Algorithms::RSVD::print_error(code);
+            std::cout << ", aborting remaining recovery" << std::endl;
+            return;
+        }
 
         arma::mat X_reconstructed = U(arma::span::all, arma::span(0, curr_rank - 1)) * arma::diagmat(S(arma::span(0, curr_rank - 1))) * ((arma::mat)V.t())(arma::span(0, curr_rank - 1), arma::span::all);
     

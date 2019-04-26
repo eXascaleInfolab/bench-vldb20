@@ -26,6 +26,20 @@ using namespace Algorithms;
 namespace Performance
 {
 
+void verifyRecovery(arma::mat &mat)
+{
+    for (uint64_t j = 0; j < mat.n_cols; ++j)
+    {
+        for (uint64_t i = 0; i < mat.n_rows; ++i)
+        {
+            if (std::isnan(mat.at(i, j)))
+            {
+                mat.at(i, j) = std::sqrt(std::numeric_limits<double>::max() / 100000.0);
+            }
+        }
+    }
+}
+
 int64_t Recovery_CD(arma::mat &mat, uint64_t truncation)
 {
     // Local
@@ -47,14 +61,14 @@ int64_t Recovery_CD(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (CD): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
 int64_t Recovery_TKCM(arma::mat &mat, uint64_t truncation)
 {
     (void) truncation;
-
-    //todo
+    
     // Local
     int64_t result;
     Algorithms::TKCM tkcm(mat);
@@ -69,15 +83,16 @@ int64_t Recovery_TKCM(arma::mat &mat, uint64_t truncation)
 
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (TKCM): " << result << std::endl;
-
+    
+    verifyRecovery(mat);
     return result;
 }
 
-int64_t Recovery_ST_MVL(arma::mat &mat, uint64_t truncation, const std::string &latlong)
+int64_t Recovery_ST_MVL(arma::mat &mat, const std::string &latlong)
 {
     // Local
     int64_t result;
-    ST_MVL stmvl(mat, latlong, 4.0, 0.85, truncation);
+    ST_MVL stmvl(mat, latlong, 2.0, 0.85, 7);
 
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
@@ -90,7 +105,8 @@ int64_t Recovery_ST_MVL(arma::mat &mat, uint64_t truncation, const std::string &
 
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (ST-MVL): " << result << std::endl;
-
+    
+    verifyRecovery(mat);
     return result;
 }
 
@@ -110,6 +126,7 @@ int64_t Recovery_SPIRIT(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (SPIRIT): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -134,6 +151,7 @@ int64_t Recovery_GROUSE(arma::mat &mat, uint64_t truncation)
     
     mat = mat.t();
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -153,6 +171,7 @@ int64_t Recovery_NNMF(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (TE-NMF): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -177,10 +196,11 @@ int64_t Recovery_DynaMMo(arma::mat &mat, uint64_t truncation)
     
     mat = mat.t();
     
+    verifyRecovery(mat);
     return result;
 }
 
-int64_t Recovery_SVT(arma::mat &mat, uint64_t truncation)
+int64_t Recovery_SVT(arma::mat &mat)
 {
     // Local
     int64_t result;
@@ -190,12 +210,13 @@ int64_t Recovery_SVT(arma::mat &mat, uint64_t truncation)
     
     // Recovery
     begin = std::chrono::steady_clock::now();
-    SVT::doSVT(mat, truncation);
+    SVT::doSVT(mat);
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (SVT): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -215,6 +236,7 @@ int64_t Recovery_ROSL(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (ROSL): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -234,6 +256,7 @@ int64_t Recovery_IterativeSVD(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (Iter-SVD): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -253,6 +276,7 @@ int64_t Recovery_SoftImpute(arma::mat &mat, uint64_t truncation)
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout << "Time (SoftImpute): " << result << std::endl;
     
+    verifyRecovery(mat);
     return result;
 }
 
@@ -269,7 +293,7 @@ int64_t Recovery(arma::mat &mat, uint64_t truncation,
     }
     else if (algorithm == "st-mvl")
     {
-        return Recovery_ST_MVL(mat, truncation, xtra);
+        return Recovery_ST_MVL(mat, xtra);
     }
     else if (algorithm == "spirit")
     {
@@ -289,7 +313,7 @@ int64_t Recovery(arma::mat &mat, uint64_t truncation,
     }
     else if (algorithm == "svt")
     {
-        return Recovery_SVT(mat, truncation);
+        return Recovery_SVT(mat);
     }
     else if (algorithm == "rosl")
     {

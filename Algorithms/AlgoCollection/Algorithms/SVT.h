@@ -12,10 +12,10 @@ namespace Algorithms
 class SVT
 {
     static constexpr double tol = 1E-4;
-    static constexpr uint64_t max_iter = 500;
+    static constexpr uint64_t max_iter = 100;
   
   public:
-    static void doSVT(arma::mat &X, uint64_t rank);
+    static void doSVT(arma::mat &X);
   
   private:
     static void updateSparse(arma::sp_mat &Y, const arma::vec &b, const arma::uvec &omega);

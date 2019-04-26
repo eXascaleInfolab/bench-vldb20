@@ -13,7 +13,7 @@ namespace Algorithms
 
 void NMFMissingValueRecovery::doNMFRecovery(arma::mat &matrix, uint64_t truncation)
 {
-    arma::arma_rng::set_seed_random(); // code here doesn't use RNG, but AMF<> uses randomized start
+    arma::arma_rng::set_seed(18931); // code here doesn't use RNG, but AMF<> uses randomized start
     
     arma::mat input(matrix);
     

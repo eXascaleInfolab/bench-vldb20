@@ -13,7 +13,7 @@ namespace TestingFramework.Algorithms
         public TkcmAlgorithm() : base(ref _init)
         { }
         
-        private static string Style => "linespoints lt 8 dt 4 lw 3 pt 4 lc rgbcolor \"green\" pointsize 2";
+        private static string Style => "linespoints lt 8 dt 4 lw 3 pt 4 lc rgbcolor \"green\" pointsize 1";
         
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -88,7 +88,7 @@ namespace TestingFramework.Algorithms
             Process tkcmproc = new Process();
             
             tkcmproc.StartInfo.WorkingDirectory = EnvPath;
-            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             tkcmproc.StartInfo.CreateNoWindow = true;
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;
@@ -105,7 +105,7 @@ namespace TestingFramework.Algorithms
             Process tkcmproc = new Process();
             
             tkcmproc.StartInfo.WorkingDirectory = EnvPath;
-            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/incCD";
+            tkcmproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
             tkcmproc.StartInfo.CreateNoWindow = true;
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;

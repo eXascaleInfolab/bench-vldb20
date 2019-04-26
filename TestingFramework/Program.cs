@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using TestingFramework.Algorithms;
 using TestingFramework.Testing;
 
@@ -11,6 +12,9 @@ namespace TestingFramework
     {
         private static void Main(string[] args)
         {
+            // technical
+            Console.CancelKeyPress += InterruptHandler;
+            
             string[] codes = null;
             string[] codesLimited = null;
 
@@ -52,10 +56,6 @@ namespace TestingFramework
                         EnumMethods.EnableContinuous = Convert.ToBoolean(entry.Value);
                         break;
                     
-                    case "EnableMulticolumn":
-                        EnumMethods.EnableMulticolumn = Convert.ToBoolean(entry.Value);
-                        break;
-                    
                     case "DisableTrmf":
                         disableTrmf = Convert.ToBoolean(entry.Value);
                         break;
@@ -66,10 +66,6 @@ namespace TestingFramework
 
                     case "IgnoreAlgorithms":
                         ignoreList.AddRange(entry.Value.Split(',').Select(x => x.Trim().ToLower()));
-                        break;
-                    
-                    case "MulticolumnType":
-                        TestRoutines.MulticolumnType = entry.Value.Trim();
                         break;
                     
                     default:
@@ -103,6 +99,7 @@ namespace TestingFramework
             var listStd = new List<Algorithm> {cdVersion};
 
             listStd.AddRange(new[] {AlgoPack.Stmvl, AlgoPack.Tkcm, AlgoPack.Spirit, AlgoPack.Nnmf, AlgoPack.Grouse});
+            listStd.AddRange(new[] {AlgoPack.Svt, AlgoPack.SoftImpute, AlgoPack.ROSL, AlgoPack.DynaMMo, AlgoPack.SvdI});// new batch
             
             if (!disableTrmf)
             {
@@ -124,51 +121,67 @@ namespace TestingFramework
             {
                 if (EnumMethods.EnableContinuous)
                 {
-                    codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
-                    codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
-                    codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
+                    foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios().Where(EnumMethods.IsContinuous))
+                    {
+                        foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                        {
+                            TestRoutines.PrecisionTest(ExperimentType.Continuous, es, c);
+                        }
+                    }
                 }
 
-                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
-                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
-                codesLimited.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
+                foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios())
+                {
+                    foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                    {
+                        TestRoutines.PrecisionTest(ExperimentType.Recovery, es, c);
+                    }
+                }
             }
             void FullRuntime()
             {
                 if (EnumMethods.EnableContinuous)
                 {
-                    codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
-                    codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
-                    codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
+                    foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios().Where(EnumMethods.IsContinuous))
+                    {
+                        foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                        {
+                            TestRoutines.RuntimeTest(ExperimentType.Continuous, es, c);
+                        }
+                    }
                 }
 
-                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
-                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
-                codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
+                foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios())
+                {
+                    foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                    {
+                        TestRoutines.RuntimeTest(ExperimentType.Recovery, es, c);
+                    }
+                }
             }
             void FullRuntimeReplot() //service method
             {
                 if (EnumMethods.EnableContinuous)
                 {
-                    codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Missing, c, 1000));
-                    codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Length, c, 2000));
-                    codesLimited.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Columns, c, 1000));
+                    codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Missing, c));
+                    codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Length, c));
+                    codesLimited.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Continuous, ExperimentScenario.Columns, c));
                 }
 
-                codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Missing, c, 1000));
-                codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Length, c, 2000));
-                codesLimited.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Columns, c, 1000));
+                codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Missing, c));
+                codes.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Length, c));
+                codesLimited.ForEach(c => TestRoutines.RuntimeTestReplot(ExperimentType.Recovery, ExperimentScenario.Columns, c));
             }
             void FullStreaming()
             {
-                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Missing, c, 1000));
-                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Length, c, 2000));
-                codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Columns, c, 1000));
+                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Missing, c));
+                codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Length, c));
+                codesLimited.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Streaming, ExperimentScenario.Columns, c));
             }
             void FullMulticolumn()
             {
-                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.MissingMultiColumn, c, 1000));
-                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.MissingMultiColumn, c, 1000));
+                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.MultiColumnDisjoint, c));
+                codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.MultiColumnDisjoint, c));
             }
             
             if (EnumMethods.EnableStreaming) throw new Exception("Streaming can't be enabled in this version of the benchmark.");
@@ -177,21 +190,13 @@ namespace TestingFramework
             
             FullRuntime();
             
-            if (EnumMethods.EnableMulticolumn) FullMulticolumn();
-            
-            //codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Recovery, ExperimentScenario.MissingMultiColumn, c, 1000));
-            //codes.ForEach(c => TestRoutines.RuntimeTest(ExperimentType.Continuous, ExperimentScenario.MissingMultiColumn, c, 2000));
-            
-            //codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Recovery, ExperimentScenario.MissingMultiColumn, c, 1000));
-            //codes.ForEach(c => TestRoutines.PrecisionTest(ExperimentType.Continuous, ExperimentScenario.MissingMultiColumn, c, 1000));
-            
             //
             // multi-run for 1...N runtime tests and averaging the results from them
             //
 
             #if false
             {
-                for (int i = 1; i <= 5; i++)
+                for (int i = 1; i <= 3; i++)
                 {
                     DataWorks.FolderPlotsRemote = DataWorks.FolderPlotsRemoteBase + i + "/";
                     if (!Directory.Exists(DataWorks.FolderPlotsRemote))
@@ -208,10 +213,7 @@ namespace TestingFramework
     
             //SingularExperiments.AverageRTRuns(codes, codesLimited, 5);
             #endif
-
-            //SingularExperiments.MsePerformanceReport(codes, codesLimited);
-            //SingularExperiments.RMSE("~/MVR/CD-RMV/incCD/_data/out/cdmvr200_k3.txt", "~/Downloads/bafu_int.csv", (0, 50, 100));
-
+            
             #if false
             {
                 string cmptype = "meaninit_vert";
@@ -232,8 +234,8 @@ namespace TestingFramework
             
             #if false
             {
-                //var data = DataWorks.TimeSeries("BAFU", "*.asc", 3, Utils.Specific.ParseWasserstand, new DateTime(2005, 1, 1), true);
-                //DataWorks.TimeSeriesMerge(data, "BAFU_total.txt");
+                var data = DataWorks.TimeSeries("BAFU", "*.asc", 3, Utils.Specific.ParseWasserstand, new DateTime(2005, 1, 1), true);
+                DataWorks.TimeSeriesMerge(data, "BAFU_total.txt");
             }
             #endif
 
@@ -246,7 +248,7 @@ namespace TestingFramework
             {
                 var writer = new Utils.ContinuousWriter();
 
-                writer.WriteLine($"====={Environment.NewLine}The following delayed warnings were recorded:" +
+                writer.WriteLine($"====={Environment.NewLine}The following delayed warnings were recorded by Testing Framework:" +
                                  $"{Environment.NewLine}===={Environment.NewLine}");
 
                 writer.Indent();
@@ -258,5 +260,12 @@ namespace TestingFramework
             }
             Console.WriteLine("--- END ---");
         }
+
+        private static void InterruptHandler(object sender, ConsoleCancelEventArgs args)
+        {
+            Console.WriteLine("--- Ctrl+C received ---");
+            FinalSequence();
+        }
+
     }
 }

@@ -20,12 +20,17 @@ namespace TestingFramework.Algorithms
         public static readonly Algorithm Stmvl = new StmvlAlgorithm();
         public static readonly Algorithm Nnmf = new NnmfAlgorithm();
         public static readonly Algorithm Grouse = new GrouseAlgorithm();
+        public static readonly Algorithm Svt = new SVTAlgorithm();
+        public static readonly Algorithm SoftImpute = new SoftImputeAlgorithm();
+        public static readonly Algorithm ROSL = new ROSLAlgorithm();
+        public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
+        public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
         
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse };
-        public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse };
+        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI };
+        public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI };
         public static Algorithm[] ListAlgorithmsStreaming = { InCd, Tkcm, Spirit };
 
         public const int TypicalTruncation = 3;
@@ -78,6 +83,7 @@ namespace TestingFramework.Algorithms
 
                     foreach (var es in EnumMethods.AllExperimentScenarios())
                     {
+                        if (et == ExperimentType.Continuous && !es.IsContinuous()) continue;
                         string esDir = $"{etDir}{es.ToLongString()}/";
                         if (!Directory.Exists(esDir))
                         {
@@ -158,6 +164,46 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => true;
     }
+    
+    public partial class SVTAlgorithm
+    {
+        public override string AlgCode => "svt";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+    }
+    
+    public partial class SoftImputeAlgorithm
+    {
+        public override string AlgCode => "softimpute";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+    }
+    
+    public partial class ROSLAlgorithm
+    {
+        public override string AlgCode => "rosl";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+    }
+    
+    public partial class DynaMMoAlgorithm
+    {
+        public override string AlgCode => "dynammo";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+    }
+    
+    public partial class SVDImputeAlgorithm
+    {
+        public override string AlgCode => "svdi";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+    }
 
     /*///////////////////////////////////////////////////////////*/
     /*                        E X A M P L E                      */
@@ -172,7 +218,6 @@ namespace TestingFramework.Algorithms
 
         public override string AlgCode => "example"; // unique code
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}/TBA/"; // usually expected to be a working directory of an executable
-        //protected override string _EnvPath => "~/TBA/"; // can be replaced by an absolute path
         protected override string SubFolderDataIn => "todo/in/";
         protected override string SubFolderDataOut => "todo/out/";
         

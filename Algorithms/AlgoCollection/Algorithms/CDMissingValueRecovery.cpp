@@ -96,7 +96,7 @@ void CDMissingValueRecovery::increment(const std::vector<double> &vec)
 {
     cd.increment(vec);
     
-    if (useNormalization && false)
+    if (useNormalization && false) // not implemented
     {
         uint64_t lastIdx = matrix.n_rows - 1;
         const std::vector<double> &mean = cm.getMean();
@@ -113,7 +113,7 @@ void CDMissingValueRecovery::increment(const arma::vec &vec)
 {
     cd.increment(vec);
     
-    if (useNormalization && false)
+    if (useNormalization && false) // not implemented
     {
         uint64_t lastIdx = matrix.n_rows - 1;
         const std::vector<double> &mean = cm.getMean();
@@ -158,8 +158,6 @@ uint64_t CDMissingValueRecovery::performRecovery(bool determineReduction /*= fal
     }
     
     auto centroidValues = std::vector<double>();
-    
-    //arma::mat lastrecon(matrix);
     
     while (++iter <= maxIterations && delta >= epsPrecision)
     {
@@ -356,8 +354,8 @@ void CDMissingValueRecovery::interpolate()
         // fallback case - no 2nd value for interpolation
         if (std::isnan(val1) && std::isnan(val2))
         {
-            // starting conditions violation
-            abort();
+            val1 = 0.0;
+            step = 0;
         }
         else if (std::isnan(val1)) // start block is missing
         {
@@ -465,8 +463,7 @@ void CDMissingValueRecovery::init_1NN()
         // fallback case - no 2nd value for interpolation
         if (std::isnan(val1) && std::isnan(val2))
         {
-            // starting conditions violation
-            abort();
+            val1 = val2 = 0.0;
         }
         else if (std::isnan(val1)) // start block is missing
         {

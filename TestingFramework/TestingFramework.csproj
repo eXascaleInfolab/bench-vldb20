@@ -47,11 +47,16 @@
     <Compile Include="Algorithms\AlgoPack.cs" />
     <Compile Include="Algorithms\Algorithm.cs" />
     <Compile Include="Algorithms\CentroidDecompositionAlgorithm.cs" />
+    <Compile Include="Algorithms\DynaMMoAlgorithm.cs" />
     <Compile Include="Algorithms\GrouseAlgorithm.cs" />
     <Compile Include="Algorithms\IncrementalCentroidDecompositionAlgorithm.cs" />
     <Compile Include="Algorithms\NnmfAlgorithm.cs" />
+    <Compile Include="Algorithms\ROSLAlgorithm.cs" />
+    <Compile Include="Algorithms\SoftImputeAlgorithm.cs" />
     <Compile Include="Algorithms\SpiritAlgorithm.cs" />
     <Compile Include="Algorithms\StmvlAlgorithm.cs" />
+    <Compile Include="Algorithms\SVDImputeAlgorithm.cs" />
+    <Compile Include="Algorithms\SVTAlgorithm.cs" />
     <Compile Include="Algorithms\TkcmAlgorithm.cs" />
     <Compile Include="Algorithms\TrmfAlgorithm.cs" />
     <Compile Include="Program.cs" />

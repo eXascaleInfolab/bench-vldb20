@@ -61,13 +61,13 @@ void SPIRIT::doSpirit(arma::mat &A, uint64_t k0, uint64_t w, double lambda)
     arma::mat W = arma::eye<arma::mat>(n, n);
     arma::vec d(n);
     d.fill(0.01);
-    //k0 = number of eigencomponents
+    //k0 = number of eigencomponents, passed as a param
     
     arma::vec relErrors(totalTime);
     
     arma::mat prevW(W);
     arma::mat Yvalues(totalTime, k0);
-    arma::mat ARc(w, k0); //AR coefficients, one for each hidden variable
+    arma::mat ARc = arma::zeros<arma::mat>(w, k0); //AR coefficients, one for each hidden variable
     std::vector<arma::mat> G;  //"Gain-Matrix", one for each hidden variable
     
     //initialize the "Gain-Matrix" with the identity matrix
@@ -194,7 +194,6 @@ void SPIRIT::doSpirit(arma::mat &A, uint64_t k0, uint64_t w, double lambda)
 
 void SPIRIT::grams(arma::mat &A)
 {
-    //todo can be optimized, see Aj insertion into A and norm
     uint64_t n = A.n_cols;
     
     for (uint64_t j = 1; j < n; ++j)

@@ -10,6 +10,7 @@
 #include "Algorithms/CDMissingValueRecovery.h"
 #include "Stats/Correlation.h"
 #include "Algebra/Auxiliary.h"
+#include "Algebra/RSVD.h"
 
 #include <armadillo>
 
@@ -113,14 +114,9 @@ void TestCD_RMV()
     
     mx.print("X =");
     
-    Algorithms::CDMissingValueRecovery mvr(mx, 100, 0.001); //34, 45
+    Algorithms::CDMissingValueRecovery mvr(mx, 100, 0.001);
     
     mvr.autoDetectMissingBlocks();
-    
-    //mvr.addMissingBlock(0, 3, 7);  // MB_reference = (-96.00; -36.00; -96.00; -24.00; -12.00; 48.00; -12.00;)^T
-    //mvr.addMissingBlock(0, 11, 2); // MB_reference = (36.00; -24.00)^T
-    //mvr.addMissingBlock(0, 15, 3); // MB_reference = (12.00; 18.00; 36.00)^T
-    
     mvr.setReduction(1);
     
     mvr.performRecovery(true);

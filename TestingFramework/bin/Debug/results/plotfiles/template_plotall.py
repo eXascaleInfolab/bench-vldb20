@@ -29,11 +29,11 @@ errFolder = "error/results/"
 launchR(errFolder + "error_calculation.r");
 launchGP(errFolder + "{code}_mse.plt");
 
-launchGP(mainFolder + "reference_plot.plt");
+#launchGP(mainFolder + "reference_plot.plt");
 
 #testcase
 for tcase in my_range({start}, {end}, {tick}):
     plotFile = mainFolder + "{code}_m" + str(tcase) + ".plt";
-    launchGP(plotFile);
+    #launchGP(plotFile);
 
 
