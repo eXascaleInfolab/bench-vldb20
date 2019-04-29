@@ -10,7 +10,7 @@ namespace TestingFramework.Algorithms
 {
     public partial class IncrementalCentroidDecompositionAlgorithm : Algorithm
     {
-        public List<int> KList = new List<int>(new[] { 3, 2, 1 });
+        public List<int> KList = new List<int>(new[] { 3, 2 });
         //public List<int> KList = new List<int>(new[] { AlgoPack.TypicalTruncation });
 
         private static bool _init = false;
@@ -23,7 +23,7 @@ namespace TestingFramework.Algorithms
         }
 
         private static string StyleOf(int k) =>
-            "linespoints lt 8 lw 3 pt 7 lc rgbcolor \"" + (k == 2 ? "dark-" : "") + $"red\" pointsize {k-1}";
+            "linespoints lt 8 lw 3 pt 7 lc rgbcolor \"" + (k == 2 ? "blue" : "cyan") + $"\" pointsize 1.2";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {

@@ -101,7 +101,7 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.MultiColumnDisjoint: return "multicol-disjoint";
                 case ExperimentScenario.MulticolumnOverlap: return "multicol-overlap";
                 case ExperimentScenario.MissingSubMatrix: return "missingpercentange-matrix";
-                case ExperimentScenario.Fullrow: return "fullrow";
+                case ExperimentScenario.Fullrow: return "blackout";
                 case ExperimentScenario.Fullcolumn: return "fullcolumn";
                 default: throw new InvalidDataException();
             }

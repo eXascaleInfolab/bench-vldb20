@@ -109,7 +109,7 @@ namespace TestingFramework.Algorithms
     
     public partial class IncrementalCentroidDecompositionAlgorithm
     {
-        public override string AlgCode => "incd";
+        public override string AlgCode => "cdrec";
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
@@ -117,11 +117,11 @@ namespace TestingFramework.Algorithms
 
     public partial class NnmfAlgorithm
     {
-        public override string AlgCode => "nnmf";
+        public override string AlgCode => "tenmf";
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
-        public override bool IsPlottable => true;
+        public override bool IsPlottable => false;
     }
 
     public partial class SpiritAlgorithm
@@ -130,6 +130,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
 
     public partial class StmvlAlgorithm
@@ -138,6 +139,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
 
     public partial class TkcmAlgorithm
@@ -146,6 +148,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
 
     public partial class TrmfAlgorithm
@@ -162,7 +165,6 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
-        public override bool IsPlottable => true;
     }
     
     public partial class SVTAlgorithm
@@ -171,11 +173,12 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
     
     public partial class SoftImputeAlgorithm
     {
-        public override string AlgCode => "softimpute";
+        public override string AlgCode => "softimp";
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
@@ -187,6 +190,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
     
     public partial class DynaMMoAlgorithm
@@ -199,7 +203,7 @@ namespace TestingFramework.Algorithms
     
     public partial class SVDImputeAlgorithm
     {
-        public override string AlgCode => "svdi";
+        public override string AlgCode => "svdimp";
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";

@@ -59,7 +59,7 @@ int64_t Recovery_CD(arma::mat &mat, uint64_t truncation)
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
-    std::cout << "Time (CD): " << result << std::endl;
+    std::cout << "Time (CDRec): " << result << std::endl;
     
     verifyRecovery(mat);
     return result;
@@ -104,7 +104,7 @@ int64_t Recovery_ST_MVL(arma::mat &mat, const std::string &latlong)
     end = std::chrono::steady_clock::now();
 
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
-    std::cout << "Time (ST-MVL): " << result << std::endl;
+    std::cout << "Time (STMVL): " << result << std::endl;
     
     verifyRecovery(mat);
     return result;
@@ -169,7 +169,7 @@ int64_t Recovery_NNMF(arma::mat &mat, uint64_t truncation)
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
-    std::cout << "Time (TE-NMF): " << result << std::endl;
+    std::cout << "Time (TeNMF): " << result << std::endl;
     
     verifyRecovery(mat);
     return result;
@@ -254,7 +254,7 @@ int64_t Recovery_IterativeSVD(arma::mat &mat, uint64_t truncation)
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
-    std::cout << "Time (Iter-SVD): " << result << std::endl;
+    std::cout << "Time (SVDImpute): " << result << std::endl;
     
     verifyRecovery(mat);
     return result;
