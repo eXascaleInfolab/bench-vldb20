@@ -332,6 +332,11 @@ namespace TestingFramework.Testing
                 es.IsSingleColumn()
                     ? AlgoPack.ListAlgorithms
                     : AlgoPack.ListAlgorithmsMulticolumn;
+
+            if (nlimit < 1000)
+            {
+                algorithms = algorithms.Where(alg => alg.AlgCode != "tkcm" && alg.AlgCode != "spirit").ToArray();
+            }
             
             //varlen only
             ulong token =
@@ -624,6 +629,11 @@ namespace TestingFramework.Testing
             
             int nlimit = DataWorks.CountMatrixRows($"{code}/{code}_normal.txt");
             int dataSetColumns = DataWorks.CountMatrixColumns($"{code}/{code}_normal.txt");
+
+            if (nlimit < 1000)
+            {
+                algorithms = algorithms.Where(alg => alg.AlgCode != "tkcm" && alg.AlgCode != "spirit").ToArray();
+            }
             
             //varlen only
             ulong token =
