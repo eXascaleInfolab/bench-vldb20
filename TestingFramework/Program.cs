@@ -117,45 +117,24 @@ namespace TestingFramework
             AlgoPack.CleanUncollectedResults();
             AlgoPack.EnsureFolderStructure();
             
-            void FullPrecision()
+            void FullRun(bool enablePrecision, bool enableRuntime)
             {
-                if (EnumMethods.EnableContinuous)
+                foreach (string code in codes)
                 {
-                    foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios().Where(EnumMethods.IsContinuous))
+                    if (EnumMethods.EnableContinuous)
                     {
-                        foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                        foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios().Where(EnumMethods.IsContinuous))
                         {
-                            TestRoutines.PrecisionTest(ExperimentType.Continuous, es, c);
+                            if (es.IsLimited() && !codesLimited.Contains(code)) continue;
+                            if (enablePrecision) TestRoutines.PrecisionTest(ExperimentType.Continuous, es, code);
+                            if (enableRuntime) TestRoutines.RuntimeTest(ExperimentType.Continuous, es, code);
                         }
                     }
-                }
-
-                foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios())
-                {
-                    foreach (string c in (es.IsLimited() ? codesLimited : codes))
+                    foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios())
                     {
-                        TestRoutines.PrecisionTest(ExperimentType.Recovery, es, c);
-                    }
-                }
-            }
-            void FullRuntime()
-            {
-                if (EnumMethods.EnableContinuous)
-                {
-                    foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios().Where(EnumMethods.IsContinuous))
-                    {
-                        foreach (string c in (es.IsLimited() ? codesLimited : codes))
-                        {
-                            TestRoutines.RuntimeTest(ExperimentType.Continuous, es, c);
-                        }
-                    }
-                }
-
-                foreach (ExperimentScenario es in EnumMethods.AllExperimentScenarios())
-                {
-                    foreach (string c in (es.IsLimited() ? codesLimited : codes))
-                    {
-                        TestRoutines.RuntimeTest(ExperimentType.Recovery, es, c);
+                        if (es.IsLimited() && !codesLimited.Contains(code)) continue;
+                        if (enablePrecision) TestRoutines.PrecisionTest(ExperimentType.Recovery, es, code);
+                        if (enableRuntime) TestRoutines.RuntimeTest(ExperimentType.Recovery, es, code);
                     }
                 }
             }
@@ -186,9 +165,7 @@ namespace TestingFramework
             
             if (EnumMethods.EnableStreaming) throw new Exception("Streaming can't be enabled in this version of the benchmark.");
             
-            FullPrecision();
-            
-            FullRuntime();
+            FullRun(true, true);
             
             //
             // multi-run for 1...N runtime tests and averaging the results from them
