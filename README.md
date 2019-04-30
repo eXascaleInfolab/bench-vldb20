@@ -11,7 +11,6 @@
 - Sudo rights on the user.
 
 ```bash
-    $ git init
     $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
 ```
 
