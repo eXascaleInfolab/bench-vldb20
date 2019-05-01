@@ -13,8 +13,7 @@ Folders named after dataset's code contains code_normal.txt file which is a matr
 |  |  |
 | Time granularity | hourly |
 |  |  |
-| Dataset dimensions | N=2947 M=500+ |
-| Remarks | Only a subset of columns is considered: columns 4 to 15 (12 total) |
+| Dataset dimensions | N=1000 M=10 |
 
 ## Chlorine
 
@@ -24,7 +23,7 @@ TBA
 
 | Data info |  |
 | -------- | -------- |
-| Dataset codename | drift6 and drift10 |
+| Dataset codename | drift10 |
 | Dataset creators |  |
 | Alexander Vergara | (vergara '@' ucsd.edu) |
 | BioCircutis Institute | University of California San Diego |
@@ -35,8 +34,8 @@ TBA
 | Irene Rodriguez-Lujan | (irrodriguezlujan '@' ucsd.edu) |
 | Ramon Huerta | (rhuerta '@' ucsd.edu)  |
 |  |  |
-| Dataset dimensions | batch 6 { N=2300 M=128 } batch 10 { N=3600 M=128 } |
-| Remarks | only batch 6 and batch 10 are taken from the dataset |
+| Dataset dimensions | N=1000 M=100 } |
+| Remarks | only batch 10 is taken from the dataset |
 | Url | https://archive.ics.uci.edu/ml/datasets/Gas+Sensor+Array+Drift+Dataset+at+Different+Concentrations |
 
 ## Climate data
@@ -64,7 +63,7 @@ TBA
 | Dataset source | China Meteorological Administration |
 | Url | http://www.cma.gov.cn |
 |  |  |
-| Dataset dimensions | N=19538 M=428 |
+| Dataset dimensions | N=5000 M=50 |
 | Granularity | daily, consistent |
 | Remarks | from every time series the value taken is daily average |
 
@@ -80,8 +79,7 @@ TBA
 |  |  |
 | Granularity | 10 minutes, consistent save for missing values in the raw TS |
 |  |  |
-| Dataset dimensions | N=192069 M=4 |
-| Remarks | Only a subset of rows is considered |
+| Dataset dimensions | N=10000 M=10 |
 |  | TBA |
 
 #### Dataset description
@@ -109,7 +107,7 @@ Example: 13 = observation period 12:41 to 13:40
 | Dataset name | Hydrological data across multiple stations |
 | Url/source | https://www.bafu.admin.ch/bafu/en/home.html |
 |  |  |
-| Granularity | inconsistent, average distance between measurements d <= 36 minutes +/- variance |
+| Granularity | 30 minutes |
 | Observations | spans years 1974 to 2015 |
 |  |  |
-| Dataset dimensions | N=85203 M=12 |
+| Dataset dimensions | N=50000 M=10 |
