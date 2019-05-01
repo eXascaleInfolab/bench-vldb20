@@ -17,7 +17,17 @@ Folders named after dataset's code contains code_normal.txt file which is a matr
 
 ## Chlorine
 
-TBA
+| Data info |  |
+| -------- | -------- |
+| Dataset codename | chlorine |
+| Dataset name | Chlorine data |
+| Url | https://www.epa.gov/research |
+| Source | United States Environmental Protection Agency, EPANET |
+|  | Prof. Jeanne M. VanBriesen |
+|  |  |
+| Time granularity | 5 minutes |
+|  |  |
+| Dataset dimensions | N=1000 M=50 |
 
 ## Gas Sensor Array Drift Dataset at Different Concentrations
 
@@ -34,6 +44,7 @@ TBA
 | Irene Rodriguez-Lujan | (irrodriguezlujan '@' ucsd.edu) |
 | Ramon Huerta | (rhuerta '@' ucsd.edu)  |
 |  |  |
+| Time granularity | 6 hours |
 | Dataset dimensions | N=1000 M=100 } |
 | Remarks | only batch 10 is taken from the dataset |
 | Url | https://archive.ics.uci.edu/ml/datasets/Gas+Sensor+Array+Drift+Dataset+at+Different+Concentrations |
@@ -47,13 +58,23 @@ TBA
 | Url | http://www-bcf.usc.edu/~liu32/data.html |
 | Url item | NA-1990-2002-Monthly.csv |
 |  |  |
-| Time granularity | 1 month, consistent |
+| Time granularity | 1 month |
 |  |  |
 | Dataset dimensions | N=5000 M=10 |
 
 ## Electricity
 
-TBA
+| Data info |  |
+| -------- | -------- |
+| Dataset codename | electricity |
+| Dataset name | Electricity Load Diagrams |
+| Url | https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014 |
+| Dataset creator | Artur Trindade, artur.trindade '@' elergone.pt |
+|  | Elergone, NORTE-07-0202-FEDER-038564 |
+|  |  |
+| Time granularity | 1 minute |
+|  |  |
+| Dataset dimensions | N=5000 M=20 |
 
 ## Temperature dataset
 
@@ -64,7 +85,7 @@ TBA
 | Url | http://www.cma.gov.cn |
 |  |  |
 | Dataset dimensions | N=5000 M=50 |
-| Granularity | daily, consistent |
+| Granularity | daily |
 | Remarks | from every time series the value taken is daily average |
 
 ## Meteo Suisse data
@@ -77,7 +98,7 @@ TBA
 |  | Postfach 257 |
 |  | 8058 Zürich-Flughafen |
 |  |  |
-| Granularity | 10 minutes, consistent save for missing values in the raw TS |
+| Granularity | 10 minutes |
 |  |  |
 | Dataset dimensions | N=10000 M=10 |
 |  | TBA |
