@@ -72,7 +72,7 @@ Folders named after dataset's code contains code_normal.txt file which is a matr
 | Dataset creator | Artur Trindade, artur.trindade '@' elergone.pt |
 |  | Elergone, NORTE-07-0202-FEDER-038564 |
 |  |  |
-| Time granularity | 1 minute |
+| Time granularity | 15 minutes |
 |  |  |
 | Dataset dimensions | N=5000 M=20 |
 
