@@ -1,22 +1,19 @@
 # Imputation of Missing Values in Time Series Benchmark vldb19
 
 #### Repository structure
-- Algorithms - missing value recovery algorithms: InCD, ST-MVL, TRMF, TKCM, SPIRIT, TeNMF, GROUSE, SVDImpute, SoftImpute, SVT, ROSL, DynaMMo.
+- Algorithms - missing value recovery algorithms: CDRec, STMVL, TRMF, TKCM, SPIRIT, TeNMF, GROUSE, SVDImpute, SoftImpute, SVT, ROSL, DynaMMo.
 - Datasets - different datasets and time series from different sources.
 - Testing Framework - a program to run automated suite of tests on the datasets with the algorithms mentioned above.
+- Supports Linux and macOS
 
-#### List of prerequisites
+##### Prerequirsies and dependencies (Linux)
 
-- (Linux) Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
-- (macOS) macOS 10.13 or higher, homebrew
-- Sudo rights on the user (both systems)
-
+- Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
+- Sudo rights on the user
+- Clone the repository
 ```bash
     $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
 ```
-
-##### Dependencies (Linux)
-
 - C/C++ compilers and linear algebra libraries:
 ```bash
     $ sudo apt-get install build-essential cmake libopenmpi-dev libopenblas-dev liblapack-dev libarmadillo-dev libmlpack-dev
@@ -33,8 +30,14 @@
     $ sudo apt-get upgrade
 ```
 
-##### Dependencies (macOS)
+##### Prerequirsies and dependencies (macOS)
 
+- macOS 10.13 or higher, homebrew
+- Sudo rights on the user
+- Clone the repository
+```bash
+    $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
+```
 - C/C++ compilers and linear algebra libraries:
 ```bash
     $ brew update
