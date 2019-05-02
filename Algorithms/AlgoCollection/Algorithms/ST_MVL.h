@@ -5,6 +5,7 @@
 #pragma once
 
 #include <map>
+#include <array>
 #include <armadillo>
 
 // Conversion from C# summary:

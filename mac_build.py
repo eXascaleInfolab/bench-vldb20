@@ -34,9 +34,7 @@ if (execExists("octave")):
 elif (execExists("matlab")):
     matlabExec = "matlab";
 else:
-    print "error: octave or matlab are not detected in the system";
-    print "aborting build";
-    exit();
+    print "warning: octave or matlab are not detected in the system, TRMF will be disabled"
 
 
 ### build TestingFramework
@@ -49,4 +47,4 @@ launchProcess("msbuild", "TestingFramework.sln", "TestingFramework");
 launchProcess(matlabExec, "--eval \"install\"", "Algorithms/trmf");
 
 # All others
-launchProcess("make", "all", "Algorithms/AlgoCollection");
+launchProcess("make", "mac", "Algorithms/AlgoCollection");
