@@ -26,8 +26,6 @@
 
 ```bash
     $ sudo apt-get install mono-devel
-    $ sudo apt-get update
-    $ sudo apt-get upgrade
 ```
 
 ##### Prerequirsies and dependencies (macOS)
