@@ -44,7 +44,7 @@ namespace TestingFramework.Testing
                         
                         // full
                         case ExperimentScenario.Fullrow:
-                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 100, 10).ToArray());
+                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 100, 10).TakeWhile(x => x + 10 < rows).ToArray());
 
                         default:
                             throw new ArgumentException("Unrecognized experiment scenario or an incompatible combination with experiment type");
@@ -85,7 +85,7 @@ namespace TestingFramework.Testing
                         
                         // full
                         case ExperimentScenario.Fullrow:
-                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 100, 10).ToArray());
+                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 100, 10).TakeWhile(x => (x + rows / 20) < rows).ToArray());
                         
                         case ExperimentScenario.Fullcolumn:
                             return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(1, 10).TakeWhile(x => x < columns - AlgoPack.TypicalTruncation).ToArray());
