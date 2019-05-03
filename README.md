@@ -4,9 +4,8 @@
 - Algorithms - missing value recovery algorithms: CDRec, STMVL, TRMF, TKCM, SPIRIT, TeNMF, GROUSE, SVDImpute, SoftImpute, SVT, ROSL, DynaMMo.
 - Datasets - different datasets and time series from different sources.
 - Testing Framework - a program to run automated suite of tests on the datasets with the algorithms mentioned above.
-- Supports Linux and macOS
 
-##### Prerequirsies and dependencies (Linux)
+##### Prerequirsies and dependencies
 
 - Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
 - Sudo rights on the user
@@ -28,39 +27,12 @@
     $ sudo apt-get install mono-devel
 ```
 
-##### Prerequirsies and dependencies (macOS)
-
-- macOS 10.13 or higher, homebrew
-- Sudo rights on the user
-- Clone the repository
-```bash
-    $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
-```
-- C/C++ compilers and linear algebra libraries:
-```bash
-    $ brew update
-    $ xcode-select --install
-    $ brew install llvm cmake openblas lapack armadillo boost
-```
-- MLPACK. Homebrew doesn't provide binaries for MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source (warning, takes a lot of time)
-```bash
-    $ ./mac_install_mlpack.sh
-```
-- R to enable calculation of errors (MSE/RMSE, correlation), Gnuplot to enable recovery visualization and MSE plots:
-```bash
-    $ brew install R gnuplot
-```
-- Mono Runtime and Compiler: Installation the package provided by Mono in https://www.mono-project.com/download/stable/
-
 #### Build & tests
 
 - Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
 - Build all the algorithms and Testing Framework using a script in the root folder (takes around 1 minute):
 ```bash
-    (for linux)
     $ python linux_build.py
-    (for macos)
-    $ python mac_build.py
 ```
 - Run the benchmark:
 ```bash
@@ -77,3 +49,35 @@ To add a dataset to the benchmark
 - - Requirements: >= 10 columns, >= 1'000 rows, column separator - empty space, row separator - newline
 - add `{name}` to the list of datasets in `TestingFramework/config.cfg`
 - `mono TestingFramework.exe`
+
+##### Experimental: prerequirsies and dependencies (macOS)
+
+- If you don't have a possibility to run the benchmark on a Linux machine, it's possible to make it work on macOS with a few caveats:
+- - TRMF algorithm doesn't work with octave, so it will be disabled.
+- - The installation can take a really long time. The longest processes are installation of LLVM with brew and compilation of mlpack since brew doesn't contain this one.
+- macOS 10.13 or higher, homebrew
+- Sudo rights on the user
+- Clone the repository
+```bash
+    $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
+```
+- C/C++ compilers and linear algebra libraries:
+```bash
+    $ brew update
+    $ xcode-select --install
+    $ brew install llvm cmake openblas lapack armadillo boost
+```
+- MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source.
+```bash
+    $ chmod u+x mac_install_mlpack.sh
+    $ ./mac_install_mlpack.sh
+```
+- R to enable calculation of errors (MSE/RMSE, correlation), Gnuplot to enable recovery visualization and MSE plots:
+```bash
+    $ brew install R gnuplot
+```
+- Mono Runtime and Compiler: Installation the package provided by Mono in https://www.mono-project.com/download/stable/
+- Then building the project should be done with a different script
+```bash
+    $ python linux_build.py
+```
