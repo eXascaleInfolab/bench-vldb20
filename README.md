@@ -39,6 +39,7 @@
 - C/C++ compilers and linear algebra libraries:
 ```bash
     $ brew update
+    $ xcode-select --install
     $ brew install llvm cmake openblas lapack armadillo boost
 ```
 - MLPACK. Homebrew doesn't provide binaries for MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source (warning, takes a lot of time)
