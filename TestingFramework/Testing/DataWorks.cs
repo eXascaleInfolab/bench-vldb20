@@ -388,7 +388,7 @@ namespace TestingFramework.Testing
 
             var allAlgos = new List<string>();
             
-            foreach (Algorithm alg in algorithms)
+            foreach (Algorithm alg in algorithms.Where(a => a.IsPlottable))
             {
                 foreach (var subAlgorithm in alg.EnumerateSubAlgorithms())
                 {
