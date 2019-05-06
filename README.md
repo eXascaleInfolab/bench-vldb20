@@ -52,7 +52,7 @@ To add a dataset to the benchmark
 
 ##### Experimental: prerequirsies and dependencies (macOS)
 
-- If you don't have a possibility to run the benchmark on a Linux machine, it's possible to make it work on macOS with a few caveats:
+- It's highly recommended to run the benchmark on linux, GUI is not necessary, everuthing is CLI-only. Output files with plots can be just copied afterwards to be viewed on any machine. If you don't have a possibility to run the benchmark on Linux, it's possible to make it work on macOS with a few caveats:
 - - TRMF algorithm doesn't work with octave, so it will be disabled.
 - - The installation can take a really long time. The longest processes are installation of LLVM with brew and compilation of mlpack since brew doesn't contain this one.
 - macOS 10.13 or higher, homebrew
@@ -65,7 +65,8 @@ To add a dataset to the benchmark
 ```bash
     $ brew update
     $ xcode-select --install
-    $ brew install llvm cmake openblas lapack armadillo boost
+    $ brew install --force-bottle llvm
+    $ brew install cmake openblas lapack armadillo boost
 ```
 - MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source.
 ```bash
