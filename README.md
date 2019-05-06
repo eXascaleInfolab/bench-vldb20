@@ -84,5 +84,5 @@ To add a dataset to the benchmark
 - Mono Runtime and Compiler: Installation the package provided by Mono in https://www.mono-project.com/download/stable/
 - Then building the project should be done with a different script
 ```bash
-    $ python linux_build.py
+    $ python mac_build.py
 ```
