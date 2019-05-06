@@ -59,14 +59,18 @@ To add a dataset to the benchmark
 - Sudo rights on the user
 - Clone the repository
 ```bash
+    $ xcode-select --install
     $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
 ```
 - C/C++ compilers and linear algebra libraries:
 ```bash
     $ brew update
-    $ xcode-select --install
     $ brew install --force-bottle llvm
     $ brew install cmake openblas lapack armadillo boost
+```
+- If you're running macOS 10.14 you also have to install C/C++ headers by typing the command below and going through the installation screen:
+```bash
+    $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 ```
 - MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source.
 ```bash
