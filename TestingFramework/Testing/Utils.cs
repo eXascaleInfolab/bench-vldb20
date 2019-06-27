@@ -113,6 +113,9 @@ namespace TestingFramework.Testing
                 counter++;
             }
         }
+
+        public static double ParseDouble(string text) =>
+            Double.Parse(text, System.Globalization.CultureInfo.InvariantCulture);
         
         public static ValueTuple<int, int, int>[] MissingValuesNone()
         {

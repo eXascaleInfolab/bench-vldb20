@@ -66,8 +66,8 @@ namespace TestingFramework.Testing
                             string[] lines1 = File.ReadAllLines(file1).Skip(1).ToArray();
                             string[] lines2 = File.ReadAllLines(file2).Skip(1).ToArray();
 
-                            IEnumerable<(int, double)> cases1 = lines1.Select(l => (Int32.Parse(l.Split(' ')[0]), Double.Parse(l.Split(' ')[1])));
-                            IEnumerable<(int, double)> cases2 = lines2.Select(l => (Int32.Parse(l.Split(' ')[0]), Double.Parse(l.Split(' ')[1])));
+                            IEnumerable<(int, double)> cases1 = lines1.Select(l => (Int32.Parse(l.Split(' ')[0]), Utils.ParseDouble(l.Split(' ')[1])));
+                            IEnumerable<(int, double)> cases2 = lines2.Select(l => (Int32.Parse(l.Split(' ')[0]), Utils.ParseDouble(l.Split(' ')[1])));
                             
                             cases1.ForEach(c =>
                             {
@@ -211,7 +211,7 @@ namespace TestingFramework.Testing
                                         .Where(x => !String.IsNullOrEmpty(x)) //shouldn't be the case, but whatever, it's IO
                                         .Select(x => x.Split(' '))
                                         .Select(x =>
-                                            (Int32.Parse(x[0]), Double.Parse(x[1]))
+                                            (Int32.Parse(x[0]), Utils.ParseDouble(x[1]))
                                         );
 
                                     res.ForEach(x => {

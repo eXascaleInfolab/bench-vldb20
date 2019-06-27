@@ -42,7 +42,7 @@ namespace TestingFramework.Testing
                     .Where(x => !String.IsNullOrEmpty(x))
                     .Take(1)
                     .Select(
-                        x => x.Split(' ').Select(Double.Parse).ToArray()
+                        x => x.Split(' ').Select(Utils.ParseDouble).ToArray()
                     )
                     .ToArray();
 
@@ -83,7 +83,7 @@ namespace TestingFramework.Testing
                     line = sr.ReadLine();
                 }
 
-                double[] row = line.Split(' ').Take(colLimit).Select(Double.Parse).ToArray();
+                double[] row = line.Split(' ').Take(colLimit).Select(Utils.ParseDouble).ToArray();
 
                 rows.Add(row);
             }
@@ -114,7 +114,7 @@ namespace TestingFramework.Testing
                 File.ReadAllLines(fileInput)
                 .Where(x => !String.IsNullOrEmpty(x))
                 .Select(
-                        x => x.Split(' ').Select(Double.Parse).ToArray()
+                        x => x.Split(' ').Select(Utils.ParseDouble).ToArray()
                     ).ToArray();
 
             if (startRow >= res.Length) throw new Exception("invalid starting row");
@@ -204,7 +204,7 @@ namespace TestingFramework.Testing
                 File.ReadAllLines(referenceTs)
                 .Where(x => !String.IsNullOrEmpty(x))
                 .Select(
-                        x => x.Split(' ').Select(Double.Parse).ToArray()
+                        x => x.Split(' ').Select(Utils.ParseDouble).ToArray()
                     ).ToArray();
 
             // try to do correlation test
@@ -239,7 +239,7 @@ namespace TestingFramework.Testing
                     File.ReadAllLines(FolderResults + file)
                     .Where(x => !String.IsNullOrEmpty(x))
                     .Select(
-                            x => x.Trim().Split(x.Contains(',') ? ',' : ' ').Select(Double.Parse).ToArray()
+                            x => x.Trim().Split(x.Contains(',') ? ',' : ' ').Select(Utils.ParseDouble).ToArray()
                         ).ToArray();
 
                 total = 0;
@@ -291,7 +291,7 @@ namespace TestingFramework.Testing
                     {
                         string file = alg.EnumerateSubAlgorithms(tcase).First(x => x.Code == subAlgorithm.Code).CaseCode;
                         string runtimeValueStr = File.ReadAllText(FolderResults + file + ".txt");
-                        double runtimeValue = Double.Parse(runtimeValueStr);
+                        double runtimeValue = Utils.ParseDouble(runtimeValueStr);
 
                         algCase.Add((tcase, runtimeValue));
                     }
