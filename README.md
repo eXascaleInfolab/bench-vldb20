@@ -5,7 +5,9 @@
 - Datasets - different datasets and time series from different sources.
 - Testing Framework - a program to run automated suite of tests on the datasets with the algorithms mentioned above.
 
-##### Prerequirsies and dependencies
+___
+
+### Prerequirsies and dependencies (Linux)
 
 - Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
 - Sudo rights on the user
