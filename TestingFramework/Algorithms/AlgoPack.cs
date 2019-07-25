@@ -139,7 +139,6 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
-        public override bool IsPlottable => false;
     }
 
     public partial class TkcmAlgorithm
@@ -165,6 +164,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsPlottable => false;
     }
     
     public partial class SVTAlgorithm

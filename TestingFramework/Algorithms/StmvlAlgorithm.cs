@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}_latlng.txt", $"{dataCode}_m{tcase}_missing.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 3 lw 3 pt 5 lc rgbcolor \"cyan\" pointsize 2";
+        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 8 lc rgbcolor \"green\" pointsize 1.2";
         
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
