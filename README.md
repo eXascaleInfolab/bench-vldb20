@@ -7,7 +7,7 @@
 
 ___
 
-### Prerequirsies and dependencies (Linux)
+### Prerequisites and dependencies (Linux)
 
 - Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
 - Sudo rights on the user
@@ -54,7 +54,7 @@ To add a dataset to the benchmark
 
 ___
 
-### Experimental: prerequirsies and dependencies (macOS)
+### Prerequisites and dependencies (macOS) -- Experimental
 
 - It's highly recommended to run the benchmark on linux, GUI is not necessary, everuthing is CLI-only. Output files with plots can be just copied afterwards to be viewed on any machine. If you don't have a possibility to run the benchmark on Linux, it's possible to make it work on macOS with a few caveats:
 - - TRMF algorithm doesn't work with octave, so it will be disabled.
