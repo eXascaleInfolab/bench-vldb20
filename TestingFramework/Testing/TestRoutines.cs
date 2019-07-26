@@ -81,7 +81,7 @@ namespace TestingFramework.Testing
                             return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(stepSize, stepSize * 10, stepSize).ToArray());
                         
                         case ExperimentScenario.MissingSubMatrix:
-                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 80, 10).ToArray());
+                            return (new[] {(-1, -1, -1)}, Utils.ClosedSequence(10, 100, 10).ToArray());
                         
                         // full
                         case ExperimentScenario.Fullrow:
@@ -167,26 +167,33 @@ namespace TestingFramework.Testing
                             break;
                         
                         case ExperimentScenario.MissingSubMatrix:
+                            const int mcar_block = 10;
+                            const int mcar_percentage = 10;
                             List<(int, int, int)> missing2 = new List<(int, int, int)>();
                             Random r = new Random(RandomSeed);
+
+                            int activeColumns = (columns * tcase) / 100; // 10 to 100%
 
                             List<(int, int)> missing = new List<(int, int)>();
                             
                             Dictionary<int, List<int>> columnIdx = new Dictionary<int, List<int>>();
 
-                            for (int i = 0; i < columns; i++)
+                            for (int i = 0; i < activeColumns; i++)
                             {
-                                columnIdx.Add(i, Enumerable.Range(0, rows).ToList());
+                                columnIdx.Add(i, Enumerable.Range(0, rows / mcar_block).ToList());
                             }
                             
-                            for (int i = 0; i < (rows * columns * tcase) / 100; i++)
+                            for (int i = 0; i < (rows * activeColumns * mcar_percentage) / (100 * mcar_block); i++) // 100 for percentage adj
                             {
                                 int col = r.Next(0, columnIdx.Count);
                                 col = columnIdx.Keys.ElementAt(col);
                                 int row = r.Next(0, columnIdx[col].Count);
                                 row = columnIdx[col][row];
                                 
-                                missing.Add((col, row));
+                                for (int j = 0; j < 10; j++)
+                                {
+                                    missing.Add((col, 10 * row + j));
+                                }
 
                                 columnIdx[col].Remove(row);
 

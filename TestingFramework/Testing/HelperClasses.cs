@@ -84,7 +84,7 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.Columns: return "col";
                 case ExperimentScenario.MultiColumnDisjoint: return "mc-dj";
                 case ExperimentScenario.MulticolumnOverlap: return "mc-ol";
-                case ExperimentScenario.MissingSubMatrix: return "mis-mx";
+                case ExperimentScenario.MissingSubMatrix: return "mcar";
                 case ExperimentScenario.Fullrow: return "frow";
                 case ExperimentScenario.Fullcolumn: return "fcol";
                 default: throw new InvalidDataException();
@@ -100,7 +100,7 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.Columns: return "columns";
                 case ExperimentScenario.MultiColumnDisjoint: return "multicol-disjoint";
                 case ExperimentScenario.MulticolumnOverlap: return "multicol-overlap";
-                case ExperimentScenario.MissingSubMatrix: return "missingpercentange-matrix";
+                case ExperimentScenario.MissingSubMatrix: return "mcar";
                 case ExperimentScenario.Fullrow: return "blackout";
                 case ExperimentScenario.Fullcolumn: return "fullcolumn";
                 default: throw new InvalidDataException();
