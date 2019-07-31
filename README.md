@@ -85,8 +85,8 @@ ___
 ```bash
     $ brew install R gnuplot
 ```
-- Mono Runtime and Compiler: Installation the package provided by Mono in https://www.mono-project.com/download/stable/
-- Then building the project should be done with a different script
+- Mono Runtime and Compiler: Install the package provided by Mono in https://www.mono-project.com/download/stable/
+- Then restart the terminal window and build the project with a different script
 ```bash
     $ python mac_build.py
 ```
