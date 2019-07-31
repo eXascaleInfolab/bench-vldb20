@@ -19,22 +19,14 @@ def execExists(executable):
 if not (execExists("gcc") and execExists("g++")):
     print "error: gcc or g++ are not detected in the system";
     print "aborting build";
+    exit();
 
 
 if not (execExists("msbuild") and execExists("mono")):
     print "error: mono and/or msbuild are not detected in the system";
+    print "if you're sure mono is installed, restart the terminal window"
     print "aborting build";
     exit();
-
-
-matlabExec = "octave";
-
-if (execExists("octave")):
-    matlabExec = "octave";
-elif (execExists("matlab")):
-    matlabExec = "matlab";
-else:
-    print "warning: octave or matlab are not detected in the system, TRMF will be disabled"
 
 
 ### build TestingFramework
@@ -44,7 +36,23 @@ launchProcess("msbuild", "TestingFramework.sln", "TestingFramework");
 ### build all algorithms
 
 # TRMF
-launchProcess(matlabExec, "--eval \"install\"", "Algorithms/trmf");
+# not needed (unsupported)
+
+# instead we disable it in the testing framework
+filename = "TestingFramework/config.cfg";
+
+instream = open(filename, "r");
+lines = instream.readlines();
+
+nrows = len(lines);
+
+for i in xrange(nrows):
+    lines[i] = lines[i].replace("#DisableTrmf", "DisableTrmf");
+
+
+with open(filename, 'w') as f:
+    f.writelines(lines);
+
 
 # All others
 launchProcess("make", "mac", "Algorithms/AlgoCollection");
