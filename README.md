@@ -57,7 +57,7 @@ ___
 
 - It is possible to make the benchmark work on macOS with a few caveats:
 - - TRMF algorithm does not work with octave (on macOS), so it will be disabled.
-- - The installation can take a really long time. The longest processes are installation of LLVM with brew and compilation of mlpack since brew doesn't contain this one.
+- - The installation can take longer than Linux. The longest processes are the installation of LLVM with brew and the compilation of mlpack.
 - macOS 10.13 or higher, homebrew
 - Sudo rights on the user
 - Clone the repository
