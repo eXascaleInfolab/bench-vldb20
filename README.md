@@ -44,7 +44,7 @@ ___
 - Test suite will go over datasets one by one and executes all the scenarios for them with both precision test and runtime test. Plots folder in the root of the repository will be populated with the results.
 - Remark: full test suite with the default setup will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 20GB of output files with all recovered data and plots unless stopped early.
 
-#### Custom datasets
+#### Customize datasets
 
 To add a dataset to the benchmark
 - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt`
