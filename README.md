@@ -50,7 +50,6 @@ To add a dataset to the benchmark
 - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt`
 - - Requirements: >= 10 columns, >= 1'000 rows, column separator - empty space, row separator - newline
 - add `{name}` to the list of datasets in `TestingFramework/config.cfg`
-- `mono TestingFramework.exe`
 
 ___
 
