@@ -40,6 +40,6 @@ multicol-overlap/{dataset}:
 - fixed data length (size=max) and column count (size=max)
 - varying the amount of columns [10% to 100%, step 10%] that contain a missing block; if a column is containing a missing block it's of size = 2*N/M (except the last column at 100%, for this one the size is N/M), starting at line=(col_idx * size/2)
 
-missingpercentage-matrix/{dataset}:
+mcar/{dataset}:
 - fixed data length (size=max) and column count (size=max)
-- varying the percentage [10% to 80%, step 10%] of all data points in all time series that are removed; uniform except it ensures at least one element in each time series is left; PRNG seed is fixed so between runs the same elements are removed
+- varying the percentage [10% to 100%, step 10%] of columns that will contain missing blocks; missing block have a static size=10 are introduced into involved time series at random until a total of 10% of all values from them are removed; removal is uniform except it ensures at least one element in each time series is left; PRNG seed is fixed so between runs the same elements are removed
