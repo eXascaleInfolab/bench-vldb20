@@ -51,6 +51,13 @@ To add a dataset to the benchmark
 - - Requirements: >= 10 columns, >= 1'000 rows, column separator - empty space, row separator - newline
 - add `{name}` to the list of datasets in `TestingFramework/config.cfg`
 
+#### Customize algorithms
+
+To exclude an algorithm from the benchmark
+- open the file `TestingFramework/config.cfg`
+- add an entry `IgnoreAlgorithms =` and specify the list of algorithm codes to exclude them
+- the line starting with `#IgnoreAlgorithms =` provides codes for all the algorithms in the benchmark
+
 ___
 
 ### Prerequisites and dependencies (macOS) -- Experimental
@@ -85,7 +92,21 @@ ___
     $ brew install R gnuplot
 ```
 - Mono Runtime and Compiler: Install the package provided by Mono in https://www.mono-project.com/download/stable/
-- Then restart the terminal window and build the project with a different script
+
+
+#### Build & tests
+
+- Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
+- Build all the algorithms and Testing Framework using a script in the root folder (takes around 1 minute):
 ```bash
     $ python mac_build.py
 ```
+- Run the benchmark:
+```bash
+    $ cd TestingFramework/bin/Debug/
+    $ mono TestingFramework.exe
+```
+
+#### Customize datasets and algorithms
+
+The process is identical to Linux.
