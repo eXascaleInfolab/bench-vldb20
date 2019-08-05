@@ -16,9 +16,8 @@ missingpercentage/{dataset}:
 - varying missing block size [10% to 80%, step 10%] starting at col 0, line=indexof(5%)
 
 length/{dataset}:
-- fixed missing block length (size=10% of total length), start at col 0, line=indexof(5%)
-- fixed column count (size=12 or size=4, depending on the dataset)
-- varying total length of the time series [200 to 2K, step 200]
+- fixed column count (size=max) and missing block length (size=10% of max), start at col 0, line=indexof(5%)
+- varying total length of the time series [20% to 100% of max, step 10%]
 
 columns/{dataset}:
 - fixed data length (size=max) and missing block (size=10% of total length), starting at col 0, line=indexof(5%)
