@@ -55,8 +55,8 @@ ___
 
 ### Prerequisites and dependencies (macOS) -- Experimental
 
-- It's highly recommended to run the benchmark on linux, GUI is not necessary, everuthing is CLI-only. Output files with plots can be just copied afterwards to be viewed on any machine. If you don't have a possibility to run the benchmark on Linux, it's possible to make it work on macOS with a few caveats:
-- - TRMF algorithm doesn't work with octave, so it will be disabled.
+- It is possible to make the benchmark work on macOS with a few caveats:
+- - TRMF algorithm does not work with octave (on macOS), so it will be disabled.
 - - The installation can take a really long time. The longest processes are installation of LLVM with brew and compilation of mlpack since brew doesn't contain this one.
 - macOS 10.13 or higher, homebrew
 - Sudo rights on the user
