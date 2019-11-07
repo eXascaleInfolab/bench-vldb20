@@ -190,7 +190,7 @@ namespace TestingFramework.Testing
                                 int row = r.Next(0, columnIdx[col].Count);
                                 row = columnIdx[col][row];
                                 
-                                for (int j = 0; j < 10; j++)
+                                for (int j = 0; j < mcar_block; j++)
                                 {
                                     missing.Add((col, 10 * row + j));
                                 }
