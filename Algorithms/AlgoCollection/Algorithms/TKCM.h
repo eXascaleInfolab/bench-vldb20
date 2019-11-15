@@ -15,7 +15,7 @@ class TKCM
 {
   private:
     uint64_t l = 4;
-    const uint64_t k = 3;
+    const uint64_t k = 5;
     const uint64_t d = 3;
     
     arma::mat &matrix;

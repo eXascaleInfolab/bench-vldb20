@@ -15,26 +15,18 @@ ___
 ```bash
     $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
 ```
-- C/C++ compilers and linear algebra libraries:
-```bash
-    $ sudo apt-get install build-essential cmake libopenmpi-dev libopenblas-dev liblapack-dev libarmadillo-dev libmlpack-dev
-```
-- GNU Octave with C++ interop libraries, R to enable calculation of errors (MSE/RMSE, correlation), Gnuplot to enable recovery visualization and MSE plots:
-```bash
-    $ sudo apt-get install octave-pkg-dev r-base gnuplot
-```
 - Mono Runtime and Compiler: follow step 1 from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
-
 ```bash
     $ sudo apt-get install mono-devel
 ```
+- All other prerequisites will be installed using a build script.
 
 #### Build & tests
 
-- Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
-- Build all the algorithms and Testing Framework using a script in the root folder (takes around 1 minute):
+ Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
+- Build all the algorithms and Testing Framework using a script in the root folder (takes up to 5 minutes depending which prerequisites are already installed in the system):
 ```bash
-    $ python linux_build.py
+    $ sh install_linux.sh
 ```
 - Run the benchmark:
 ```bash
@@ -72,34 +64,20 @@ ___
     $ xcode-select --install
     $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
 ```
-- C/C++ compilers and linear algebra libraries:
-```bash
-    $ brew update
-    $ brew install --force-bottle llvm
-    $ brew install cmake openblas lapack armadillo boost
-```
 - If you're running macOS 10.14 you also have to install C/C++ headers by typing the command below and going through the installation screen:
 ```bash
     $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 ```
-- MLPACK. After all of the above packages are installed, open terminal in the repository folder and build mlpack from source.
-```bash
-    $ chmod u+x mac_install_mlpack.sh
-    $ ./mac_install_mlpack.sh
-```
-- R to enable calculation of errors (MSE/RMSE, correlation), Gnuplot to enable recovery visualization and MSE plots:
-```bash
-    $ brew install R gnuplot
-```
 - Mono Runtime and Compiler: Install the package provided by Mono in https://www.mono-project.com/download/stable/
+- All other prerequisites will be installed using a build script.
 
 
 #### Build & tests
 
 - Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
-- Build all the algorithms and Testing Framework using a script in the root folder (takes around 1 minute):
+- Build all the algorithms and Testing Framework using a script in the root folder (takes up to 10-12 minutes depending which prerequisites are already installed in the system):
 ```bash
-    $ python mac_build.py
+    $ sh install_mac.sh
 ```
 - Run the benchmark:
 ```bash
