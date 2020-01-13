@@ -85,7 +85,7 @@ namespace TestingFramework.Testing
                 case ExperimentScenario.MultiColumnDisjoint: return "mc-dj";
                 case ExperimentScenario.MulticolumnOverlap: return "mc-ol";
                 case ExperimentScenario.MissingSubMatrix: return "mcar";
-                case ExperimentScenario.Fullrow: return "frow";
+                case ExperimentScenario.Fullrow: return "bout";
                 case ExperimentScenario.Fullcolumn: return "fcol";
                 default: throw new InvalidDataException();
             }
@@ -95,11 +95,11 @@ namespace TestingFramework.Testing
         {
             switch (es)
             {
-                case ExperimentScenario.Missing: return "missingpercentage";
-                case ExperimentScenario.Length: return "length";
-                case ExperimentScenario.Columns: return "columns";
-                case ExperimentScenario.MultiColumnDisjoint: return "multicol-disjoint";
-                case ExperimentScenario.MulticolumnOverlap: return "multicol-overlap";
+                case ExperimentScenario.Missing: return "miss_perc";
+                case ExperimentScenario.Length: return "ts_length";
+                case ExperimentScenario.Columns: return "ts_nbr";
+                case ExperimentScenario.MultiColumnDisjoint: return "miss_disj";
+                case ExperimentScenario.MulticolumnOverlap: return "miss_over";
                 case ExperimentScenario.MissingSubMatrix: return "mcar";
                 case ExperimentScenario.Fullrow: return "blackout";
                 case ExperimentScenario.Fullcolumn: return "fullcolumn";
@@ -136,7 +136,8 @@ namespace TestingFramework.Testing
             yield return ExperimentScenario.MulticolumnOverlap;
             yield return ExperimentScenario.MissingSubMatrix;
             yield return ExperimentScenario.Fullrow;
-            yield return ExperimentScenario.Fullcolumn;
+            //yield return ExperimentScenario.Fullcolumn;
+            
         }
 
         public static bool IsLimited(this ExperimentScenario es)

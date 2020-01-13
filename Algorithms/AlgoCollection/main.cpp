@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     
     // parameters that depend on n, m
     
-    if (k > m)
+    if (k > m && algoCode != "st-mvl" && algoCode != "tkcm")
     {
         std::cout << "Truncation factor k can't be larger than m" << std::endl;
         return EXIT_FAILURE;
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
     
     // set defaults because now we can determine those that depend on n, m
     
-    if (k == 0)
+    if (k == 0 && algoCode != "st-mvl" && algoCode != "tkcm")
     {
         k = m;
     }

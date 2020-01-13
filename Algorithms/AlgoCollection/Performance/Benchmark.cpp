@@ -67,11 +67,9 @@ int64_t Recovery_CD(arma::mat &mat, uint64_t truncation)
 
 int64_t Recovery_TKCM(arma::mat &mat, uint64_t truncation)
 {
-    (void) truncation;
-    
     // Local
     int64_t result;
-    Algorithms::TKCM tkcm(mat);
+    Algorithms::TKCM tkcm(mat, truncation);
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
 
@@ -88,11 +86,13 @@ int64_t Recovery_TKCM(arma::mat &mat, uint64_t truncation)
     return result;
 }
 
-int64_t Recovery_ST_MVL(arma::mat &mat, const std::string &latlong)
+int64_t Recovery_ST_MVL(arma::mat &mat, uint64_t truncation, const std::string &latlong)
 {
     // Local
     int64_t result;
-    ST_MVL stmvl(mat, latlong, 2.0, 0.85, 7);
+
+    double alpha = ((double)truncation) / 1000.0;
+    ST_MVL stmvl(mat, latlong, alpha, 0.85, 7);
 
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
@@ -200,7 +200,7 @@ int64_t Recovery_DynaMMo(arma::mat &mat, uint64_t truncation)
     return result;
 }
 
-int64_t Recovery_SVT(arma::mat &mat)
+int64_t Recovery_SVT(arma::mat &mat, const std::string &xtra)
 {
     // Local
     int64_t result;
@@ -208,9 +208,10 @@ int64_t Recovery_SVT(arma::mat &mat)
     std::chrono::steady_clock::time_point begin;
     std::chrono::steady_clock::time_point end;
     
+    double tauScale = std::stod(xtra);
     // Recovery
     begin = std::chrono::steady_clock::now();
-    SVT::doSVT(mat);
+    SVT::doSVT(mat, tauScale);
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
@@ -293,7 +294,7 @@ int64_t Recovery(arma::mat &mat, uint64_t truncation,
     }
     else if (algorithm == "st-mvl")
     {
-        return Recovery_ST_MVL(mat, xtra);
+        return Recovery_ST_MVL(mat, truncation, xtra);
     }
     else if (algorithm == "spirit")
     {
@@ -313,7 +314,7 @@ int64_t Recovery(arma::mat &mat, uint64_t truncation,
     }
     else if (algorithm == "svt")
     {
-        return Recovery_SVT(mat);
+        return Recovery_SVT(mat, xtra);
     }
     else if (algorithm == "rosl")
     {

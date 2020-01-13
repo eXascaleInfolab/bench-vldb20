@@ -20,8 +20,8 @@ namespace Algorithms
 
 #define POS(row, col) (((nr_patterns+1)*(row)) + (col))
 
-TKCM::TKCM(arma::mat &mx)
-        : matrix(mx)
+TKCM::TKCM(arma::mat &mx, uint64_t trunc)
+        : matrix(mx), l(trunc)
 { }
 
 void TKCM::actionTkcm(const arma::mat &ref_ts, arma::vec &ts, uint64_t &offset, const uint64_t &L)

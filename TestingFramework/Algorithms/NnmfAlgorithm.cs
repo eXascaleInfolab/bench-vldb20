@@ -90,7 +90,7 @@ namespace TestingFramework.Algorithms
             nnmfproc.StartInfo.UseShellExecute = false;
 
             string testType = rtVal == "True" ? "rt" : "o";
-            nnmfproc.StartInfo.Arguments = $"-alg nnmf -test {testType} -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            nnmfproc.StartInfo.Arguments = $"-alg nnmf -test {testType} -n {data.N} -m {data.M} -k {Truncation} " +
                                            $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                            $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

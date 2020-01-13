@@ -48,7 +48,8 @@ namespace TestingFramework.Algorithms
 
             svtproc.StartInfo.Arguments = $"-alg svt -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
-                                         $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
+                                         $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt " +
+                                         $"-xtra {TauScale}";
 
             return svtproc;
         }
@@ -65,7 +66,8 @@ namespace TestingFramework.Algorithms
 
             svtproc.StartInfo.Arguments = $"-alg svt -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
-                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
+                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt " +
+                                             $"-xtra {TauScale}";
 
             return svtproc;
         }

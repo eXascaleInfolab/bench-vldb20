@@ -62,7 +62,7 @@ namespace TestingFramework.Algorithms
             trmfproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             trmfproc.StartInfo.UseShellExecute = false;
 
-            string functionArgs = $"{len}, '{data.Code}'";
+            string functionArgs = $"{len}, '{data.Code}', {Truncation}";
             trmfproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 1)\"";
 
             return trmfproc;

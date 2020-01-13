@@ -14,16 +14,16 @@ namespace Algorithms
 class TKCM
 {
   private:
-    uint64_t l = 4;
+    arma::mat &matrix;
+    
+    uint64_t l;
     const uint64_t k = 5;
     const uint64_t d = 3;
-    
-    arma::mat &matrix;
     
     void actionTkcm(const arma::mat &ref_ts, arma::vec &ts, uint64_t &offset, const uint64_t &L);
   
   public:
-    explicit TKCM(arma::mat &mx);
+    explicit TKCM(arma::mat &mx, uint64_t trunc);
     
     void performRecovery();
 };

@@ -1,90 +1,111 @@
-# Imputation of Missing Values in Time Series Benchmark vldb20
+# Imputation of Missing Values in Time Series Benchmark 
+
+Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux: *Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series*. In the Proceedings of the VLDB Endowment (**PVLDB 2020**)
+<!---
 
 #### Repository structure
 - Algorithms - missing blocks recovery algorithms: CDRec, STMVL, TRMF, TKCM, SPIRIT, TeNMF, GROUSE, SVDImpute, SoftImpute, SVT, ROSL, DynaMMo.
 - Datasets - different datasets and time series from different sources.
 - Testing Framework - a program to run automated suite of tests on the datasets with the algorithms mentioned above.
+ --->
 
 ___
 
-### Prerequisites and dependencies (Linux)
+## Prerequisites and dependencies
 
-- Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu)
-- Sudo rights on the user
-- Clone the repository
-```bash
-    $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
-```
-- Mono Runtime and Compiler: follow step 1 from the installation guide in https://www.mono-project.com/download/stable/ for your Ubuntu version and afterwards do:
-```bash
-    $ sudo apt-get install mono-devel
-```
-- All other prerequisites will be installed using a build script.
+- Ubuntu 16 and higher (or Ubuntu derivatives like Xubuntu).
+- Clone this repository.
+- Mono. Install mono from https://www.mono-project.com/download/stable/ .
 
-#### Build & tests
+___
 
- Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
-- Build all the algorithms and Testing Framework using a script in the root folder (takes up to 5 minutes depending which prerequisites are already installed in the system):
+## Build
+
+- Build all the algorithms and Testing Framework using a script in the root folder:
 ```bash
     $ sh install_linux.sh
 ```
-- Run the benchmark:
-```bash
-    $ cd TestingFramework/bin/Debug/
-    $ mono TestingFramework.exe
-```
-- Test suite will go over datasets one by one and executes all the scenarios for them with both precision test and runtime test. Plots folder in the root of the repository will be populated with the results.
-- Remark: full test suite with the default setup will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 20GB of output files with all recovered data and plots unless stopped early.
-
-#### Customize datasets
-
-To add a dataset to the benchmark
-- import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt`
-- - Requirements: >= 10 columns, >= 1'000 rows, column separator - empty space, row separator - newline
-- add `{name}` to the list of datasets in `TestingFramework/config.cfg`
-
-#### Customize algorithms
-
-To exclude an algorithm from the benchmark
-- open the file `TestingFramework/config.cfg`
-- add an entry `IgnoreAlgorithms =` and specify the list of algorithm codes to exclude them
-- the line starting with `#IgnoreAlgorithms =` provides codes for all the algorithms in the benchmark
 
 ___
 
-### Prerequisites and dependencies (macOS) -- Experimental
-
-- It is possible to make the benchmark work on macOS with a few caveats:
-- - TRMF algorithm does not work with octave (on macOS), so it will be disabled.
-- - The installation can take longer than Linux. The longest processes are the installation of LLVM with brew and the compilation of mlpack.
-- macOS 10.13 or higher, homebrew
-- Sudo rights on the user
-- Clone the repository
-```bash
-    $ xcode-select --install
-    $ git clone https://github.com/eXascaleInfolab/bench-vldb19.git
-```
-- If you're running macOS 10.14 you also have to install C/C++ headers by typing the command below and going through the installation screen:
-```bash
-    $ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
-```
-- Mono Runtime and Compiler: Install the package provided by Mono in https://www.mono-project.com/download/stable/
-- All other prerequisites will be installed using a build script.
+## Execution
 
 
-#### Build & tests
-
-- Restart the terminal window after all the dependencies are installed. Open it in the root folder of the repository.
-- Build all the algorithms and Testing Framework using a script in the root folder (takes up to 10-12 minutes depending which prerequisites are already installed in the system):
-```bash
-    $ sh install_mac.sh
-```
-- Run the benchmark:
 ```bash
     $ cd TestingFramework/bin/Debug/
-    $ mono TestingFramework.exe
+    $ mono TestingFramework.exe [arguments]
 ```
 
-#### Customize datasets and algorithms
+- Command-line arguments for the program:
 
-The process is identical to Linux.
+ | -alg (Algorithm) | -d (Dataset) |  -scen (Scenario)
+ | -------- | -------- | -------- |
+ | cdrec    | airq        | miss_perc |
+ | dynammo  | bafu        | ts_length |
+ | grouse   | chlorine    | ts_nbr    |
+ | rosl     | climate     | miss_disj |
+ | softimp  | drift10     | miss_over |
+ | svdimp   | electricity | mcar      |
+ | svt      | meteo       | blackout  |
+ | stmvl    | temp        | all       |
+ | spirit   | all         |           |
+ | tenmf    |             |           |
+ | tkcm     |             |           |
+ | trmf     |             |           |
+ | all      |             |           |
+
+
+
+- Remarks:
+    - All algorithms are ran using the parameters that yield the best accuracy/effciency recovery tradeoff.
+    - `Results` subfolder will be populated with the recovery results. For matching scenarios and datasets the restuls will be overwritten.
+    - Launch the program with `--help` to see additional command-line parameters.
+
+
+
+### Execution examples
+
+- Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
+```bash
+    $ mono TestingFramework.exe -alg spirit -d airq -scen miss_perc
+```
+
+- Run two algorithms (spirit, grouse) on a single dataset (airq) using one scenario (missing percentage)
+```bash
+    $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
+```
+
+- Run the whole benchmark 
+```bash
+    $ mono TestingFramework.exe -alg all -d all -scen all
+```
+- Remark: The full test suite will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
+
+### Parametrized execution
+
+- You can parametrize each algorithm using the command `-algx`. For example, you can run
+the svdimp algorithm with a reduction value of 4 on the drift dataset and by varying the sequence length as follows:
+
+```bash
+    $ mono TestingFramework.exe -algx svdimp 4 -d drift10 -scen ts_nbr
+```
+
+- Remark: The command `-algx`can not be run in group and should preceed the name of each algorithm
+
+
+### Datasets customization
+
+To add a dataset to the benchmark
+- import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt`
+- Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
+
+<!---
+### Optional commands
+
+ | Argument | Description | Options | Remarks |
+ | -------- | -------- | -------- | -------- | 
+ | -nort | Doesn't test runtime of the algorithms | n/a | - |
+ | -noprec | Doesn't test precision of the algorithms | n/a | - |
+ | -novis | Doesn't render plots which show the recovered block | n/a | - |
+ | -out [folder] | Redirects results from default folder to a custom one | [folder] : a folder to store the results | Folder will be created is it doesn't exist. Existing files might be overwritten. |
+ --->

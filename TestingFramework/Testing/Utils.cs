@@ -185,6 +185,14 @@ namespace TestingFramework.Testing
             IEnumerable<string> enumerated = stringColection as string[] ?? stringColection as IList<string> ?? stringColection.ToArray();
             
             int count = enumerated.Count();
+            if (count == 0)
+            {
+                return "";
+            }
+            if (count == 1)
+            {
+                return enumerated.ElementAt(0);
+            }
             var result = new StringBuilder();
             
             for (int i = 0; i < count - 1; i++)

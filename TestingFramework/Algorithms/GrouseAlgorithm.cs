@@ -46,7 +46,7 @@ namespace TestingFramework.Algorithms
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;
 
-            grouseproc.StartInfo.Arguments = $"-alg grouse -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
@@ -63,7 +63,7 @@ namespace TestingFramework.Algorithms
             grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             grouseproc.StartInfo.UseShellExecute = false;
 
-            grouseproc.StartInfo.Arguments = $"-alg grouse -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

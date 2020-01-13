@@ -46,7 +46,7 @@ namespace TestingFramework.Algorithms
             svdiproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             svdiproc.StartInfo.UseShellExecute = false;
 
-            svdiproc.StartInfo.Arguments = $"-alg itersvd -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            svdiproc.StartInfo.Arguments = $"-alg itersvd -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
@@ -63,7 +63,7 @@ namespace TestingFramework.Algorithms
             svdiproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             svdiproc.StartInfo.UseShellExecute = false;
 
-            svdiproc.StartInfo.Arguments = $"-alg itersvd -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            svdiproc.StartInfo.Arguments = $"-alg itersvd -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

@@ -46,7 +46,7 @@ namespace TestingFramework.Algorithms
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;
 
-            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test o -n {data.N} -m {data.M} -k {(int)(Alpha * 1000.0)} " +
                                             $"-xtra {SubFolderDataIn}{data.Code}_m{len}_latlng.txt " +
                                             $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
@@ -64,7 +64,7 @@ namespace TestingFramework.Algorithms
             stmvlproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stmvlproc.StartInfo.UseShellExecute = false;
 
-            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            stmvlproc.StartInfo.Arguments = $"-alg st-mvl -test rt -n {data.N} -m {data.M} -k {(int)(Alpha * 1000.0)} " +
                                             $"-xtra {SubFolderDataIn}{data.Code}_m{len}_latlng.txt " +
                                             $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";

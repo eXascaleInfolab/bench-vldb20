@@ -473,26 +473,36 @@ namespace TestingFramework.Testing
             // Move results to proper folders
             //
             
-            string rootDir = DataWorks.FolderPlotsRemote +
-                             $"{ex.ToLongString()}/{et.ToLongString()}/{es.ToLongString()}/{code}/";
-            if (!Directory.Exists(rootDir))
+            string rootDir = DataWorks.FolderPlotsRemote + $"{es.ToLongString()}/{code}/";
+            
+            if (Directory.Exists(rootDir))
+            {
+                string tempf;
+                // clean up ONLY precision results
+                if (Directory.Exists(tempf = rootDir + "error/")) Directory.Delete(tempf, true);
+                if (Directory.Exists(tempf = rootDir + "recovery/")) Directory.Delete(tempf, true);
+                if (Directory.Exists(tempf = rootDir + "scripts/precision/")) Directory.Delete(tempf, true);
+            }
+            else
             {
                 Directory.CreateDirectory(rootDir);
-                Directory.CreateDirectory(rootDir + "data/");
+            }
+
+            {
                 Directory.CreateDirectory(rootDir + "error/");
                 Directory.CreateDirectory(rootDir + "recovery/");
                 
-                Directory.CreateDirectory(rootDir + "error/figs/");
-                Directory.CreateDirectory(rootDir + "error/misc/");
-                Directory.CreateDirectory(rootDir + "error/results/");
-                Directory.CreateDirectory(rootDir + "error/results/values/");
-                Directory.CreateDirectory(rootDir + "error/results/values/mse/");
-                Directory.CreateDirectory(rootDir + "error/results/values/rmse/");
-                Directory.CreateDirectory(rootDir + "error/results/values/mae/");
-                Directory.CreateDirectory(rootDir + "error/results/recovered_matrices/");
-                
-                Directory.CreateDirectory(rootDir + "recovery/figs/");
-                Directory.CreateDirectory(rootDir + "recovery/scripts/");
+                Directory.CreateDirectory(rootDir + "error/mae/");
+                Directory.CreateDirectory(rootDir + "error/mse/");
+                Directory.CreateDirectory(rootDir + "error/rmse/");
+                Directory.CreateDirectory(rootDir + "error/plots/");
+
+                Directory.CreateDirectory(rootDir + "recovery/plots/");
+                Directory.CreateDirectory(rootDir + "recovery/values/");
+                Directory.CreateDirectory(rootDir + "recovery/values/recovered_matrices/");
+
+                // part of path is shared with rt
+                Directory.CreateDirectory(rootDir + "scripts/precision/");
             }
             
             Console.WriteLine("Copying over results");
@@ -501,7 +511,7 @@ namespace TestingFramework.Testing
             foreach (int tcase in lengths)
             {
                 // gnuplots
-                string dataTCaseFolder = rootDir + "data/" + tcase + "/";
+                string dataTCaseFolder = rootDir + "recovery/values/" + tcase + "/";
                 if (Directory.Exists(dataTCaseFolder)) Directory.Delete(dataTCaseFolder, true);
                 
                 Directory.Move(
@@ -509,7 +519,7 @@ namespace TestingFramework.Testing
                     dataTCaseFolder);
                 
                 // plotfiles
-                string pltFile = rootDir + $"recovery/scripts/{code}_m{tcase}.plt";
+                string pltFile = rootDir + $"scripts/precision/{code}_m{tcase}.plt";
                 if (File.Exists(pltFile)) File.Delete(pltFile);
                     
                 File.Move(
@@ -517,7 +527,7 @@ namespace TestingFramework.Testing
                     pltFile);
                 
                 // recovered matrices
-                string recoveredMatFile = rootDir + "error/results/recovered_matrices/" + $"recoveredMat{tcase}.txt";
+                string recoveredMatFile = rootDir + "recovery/values/recovered_matrices/" + $"recoveredMat{tcase}.txt";
                 if (File.Exists(recoveredMatFile)) File.Delete(recoveredMatFile);
                 
                 File.Move(
@@ -530,14 +540,14 @@ namespace TestingFramework.Testing
             // mse
             DataWorks.GenerateMseGnuPlot(algorithms, code, start, end, tick, es);
 
-            string mseFile = rootDir + $"error/results/{code}_mse.plt";
+            string mseFile = rootDir + $"scripts/precision/{code}_mse.plt";
             if (File.Exists(mseFile)) File.Delete(mseFile);
             
             File.Copy($"{DataWorks.FolderResults}plotfiles/out/{code}_mse.plt", mseFile);
             
             // Rscript
             Utils.FileFindAndReplace(DataWorks.FolderResults + "plotfiles/template_err.r",
-                $"{rootDir}error/results/error_calculation.r",
+                $"{rootDir}scripts/precision/error_calculation.r",
                 ("{start}", start.ToString()),
                 ("{end}", end.ToString()),
                 ("{tick}", tick.ToString()),
@@ -550,11 +560,12 @@ namespace TestingFramework.Testing
             
             // plotall
             Utils.FileFindAndReplace(DataWorks.FolderResults + "plotfiles/template_plotall.py",
-                $"{rootDir}plotall.py",
+                $"{rootDir}scripts/precision/plotall.py",
                 ("{code}", code),
                 ("{start}", start.ToString()),
                 ("{end}", end.ToString()),
-                ("{tick}", tick.ToString())
+                ("{tick}", tick.ToString()),
+                ("{vis}", DataWorks.DisableVisualization ? "#" : "")
             );
 
             // reference plot
@@ -562,25 +573,25 @@ namespace TestingFramework.Testing
             {
                 // copy 6-column reference
                 Utils.FileFindAndReplace(DataWorks.FolderResults + "plotfiles/reference_plot_6.plt",
-                    $"{rootDir}recovery/scripts/reference_plot.plt",
-                    ("{nlimit}", nlimit.ToString())
+                    $"{rootDir}scripts/precision/reference_plot.plt",
+                    ("{nlimit}", Math.Min(nlimit, 2500).ToString())
                 );
             }
             else
             {
                 // copy 4-column reference
                 Utils.FileFindAndReplace(DataWorks.FolderResults + "plotfiles/reference_plot_4.plt",
-                    $"{rootDir}recovery/scripts/reference_plot.plt",
-                    ("{nlimit}", nlimit.ToString())
+                    $"{rootDir}scripts/precision/reference_plot.plt",
+                    ("{nlimit}", Math.Min(nlimit, 2500).ToString())
                 );
             }
             
-            if (File.Exists($"{rootDir}data/reference.txt")) File.Delete($"{rootDir}data/reference.txt");
-            File.Move($"{DataWorks.FolderResultsPlots}{code}_normal.txt", $"{rootDir}data/reference.txt");
+            if (File.Exists($"{rootDir}recovery/values/reference.txt")) File.Delete($"{rootDir}recovery/values/reference.txt");
+            File.Move($"{DataWorks.FolderResultsPlots}{code}_normal.txt", $"{rootDir}recovery/values/reference.txt");
             
             Console.WriteLine("Plotting results");
             
-            Utils.RunSimpleVoidProcess("python", rootDir, "plotall.py");
+            Utils.RunSimpleVoidProcess("python", rootDir, "scripts/precision/plotall.py");
             
             Console.WriteLine($"Sequence {ex.ToLongString()} / {et.ToLongString()} / {es.ToLongString()} for {code} completed");
             
@@ -712,13 +723,27 @@ namespace TestingFramework.Testing
             // create outputs
             //
 
-            string rootDir = DataWorks.FolderPlotsRemote +
-                             $"{ex.ToLongString()}/{et.ToLongString()}/{es.ToLongString()}/{code}/";
-            if (!Directory.Exists(rootDir))
+            string rootDir = DataWorks.FolderPlotsRemote + $"{es.ToLongString()}/{code}/";
+            
+            if (Directory.Exists(rootDir))
+            {
+                string tempf;
+                // clean up ONLY precision results
+                if (Directory.Exists(tempf = rootDir + "runtime/")) Directory.Delete(tempf, true);
+                if (Directory.Exists(tempf = rootDir + "scripts/rutnime/")) Directory.Delete(tempf, true);
+            }
+            else
             {
                 Directory.CreateDirectory(rootDir);
-                Directory.CreateDirectory(rootDir + "results/");
-                Directory.CreateDirectory(rootDir + "figs/");
+            }
+
+            {
+                Directory.CreateDirectory(rootDir + "runtime/");
+                Directory.CreateDirectory(rootDir + "runtime/values/");
+                Directory.CreateDirectory(rootDir + "runtime/plots/");
+                
+                // part of path is shared with prec
+                Directory.CreateDirectory(rootDir + "scripts/runtime/");
             }
 
             Console.WriteLine("Copying over results");
@@ -727,7 +752,7 @@ namespace TestingFramework.Testing
             // add GNUPLOT
             //
             
-            DataWorks.CollectRuntimeResults(lengths, algorithms, rootDir + "results/");
+            DataWorks.CollectRuntimeResults(lengths, algorithms, rootDir + "runtime/values/");
 
             //
             // GNUPLOT plt files
@@ -736,14 +761,14 @@ namespace TestingFramework.Testing
 
             DataWorks.GenerateRuntimeGnuPlot(algorithms, code, start, end, tick, et, es);
             
-            string plotFileExt = rootDir + $"{code}_rt.plt";
+            string plotFileExt = rootDir + $"scripts/runtime/{code}_rt.plt";
 
             if (File.Exists(plotFileExt)) File.Delete(plotFileExt);
             
             File.Move($"{DataWorks.FolderResults}plotfiles/out/{code}_rt.plt", plotFileExt);
             
             Console.WriteLine("Plotting results");
-            Utils.RunSimpleVoidProcess("gnuplot", rootDir, $"{code}_rt.plt");
+            Utils.RunSimpleVoidProcess("gnuplot", rootDir, $"scripts/runtime/{code}_rt.plt");
 
             //
             // cleanup

@@ -47,7 +47,7 @@ namespace TestingFramework.Algorithms
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            spiritproc.StartInfo.Arguments = $"-alg spirit -test o -n {data.N} -m {data.M} -k 4 " +
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 
@@ -64,7 +64,7 @@ namespace TestingFramework.Algorithms
             spiritproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             spiritproc.StartInfo.UseShellExecute = false;
             
-            spiritproc.StartInfo.Arguments = $"-alg spirit -test rt -n {data.N} -m {data.M} -k 4 " +
+            spiritproc.StartInfo.Arguments = $"-alg spirit -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{tcase}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{tcase}.txt";
 

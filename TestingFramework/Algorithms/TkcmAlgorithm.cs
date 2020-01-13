@@ -93,7 +93,7 @@ namespace TestingFramework.Algorithms
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;
             
-            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test o -n {data.N} -m {data.M} -k {ParamL} " +
                                            $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                            $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
@@ -110,7 +110,7 @@ namespace TestingFramework.Algorithms
             tkcmproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             tkcmproc.StartInfo.UseShellExecute = false;
             
-            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            tkcmproc.StartInfo.Arguments = $"-alg tkcm -test rt -n {data.N} -m {data.M} -k {ParamL} " +
                                            $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                            $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

@@ -46,7 +46,7 @@ namespace TestingFramework.Algorithms
             siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             siproc.StartInfo.UseShellExecute = false;
 
-            siproc.StartInfo.Arguments = $"-alg softimpute -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            siproc.StartInfo.Arguments = $"-alg softimpute -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
@@ -63,7 +63,7 @@ namespace TestingFramework.Algorithms
             siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             siproc.StartInfo.UseShellExecute = false;
 
-            siproc.StartInfo.Arguments = $"-alg softimpute -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            siproc.StartInfo.Arguments = $"-alg softimpute -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

@@ -7,7 +7,7 @@
 namespace Algorithms
 {
 
-void SVT::doSVT(arma::mat &X)
+void SVT::doSVT(arma::mat &X, double tauScale)
 {
     // const parameters
     constexpr uint64_t incre = 5;
@@ -31,7 +31,7 @@ void SVT::doSVT(arma::mat &X)
     double m = std::min(5 * df, round(.99 * (double)(n1 * n2)));
     double p = m / (double)(n1 * n2);
     
-    double tau = 2 * sqrt((double)(n1 * n2)); // modified from 5 * sqrt(...)
+    double tau = 5 * sqrt((double)(n1 * n2)) * tauScale; // modified from 5 * sqrt(...)
     double delta = 1.2 / p;
     
     // initialization of sparse matrix

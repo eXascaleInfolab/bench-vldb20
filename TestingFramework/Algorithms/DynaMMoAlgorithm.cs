@@ -46,7 +46,7 @@ namespace TestingFramework.Algorithms
             dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             dynproc.StartInfo.UseShellExecute = false;
 
-            dynproc.StartInfo.Arguments = $"-alg dynammo -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            dynproc.StartInfo.Arguments = $"-alg dynammo -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
@@ -63,7 +63,7 @@ namespace TestingFramework.Algorithms
             dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             dynproc.StartInfo.UseShellExecute = false;
 
-            dynproc.StartInfo.Arguments = $"-alg dynammo -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            dynproc.StartInfo.Arguments = $"-alg dynammo -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 

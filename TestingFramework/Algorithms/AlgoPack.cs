@@ -58,38 +58,16 @@ namespace TestingFramework.Algorithms
                 .ForEach(File.Delete);
         }
 
-        public static void EnsureFolderStructure()
+        public static void EnsureFolderStructure(List<string> scenarios)
         {
             string root = DataWorks.FolderPlotsRemote;
 
-            foreach (var ex in EnumMethods.AllExperiments())
+            foreach (var es in EnumMethods.AllExperimentScenarios().Where(x => scenarios.Contains(x.ToLongString())))
             {
-                string exDir = $"{root}{ex.ToLongString()}/";
-                if (!Directory.Exists(exDir))
+                string esDir = $"{root}{es.ToLongString()}/";
+                if (!Directory.Exists(esDir))
                 {
-                    Directory.CreateDirectory(exDir);
-                }
-
-                foreach (var et in EnumMethods.AllExperimentTypes())
-                {
-                    // exception
-                    if (ex == Experiment.Precision && et == ExperimentType.Streaming) continue;
-                    
-                    string etDir = $"{exDir}{et.ToLongString()}/";
-                    if (!Directory.Exists(etDir))
-                    {
-                        Directory.CreateDirectory(etDir);
-                    }
-
-                    foreach (var es in EnumMethods.AllExperimentScenarios())
-                    {
-                        if (et == ExperimentType.Continuous && !es.IsContinuous()) continue;
-                        string esDir = $"{etDir}{es.ToLongString()}/";
-                        if (!Directory.Exists(esDir))
-                        {
-                            Directory.CreateDirectory(esDir);
-                        }
-                    }
+                    Directory.CreateDirectory(esDir);
                 }
             }
         }
@@ -122,6 +100,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
 
     public partial class SpiritAlgorithm
@@ -131,6 +110,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public int Truncation = 4;
     }
 
     public partial class StmvlAlgorithm
@@ -139,6 +119,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public double Alpha = 2.0;
     }
 
     public partial class TkcmAlgorithm
@@ -148,6 +129,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public int ParamL = 4;
     }
 
     public partial class TrmfAlgorithm
@@ -156,6 +138,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}trmf/trmf/";
         protected override string SubFolderDataIn => "../data/in/";
         protected override string SubFolderDataOut => "../data/out/";
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
     
     public partial class GrouseAlgorithm
@@ -165,6 +148,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
     
     public partial class SVTAlgorithm
@@ -174,6 +158,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public double TauScale = 0.2;
     }
     
     public partial class SoftImputeAlgorithm
@@ -182,6 +167,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
     
     public partial class ROSLAlgorithm
@@ -191,6 +177,7 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsPlottable => false;
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
     
     public partial class DynaMMoAlgorithm
@@ -199,6 +186,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
     
     public partial class SVDImputeAlgorithm
@@ -207,6 +195,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public int Truncation = AlgoPack.TypicalTruncation;
     }
 
     /*///////////////////////////////////////////////////////////*/

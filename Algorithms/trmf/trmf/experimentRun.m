@@ -1,4 +1,4 @@
-function res = experimentRun(tcase, code, rt)
+function res = experimentRun(tcase, code, rt, k)
   # folders
   root = "./";
   fileprefix = strcat("in", "/", code, "_m");
@@ -11,7 +11,7 @@ function res = experimentRun(tcase, code, rt)
     
   # impute
   matname = strcat(base, num2str(tcase));
-  [timeSpan, impY] = test_single(matname, lag_idx, maxit);
+  [timeSpan, impY] = test_single(matname, lag_idx, maxit, k);
   
   # write
   matname = strcat(out, num2str(tcase));

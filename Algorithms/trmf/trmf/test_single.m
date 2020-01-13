@@ -1,4 +1,4 @@
-function [timeSpan, impY] = test_single(matname, lag_idx, maxit)
+function [timeSpan, impY] = test_single(matname, lag_idx, maxit, k)
   #usage example
   #impY = test_single("bball/bball_trmf", [1:10], 100);
   M_full = dlmread(strcat("../data/", matname, "_obs.txt"));
@@ -6,7 +6,6 @@ function [timeSpan, impY] = test_single(matname, lag_idx, maxit)
   
   n = columns(M_obs);
   T = rows(M_obs);
-  k = 3;
   
   id = tic();
   ret = imputation_trmf(M_full, M_obs, lag_idx, k, [0.75, 0.75, 0.75], maxit);
