@@ -344,6 +344,12 @@ namespace TestingFramework.Testing
             {
                 algorithms = algorithms.Where(alg => alg.AlgCode != "tkcm" && alg.AlgCode != "spirit").ToArray();
             }
+
+            if (algorithms.Count() == 0)
+            {
+                Utils.DelayedWarnings.Enqueue($"Scenario {es.ToLongString()} (precision) was launched with no compatible algorithms and will not be performed.");
+                return;
+            }
             
             //varlen only
             ulong token =
@@ -651,6 +657,12 @@ namespace TestingFramework.Testing
             if (nlimit < 1000)
             {
                 algorithms = algorithms.Where(alg => alg.AlgCode != "tkcm" && alg.AlgCode != "spirit").ToArray();
+            }
+
+            if (algorithms.Count() == 0)
+            {
+                Utils.DelayedWarnings.Enqueue($"Scenario {es.ToLongString()} (runtime) was launched with no compatible algorithms and will not be performed.");
+                return;
             }
             
             //varlen only
