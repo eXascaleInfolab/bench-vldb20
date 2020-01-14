@@ -81,7 +81,7 @@ ___
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
 - Remark: The full test suite will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
-- Remark: Algorithms `tkcm` and `spirit` can't recover missing values in multiple columns. They are incompatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
+- Remark: The algorithms `tkcm` and `spirit` can not handle multiple incomplete time series. These two allgorithms are incompatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ### Parametrized execution
 
