@@ -47,12 +47,12 @@ ___
  | softimp  | drift10     | miss_over |
  | svdimp   | electricity | mcar      |
  | svt      | meteo       | blackout  |
- | stmvl    | temp        | all       |
- | spirit   | all         |           |
+ | stmvl    | temp        | *all*     |
+ | spirit   | *all*       |           |
  | tenmf    |             |           |
  | tkcm     |             |           |
  | trmf     |             |           |
- | all      |             |           |
+ | *all*    |             |           |
 
 
 
