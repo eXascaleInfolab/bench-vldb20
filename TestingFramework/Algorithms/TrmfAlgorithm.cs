@@ -47,7 +47,7 @@ namespace TestingFramework.Algorithms
             trmfproc.StartInfo.UseShellExecute = false;
 
             string functionArgs = $"{len}, '{data.Code}'";
-            trmfproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 0)\"";
+            trmfproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 0, {Truncation})\"";
 
             return trmfproc;
         }
@@ -63,7 +63,7 @@ namespace TestingFramework.Algorithms
             trmfproc.StartInfo.UseShellExecute = false;
 
             string functionArgs = $"{len}, '{data.Code}', {Truncation}";
-            trmfproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 1)\"";
+            trmfproc.StartInfo.Arguments = $"--eval \"experimentRun({functionArgs}, 1, {Truncation})\"";
 
             return trmfproc;
         }
