@@ -58,7 +58,7 @@ ___
 
 - Remarks:
     - All algorithms are ran using the parameters that yield the best accuracy/effciency recovery tradeoff.
-    - `Results` subfolder will be populated with the recovery results. For matching scenarios and datasets the restuls will be overwritten.
+    - `Results` subfolder will be populated with the recovery results. For matching scenarios and datasets the results will be overwritten.
     - Launch the program with `--help` to see additional command-line parameters.
 
 
