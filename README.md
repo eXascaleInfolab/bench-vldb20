@@ -60,8 +60,6 @@ ___
 - *Remarks*:
     - All algorithms are ran using the parameters that yield the best accuracy/effciency recovery tradeoff.
     - `Results` subfolder will be populated with the recovery results. For matching scenarios and datasets the results will be overwritten.
-    - Launch the program with `--help` to see additional command-line parameters.
-
 
 
 ### Execution examples
@@ -80,6 +78,12 @@ ___
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
+
+- Additional command-line parameters
+```bash
+    $ mono TestingFramework.exe --help
+```
+
 - *Remarks*:
     - The full test suite will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
     - The algorithms `tkcm` and `spirit` can not handle multiple incomplete time series. These two allgorithms are incompatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
