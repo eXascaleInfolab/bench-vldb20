@@ -108,6 +108,11 @@ To add a dataset to the benchmark
 - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt`
 - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
 
+___
+
+## Contact
+Mourad Khayati (mkhayati@exascale.info)
+
 <!---
 ### Optional commands
 
