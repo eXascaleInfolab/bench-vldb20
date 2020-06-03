@@ -16,7 +16,7 @@ ___
 - Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu).
 - Clone this repository.
 - Mono: Install mono from https://www.mono-project.com/download/stable/ .
-- All the additional dependencies will be installed using the build script below.
+- All the additional dependencies (including python 2) will be installed using the build script below.
 
 ___
 
