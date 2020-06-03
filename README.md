@@ -21,7 +21,7 @@ ___
 
 ## Build
 
-- Build all the algorithms and Testing Framework using the installation script located in the root folder:
+- Build all the algorithms and Testing Framework using the installation script located in the root folder (takes ~1min):
 ```bash
     $ sh install_linux.sh
 ```
