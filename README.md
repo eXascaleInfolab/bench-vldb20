@@ -36,7 +36,7 @@ ___
     $ mono TestingFramework.exe [arguments]
 ```
 
-- Command-line arguments for the program:
+- **Arguments**:
 
  | -alg (Algorithm) | -d (Dataset) |  -scen (Scenario)
  | -------- | -------- | -------- |
