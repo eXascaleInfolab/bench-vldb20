@@ -56,10 +56,8 @@ ___
 
 
 
-- *Remarks*:
-    - All algorithms are ran using the parameters that yield the best accuracy/effciency recovery tradeoff.
-    - `Results` subfolder will be populated with the recovery results. For matching scenarios and datasets the results will be overwritten.
-
+- **Results**: The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
+- **Warning**: The full test suite with the default setup will take a sizeable amount of time to run (7 days depending on the hardware) and will produce up to 30GB of output files with all recovered data and plots
 
 ### Execution examples
 
