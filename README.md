@@ -38,7 +38,7 @@ ___
 
 - **Arguments**:
 
- | -alg (Algorithm) | -d (Dataset) |  -scen (Scenario)
+ | -alg  | -d  |  -scen 
  | -------- | -------- | -------- |
  | cdrec    | airq        | miss_perc |
  | dynammo  | bafu        | ts_length |
