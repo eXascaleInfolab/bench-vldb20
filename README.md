@@ -36,7 +36,7 @@ ___
     $ mono TestingFramework.exe [arguments]
 ```
 
-### Arguments
+#### Arguments
 
  | -alg  | -d  |  -scen 
  | -------- | -------- | -------- |
@@ -56,11 +56,11 @@ ___
 
 
 
-### Results
+#### Results
 - The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
 - **Warning**: The full test suite will take a sizeable amount of time to run (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
-### Execution examples
+#### Execution examples
 
 - Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
@@ -85,7 +85,7 @@ ___
 - *Remarks*:
     - The algorithms `tkcm` and `spirit` can not handle multiple incomplete time series. These two allgorithms are incompatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
-### Parametrized execution
+#### Parametrized execution
 
 - You can parametrize each algorithm using the command `-algx`. For example, you can run
 the svdimp algorithm with a reduction value of 4 on the drift dataset and by varying the sequence length as follows:
@@ -103,7 +103,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 - Remark: The command `-algx` can not be run in group and should preceed the name of each algorithm.
 
 
-### Datasets customization
+#### Datasets customization
 
 To add a dataset to the benchmark
 - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
