@@ -57,7 +57,7 @@ ___
 
 
 - **Results**: The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
-- **Warning**: The full test suite with the default setup will take a sizeable amount of time to run (~3 days depending on the hardware) and will produce up to 17GB of output files with all recovered data and plots
+- **Warning**: The full test suite with the default setup will take a sizeable amount of time to run (~3 days depending on the hardware) and will produce up to 17GB of output files with all recovered data and plots.
 
 ### Execution examples
 
