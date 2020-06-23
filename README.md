@@ -103,7 +103,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 - Remark: The command `-algx` can not be run in group and should preceed the name of each algorithm.
 
 
-### Datasets customization
+## Datasets customization
 
 To add a dataset to the benchmark
 - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
