@@ -57,8 +57,8 @@ ___
 
 
 ### Results
-The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
-- **Warning**: The full test suite with the default setup will take a sizeable amount of time to run (~3 days depending on the hardware) and will produce up to 17GB of output files with all recovered data and plots.
+- The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
+- **Warning**: The full test suite will take a sizeable amount of time to run (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
 ### Execution examples
 
@@ -83,7 +83,6 @@ The accuracy results of all algorithms will be sequentially added for each scena
 ```
 
 - *Remarks*:
-    - The full test suite will take a sizeable amount of time to run (up to 2 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
     - The algorithms `tkcm` and `spirit` can not handle multiple incomplete time series. These two allgorithms are incompatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ### Parametrized execution
