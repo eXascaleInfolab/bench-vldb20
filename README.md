@@ -48,9 +48,9 @@ ___
  | svdimp   | electricity | mcar      |
  | svt      | meteo       | blackout  |
  | stmvl    | temp        | *all*     |
- | spirit   | *all*       |           |
- | tenmf    |             |           |
- | tkcm     |             |           |
+ | spirit   | bafu_red    |           |
+ | tenmf    | drift10_red |           |
+ | tkcm     | *all*       |           |
  | trmf     |             |           |
  | *all*    |             |           |
 
