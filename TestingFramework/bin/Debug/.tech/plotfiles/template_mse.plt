@@ -3,6 +3,7 @@ set output "error/plots/{code}_mse.eps"
 
 set xrange [{caseStart}-1:{caseEnd}+1]
 set xtics {caseStart},{caseTick}
+set yrange [0:1]
 #set log y
 
 set key above width -2 vertical maxrows 3
