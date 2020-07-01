@@ -57,7 +57,7 @@ ___
 
 
 ### Results
-- The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. For matching scenarios and datasets the results will be overwritten.
+- The accuracy results and plots of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results of all algorithms will be added to: `Results/../../runtime/`. 
 - **Warning**: Running the whole benchmark will take a sizeable amount of time (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
 ### Execution examples
