@@ -62,7 +62,7 @@ ___
 
 ### Execution examples
 
-- Run the whole benchmark (all techniques, all datasets, all scenarios, precision and runtime)
+- Run the whole benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
