@@ -100,7 +100,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
     $ mono TestingFramework.exe -algx svdimp 4 -d drift10 -scen ts_nbr
 ```
 
-- If you want to run some algorithms with default parameters, and some with custom ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset and by varying the sequence length as follows:
+- If you want to run some algorithms with default parameters, and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset and by varying the sequence length as follows:
 
 ```bash
     $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
