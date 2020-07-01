@@ -58,7 +58,7 @@ ___
 
 ### Results
 - The accuracy results and plots of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results and plots of all algorithms will be added to: `Results/../../runtime/`. 
-- **Warning**: Running the whole benchmark will take a sizeable amount of time (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
+
 
 ### Execution examples
 
@@ -66,6 +66,7 @@ ___
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
+**Warning**: Running the whole benchmark will take a sizeable amount of time (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
 - Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
