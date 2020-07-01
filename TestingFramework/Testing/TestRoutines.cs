@@ -332,6 +332,13 @@ namespace TestingFramework.Testing
                 throw new ArgumentException("Invalid code is supplied, file not found in a expected location: " + $"{code}/{code}_normal.txt");
             }
             
+            List<int> cdk = null;
+            if (es == ExperimentScenario.Fullrow && ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList.Count > 1)
+            {
+                cdk = ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList;
+                ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList = new List<int>(new[] { 2, 1 });
+            }
+            
             int nlimit = DataWorks.CountMatrixRows($"{code}/{code}_normal.txt");
             int dataSetColumns = DataWorks.CountMatrixColumns($"{code}/{code}_normal.txt");
             
@@ -605,6 +612,10 @@ namespace TestingFramework.Testing
             // cleanup
             //
             Console.WriteLine("Starting cleanup...");
+            if (cdk != null)
+            {
+                ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList = cdk;
+            }
             AlgoPack.PurgeAllIntermediateFiles(); // handles algo's internal in/out fodlers
 
             Console.WriteLine("Intermediate files cleaned up");
