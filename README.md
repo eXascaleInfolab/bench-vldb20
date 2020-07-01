@@ -62,7 +62,7 @@ ___
 
 ### Execution examples
 
-- Run the whole benchmark 
+- Run the whole benchmark (all techniques, all datasets, all scenarios, precision and runtime)
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
@@ -77,7 +77,7 @@ ___
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
 ```
 
-- Run point 3 and display only precision
+- Run point 3 wihtout runtime results
 ```bash
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc -nort
 ```
