@@ -78,7 +78,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
 ```
 
-- Run example 2 without runtime results
+- Run point 3 without runtime results
 ```bash
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc -nort
 ```
