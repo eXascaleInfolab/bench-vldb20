@@ -62,28 +62,28 @@ All results will be added to `Results` folder. The accuracy results and plots of
 
 ### Execution examples
 
-- 1. Run the whole benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
+1. Run the whole benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
 **Warning**: Running the whole benchmark will take a sizeable amount of time (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
-- 2. Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
+2. Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg spirit -d airq -scen miss_perc
 ```
 
-- 3. Run two algorithms (spirit, grouse) on a single dataset (airq) using one scenario (missing percentage)
+3. Run two algorithms (spirit, grouse) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
 ```
 
-- 4. Run point 3 without runtime results
+4. Run point 3 without runtime results
 ```bash
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc -nort
 ```
 
-- 5. Additional command-line parameters
+5. Additional command-line parameters
 ```bash
     $ mono TestingFramework.exe --help
 ```
