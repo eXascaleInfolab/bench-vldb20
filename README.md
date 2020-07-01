@@ -77,6 +77,11 @@ ___
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
 ```
 
+- Run point 3 and display only precision
+```bash
+    $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc -nort
+```
+
 - Additional command-line parameters
 ```bash
     $ mono TestingFramework.exe --help
