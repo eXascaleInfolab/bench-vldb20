@@ -62,6 +62,11 @@ ___
 
 ### Execution examples
 
+- Run the whole benchmark 
+```bash
+    $ mono TestingFramework.exe -alg all -d all -scen all
+```
+
 - Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg spirit -d airq -scen miss_perc
@@ -70,11 +75,6 @@ ___
 - Run two algorithms (spirit, grouse) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
-```
-
-- Run the whole benchmark 
-```bash
-    $ mono TestingFramework.exe -alg all -d all -scen all
 ```
 
 - Additional command-line parameters
