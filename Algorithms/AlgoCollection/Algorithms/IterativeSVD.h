@@ -1,5 +1,5 @@
 //
-// Created by zakhar on 21/01/19.
+// Created on 21/01/19.
 //
 
 #pragma once
