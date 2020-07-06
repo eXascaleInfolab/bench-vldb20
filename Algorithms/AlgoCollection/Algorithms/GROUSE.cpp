@@ -1,5 +1,5 @@
 //
-// Created by zakhar on 04/01/19.
+// Created on 04/01/19.
 //
 
 #include <cmath>
