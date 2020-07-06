@@ -1,5 +1,5 @@
 //
-// Created by zakhar on 05.03.18.
+// Created on 05.03.18.
 //
 
 #include "CDMissingValueRecovery.h"
