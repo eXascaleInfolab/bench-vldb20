@@ -89,7 +89,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
 ```
 
 - *Remarks*:
-    - The algorithms `tkcm` and `spirit` can not handle multiple incomplete time series. These two allgorithms are not compatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
+    - The algorithms `tkcm` and `spirit` cannot handle multiple incomplete time series. These two allgorithms are not compatible with resp. scenarios `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ## Parametrized execution
 
