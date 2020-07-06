@@ -66,7 +66,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
-**Warning**: Running the whole benchmark will take a sizeable amount of time (up to 3 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
+**Warning**: Running the whole benchmark will take a sizeable amount of time (up to 4 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
 2. Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
 ```bash
