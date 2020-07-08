@@ -111,9 +111,10 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 
 ## Datasets customization
 
-To add a dataset to the benchmark
-- import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
-- Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
+- We publish all the datasets used in this paper. The datasets can be found in  `TestingFramework/bin/Debug/data/`
+- To add a dataset to the benchmark
+  - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
+  - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
 
 ___
 
