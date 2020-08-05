@@ -55,7 +55,7 @@ Folders named after dataset's code contains code_normal.txt file which is a matr
 | -------- | -------- |
 | Dataset codename | climate |
 | Dataset name | Aggregated and Processed data collection for climate change attribution |
-| Url | http://www-bcf.usc.edu/~liu32/data.html |
+| Url | https://viterbi-web.usc.edu/~liu32/data.html |
 | Url item | NA-1990-2002-Monthly.csv |
 |  |  |
 | Time granularity | 1 month |
