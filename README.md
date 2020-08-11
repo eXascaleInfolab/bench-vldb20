@@ -1,6 +1,6 @@
 # ImputeBench: Benchmark of Imputation Techniques in Time Series  
 
-Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux: *Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series*. In the Proceedings of the VLDB Endowment (**PVLDB 2020**)
+Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:[http://www.vldb.org/pvldb/vol13/p768-khayati.pdf] (*Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series*). In the Proceedings of the VLDB Endowment (**PVLDB 2020**)
 <!---
 
 #### Repository structure
