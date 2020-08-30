@@ -2,23 +2,15 @@
 
 ___
 
-## Supported Languages
+## Adding a C++ algorithm that uses armadillo
 
-- C++ using armadillo (arma::)
-- C/C++ using a different algebra library (or STL/cstdlib only) [under construction]
-- Other languages [under construction] 
-
-___
-
-### Adding a C++ algorithm that uses armadillo
-
-#### Introduction
+### Introduction
 
 In this section we will show how to add an algorithm that is written in C++ (using arma::) to the benchmark. The process is done in two primary steps: adding the code of the algorithm to AlgoCollection and importing it into the TestingFramework.
 
 The process will be illustrated on an example algorithm that will impute all missing values using the mean value of non-missing points in the corresponding time series (we will call it MeanImpute). If you follow this guide step-by-step, in the end you will have an extra missing value imputation algorithm in the benchmark.
 
-#### Prerequisites for the algorithm
+### Prerequisites for the algorithm
 
 - Language: C++
 - Algebra library: armadillo
@@ -28,7 +20,7 @@ The process will be illustrated on an example algorithm that will impute all mis
 - Input: take an arma::mat& class instance where columns are time series and rows are time pointa, and the missing values are designated as NaN
 - Output: missing values are imputed in the same arma::mat instance as input (it's passed by reference) and the matrix doesn't contain any NaNs or Infs
 
-#### AlgoCollection
+### AlgoCollection
 
 The first part is about adding the algorithm to the collection. We assume that the benchmark itself was succesfully ran at least once with any of the examples.
 
@@ -189,7 +181,7 @@ Now those are the final changes to the collection, we have to rebuild it now.
     [on macOS] make mac
 ```
 
-#### TestingFramework
+### TestingFramework
 
 In the second part we will integrate this new algorithm from the collection into the tester.
 
@@ -407,7 +399,7 @@ mono TestingFramework.exe -alg meanimp -d airq -scen miss_perc
 
 Then, in the Results folder here you can find precision and runtime results from running MeanImpute.
 
-#### Limitations
+### Limitations
 
 - Next section will describe parametrization, if you didn't implement it - do not invoke `-algx` with your algorithm name - the tester will crash.
 
@@ -415,7 +407,7 @@ Then, in the Results folder here you can find precision and runtime results from
 
 - If your algorithm expects matrix in the tranposed form (i.e. where time series are rows and not columns), please see `Performance/Benchmark.cpp`, the function around ~180 for DynaMMo algorithms handles it to transpose the matrix before feeding it in, and back after the output **outside** of time measurement.
 
-#### Parametrization
+### Parametrization
 
 This section is about adding a possibility to vary a certain parameter of your algorithm without editing the code and rebuilding the project. At the moment you can very only one parameter by supplying it via `-algx` command.
 
@@ -425,12 +417,12 @@ This is entirely optional and generally not needed unless you want to test more 
 
 ___
 
-### Adding a C/C++ algorithm using a different algebra library (or STL/cstdlib only)
+## Adding a C/C++ algorithm using a different algebra library (or STL/cstdlib only)
 
 [Under construction]
 
 ___
 
-### Adding an algorithm written in other languages
+## Adding an algorithm written in other languages
 
 [Under construction]
