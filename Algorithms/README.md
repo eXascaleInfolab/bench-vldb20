@@ -1,12 +1,12 @@
-# ImputeBench => Adding new algorithms
+# Adding new algorithms
 
 ___
 
-## What algorithms can I add
+## Supported Languages
 
-- Written in C++ using armadillo
-- [under construction] Written in C/C++ using a different algebra library (or STL/cstdlib only)
-- [under construction] Written in other languages
+- C++ using armadillo (arma::)
+- C/C++ using a different algebra library (or STL/cstdlib only) [under construction]
+- Other languages [under construction] 
 
 ___
 
