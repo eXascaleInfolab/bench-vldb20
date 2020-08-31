@@ -212,52 +212,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunMeanImpute(GetMeanImputeProcess(data, tcase));
+            RunAlgortithm(GetProcess(data, tcase));
         }
         
-        private Process GetMeanImputeProcess(DataDescription data, int len)
+        private Process GetProcess(DataDescription data, int len)
         {
-            Process meaniproc = new Process();
+            Process proc = new Process();
             
-            meaniproc.StartInfo.WorkingDirectory = EnvPath;
-            meaniproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            meaniproc.StartInfo.CreateNoWindow = true;
-            meaniproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            meaniproc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.WorkingDirectory = EnvPath;
+            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            proc.StartInfo.UseShellExecute = false;
 
-            meaniproc.StartInfo.Arguments = $"-alg meanimp -test o -n {data.N} -m {data.M} " +
+            proc.StartInfo.Arguments = $"-alg meanimp -test o -n {data.N} -m {data.M} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return meaniproc;
+            return proc;
         }
         
-        private Process GetRuntimeMeanImputeProcess(DataDescription data, int len)
+        private Process GetRuntimeProcess(DataDescription data, int len)
         {
-            Process meaniproc = new Process();
+            Process proc = new Process();
             
-            meaniproc.StartInfo.WorkingDirectory = EnvPath;
-            meaniproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            meaniproc.StartInfo.CreateNoWindow = true;
-            meaniproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            meaniproc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.WorkingDirectory = EnvPath;
+            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            proc.StartInfo.UseShellExecute = false;
 
-            meaniproc.StartInfo.Arguments = $"-alg meanimp -test rt -n {data.N} -m {data.M} " +
+            proc.StartInfo.Arguments = $"-alg meanimp -test rt -n {data.N} -m {data.M} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return meaniproc;
+            return proc;
         }
-        private void RunMeanImpute(Process meaniproc)
+        private void RunAlgortithm(Process proc)
         {
-            meaniproc.Start();
-            meaniproc.WaitForExit();
+            proc.Start();
+            proc.WaitForExit();
                 
-            if (meaniproc.ExitCode != 0)
+            if (proc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] MeanImpute returned code {meaniproc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {meaniproc.StartInfo.Arguments}";
+                    $"[WARNING] MeanImpute returned code {proc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {proc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -267,7 +267,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunMeanImpute(GetRuntimeMeanImputeProcess(data, tcase));
+            RunAlgortithm(GetRuntimeProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
