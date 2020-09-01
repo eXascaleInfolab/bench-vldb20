@@ -90,6 +90,8 @@ void MeanImpute::MeanInpute_Recovery(arma::mat &input)
 } // namespace Algorithms
 ```
 
+If you want to have a functional MeanImpute algorithm, you can replace the comment in the body of `MeanImpute::MeanInpute_Recovery` function with the contents of [this file](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/Algorithms/mean_impute_code.txt).
+
 Now that our imlpementation is ready, we need to call it with the input given by the tester.
 
 ```bash
