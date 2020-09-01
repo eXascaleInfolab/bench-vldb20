@@ -350,7 +350,7 @@ mono TestingFramework.exe -alg meanimp -d airq -scen miss_perc
 
 Then, in the Results folder here you can find precision and runtime results from running MeanImpute.
 
-### Limitations
+### Warnings
 
 - Do not invoke `-algx` with your algorithm name - the tester will crash.
 
