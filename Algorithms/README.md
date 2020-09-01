@@ -10,7 +10,7 @@ This tutorial shows how to add an algorithm written in C++ (using arma::) to the
 
 The process will be illustrated on an example algorithm that we call MeanImpute, but while you follow the guide you can replace the names that are used with your own algorithm as you see fit, so long as they remain consistent.
 
-### Prerequisites for the algorithm
+### Prerequisites
 
 - Language: C++ using Armadillo
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK
@@ -19,11 +19,9 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 - Algorithm input: take an arma::mat& class instance where columns are time series and rows are time points, and the missing values are designated as NaN
 - Algorithm output: missing values are imputed in the same arma::mat instance as input (it's passed by reference) and the matrix doesn't contain any NaNs or Infs
 
-### AlgoCollection
+### 1. AlgoCollection
 
-The first part is about adding the algorithm to the collection. We assume that the benchmark itself was succesfully ran at least once with any of the examples.
-
-In the guide we use commands of the form `code file_name` to signal that we're ow working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
+We assume that the benchmark was succesfully ran at least once. In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
 
 ```bash
 cd Algorithms/AlgoCollection
@@ -31,16 +29,16 @@ touch Algorithms/MeanImpute.h
 touch Algorithms/MeanImpute.cpp
 ```
 
-We create the files and now we will need to add them to the build script.
+Now, we add the created files to the build script.
 
 ```bash
-code Makefile
+vim Makefile
 ```
 
 On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm `Algorithms/MeanImpute.cpp` next to the other cpp files.
 
 ```bash
-code Algorithms/MeanImpute.h
+vim Algorithms/MeanImpute.h
 ```
 
 Open the header file and copy the following code there.
@@ -64,10 +62,10 @@ class MeanImpute
 } // namespace Algorithms
 ```
 
-For simplicity we will only have one function that takes the matrix. If your algorithm is split across multiple functions, declare them inside the class and implement those functions in the following source file.
+For the sake of simplicity, we use one function that takes the matrix. If your algorithm is split across multiple functions, declare them inside the class and implement those functions in the following source file.
 
 ```bash
-code MeanImpute.cpp
+vim MeanImpute.cpp
 ```
 
 Open the source file and copy the code there. Input will be received in this function as `arma::mat &`, missing values are designated as NaN and function arma::is_finite(double) can check for those.
@@ -89,12 +87,12 @@ void MeanImpute::MeanInpute_Recovery(arma::mat &input)
 } // namespace Algorithms
 ```
 
-If you want to have a functional MeanImpute algorithm, you can replace the comment in the body of `MeanImpute::MeanInpute_Recovery` function with the contents of [this file](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/Algorithms/mean_impute_code.txt).
+If you want to have a functional MeanImpute algorithm, you can replace the comment in the body of `MeanImpute::MeanInpute_Recovery` function with the content of [this file](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/Algorithms/mean_impute_code.txt).
 
 Now that our imlpementation is ready, we need to call it with the input given by the tester.
 
 ```bash
-code Performance/Benchmark.cpp
+vim Performance/Benchmark.cpp
 ```
 
 First, we have to go to the end of the file and in the last function `int64_t Recovery()` go to line 330 and add another `else if` block.
@@ -106,7 +104,7 @@ First, we have to go to the end of the file and in the last function `int64_t Re
     }
 ```
 
-Here `meanimp` is the short code of the algorithm which we will use in part 2 to identify our algorithm. No we have to create a function that we call from here.
+Here `meanimp` is the short code of the algorithm which we will use in part 2 to identify our algorithm. Now we have to create a function that we call from here.
 
 The function we are about to add has to contain time measurement functionality which here is done with std::chrono and return the time in microseconds. It also has to verify the output with the call before the return statement. It replaces all the invalid values in the matrix (like NaN or Inf) with a very big number to inflate MSE/RMSE to signal that the algorithm didn't return a valid recovery. If validation is not performed and the matrix contains invalid values - tester will crash.
 
@@ -147,9 +145,9 @@ Now those are the final changes to the collection, we have to rebuild it now.
     [on macOS] make mac
 ```
 
-### TestingFramework
+### 2. TestingFramework
 
-In the second part we will integrate this new algorithm from the collection into the tester.
+In the second part we will integrate the new algorithm from the collection into the tester.
 
 ```bash
 cd ../..
@@ -160,7 +158,7 @@ touch Algorithms/MeanImputeAlgorithm.cs
 First we created a new file, now we add it to the project.
 
 ```bash
-code TestingFramework.csproj
+vim TestingFramework.csproj
 ```
 
 On line 62 insert an extra line with our file we just created (note: path separation in this file uses backslash, not forward slash).
@@ -339,7 +337,7 @@ public static readonly Algorithm MeanImp = new MeanImputeAlgorithm();
 
 Then, add the name MeanImp to the array "ListAlgorithms" just below. If your algorithm is capable of imputing values in all time series, not just one, add it also to the "ListAlgorithmsMulticolumn" array to signal that it doesn't have the restriciton of only imputing a single time series.
 
-We're done editing the code and now we just have to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset).
+We are done editing the code and now we just have to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset).
 
 ```bash
 msbuild TestingFramework.sln
