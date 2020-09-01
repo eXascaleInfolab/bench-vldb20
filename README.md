@@ -121,8 +121,8 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 
 ## Algorithm customization
 
-- Our benchmark allows to add your own algorithm to the benchmark 
-- The algorithm needs to be written in C++ and uses Armadillo
+- Our benchmark allows to add your own algorithm to the benchmark. 
+- The algorithm needs to be written in C++ and should use Armadillo data structures.
 - We provide a detailed tutorial on how to add a new algorithm [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
 
 
