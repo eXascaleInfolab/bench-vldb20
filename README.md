@@ -119,6 +119,13 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
   - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
 
+## Algorithm customization
+
+- Our benchmark allows to add your own algorithm to the benchmark 
+- The algorithm needs to be written in C++ and uses Armadillo
+- We provide a detailed tutorial on how to add a new algorithm [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
+
+
 ___
 
 ## Contact
