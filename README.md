@@ -109,7 +109,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
     $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
 ```
 
-- Remark: The command `-algx` cannot be run in group and should preceed the name of each algorithm.
+- Remark: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
 
 
 ## Datasets customization
