@@ -60,7 +60,7 @@ ___
 
 
 ### Results
-All results will be added to `Results` folder. The accuracy results and plots of all algorithms will be sequentially added for each scenario and dataset to: `Results/../../error/`. The runtime results and plots of all algorithms will be added to: `Results/../../runtime/`. 
+All results will be added to `Results` folder. The accuracy results and plots of all algorithms will be sequentially added for each scenario and dataset to: `Results/.../.../error/`. The runtime results and plots of all algorithms will be added to: `Results/.../.../runtime/`. 
 
 
 ### Execution examples
