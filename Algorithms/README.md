@@ -38,12 +38,12 @@ If your algorithm requires linking extra libraries, add all the `-l` and `-L` st
 - Copy the Mean Impute files into the new ones (using your primary name):
 
 ```bash
+cd Algorithms/NewAlgorithms/cpp
 cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
 cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
 - Add the copied files to the build script
-    - `cd Algorithms/NewAlgorithms/cpp` 
     - `vim Makefile`
     - Insert `Algorithms/NewAlg.cpp` right before `-lopenblas` and `-L/usr/local/opt/openblas/lib`
 
