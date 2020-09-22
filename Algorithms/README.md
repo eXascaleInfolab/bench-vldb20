@@ -29,7 +29,7 @@ In the following guide we will use `NewAlg` as a primary name and `nalg` as a sh
 
 --->
 
-- copy the Mean Impute files into the new ones that use your primary name.
+- copy the Mean Impute files into the new ones (using your primary name).
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
