@@ -34,12 +34,12 @@ In the following guide we will use `NewAlg` as a primary name and `nalg` as a sh
 - Copy the Mean Impute files into the new ones (using your primary name):
 
 ```bash
-cd Algorithms/NewAlgorithms/cpp
 cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
 cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
 - Add the copied files to the build script
+    - cd Algorithms/NewAlgorithms/cpp
     - `vim Makefile`
     - On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm (i.e., `Algorithms/NewAlg.cpp`) next to the other cpp files.
     - If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
