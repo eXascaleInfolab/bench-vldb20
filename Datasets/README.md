@@ -1,4 +1,7 @@
-Folders named after dataset's code contains code_normal.txt file which is a matrix used for the dataset in tests. Subfolders raw/ raw_timeseries/ etc. contain original data and/or processing steps applied before getting code_normal.txt.
+
+<!---
+Folders named after datasets' name contains name_normal.txt file which is a matrix used for the dataset in tests. Subfolders raw/ raw_timeseries/ etc. contain original data and/or processing steps applied before getting name_normal.txt.
+--->
 
 ## Air quality
 
