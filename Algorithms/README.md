@@ -6,9 +6,11 @@ ___
 
 ### Introduction
 
-This tutorial shows how to add an algorithm written in C++ (using arma::) to the benchmark. The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework.
+This tutorial shows how to add a new algorithm written in C++ (using arma::) to the benchmark. The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework. We will illustrate the process by copying the code of MeanImpute algorithm.
 
+<---
 The process will be illustrated on an example algorithm that we call MeanImpute, but while you follow the guide you can replace the names that are used with your own algorithm as you see fit, so long as they remain consistent. The algorithm is already implemented, so you can use its files as a template.
+!>>>
 
 ### Prerequisites
 
