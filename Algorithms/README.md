@@ -76,8 +76,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - Rebuild the project.
     ```bash
-        [on Linux] make all
-        [on macOS] make mac
+        make all
     ```
 
 ### 2. TestingFramework
