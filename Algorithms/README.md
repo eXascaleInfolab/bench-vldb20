@@ -51,7 +51,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - Adjust the header file
     - `vim Algorithms/NewAlg.h`
-    - Rename the class into your primary name and the function there into the `NewAlg_Recovery`.
+    - Rename the class into `NewAlg` and the function into `NewAlg_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
 
 - Add the implementation to the source file
