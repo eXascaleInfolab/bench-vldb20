@@ -29,7 +29,7 @@ In the following guide we will use `NewAlg` as a primary name and `nalg` as a sh
 
 --->
 
-- copy the Mean Impute files into the new ones (using your primary name):
+- Copy the Mean Impute files into the new ones (using your primary name):
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
@@ -37,7 +37,7 @@ cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
 cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
-- add the created files to the build script:
+- Add the created files to the build script:
 
 ```bash
 vim Makefile
