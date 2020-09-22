@@ -11,8 +11,15 @@ ImputeBench has received the VLDB 2020 Most Reproducible Paper <a href = "https:
 - Datasets - different datasets and time series from different sources.
 - Testing Framework - a program to run automated suite of tests on the datasets with the algorithms mentioned above.
  --->
-
 ___
+
+## Algorithms, datatsets and scenarios
+
+- The list of implemented algorithms can be found here.
+- The list of datasets can be found here.
+- The list of recovery scenarios can be found here.
+___
+
 
 ## Prerequisites and dependencies
 
@@ -22,12 +29,6 @@ ___
 
 ___
 
-
-## Algorithms and scenarios
-
-- The list of implemented algorithms can be found here.
-- The list of recovery scenarios can be found here.
-___
 
 
 ## Build
