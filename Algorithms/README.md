@@ -21,7 +21,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### 1. AlgoCollection
 
-- We need to choose two names for the algorithm: a primary name, e.g., `NewAlg` and a short name (e.g., `nalg`). You can choose any other names as long as they are used consistently. #because different parts of the benchmark can use those to communicate between each other.
+- We need to choose two names for the algorithm: a primary name, e.g., `NewAlg` and a short name (e.g., `nalg`). You can choose any other names as long as they are used consistently. <!---because different parts of the benchmark can use those to communicate between each other.--->
 
 In the following guide we will use `NewAlg` as a primary name and `nalg` as a short name.
 
