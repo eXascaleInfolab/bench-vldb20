@@ -1,5 +1,3 @@
-# Imputation of Missing Values in Time Series Benchmark => Datasets
-
 Folders named after dataset's code contains code_normal.txt file which is a matrix used for the dataset in tests. Subfolders raw/ raw_timeseries/ etc. contain original data and/or processing steps applied before getting code_normal.txt.
 
 ## Air quality
