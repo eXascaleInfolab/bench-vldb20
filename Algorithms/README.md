@@ -29,10 +29,7 @@ In the following guide we will use `NewAlg` as a primary name and `nalg` as a sh
 
 --->
 
-
-
-
-First, enter the folder with the project that is used for non-default algorithms and copy the Mean Impute files into the new ones that use your primary name.
+- copy the Mean Impute files into the new ones that use your primary name.
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
@@ -40,7 +37,7 @@ cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
 cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
-Now, we add the created files to the build script.
+- add the created files to the build script.
 
 ```bash
 vim Makefile
