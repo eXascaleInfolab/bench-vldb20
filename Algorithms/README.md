@@ -15,7 +15,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### Prerequisites
 
-- We assume that the benchmark was succesfully ran at least once. In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
+- We assume that the benchmark was ran once. In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK.
 - Algorithm input: take an arma::mat& class instance where the missing values are designated as NaN.
 - Algorithm output: missing values are imputed in the same arma::mat instance as input (it is passed by reference). 
