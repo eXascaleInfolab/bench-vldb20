@@ -22,6 +22,14 @@ ___
 
 ___
 
+
+## Algorithms and scenarios
+
+- The list of implemented algorithms can be found here.
+- The list of recovery scenarios can be found here.
+___
+
+
 ## Build
 
 - Build all the Testing Framework using the installation script located in the root folder (takes ~1min):
