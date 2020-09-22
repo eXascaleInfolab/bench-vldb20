@@ -54,7 +54,6 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
     - Rename the header name in the include statement on line 2
     - Rename the function into `NewAlg::NewAlg_Recovery` as it was in the header file.
     - The function contains an implementation which you have to delete and replace with your own code.
-    - Input argument of this function is `arma::mat &`, missing values are designated as NaN and you can test the value using `std::is_nan(double)`.
 
 - Call the algorithm with the input given by the tester
     - `vim Performance/Benchmark.cpp`
