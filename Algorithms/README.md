@@ -69,7 +69,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
         }
     - Copy and paste the function `Recovery_MeanImpute` on lines 33-55 and rename the function name to `Recovery_NewAlg`. Then, replace the name in the call between the assignments of `begin` and `end` variables from `MeanImpute::MeanImpute_Recovery` to `NewAlg::NewAlg_Recovery`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
-    - Include the header of our algorithm. Go to line 13 and insert the include statement
+    - Include the header of the algorithm. Go to line 13 and insert the include statement
         ```C++
         #include "../Algorithms/NewAlg.h"
         ```
