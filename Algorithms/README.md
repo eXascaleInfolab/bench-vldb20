@@ -39,7 +39,7 @@ cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
 cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
-- Add the created files to the build script:
+- Add the copied files to the build script
 
 ```bash
 vim Makefile
