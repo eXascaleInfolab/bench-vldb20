@@ -55,7 +55,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
     - Rename the header name in the include statement on line 2
     - Rename the function into `NewAlg::NewAlg_Recovery` as it was in the header file.
     - The function contains an implementation which you have to delete and replace with your own code.
-    - Input argument of this function is `arma::mat &`, missing values are designated as NaN and function arma::is_finite(double) can check for those.
+    - Input argument of this function is `arma::mat &`, missing values are designated as NaN and you can test the value using `std::is_nan(double)`.
 
 - Call the algorithm with the input given by the tester
     - `vim Performance/Benchmark.cpp`
@@ -65,7 +65,6 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
         {
             return Recovery_NewAlg(mat);
         }
-    - Now we have to create a function that we call from here.
     - Copy the function on lines 33-55 and paste it directly afterwards. Then rename the function name to `Recovery_NewAlg` and replace the name in the call between the assignments of `begin` and `end` variables from `MeanImpute::MeanImpute_Recovery` to how you named the function before `NewAlg::NewAlg_Recovery`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
     - Include the header of our algorithm. Go to line 13 and insert the include statement
@@ -83,7 +82,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - In the second part we will integrate the new algorithm from the collection into the tester.
 
-- Start by going into the correct folder and copying the sample file from MeanImpute into a new file with the name `NewAlgAlgorithm.cs`.
+- Go to the tester's folder and copy the sample file from MeanImpute into a new file with the name `NewAlgAlgorithm.cs`.
 
 ```bash
 cd ../../..
@@ -100,7 +99,6 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 
 - Adjust the algorithm file.
     - `vim Algorithms/NewAlgAlgorithm.cs`
-    - Most of the file is service functions and it follows a rather standard template. We just have change a few things.
     - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
     - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
 
@@ -116,8 +114,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
             protected override string SubFolderDataOut => "out/";
         }
         ```
-    - Specify the codename (meanimp) and environmental variables. Since it's part of the collection, those are all the same across the board.
-    - Next, we have to instantiate the algorithm and add it to the global list. On line 28 add the following statement.
+    - Instantiate the algorithm and add it to the global list. On line 28 add the following statement.
         ```C#
         public static readonly Algorithm NewAlg = new NewAlgAlgorithm();
         ```
@@ -131,7 +128,7 @@ cd bin/Debug
 mono TestingFramework.exe -alg newalg -d airq -scen miss_perc
 ```
 
-- Then, in the Results folder here you can find precision and runtime results from running your algorithm.
+- Then, in the Results subfolder you can find precision and runtime results from running your algorithm.
 
 ___
 
