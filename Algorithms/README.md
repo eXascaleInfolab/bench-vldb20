@@ -40,12 +40,11 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
 - Add the copied files to the build script
-
     - `vim Makefile`
     - On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm `Algorithms/NewAlg.cpp` next to the other cpp files.
+    - If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
 
 - Adjust the header file
-
     - `vim Algorithms/NewAlg.h`
     - Rename the class into your primary name and the function there into the `NewAlg_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
