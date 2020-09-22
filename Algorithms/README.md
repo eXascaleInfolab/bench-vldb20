@@ -56,8 +56,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - Add the implementation to the source file
     - `vim Algorithms/NewAlg.cpp`
-    - Rename the header name in the include statement on line 2
-    - Rename the function into `NewAlg::NewAlg_Recovery` as it was in the header file.
+    - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
     - The function contains an implementation which you have to delete and replace with your own code.
 
 - Call the algorithm with the input given by the tester
