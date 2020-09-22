@@ -59,6 +59,7 @@
     <Compile Include="Algorithms\SVTAlgorithm.cs" />
     <Compile Include="Algorithms\TkcmAlgorithm.cs" />
     <Compile Include="Algorithms\TrmfAlgorithm.cs" />
+    <Compile Include="Algorithms\MeanImputeAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing\DataWorks.cs" />

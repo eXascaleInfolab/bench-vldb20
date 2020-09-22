@@ -25,11 +25,12 @@ namespace TestingFramework.Algorithms
         public static readonly Algorithm ROSL = new ROSLAlgorithm();
         public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
         public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
-        
+        public static readonly Algorithm MeanImp = new MeanImputeAlgorithm();
+
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI };
+        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp };
         public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI };
         public static Algorithm[] ListAlgorithmsStreaming = { InCd, Tkcm, Spirit };
 
@@ -196,6 +197,14 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public int Truncation = AlgoPack.TypicalTruncation;
+    }
+    
+    public partial class MeanImputeAlgorithm
+    {
+        public override string AlgCode => "meanimp";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
     }
 
     /*///////////////////////////////////////////////////////////*/
