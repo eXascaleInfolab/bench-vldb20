@@ -16,7 +16,7 @@ ___
 ## Algorithms, datatsets and scenarios
 
 - All the implemented algorithms can be found here.
-- All the datasets used by this benchmark can be found in: `TestingFramework/bin/Debug/data/`
+- All the datasets used in this benchmark can be found in: `TestingFramework/bin/Debug/data/`
 - The list of recovery scenarios can be found here.
 ___
 
