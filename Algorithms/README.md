@@ -16,8 +16,8 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 ### Prerequisites
 
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK
-- Algorithm input: take an arma::mat& class instance where columns are time series and rows are time points, and the missing values are designated as NaN
-- Algorithm output: missing values are imputed in the same arma::mat instance as input (it's passed by reference) and the matrix doesn't contain any NaNs or Infs
+- Algorithm input: take an arma::mat& class instance where the missing values are designated as NaN
+- Algorithm output: missing values are imputed in the same arma::mat instance as input (it is passed by reference). 
 - We assume that the benchmark was succesfully ran at least once. In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
 
 ### 1. AlgoCollection
@@ -41,7 +41,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - Add the copied files to the build script
     - `vim Makefile`
-    - On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm `Algorithms/NewAlg.cpp` next to the other cpp files.
+    - On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm (i.e., `Algorithms/NewAlg.cpp`) next to the other cpp files.
     - If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
 
 - Adjust the header file
