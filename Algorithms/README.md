@@ -6,7 +6,7 @@ ___
 
 ### Introduction
 
-This tutorial shows how to add a new algorithm written in C++ (using arma::) to the benchmark. We will illustrate the process by copying the code of MeanImpute algorithm.
+This tutorial shows how to add a new algorithm written in C++ (using armadillo) to the benchmark. We will illustrate the process by copying the code of MeanImpute algorithm.
 
 <!---
 The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework. 
@@ -15,9 +15,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### Prerequisites
 
-- Language: C++ using Armadillo
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK
-
 - Algorithm input: take an arma::mat& class instance where columns are time series and rows are time points, and the missing values are designated as NaN
 - Algorithm output: missing values are imputed in the same arma::mat instance as input (it's passed by reference) and the matrix doesn't contain any NaNs or Infs
 
