@@ -51,7 +51,7 @@ Open the header file and rename the class into your primary name and the functio
 If your algorithm is split across multiple functions, declare them inside the class and implement those functions in the following source file.
 
 ```bash
-vim MeanImpute.cpp
+vim Algorithms/NewAlg.cpp
 ```
 
 Open the source file and update the header include statement, then rename the function into `NewAlg::NewAlg_Recovery` same as it was in the header file. Input argument of this function is `arma::mat &`, missing values are designated as NaN and function arma::is_finite(double) can check for those.
