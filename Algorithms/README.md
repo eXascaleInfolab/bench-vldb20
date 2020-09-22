@@ -22,7 +22,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### 1. AlgoCollection
 
-- You need to choose two names for the algorithm: a long name (e.g., `NewAlg`) and a short name (e.g., `nalg`). 
+- You need to choose two names for the algorithm a long name and a short name. We use `NewAlg` and  `nalg` respectively as placeholders.
 
 <!---
 You can choose any other names as long as they are used consistently. 
