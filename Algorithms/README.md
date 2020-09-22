@@ -66,10 +66,12 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
             return Recovery_NewAlg(mat);
         }
     - Now we have to create a function that we call from here.
-    - The function we are about to add has to contain time measurement functionality which here is done with std::chrono and return the time in microseconds. It also has to verify the output with the call before the return statement. It replaces all the invalid values in the matrix (like NaN or Inf) with a very big number to inflate MSE/RMSE to signal that the algorithm didn't return a valid recovery.
-    - Copy the function on lines 33-55 and paste it directly afterwards. Then rename the function name to `Recovery_NewAlg` and then replace the name in the call between the assignments of `begin` and `end` variables from MeanImpute to how you named the function before `NewAlg::NewAlg_Recovery`
+    - Copy the function on lines 33-55 and paste it directly afterwards. Then rename the function name to `Recovery_NewAlg` and replace the name in the call between the assignments of `begin` and `end` variables from `MeanImpute::MeanImpute_Recovery` to how you named the function before `NewAlg::NewAlg_Recovery`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
-    - Include the header of our algorithm. Go to line 13 and insert the include statement `#include "../Algorithms/NewAlg.h"`
+    - Include the header of our algorithm. Go to line 13 and insert the include statement
+        ```C++
+        #include "../Algorithms/NewAlg.h"
+        ```
 
 - Rebuild the project.
     ```bash
@@ -92,9 +94,9 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 - Add the copied file to the project
     - `vim TestingFramework.csproj`
     - On line 62 insert an extra line with our file we just created (note: path separation in this file uses backslash, not forward slash).
-    ```xml
-    <Compile Include="Algorithms\NewAlgAlgorithm.cs" />
-    ```
+        ```xml
+        <Compile Include="Algorithms\NewAlgAlgorithm.cs" />
+        ```
 
 - Adjust the algorithm file.
     - `vim Algorithms/NewAlgAlgorithm.cs`
@@ -105,20 +107,20 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 - Add the key properties of the class to a package of executable algorithms.
     - `vim Algorithms/AlgoPack.cs`
     - On line 200 insert the following block and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
-    ```C#
-    public partial class NewAlgAlgorithm
-    {
-        public override string AlgCode => "nalg";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
-        protected override string SubFolderDataIn => "in/";
-        protected override string SubFolderDataOut => "out/";
-    }
-    ```
+        ```C#
+        public partial class NewAlgAlgorithm
+        {
+            public override string AlgCode => "nalg";
+            protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
+            protected override string SubFolderDataIn => "in/";
+            protected override string SubFolderDataOut => "out/";
+        }
+        ```
     - Specify the codename (meanimp) and environmental variables. Since it's part of the collection, those are all the same across the board.
     - Next, we have to instantiate the algorithm and add it to the global list. On line 28 add the following statement.
-    ```C#
-    public static readonly Algorithm NewAlg = new NewAlgAlgorithm();
-    ```
+        ```C#
+        public static readonly Algorithm NewAlg = new NewAlgAlgorithm();
+        ```
     - Add the name `NewAlg` to the array `ListAlgorithms` just below. If your algorithm is capable of imputing values in all time series, not just one, add it also to the "ListAlgorithmsMulticolumn" array.
 
 - We are done editing the code and now we just have to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
