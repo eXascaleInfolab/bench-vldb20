@@ -29,6 +29,7 @@ You can choose any other names as long as they are used consistently.
 because different parts of the benchmark can use those to communicate between each other. 
 In the following guide we will use `NewAlg` as a primary name and `nalg` as a short name.
 
+On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm (i.e., `Algorithms/NewAlg.cpp`) next to the other cpp files.
 --->
 
 - Copy the Mean Impute files into the new ones (using your primary name):
@@ -41,8 +42,10 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 - Add the copied files to the build script
     - `cd Algorithms/NewAlgorithms/cpp` 
     - `vim Makefile`
-    - On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm (i.e., `Algorithms/NewAlg.cpp`) next to the other cpp files.
+    - Insert `Algorithms/NewAlg.cpp` right before `-lopenblas` and `-L/usr/local/opt/openblas/lib`
     - If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
+
+
 
 - Adjust the header file
     - `vim Algorithms/NewAlg.h`
