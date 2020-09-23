@@ -62,7 +62,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 - Add the implementation to the source file
     - Open `Algorithms/NewAlg.cpp`
     - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
-    - <span style="color:red">*This function should contain the code of your algorithm.*</span>
+    - **This function should contain the code of your algorithm**.
 
 
 - Call the algorithm with the input given by the tester
