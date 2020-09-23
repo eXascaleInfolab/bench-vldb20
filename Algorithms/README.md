@@ -121,7 +121,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 ```bash
 msbuild TestingFramework.sln
 cd bin/Debug
-mono TestingFramework.exe -alg newalg -d airq -scen miss_perc
+mono TestingFramework.exe -alg nalg -d airq -scen miss_perc
 ```
 
 - Then, in the Results subfolder you can find precision and runtime results from running your algorithm.
