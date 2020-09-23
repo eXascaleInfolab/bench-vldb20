@@ -49,23 +49,23 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
 - Add the copied files to the build script
-    - `vim Makefile`
+    - Open `Makefile`
     - Insert `Algorithms/NewAlg.cpp` right before `-lopenblas` and `-L/usr/local/opt/openblas/lib`
 
 
 
 - Adjust the header file
-    - `vim Algorithms/NewAlg.h`
+    - Open `Algorithms/NewAlg.h`
     - Rename the class into `NewAlg` and the function into `NewAlg_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
 
 - Add the implementation to the source file
-    - `vim Algorithms/NewAlg.cpp`
+    - Open `Algorithms/NewAlg.cpp`
     - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
     - The function contains an implementation which you have to delete and replace with your own code.
 
 - Call the algorithm with the input given by the tester
-    - `vim Performance/Benchmark.cpp`
+    - Open `Performance/Benchmark.cpp`
     - On line 65, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "nalg")
@@ -91,17 +91,17 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 ```
 
 - Adjust the algorithm file.
-    - `vim Algorithms/NewAlgAlgorithm.cs`
+    - Open `Algorithms/NewAlgAlgorithm.cs`
     - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
     - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
 
 - Add the copied file to the project
-    - `vim TestingFramework.csproj`
+    - Open `TestingFramework.csproj`
     - On line 62, insert this statement `<Compile Include="Algorithms\NewAlgAlgorithm.cs" />`
 
 
 - Add the key properties of the class to a package of executable algorithms.
-    - `vim Algorithms/AlgoPack.cs`
+    - Open `Algorithms/AlgoPack.cs`
     - On line 201, insert the following block: 
         ```C#
         public partial class NewAlgAlgorithm
@@ -114,7 +114,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
         ```
     - On line 29, insert this statement: `public static readonly Algorithm NewAlg = new NewAlgAlgorithm();`
 
-    - Add the name `NewAlg` to the array `ListAlgorithms` just below. If your algorithm is capable of imputing values in all time series, not just one, add it also to the "ListAlgorithmsMulticolumn" array.
+    - Just below, add the name `NewAlg` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`, if your algorithm is capable of imputing values in multiple time series.
 
 - The editing part is done! Now we just need to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
 
