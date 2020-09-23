@@ -86,8 +86,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 - Go to the tester's folder and copy the sample file from MeanImpute into a new file with the name `NewAlgAlgorithm.cs`.
 
 ```bash
-cd ../../..
-cd TestingFramework
+cd ../../../TestingFramework/
 cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 ```
 
