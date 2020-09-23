@@ -33,6 +33,8 @@ On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenbl
 
 If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
 
+and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
+
 --->
 
 - Copy the Mean Impute files into the new ones (using your primary name):
@@ -81,8 +83,6 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 ### 2. TestingFramework
 
-- In the second part we will integrate the new algorithm from the collection into the tester.
-
 - Go to the tester's folder and copy the sample file from MeanImpute into a new file with the name `NewAlgAlgorithm.cs`.
 
 ```bash
@@ -90,21 +90,19 @@ cd ../../../TestingFramework/
 cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 ```
 
-- Add the copied file to the project
-    - `vim TestingFramework.csproj`
-    - On line 62 insert an extra line with our file we just created (note: path separation in this file uses backslash, not forward slash).
-        ```xml
-        <Compile Include="Algorithms\NewAlgAlgorithm.cs" />
-        ```
-
 - Adjust the algorithm file.
     - `vim Algorithms/NewAlgAlgorithm.cs`
     - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
     - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
 
+- Add the copied file to the project
+    - `vim TestingFramework.csproj`
+    - On line 62, insert this statement `<Compile Include="Algorithms\NewAlgAlgorithm.cs" />`
+
+
 - Add the key properties of the class to a package of executable algorithms.
     - `vim Algorithms/AlgoPack.cs`
-    - On line 200 insert the following block and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
+    - On line 201 insert the following block: 
         ```C#
         public partial class NewAlgAlgorithm
         {
@@ -114,10 +112,8 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
             protected override string SubFolderDataOut => "out/";
         }
         ```
-    - Instantiate the algorithm and add it to the global list. On line 28 add the following statement.
-        ```C#
-        public static readonly Algorithm NewAlg = new NewAlgAlgorithm();
-        ```
+    - On line 29, insert this statement: `public static readonly Algorithm NewAlg = new NewAlgAlgorithm();`
+
     - Add the name `NewAlg` to the array `ListAlgorithms` just below. If your algorithm is capable of imputing values in all time series, not just one, add it also to the "ListAlgorithmsMulticolumn" array.
 
 - We are done editing the code and now we just have to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
