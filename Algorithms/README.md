@@ -15,7 +15,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### Prerequisites
 
-- We assume that the benchmark was ran once. In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
+- The benchmark needs to be executed once (see execution section in the main repo). 
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK.
 - Algorithm input: take an arma::mat& class instance where the missing values are designated as NaN. Algorithm output: missing values are imputed in the same arma::mat instance as input (it is passed by reference). 
 
@@ -29,6 +29,9 @@ You can choose any other names as long as they are used consistently.
 because different parts of the benchmark can use those to communicate between each other. 
 In the following guide we will use `NewAlg` as a primary name and `nalg` as a short name.
 
+
+In the guide we use commands of the form `vim file_name` to denote that we are now working with a specific file in editing mode, which means line numbers refer to the file that was last "opened".
+
 On lines 2 and 5, go to their end. Before the first linkage statement (`-lopenblas` on line 2, `-L/usr/local/opt/openblas/lib` on line 5) insert the name of the source file of the new algorithm (i.e., `Algorithms/NewAlg.cpp`) next to the other cpp files.
 
 If your algorithm requires linking extra libraries, add all the `-l` and `-L` statement at the end of the lines 2 and 5
@@ -37,7 +40,7 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
 
 --->
 
-- Copy the Mean Impute files into the new ones from the root folder (using your primary name):
+- Copy the Mean Impute files into the new ones (using the long name):
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
@@ -63,7 +66,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 - Call the algorithm with the input given by the tester
     - `vim Performance/Benchmark.cpp`
-    - At the end of the file and in the last function `int64_t Recovery()` go to line 65 and add an `else if` block which looks like the following:
+    - On line 65, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "nalg")
         {
@@ -99,7 +102,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 
 - Add the key properties of the class to a package of executable algorithms.
     - `vim Algorithms/AlgoPack.cs`
-    - On line 201 insert the following block: 
+    - On line 201, insert the following block: 
         ```C#
         public partial class NewAlgAlgorithm
         {
@@ -113,7 +116,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 
     - Add the name `NewAlg` to the array `ListAlgorithms` just below. If your algorithm is capable of imputing values in all time series, not just one, add it also to the "ListAlgorithmsMulticolumn" array.
 
-- We are done editing the code and now we just have to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
+- The editing part is done! Now we just need to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
@@ -121,7 +124,7 @@ cd bin/Debug
 mono TestingFramework.exe -alg nalg -d airq -scen miss_perc
 ```
 
-- Then, in the Results subfolder you can find precision and runtime results from running your algorithm.
+- The precision and runtime results will be added to the `Results` subfolder.
 
 ___
 
