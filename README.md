@@ -24,7 +24,7 @@ ___
 
 ## Prerequisites and dependencies
 
-- Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu).
+- Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu) or same distribution under WSL.
 - Clone this repository.
 - Mono: Install mono from https://www.mono-project.com/download/stable/ (takes few minutes).
 
