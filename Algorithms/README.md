@@ -58,7 +58,6 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 ```
 
 - Add the copied files to the build script
-    - `sed '/-lopenblas/Algorithms/NewAlg.cpp' Makefile`
     - Open `Makefile`
     - Insert `Algorithms/NewAlg.cpp` right before `-lopenblas` and `-L/usr/local/opt/openblas/lib`
 
