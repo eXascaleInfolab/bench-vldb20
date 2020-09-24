@@ -21,7 +21,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### 1. AlgoCollection
 
-- You need to choose two names for the algorithm: a long name and a short name. We use `NewAlg` and  `nalg` respectively as placeholders.
+- Choose a long name and a short name for your algorithm. We use respectively `ZeroImpute` and `zeroimp`.
 
 <!---
 You can choose any other names as long as they are used consistently. 
@@ -41,35 +41,30 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.cpp`
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
     - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
-
-
-
-
 --->
 
 - Copy the Mean Impute files into the new ones (using the long name):
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
-cp Algorithms/MeanImpute.h Algorithms/NewAlg.h
-cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
+cp Algorithms/MeanImpute.h Algorithms/ZeroImpute.h
+cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 ```
 
 - Add the copied files to the build script
     - Open `Makefile`
-    - Insert `Algorithms/NewAlg.cpp` right before `-lopenblas` and `-L/usr/local/opt/openblas/lib`
-
+    - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas`
 
 
 - Adjust the header file
-    - Open `Algorithms/NewAlg.h`
-    - Rename the class into `NewAlg` and the function into `NewAlg_Recovery`.
+    - Open `Algorithms/ZeroImpute.h`
+    - Rename the class into `ZeroImpute` and the function into `ZeroImpute_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
 
 - Add the implementation to the source file
-    - Open `Algorithms/NewAlg.cpp`
+    - Open `Algorithms/ZeroImpute.cpp`
     - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
-    - **This function should contain the code of your algorithm**.
+    - Replace the core of your function by the code of [zero imputation](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If is not done, then algorithm will perform MeanImpute**.
 
 
 - Call the algorithm with the input given by the tester
