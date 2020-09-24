@@ -383,7 +383,7 @@ namespace TestingFramework
 
             if (algos == null || algos.Count == 0)
             {
-                algos = AlgoPack.ListAlgorithms.Where(alg => alg.AlgCode != "meanimp").ToList();
+                algos = AlgoPack.ListAlgorithms.Where(alg => alg.AlgCode != "meanimp" && alg.AlgCode != "linimp").ToList();
             }
 
             if (scenarios == null || scenarios.Count == 0)
