@@ -3,8 +3,9 @@
 Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a> in the Proceedings of the VLDB Endowment (**PVLDB 2020**).
 
 *News*:
-  - ImputeBench has received the VLDB 2020 Most Reproducible Paper Award. See <a href = "https://vldb2020.org/vldb-2020-awards.html"> vldb2020 </a> and <a href = "https://vldb-repro.com"> vldb-repro </a> .
-  - You can now add your own imputation algorithm to the benchmark [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
+  - ImputeBench has passed the pVLDB reproducibily test ([vldb-repro](https://vldb-repro.com))
+  - ImputeBench has received the VLDB 2020 Most Reproducible Paper Award ([vldb2020](https://vldb2020.org/vldb-2020-awards.html)).
+  - You can now add your own imputation algorithm to the benchmark ([tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms)).
 
 
 <!---
