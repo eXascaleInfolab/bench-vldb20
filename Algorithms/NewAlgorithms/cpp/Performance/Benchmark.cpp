@@ -42,7 +42,7 @@ int64_t Recovery_MeanImpute(arma::mat &mat)
     
     // Recovery
     begin = std::chrono::steady_clock::now();
-    MeanImpute::MeanInpute_Recovery(mat);
+    MeanImpute::MeanImpute_Recovery(mat);
     end = std::chrono::steady_clock::now();
     
     result = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();

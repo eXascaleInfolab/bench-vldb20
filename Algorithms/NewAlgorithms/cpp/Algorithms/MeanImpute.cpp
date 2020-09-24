@@ -4,7 +4,7 @@
 namespace Algorithms
 {
 
-void MeanImpute::MeanInpute_Recovery(arma::mat &input)
+void MeanImpute::MeanImpute_Recovery(arma::mat &input)
 {
     arma::vec mean = arma::zeros<arma::vec>(input.n_cols);
     arma::uvec values = arma::zeros<arma::uvec>(input.n_cols);
