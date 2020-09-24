@@ -21,7 +21,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### 1. AlgoCollection
 
-- Choose a long name and a short name for your algorithm. We use respectively `ZeroImpute` and `zeroimp`.
+- Choose a long name and a short name for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
 <!---
 You can choose any other names as long as they are used consistently. 
@@ -41,9 +41,10 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.cpp`
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
     - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
+    - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
 --->
 
-- Copy the Mean Impute files into the new ones (using the long name):
+- Create ZeroImpute .h and .cpp files by copying MeanImpute files:
 
 ```bash
 cd Algorithms/NewAlgorithms/cpp
@@ -51,19 +52,19 @@ cp Algorithms/MeanImpute.h Algorithms/ZeroImpute.h
 cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 ```
 
-- Add the copied files to the build script
+- Add the .cpp file to the build script
     - Open `Makefile`
     - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas`
 
 
-- Adjust the header file
+- Adjust the .h file
     - Open `Algorithms/ZeroImpute.h`
     - Rename the class into `ZeroImpute` and the function into `ZeroImpute_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
 
 - Add the implementation to the source file
     - Open `Algorithms/ZeroImpute.cpp`
-    - Rename the header name on Line 2 into `ZeroImpute`.
+    - on Line 2, rename the header name to `ZeroImpute`.
     - Replace the function `MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If this is not done, then algorithm will perform MeanImpute**.
 
 
@@ -76,7 +77,6 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
             return Recovery_ZeroImpute(mat);
         }
     - Copy and paste the function `Recovery_MeanImpute` on lines 34-56 and rename the function name to `Recovery_ZeroImpute`. Then, replace  `MeanImpute::MeanImpute_Recovery` by `ZeroImpute::ZeroImpute_Recovery` and `Time (MeanImpute)` by `Time (ZeroImpute)`
-    - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
     - Include the header of the algorithm. Go to line 14 and insert the statement `#include "../Algorithms/ZeroImpute.h"`
      
 - Rebuild the project.
@@ -86,7 +86,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 ### 2. TestingFramework
 
-- Go to the tester's folder and copy the sample file from MeanImpute into a new file with the name `NewAlgAlgorithm.cs`.
+- Create the .cs file
 
 ```bash
 cd ../../../TestingFramework/
@@ -119,7 +119,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 
     - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
 
-- The editing part is done! Now we just need to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `zeroimp` as an argument for `-alg` command.
+- The editing part is done! We will run ZeroImpute using 1 scenario and 1 dataset. Use your short name `zeroimp` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
