@@ -1,4 +1,6 @@
-    for (uint64_t j = 0; j < input.n_cols; ++j)
+void ZeroImpute::ZeroImpute_Recovery(arma::mat &input)
+{
+       for (uint64_t j = 0; j < input.n_cols; ++j)
     {
         for (uint64_t i = 0; i < input.n_rows; ++i)
         {
@@ -7,4 +9,9 @@
                 input(i, j) = 0.0;
             }
         }
-    }
+    } 
+}    
+    
+    
+    
+    
