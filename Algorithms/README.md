@@ -38,13 +38,12 @@ If your algorithm requires linking extra libraries, add all the `-l` and `-L` st
 
 and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
 
-    - Open `Algorithms/NewAlg.h`
-    - Rename the class into `NewAlg` and the function into `NewAlg_Recovery`.
-    - Open `Algorithms/NewAlg.cpp`
-    - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
-    - Open `Algorithms/NewAlgAlgorithm.cs`
-    - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
-    - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
+    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.h`
+    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.cpp`
+    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
+    - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
+
+
 
 
 --->
@@ -64,11 +63,13 @@ cp Algorithms/MeanImpute.cpp Algorithms/NewAlg.cpp
 
 
 - Adjust the header file
-    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.h`
+    - Open `Algorithms/NewAlg.h`
+    - Rename the class into `NewAlg` and the function into `NewAlg_Recovery`.
     - If your algorithm is split across multiple functions, declare them inside the class.
 
 - Add the implementation to the source file
-    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.cpp`
+    - Open `Algorithms/NewAlg.cpp`
+    - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
     - **This function should contain the code of your algorithm**.
 
 
@@ -99,8 +100,9 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
 ```
 
 - Adjust the algorithm file.
-    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
-    - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
+    - Open `Algorithms/NewAlgAlgorithm.cs`
+    - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
+    - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
 
 - Add the copied file to the project
     - Open `TestingFramework.csproj`
