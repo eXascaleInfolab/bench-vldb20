@@ -1,6 +1,6 @@
 # Adding new algorithms
 
-This tutorial shows how to add a new recovery algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template.
+This tutorial shows how to add a new recovery algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template. If you would like to add your own code, then you need to follow the same steps and rebuild the program at the end.
 
 ___
 
@@ -65,7 +65,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Add the implementation to the source file
     - Open `Algorithms/ZeroImpute.cpp`
     - on Line 2, rename the header name to `ZeroImpute`.
-    - Replace the function `MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If this is not done, then algorithm will perform MeanImpute**.
+    - Replace the function `MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If you want to add your own algorithm, then your code should go here**.
 
 
 - Call the algorithm with the input given by the tester
