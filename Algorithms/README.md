@@ -54,7 +54,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Add the .cpp file to the build script
     - Open `Makefile`
-    - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas`
+    - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
 
 
 - Adjust the .h file
