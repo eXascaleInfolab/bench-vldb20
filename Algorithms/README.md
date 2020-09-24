@@ -1,12 +1,11 @@
 # Adding new algorithms
 
+This tutorial shows how to add a new recovery algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template.
+
 ___
 
 ## Adding a C++ algorithm that uses armadillo
 
-### Introduction
-
-This tutorial shows how to add a new algorithm written in C++ (using armadillo) to the benchmark. We will illustrate the process by copying the code of MeanImpute algorithm.
 
 <!---
 The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework. 
