@@ -64,7 +64,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Add the implementation to the source file
     - Open `Algorithms/ZeroImpute.cpp`
     - Rename the header name on Line 2 into `ZeroImpute`.
-    - Replace function MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If this is not done, then algorithm will perform MeanImpute**.
+    - Replace the function `MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If this is not done, then algorithm will perform MeanImpute**.
 
 
 - Call the algorithm with the input given by the tester
