@@ -63,21 +63,21 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Add the implementation to the source file
     - Open `Algorithms/ZeroImpute.cpp`
-    - Rename the header name on Line 2 into `NewAlg` and the function into `NewAlg::NewAlg_Recovery`.
-    - Replace the core of your function by the code of [zero imputation](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If is not done, then algorithm will perform MeanImpute**.
+    - Rename the header name on Line 2 into `ZeroImpute`.
+    - Replace function MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If this is not done, then algorithm will perform MeanImpute**.
 
 
 - Call the algorithm with the input given by the tester
     - Open `Performance/Benchmark.cpp`
-    - On line 65, insert the following block to the last function `int64_t Recovery()`
+    - On line 94, insert the following block to the last function `int64_t Recovery()`
         ```C++
-        else if (algorithm == "nalg")
+        else if (algorithm == "zeroimp")
         {
-            return Recovery_NewAlg(mat);
+            return Recovery_ZeroImpute(mat);
         }
-    - Copy and paste the function `Recovery_MeanImpute` on lines 33-55 and rename the function name to `Recovery_NewAlg`. Then, replace the name in the call between the assignments of `begin` and `end` variables from `MeanImpute::MeanImpute_Recovery` to `NewAlg::NewAlg_Recovery`
+    - Copy and paste the function `Recovery_MeanImpute` on lines 34-56 and rename the function name to `Recovery_ZeroImpute`. Then, replace  `MeanImpute::MeanImpute_Recovery` by `ZeroImpute::ZeroImpute_Recovery` and `Time (MeanImpute)` by `Time (ZeroImpute)`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
-    - Include the header of the algorithm. Go to line 13 and insert the statement `  #include "../Algorithms/NewAlg.h"`
+    - Include the header of the algorithm. Go to line 14 and insert the statement `#include "../Algorithms/ZeroImpute.h"`
      
 - Rebuild the project.
     ```bash
@@ -90,41 +90,41 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 ```bash
 cd ../../../TestingFramework/
-cp Algorithms/MeanImputeAlgorithm.cs Algorithms/NewAlgAlgorithm.cs
+cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 ```
 
 - Adjust the algorithm file.
-    - Open `Algorithms/NewAlgAlgorithm.cs`
-    - Rename the class and constructor names from `MeanImputeAlgorithm` to `NewAlgAlgorithm` on lines 10 and 13.
-    - Change the algorithm code from `meanimp` into your `nalg` at lines 49 and 66 in the cli arguments next to `-alg`.
+    - Open `Algorithms/ZeroImputeAlgorithm.cs`
+    - Rename the class and constructor names from `MeanImputeAlgorithm` to `ZeroImputeAlgorithm` on lines 10 and 13.
+    - Change the algorithm code from `meanimp` into your `zeroimp` at lines 49 and 66 in the cli arguments next to `-alg`.
 
 - Add the copied file to the project
     - Open `TestingFramework.csproj`
-    - On line 62, insert this statement `<Compile Include="Algorithms\NewAlgAlgorithm.cs" />`
+    - On line 64, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
 
 
 - Add the key properties of the class to a package of executable algorithms.
     - Open `Algorithms/AlgoPack.cs`
-    - On line 201, insert the following block: 
+    - On line 218, insert the following block: 
         ```C#
-        public partial class NewAlgAlgorithm
+        public partial class ZeroImputeAlgorithm
         {
-            public override string AlgCode => "nalg";
+            public override string AlgCode => "zeroimp";
             protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
             protected override string SubFolderDataIn => "in/";
             protected override string SubFolderDataOut => "out/";
         }
         ```
-    - On line 29, insert this statement: `public static readonly Algorithm NewAlg = new NewAlgAlgorithm();`
+    - On line 30, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
-    - Just below, add the name `NewAlg` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`, if your algorithm is capable of imputing values in multiple time series.
+    - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
 
-- The editing part is done! Now we just need to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `nalg` as an argument for `-alg` command.
+- The editing part is done! Now we just need to rebuild the project and try to run it on a simple example (1 scenario and 1 dataset). Use your short name `zeroimp` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
 cd bin/Debug
-mono TestingFramework.exe -alg nalg -d airq -scen miss_perc
+mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 ```
 
 - The precision and runtime results will be added to the `Results` subfolder.
