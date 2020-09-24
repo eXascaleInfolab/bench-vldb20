@@ -119,7 +119,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 
     - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
 
-- The editing part is done! We will run ZeroImpute using 1 scenario and 1 dataset. Use your short name `zeroimp` as an argument for `-alg` command.
+- Rebuild the code and execute ZeroImpute using 1 scenario and 1 dataset. Use your short name `zeroimp` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
