@@ -2,7 +2,10 @@
 
 Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a> in the Proceedings of the VLDB Endowment (**PVLDB 2020**).
 
-ImputeBench has received the VLDB 2020 Most Reproducible Paper <a href = "https://vldb2020.org/vldb-2020-awards.html"> Award </a>.
+*News*:
+  - ImputeBench has received the VLDB 2020 Most Reproducible Paper <a href = "https://vldb2020.org/vldb-2020-awards.html"> Award </a>.
+  - You can add your own algorithm to the benchmark [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
+
 
 <!---
 
@@ -127,12 +130,6 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 - To add a new dataset to the benchmark:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
   - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
-
-## Algorithm customization
-
-- Our benchmark allows to add your own algorithm (C++ with Armadillo) to the benchmark. 
-- To add a new algorithm, please follow the steps described [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
-
 ___
 
 ## Contact
