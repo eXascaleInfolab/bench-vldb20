@@ -403,6 +403,7 @@ namespace TestingFramework
 
             algos.Remove(AlgoPack.Tkcm);
             algos.Remove(AlgoPack.Spirit);
+            algos.Remove(AlgoPack.Ssa);
             AlgoPack.ListAlgorithmsMulticolumn = algos.ToArray();
             
             AlgoPack.CleanUncollectedResults();

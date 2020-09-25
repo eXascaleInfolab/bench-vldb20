@@ -22,6 +22,7 @@ namespace TestingFramework.Algorithms
         public static readonly Algorithm Grouse = new GrouseAlgorithm();
         public static readonly Algorithm Svt = new SVTAlgorithm();
         public static readonly Algorithm SoftImpute = new SoftImputeAlgorithm();
+        public static readonly Algorithm Ssa = new SSAAlgorithm();
         public static readonly Algorithm ROSL = new ROSLAlgorithm();
         public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
         public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
@@ -31,7 +32,7 @@ namespace TestingFramework.Algorithms
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp };
+        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa };
         public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, LinImp };
         public static Algorithm[] ListAlgorithmsStreaming = { InCd, Tkcm, Spirit };
 
@@ -198,6 +199,15 @@ namespace TestingFramework.Algorithms
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public int Truncation = AlgoPack.TypicalTruncation;
+    }
+
+    public partial class SSAAlgorithm
+    {
+        public override string AlgCode => "ssa";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ssa/tslib/";
+        protected override string SubFolderDataIn => "data_in/";
+        protected override string SubFolderDataOut => "data_out/";
+        //public override bool IsMulticolumn => false;
     }
     
     public partial class MeanImputeAlgorithm

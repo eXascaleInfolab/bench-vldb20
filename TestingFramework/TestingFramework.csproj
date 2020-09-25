@@ -55,6 +55,7 @@
     <Compile Include="Algorithms\SoftImputeAlgorithm.cs" />
     <Compile Include="Algorithms\SpiritAlgorithm.cs" />
     <Compile Include="Algorithms\StmvlAlgorithm.cs" />
+    <Compile Include="Algorithms\SSAAlgorithm.cs" />
     <Compile Include="Algorithms\SVDImputeAlgorithm.cs" />
     <Compile Include="Algorithms\SVTAlgorithm.cs" />
     <Compile Include="Algorithms\TkcmAlgorithm.cs" />

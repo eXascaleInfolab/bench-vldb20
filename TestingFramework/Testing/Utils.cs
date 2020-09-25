@@ -237,6 +237,66 @@ namespace TestingFramework.Testing
             }
         }
         
+        public static string Enquote(this string str) => $@"""{str}""";
+        
+        public static string Enquote<T>(this T str) => $@"""{str.ToString()}""";
+        
+        private static IEnumerable<T> EnumerateColumn<T>(this ICollection<ICollection<T>> collection, int idx)
+        {
+            return collection.Select((t, i) => collection.ElementAt(i).ElementAt(idx));
+        }
+
+        public static IEnumerable<IEnumerable<T>> EnumerateTranspose<T>(this ICollection<ICollection<T>> collection)
+        {
+            if (collection.Count == 0)
+            {
+                yield break;
+            }
+            
+            for (int i = 0; i < collection.ElementAt(0).Count; i++)
+            {
+                yield return collection.EnumerateColumn(i);
+            }
+        }
+        
+        public static IEnumerable<NumberedObject<T>> AddNumeration<T>(this IEnumerable<T> stringColection,
+            int startIndex = 0, int step = 1)
+        {
+            int counter = startIndex;
+
+            foreach (T elem in stringColection)
+            {
+                yield return new NumberedObject<T>(counter, elem);
+                counter += step;
+            }
+        }
+
+        public struct NumberedObject<T>
+        {
+            public readonly int Number;
+            public readonly T Elem;
+            
+            public NumberedObject(int number, T elem)
+            {
+                Number = number;
+                Elem = elem;
+            }
+
+            public string JoinToString(string sep = " ") => $"{Number}{sep}{Elem}";
+        }
+        
+        public static IEnumerable<NumberedObject<TRes>> SelectWithNumbers<TSrc, TRes>(
+            this IEnumerable<NumberedObject<TSrc>> collection, Func<TSrc, int, TRes> func)
+        {
+            return collection.Select(member => new NumberedObject<TRes>(member.Number, func(member.Elem, member.Number)));
+        }
+        
+        public static IEnumerable<TRes> SelectCollapse<TSrc, TRes>(this IEnumerable<NumberedObject<TSrc>> collection,
+            Func<TSrc, int, TRes> func)
+        {
+            return collection.Select(member => func(member.Elem, member.Number));
+        }
+        
         public class ContinuousWriter
         {
             // fields
