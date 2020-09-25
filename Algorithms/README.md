@@ -98,7 +98,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
     - Rename the class and constructor names from `MeanImputeAlgorithm` to `ZeroImputeAlgorithm` on lines 10 and 13.
     - Change the algorithm code from `meanimp` into your `zeroimp` at lines 49 and 66 in the cli arguments next to `-alg`.
 
-- Add the copied file to the project
+- Add the modified file to the project
     - Open `TestingFramework.csproj`
     - On line 64, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
 
@@ -119,7 +119,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 
     - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
 
-- Rebuild the code and execute ZeroImpute using 1 scenario and 1 dataset. Use your short name `zeroimp` as an argument for `-alg` command.
+- Rebuild the code and execute ZeroImpute using 1 scenario (miss_perc) on 1 dataset (airq). Use your short name `zeroimp` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
