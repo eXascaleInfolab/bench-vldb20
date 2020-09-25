@@ -1,6 +1,6 @@
 # Adding new algorithms
 
-This tutorial shows how to add a new recovery algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template. If you would like to add your own code, then you need to follow the same steps and rebuild the program at the end.
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template. If you want to include your own algorithm, then you need to add your code in Step 1, follow the same instructions and rebuild the program at the end.
 
 ___
 
