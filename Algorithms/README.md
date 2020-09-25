@@ -105,7 +105,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 
 - Add the key properties of the class to a package of executable algorithms.
     - Open `Algorithms/AlgoPack.cs`
-    - On line 218, insert the following block: 
+    - On line 219, insert the following block: 
         ```C#
         public partial class ZeroImputeAlgorithm
         {
