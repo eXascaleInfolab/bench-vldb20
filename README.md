@@ -22,7 +22,7 @@ ___
 - The benchmark implements the following algorithms: [CDRec](https://ieeexplore.ieee.org/document/6816643), [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078), [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html),  [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890), [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html), [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674), [SSA](https://dl.acm.org/doi/10.1145/3287319), [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf), [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365), [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0), [TeNMF](http://proceedings.mlr.press/v70/mei17a.html), [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf), and [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf).
 
 - All the datasets used in this benchmark can be found in the folder `Datasets`.
-- The full list of recovery scenarios can be found here.
+- The full list of recovery scenarios can be found [here](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/TestingFramework/bin/Debug/.tech/batch_mid.txt).
 ___
 
 
