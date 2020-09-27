@@ -64,9 +64,9 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - cd `Algorithms/NewAlgorithms/`
 
-- Create the files ZeroImpute.h and ZeroImpute.cpp in `cpp/Algorithms`. We have added an example of the two files in the same folder
-    - `ZeroImpute.h` contains a class `ZeroImpute_Recovery`
-    - `ZeroImpute.cpp`contains a recovery function named  `ZeroImpute::ZeroImpute_Recovery()`
+- Create the files .h and .cpp in `cpp/Algorithms`. We have added, as an example, ZeroImpute.h and ZeroImpute.h to the same folder
+    - `ZeroImpute.h` contains the class `ZeroImpute`
+    - `ZeroImpute.cpp`contains the recovery function  `ZeroImpute::ZeroImpute_Recovery()`
 
 - Add the .cpp file to the build script
     - Open `cpp/Makefile`
