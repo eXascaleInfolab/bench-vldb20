@@ -1,10 +1,9 @@
 # Adding new algorithms
 
-This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to follow the same steps and rebuild the program at the end.
-
 ___
 
 ## Adding a C++ algorithm that uses armadillo
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add the corresponding .cpp and .h files, follow the same steps, and rebuild the program at the end.
 
 
 <!---
@@ -19,9 +18,6 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 - Algorithm input: take an arma::mat& class instance where the missing values are designated as NaN. Algorithm output: missing values are imputed in the same arma::mat instance as input (it is passed by reference). 
 
 
-### 1. AlgoCollection
-
-- Choose a long name and a short name for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
 <!---
 You can choose any other names as long as they are used consistently. 
@@ -61,19 +57,23 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 --->
 
-- Create ZeroImpute.h and ZeroImpute.cpp in `Algorithms/NewAlgorithms/cpp/Algorithms`. We have already added an example of the two files in the same folder
-    - `ZeroImpute.cpp` contains a header named `ZeroImpute` and a recovery function named  `MeanImpute_Recovery()`
-    - `ZeroImpute.h` contains class  `ZeroImpute_Recovery`
 
+### 1. AlgoCollection
 
+- Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
+
+- cd `Algorithms/NewAlgorithms/`
+
+- Create the files ZeroImpute.h and ZeroImpute.cpp in `cpp/Algorithms`. We have added an example of the two files in the same folder
+    - `ZeroImpute.cpp` contains a header named `ZeroImpute` and a recovery function named  `ZeroImpute_Recovery()`
+    - `ZeroImpute.h` contains class `ZeroImpute_Recovery`
 
 - Add the .cpp file to the build script
-    - Open `Makefile`
+    - Open `cpp/Makefile`
     - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
 
-
 - Call the algorithm with the input given by the tester
-    - Open `Performance/Benchmark.cpp`
+    - Open `cpp/Performance/Benchmark.cpp`
     - On line 94, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "zeroimp")
@@ -93,16 +93,16 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Create the .cs file
 
 ```bash
-cd ../../../TestingFramework/
+cd ../../TestingFramework/
 cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 ```
 
-- Adjust the algorithm file.
+- Adjust  the .cs file
     - Open `Algorithms/ZeroImputeAlgorithm.cs`
     - Rename the class and constructor names from `MeanImputeAlgorithm` to `ZeroImputeAlgorithm` on lines 10 and 13.
-    - Change the algorithm code from `meanimp` into your `zeroimp` at lines 49 and 66 in the cli arguments next to `-alg`.
+    - Change the algorithm code from `meanimp` into `zeroimp` on lines 49 and 66 in the cli arguments next to `-alg`.
 
-- Add the modified file to the project
+- Add the modified .cs file to the project
     - Open `TestingFramework.csproj`
     - On line 64, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
 
