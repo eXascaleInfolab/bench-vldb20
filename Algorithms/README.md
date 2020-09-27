@@ -13,7 +13,7 @@ The process will be illustrated on an example algorithm that we call MeanImpute,
 
 ### Prerequisites
 
-- The benchmark needs to be executed once (see execution section in the main repo). 
+- The benchmark needs to be executed once (see [execution section](https://github.com/eXascaleInfolab/bench-vldb20)). 
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK.
 - Algorithm input: take an arma::mat& class instance where the missing values are designated as NaN. Algorithm output: missing values are imputed in the same arma::mat instance as input (it is passed by reference). 
 
