@@ -42,30 +42,34 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
     - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
---->
-
-- Create ZeroImpute .h and .cpp files by copying MeanImpute files:
-
+    
 ```bash
 cd Algorithms/NewAlgorithms/cpp
 cp Algorithms/MeanImpute.h Algorithms/ZeroImpute.h
 cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 ```
-
-- Add the .cpp file to the build script
-    - Open `Makefile`
-    - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
-
-
+    
 - Adjust the .h file
     - Open `Algorithms/ZeroImpute.h`
     - Rename the class into `ZeroImpute` and the function into `ZeroImpute_Recovery`.
-    - If your algorithm is split across multiple functions, declare them inside the class.
+    - If your algorithm is split across multiple functions, declare them inside the class.    
 
 - Add the implementation to the source file
     - Open `Algorithms/ZeroImpute.cpp`
     - on Line 2, rename the header name to `ZeroImpute`.
     - Replace the function `MeanImpute_Recovery()` by the code of [ZeroImpute](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/Algorithms/NewAlgorithms/ZeroImpute.txt). **If you want to add your own algorithm, then your code should go here**.
+
+--->
+
+- Create ZeroImpute.h and ZeroImpute.cpp in `Algorithms/NewAlgorithms/cpp/Algorithms`. We have already added an example of the two files in the same folder
+    - `ZeroImpute.cpp` contains a header named `ZeroImpute` and a recovery function named  `MeanImpute_Recovery()`
+    - `ZeroImpute.h` contains class  `ZeroImpute_Recovery`
+
+
+
+- Add the .cpp file to the build script
+    - Open `Makefile`
+    - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
 
 
 - Call the algorithm with the input given by the tester
