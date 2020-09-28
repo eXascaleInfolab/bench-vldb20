@@ -62,18 +62,18 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
-- cd `Algorithms/NewAlgorithms/`
+- cd `Algorithms/NewAlgorithms/cpp/`
 
-- Create the files .h and .cpp in `cpp/Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.h to the folder.
+- Create the files .h and .cpp in folder `Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.h to the folder.
     - `ZeroImpute.h` contains the class `ZeroImpute`
     - `ZeroImpute.cpp`contains the recovery function  `ZeroImpute::ZeroImpute_Recovery()`
 
 - Add the .cpp file to the build script
-    - Open `cpp/Makefile`
+    - Open `Makefile`
     - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
 
 - Call the algorithm with the input given by the tester
-    - Open `cpp/Performance/Benchmark.cpp`
+    - Open `Performance/Benchmark.cpp`
     - On line 94, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "zeroimp")
@@ -93,7 +93,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Create the .cs file
 
 ```bash
-cd ../../TestingFramework/
+cd ../../../TestingFramework/
 cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 ```
 
