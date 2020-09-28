@@ -72,7 +72,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
     - Open `Makefile`
     - Insert `Algorithms/ZeroImpute.cpp` right before `-lopenblas` (at the end of the line)
 
-- Call the algorithm with the input given by the tester
+- Call the algorithm with the input given by the testing framework
     - Open `Performance/Benchmark.cpp`
     - On line 940, insert the following block to the last function `int64_t Recovery()`
         ```C++
