@@ -134,7 +134,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
  
 ## Algorithm customization
 
-To add your own algorithm, please refer to this ([tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms)).
+To add your own algorithm, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
 ___
 
 ## Contact
