@@ -121,9 +121,9 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
         ```
     - On line 31, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
-    - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
+    - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(in case your algorithm is able to handle multiple incomplete time series).
 
-- Rebuild the code and execute ZeroImpute using 1 scenario (miss_perc) on 1 dataset (airq). Use your short name `zeroimp` as an argument for `-alg` command.
+- Rebuild the code and execute ZeroImpute on 1 dataset (airq) using 1 scenario (miss_perc). Use your short name `zeroimp` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
