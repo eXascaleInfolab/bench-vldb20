@@ -64,7 +64,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - cd `Algorithms/NewAlgorithms/cpp/`
 
-- Create the files .h and .cpp in folder `Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.cpp to the folder.
+- Create the files .h and .cpp inside folder `Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.cpp to the folder.
     - `ZeroImpute.h` contains the class `ZeroImpute`
     - `ZeroImpute.cpp`contains the recovery function  `ZeroImpute::ZeroImpute_Recovery()`
 
