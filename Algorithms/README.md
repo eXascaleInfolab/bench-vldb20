@@ -74,7 +74,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Call the algorithm with the input given by the tester
     - Open `Performance/Benchmark.cpp`
-    - On line 94, insert the following block to the last function `int64_t Recovery()`
+    - On line 940, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "zeroimp")
         {
@@ -104,12 +104,12 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
 
 - Add the modified .cs file to the project
     - Open `TestingFramework.csproj`
-    - On line 64, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
+    - On line 65, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
 
 
 - Add the key properties of the class to a package of executable algorithms.
     - Open `Algorithms/AlgoPack.cs`
-    - On line 219, insert the following block: 
+    - On line 228, insert the following block: 
         ```C#
         public partial class ZeroImputeAlgorithm
         {
@@ -119,7 +119,7 @@ cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
             protected override string SubFolderDataOut => "out/";
         }
         ```
-    - On line 30, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
+    - On line 31, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
     - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(if your algorithm is capable of imputing values in multiple time series).
 
