@@ -8,7 +8,7 @@ Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:  <
 - All the datasets used in this benchmark can be found in the folder `Datasets`.
 - The full list of recovery scenarios can be found [here](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/TestingFramework/bin/Debug/.tech/batch_mid.txt).
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Datasets customization**](#datasets-customization) | [**Algorithms customization**](#algorithm-customization) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Algorithm and Dataset Insertion**](#algorithm-and-dataset-insertion) | [**Citation**](#citation)
 
 <!---
 
@@ -121,16 +121,15 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 
 - Remark: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
 
+___
 
-## Datasets customization
+## Algorithm and Dataset Insertion
 
+- To add your own algorithm, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
 - To add a new dataset to the benchmark:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
   - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
  
-## Algorithm customization
-
-To add your own algorithm, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
 ___
 
 
