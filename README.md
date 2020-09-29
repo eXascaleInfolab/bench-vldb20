@@ -101,8 +101,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
     $ mono TestingFramework.exe --help
 ```
 
-- *Remarks*:
-    - The algorithms `tkcm` and `spirit` cannot handle multiple incomplete time series. These two allgorithms will not produce results for scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
+**Remark** The algorithms `tkcm`,  `spirit` and `ssa` cannot handle multiple incomplete time series. These two allgorithms will not produce results for scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ### Parametrized execution
 
@@ -119,7 +118,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
     $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
 ```
 
-- Remark: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
+**Remark**: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
 
 ___
 
