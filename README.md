@@ -81,19 +81,19 @@ All results will be added to `Results` folder. The accuracy results and plots of
 ```
 **Warning**: Running the whole benchmark will take a sizeable amount of time (up to 4 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
-2. Run a single algorithm (spirit) on a single dataset (airq) using one scenario (missing percentage)
+2. Run a single algorithm (cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
-    $ mono TestingFramework.exe -alg spirit -d airq -scen miss_perc
+    $ mono TestingFramework.exe -alg cdrec -d drift10 -scen miss_perc
 ```
 
-3. Run two algorithms (spirit, grouse) on a single dataset (airq) using one scenario (missing percentage)
+3. Run two algorithms (spirit, cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
-    $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc
+    $ mono TestingFramework.exe -alg spirit,cdrec -d drift10 -scen miss_perc
 ```
 
 4. Run point 3 without runtime results
 ```bash
-    $ mono TestingFramework.exe -alg spirit,grouse -d airq -scen miss_perc -nort
+    $ mono TestingFramework.exe -alg spirit,cdrec -d drift10 -scen miss_perc -nort
 ```
 
 5. Additional command-line parameters
