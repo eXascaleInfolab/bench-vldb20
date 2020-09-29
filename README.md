@@ -2,11 +2,13 @@
 
 Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a> in the Proceedings of the VLDB Endowment (**PVLDB 2020**).
 
-*News*:
-  - ImputeBench has passed the pVLDB reproducibily test ([vldb-repro](https://vldb-repro.com))
-  - ImputeBench has received the VLDB 2020 Most Reproducible Paper Award ([vldb2020](https://vldb2020.org/vldb-2020-awards.html)).
-  - You can now add your own imputation algorithm to the benchmark ([tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms)).
 
+- The benchmark implements the following algorithms: [CDRec](https://ieeexplore.ieee.org/document/6816643), [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078), [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html),  [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890), [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html), [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674), [SSA](https://dl.acm.org/doi/10.1145/3287319), [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf), [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365), [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0), [TeNMF](http://proceedings.mlr.press/v70/mei17a.html), [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf), and [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf).
+
+- All the datasets used in this benchmark can be found in the folder `Datasets`.
+- The full list of recovery scenarios can be found [here](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/TestingFramework/bin/Debug/.tech/batch_mid.txt).
+
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Datasets customization**](#datasets-customization) | [**Algorithms customization**](#algorithm-customization) | [**Citation**](#citation)
 
 <!---
 
@@ -17,16 +19,10 @@ Mourad Khayati, Alberto Lerner, Zakhar Tymchenko and Philippe Cudré-Mauroux:  <
  --->
 ___
 
-## Algorithms, datatsets and scenarios
-
-- The benchmark implements the following algorithms: [CDRec](https://ieeexplore.ieee.org/document/6816643), [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078), [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html),  [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890), [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html), [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674), [SSA](https://dl.acm.org/doi/10.1145/3287319), [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf), [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365), [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0), [TeNMF](http://proceedings.mlr.press/v70/mei17a.html), [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf), and [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf).
-
-- All the datasets used in this benchmark can be found in the folder `Datasets`.
-- The full list of recovery scenarios can be found [here](https://raw.githubusercontent.com/eXascaleInfolab/bench-vldb20/master/TestingFramework/bin/Debug/.tech/batch_mid.txt).
-___
 
 
-## Prerequisites and dependencies
+
+## Prerequisites
 
 - Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
@@ -108,7 +104,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
 - *Remarks*:
     - The algorithms `tkcm` and `spirit` cannot handle multiple incomplete time series. These two allgorithms will not produce results for scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
-## Parametrized execution
+### Parametrized execution
 
 - You can parametrize each algorithm using the command `-algx`. For example, you can run
 the svdimp algorithm with a reduction value of 4 on the drift dataset and by varying the sequence length as follows:
@@ -137,8 +133,19 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
 To add your own algorithm, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
 ___
 
-## Contact
-Mourad Khayati (mkhayati@exascale.info)
+
+## Citation
+```bibtex
+@inproceedings{imputebench2020vldb,
+ author    = {Mourad Khayati and Alberto Lerner and Zakhar Tymchenko and Philippe Cudr{\'{e}}{-}Mauroux},
+ title     = {Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series},
+ booktitle = {Proceedings of the VLDB Endowment},
+ volume    = {13},
+ number    = {5},
+ year      = {2020}
+}
+```
+
 
 <!---
 ### Optional commands
