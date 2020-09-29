@@ -146,7 +146,7 @@ ___
 ```
 
 ## Award
-Imputebench has received the Most Reproducible Paper [Award](https://vldb2020.org/vldb-2020-awards.html).
+Imputebench has received the VLDB 2020 Most Reproducible Paper [Award](https://vldb2020.org/vldb-2020-awards.html).
 
 <!---
 ### Optional commands
