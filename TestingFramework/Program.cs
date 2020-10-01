@@ -14,6 +14,7 @@ namespace TestingFramework
         {
             Utils.ContinuousWriter cw = new Utils.ContinuousWriter(Console.WriteLine);
 
+            cw.WriteLine();
             cw.WriteLine("Primary commands:");
             cw.WriteLine();
 
@@ -56,9 +57,9 @@ namespace TestingFramework
             cw.WriteLine("Optional commands:");
             cw.WriteLine();
             
-            cw.WriteLine("-algx [alg] [param]");
+            cw.WriteLine("-algx [alg] [param_val]");
             cw.Indent();
-            cw.WriteLine("Adds an algorithm with a custom parameter to the benchmark");
+            cw.WriteLine("Adds a parameterized algorithm to the benchmark");
             cw.WriteLine("[alg] - name of the algorithm");
             cw.WriteLine("[param] - numerical value for the most impactful parameter of the algorithm");
             cw.UnIndent();
