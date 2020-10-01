@@ -17,8 +17,7 @@ namespace TestingFramework
             cw.WriteLine("Primary commands:");
             cw.WriteLine();
 
-            cw.WriteLine("--algorithm [alg]");
-            cw.WriteLine("-alg [alg]");
+            cw.WriteLine("-alg [algorithm]");
             cw.Indent();
             cw.WriteLine("Adds an algorithm to the benchmark");
             cw.WriteLine("[alg] - name of the algorithm");
@@ -29,16 +28,8 @@ namespace TestingFramework
             cw.UnIndent();
             cw.WriteLine();
             
-            cw.WriteLine("--algorithm-param [alg] [param]");
-            cw.WriteLine("-algx [alg] [param]");
-            cw.Indent();
-            cw.WriteLine("Adds an algorithm with a custom parameter to the benchmark");
-            cw.WriteLine("[alg] - name of the algorithm");
-            cw.WriteLine("[param] - individual parameter for the algorithm");
-            cw.UnIndent();
-            cw.WriteLine();
             
-            cw.WriteLine("-scen [scen]");
+            cw.WriteLine("-scen [scenario]");
             cw.Indent();
             cw.WriteLine("Adds a scenario to the benchmark");
             cw.WriteLine("[scen] - name of the scenario");
@@ -48,18 +39,29 @@ namespace TestingFramework
             cw.UnIndent();
             cw.UnIndent();
             cw.WriteLine();
+                      
 
-            cw.WriteLine("--dataset [data]");
-            cw.WriteLine("-d [data]");
+            cw.WriteLine("-d [dataset]");
             cw.Indent();
             cw.WriteLine("Adds a dataset to the benchmark");
-            cw.WriteLine("[data] - name of the dataset");
+            cw.WriteLine("[dataset] - name of the dataset");
             cw.Indent();
             cw.WriteLine("or a comma-separated list of datasets");
             cw.WriteLine("or \"all\" to include all datasets [default]");
             cw.UnIndent();
             cw.UnIndent();
             cw.WriteLine();
+            
+            
+            cw.WriteLine("-algx [alg] [param]");
+            cw.Indent();
+            cw.WriteLine("Adds an algorithm with a custom parameter to the benchmark");
+            cw.WriteLine("[alg] - name of the algorithm");
+            cw.WriteLine("[param] - individual parameter for the algorithm");
+            cw.UnIndent();
+            cw.WriteLine();
+            
+            
             
             cw.WriteLine("Optional commands:");
             cw.WriteLine();
@@ -71,28 +73,24 @@ namespace TestingFramework
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("--no-runtime");
             cw.WriteLine("-nort");
             cw.Indent();
             cw.WriteLine("Disable runtime test of the algorithms");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("--no-precision");
             cw.WriteLine("-noprec");
             cw.Indent();
             cw.WriteLine("Disable precision test of the algorithms");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("---no-visualization");
             cw.WriteLine("-novis");
             cw.Indent();
             cw.WriteLine("Disable the render of plots which show the recovered block");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("--output [fodler]");
             cw.WriteLine("-out [folder]");
             cw.Indent();
             cw.WriteLine("Redirect results from default folder to a custom one");
