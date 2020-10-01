@@ -411,7 +411,7 @@ namespace TestingFramework
                 scenarios = EnumMethods.AllExperimentScenarios().Select(EnumMethods.ToLongString).ToList();
             }
             AlgoPack.GlobalAlgorithmsLocation = "../../../Algorithms/";
-            AlgoPack.GlobalNewAlgorithmsLocation = "../../../Algorithms/NewAlgorithms/";
+            AlgoPack.GlobalNewAlgorithmsLocation = "../../../NewAlgorithms/";
 
             // verificaiton that all necessary entries are provided
 

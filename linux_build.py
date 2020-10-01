@@ -52,4 +52,4 @@ launchProcess(matlabExec, "--eval \"install\"", "Algorithms/trmf");
 
 # All others
 launchProcess("make", "all", "Algorithms/AlgoCollection");
-launchProcess("make", "all", "Algorithms/NewAlgorithms/cpp");
+launchProcess("make", "all", "NewAlgorithms/cpp");
