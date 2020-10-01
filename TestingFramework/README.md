@@ -1,13 +1,8 @@
-# Imputation of Missing Values in Time Series Benchmark => TestingFramework
-
-For dependencies and setup look in the README file in root of repository.
-
 # Description of testing scenarios
 
 ## Basics
 - all data is z-score normalized
 - normalization occurs before trimming the length for tests where N_test < N
-- all tests exist in runtime and precision variants
 - when percentage or division is mentioned, the result is floored down to nearest integer
 
 ### Recovery
