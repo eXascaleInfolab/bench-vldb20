@@ -1,16 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class MeanImputeAlgorithm : Algorithm
+    public partial class SoftImputeAlgorithm : Algorithm
     {
         private static bool _init = false;
-        public MeanImputeAlgorithm() : base(ref _init)
+        public SoftImputeAlgorithm() : base(ref _init)
         { }
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 1 lc rgbcolor \"black\" pointsize 1.2";
+        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 5 lc rgbcolor \"dark-violet\" pointsize 1.2";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -33,52 +33,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunAlgortithm(GetProcess(data, tcase));
+            RunSoftImpute(GetSoftImputeProcess(data, tcase));
         }
         
-        private Process GetProcess(DataDescription data, int len)
+        private Process GetSoftImputeProcess(DataDescription data, int len)
         {
-            Process proc = new Process();
+            Process siproc = new Process();
             
-            proc.StartInfo.WorkingDirectory = EnvPath;
-            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.StartInfo.UseShellExecute = false;
+            siproc.StartInfo.WorkingDirectory = EnvPath;
+            siproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            siproc.StartInfo.CreateNoWindow = true;
+            siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            siproc.StartInfo.UseShellExecute = false;
 
-            proc.StartInfo.Arguments = $"-alg meanimp -test o -n {data.N} -m {data.M} " +
+            siproc.StartInfo.Arguments = $"-alg softimpute -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return proc;
+            return siproc;
         }
         
-        private Process GetRuntimeProcess(DataDescription data, int len)
+        private Process GetRuntimeSoftImputeProcess(DataDescription data, int len)
         {
-            Process proc = new Process();
+            Process siproc = new Process();
             
-            proc.StartInfo.WorkingDirectory = EnvPath;
-            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.StartInfo.UseShellExecute = false;
+            siproc.StartInfo.WorkingDirectory = EnvPath;
+            siproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            siproc.StartInfo.CreateNoWindow = true;
+            siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            siproc.StartInfo.UseShellExecute = false;
 
-            proc.StartInfo.Arguments = $"-alg meanimp -test rt -n {data.N} -m {data.M} " +
+            siproc.StartInfo.Arguments = $"-alg softimpute -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return proc;
+            return siproc;
         }
-        private void RunAlgortithm(Process proc)
+        private void RunSoftImpute(Process siproc)
         {
-            proc.Start();
-            proc.WaitForExit();
+            siproc.Start();
+            siproc.WaitForExit();
                 
-            if (proc.ExitCode != 0)
+            if (siproc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] MeanImpute returned code {proc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {proc.StartInfo.Arguments}";
+                    $"[WARNING] SoftImpute returned code {siproc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {siproc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -88,7 +88,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunAlgortithm(GetRuntimeProcess(data, tcase));
+            RunSoftImpute(GetRuntimeSoftImputeProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,

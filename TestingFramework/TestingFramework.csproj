@@ -8,9 +8,25 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>TestingFramework</RootNamespace>
     <AssemblyName>TestingFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>anycpu</PlatformTarget>
@@ -44,34 +60,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\AlgoPack.cs" />
-    <Compile Include="Algorithms\Algorithm.cs" />
-    <Compile Include="Algorithms\CentroidDecompositionAlgorithm.cs" />
-    <Compile Include="Algorithms\DynaMMoAlgorithm.cs" />
-    <Compile Include="Algorithms\GrouseAlgorithm.cs" />
-    <Compile Include="Algorithms\IncrementalCentroidDecompositionAlgorithm.cs" />
-    <Compile Include="Algorithms\NnmfAlgorithm.cs" />
-    <Compile Include="Algorithms\ROSLAlgorithm.cs" />
-    <Compile Include="Algorithms\SoftImputeAlgorithm.cs" />
-    <Compile Include="Algorithms\SpiritAlgorithm.cs" />
-    <Compile Include="Algorithms\StmvlAlgorithm.cs" />
-    <Compile Include="Algorithms\SSAAlgorithm.cs" />
-    <Compile Include="Algorithms\SVDImputeAlgorithm.cs" />
-    <Compile Include="Algorithms\SVTAlgorithm.cs" />
-    <Compile Include="Algorithms\TkcmAlgorithm.cs" />
-    <Compile Include="Algorithms\TrmfAlgorithm.cs" />
-    <Compile Include="Algorithms\MeanImputeAlgorithm.cs" />
-    <Compile Include="Algorithms\LinearImputeAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\AlgoPack.cs" />
+    <Compile Include="AlgoIntegration\Algorithm.cs" />
+    <Compile Include="AlgoIntegration\DynaMMoAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\GrouseAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\CentroidDecompositionRecoveryAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\NnmfAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\ROSLAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\SoftImputeAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\SpiritAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\StmvlAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\SSAAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\SVDImputeAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\SVTAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\TkcmAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\TrmfAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\MeanImputeAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\LinearImputeAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing\DataWorks.cs" />
     <Compile Include="Testing\HelperClasses.cs" />
-    <Compile Include="Testing\SingularExperiments.cs" />
     <Compile Include="Testing\TestRoutines.cs" />
     <Compile Include="Testing\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

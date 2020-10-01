@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
     public partial class NnmfAlgorithm : Algorithm
     {

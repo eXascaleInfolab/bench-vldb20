@@ -5,12 +5,12 @@ using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class SoftImputeAlgorithm : Algorithm
+    public partial class DynaMMoAlgorithm : Algorithm
     {
         private static bool _init = false;
-        public SoftImputeAlgorithm() : base(ref _init)
+        public DynaMMoAlgorithm() : base(ref _init)
         { }
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 5 lc rgbcolor \"dark-violet\" pointsize 1.2";
+        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 4 lc rgbcolor \"red\" pointsize 1.2";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -33,52 +33,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunSoftImpute(GetSoftImputeProcess(data, tcase));
+            RunDynaMMo(GetDynaMMoProcess(data, tcase));
         }
         
-        private Process GetSoftImputeProcess(DataDescription data, int len)
+        private Process GetDynaMMoProcess(DataDescription data, int len)
         {
-            Process siproc = new Process();
+            Process dynproc = new Process();
             
-            siproc.StartInfo.WorkingDirectory = EnvPath;
-            siproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            siproc.StartInfo.CreateNoWindow = true;
-            siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            siproc.StartInfo.UseShellExecute = false;
+            dynproc.StartInfo.WorkingDirectory = EnvPath;
+            dynproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            dynproc.StartInfo.CreateNoWindow = true;
+            dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            dynproc.StartInfo.UseShellExecute = false;
 
-            siproc.StartInfo.Arguments = $"-alg softimpute -test o -n {data.N} -m {data.M} -k {Truncation} " +
+            dynproc.StartInfo.Arguments = $"-alg dynammo -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return siproc;
+            return dynproc;
         }
         
-        private Process GetRuntimeSoftImputeProcess(DataDescription data, int len)
+        private Process GetRuntimeDynaMMoProcess(DataDescription data, int len)
         {
-            Process siproc = new Process();
+            Process dynproc = new Process();
             
-            siproc.StartInfo.WorkingDirectory = EnvPath;
-            siproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            siproc.StartInfo.CreateNoWindow = true;
-            siproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            siproc.StartInfo.UseShellExecute = false;
+            dynproc.StartInfo.WorkingDirectory = EnvPath;
+            dynproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            dynproc.StartInfo.CreateNoWindow = true;
+            dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            dynproc.StartInfo.UseShellExecute = false;
 
-            siproc.StartInfo.Arguments = $"-alg softimpute -test rt -n {data.N} -m {data.M} -k {Truncation} " +
+            dynproc.StartInfo.Arguments = $"-alg dynammo -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return siproc;
+            return dynproc;
         }
-        private void RunSoftImpute(Process siproc)
+        private void RunDynaMMo(Process dynproc)
         {
-            siproc.Start();
-            siproc.WaitForExit();
+            dynproc.Start();
+            dynproc.WaitForExit();
                 
-            if (siproc.ExitCode != 0)
+            if (dynproc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] SoftImpute returned code {siproc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {siproc.StartInfo.Arguments}";
+                    $"[WARNING] DynaMMo returned code {dynproc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {dynproc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -88,7 +88,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunSoftImpute(GetRuntimeSoftImputeProcess(data, tcase));
+            RunDynaMMo(GetRuntimeDynaMMoProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,

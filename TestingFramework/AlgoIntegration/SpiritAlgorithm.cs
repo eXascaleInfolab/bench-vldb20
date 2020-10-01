@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
     public partial class SpiritAlgorithm : Algorithm
     {

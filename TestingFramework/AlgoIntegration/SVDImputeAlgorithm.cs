@@ -1,16 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class LinearImputeAlgorithm : Algorithm
+    public partial class SVDImputeAlgorithm : Algorithm
     {
         private static bool _init = false;
-        public LinearImputeAlgorithm() : base(ref _init)
+        public SVDImputeAlgorithm() : base(ref _init)
         { }
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
@@ -33,52 +33,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunAlgortithm(GetProcess(data, tcase));
+            RunSVDImpute(GetSVDImputeProcess(data, tcase));
         }
         
-        private Process GetProcess(DataDescription data, int len)
+        private Process GetSVDImputeProcess(DataDescription data, int len)
         {
-            Process proc = new Process();
+            Process svdiproc = new Process();
             
-            proc.StartInfo.WorkingDirectory = EnvPath;
-            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.StartInfo.UseShellExecute = false;
+            svdiproc.StartInfo.WorkingDirectory = EnvPath;
+            svdiproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            svdiproc.StartInfo.CreateNoWindow = true;
+            svdiproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            svdiproc.StartInfo.UseShellExecute = false;
 
-            proc.StartInfo.Arguments = $"-alg linimp -test o -n {data.N} -m {data.M} " +
+            svdiproc.StartInfo.Arguments = $"-alg itersvd -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return proc;
+            return svdiproc;
         }
         
-        private Process GetRuntimeProcess(DataDescription data, int len)
+        private Process GetRuntimeSVDImputeProcess(DataDescription data, int len)
         {
-            Process proc = new Process();
+            Process svdiproc = new Process();
             
-            proc.StartInfo.WorkingDirectory = EnvPath;
-            proc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.StartInfo.UseShellExecute = false;
+            svdiproc.StartInfo.WorkingDirectory = EnvPath;
+            svdiproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            svdiproc.StartInfo.CreateNoWindow = true;
+            svdiproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            svdiproc.StartInfo.UseShellExecute = false;
 
-            proc.StartInfo.Arguments = $"-alg linimp -test rt -n {data.N} -m {data.M} " +
+            svdiproc.StartInfo.Arguments = $"-alg itersvd -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return proc;
+            return svdiproc;
         }
-        private void RunAlgortithm(Process proc)
+        private void RunSVDImpute(Process svdiproc)
         {
-            proc.Start();
-            proc.WaitForExit();
+            svdiproc.Start();
+            svdiproc.WaitForExit();
                 
-            if (proc.ExitCode != 0)
+            if (svdiproc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] LinearImpute returned code {proc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {proc.StartInfo.Arguments}";
+                    $"[WARNING] SVDImpute returned code {svdiproc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {svdiproc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -88,7 +88,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunAlgortithm(GetRuntimeProcess(data, tcase));
+            RunSVDImpute(GetRuntimeSVDImputeProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,

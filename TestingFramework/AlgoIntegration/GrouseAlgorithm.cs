@@ -5,12 +5,12 @@ using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class SVTAlgorithm : Algorithm
+    public partial class GrouseAlgorithm : Algorithm
     {
         private static bool _init = false;
-        public SVTAlgorithm() : base(ref _init)
+        public GrouseAlgorithm() : base(ref _init)
         { }
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 7 lc rgbcolor \"yellow\" pointsize 3";
+        private static string Style => "linespoints lt 8 dt 3 lw 3 pt 5 lc rgbcolor \"cyan\" pointsize 2";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -33,54 +33,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunSVT(GetSVTProcess(data, tcase));
+            RunGrouse(GetGrouseProcess(data, tcase));
         }
         
-        private Process GetSVTProcess(DataDescription data, int len)
+        private Process GetGrouseProcess(DataDescription data, int len)
         {
-            Process svtproc = new Process();
+            Process grouseproc = new Process();
             
-            svtproc.StartInfo.WorkingDirectory = EnvPath;
-            svtproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            svtproc.StartInfo.CreateNoWindow = true;
-            svtproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            svtproc.StartInfo.UseShellExecute = false;
+            grouseproc.StartInfo.WorkingDirectory = EnvPath;
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            grouseproc.StartInfo.CreateNoWindow = true;
+            grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            grouseproc.StartInfo.UseShellExecute = false;
 
-            svtproc.StartInfo.Arguments = $"-alg svt -test o -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
-                                         $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt " +
-                                         $"-xtra {TauScale}";
+                                         $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return svtproc;
+            return grouseproc;
         }
         
-        private Process GetRuntimeSVTProcess(DataDescription data, int len)
+        private Process GetRuntimeGrouseProcess(DataDescription data, int len)
         {
-            Process svtproc = new Process();
+            Process grouseproc = new Process();
             
-            svtproc.StartInfo.WorkingDirectory = EnvPath;
-            svtproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            svtproc.StartInfo.CreateNoWindow = true;
-            svtproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            svtproc.StartInfo.UseShellExecute = false;
+            grouseproc.StartInfo.WorkingDirectory = EnvPath;
+            grouseproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            grouseproc.StartInfo.CreateNoWindow = true;
+            grouseproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            grouseproc.StartInfo.UseShellExecute = false;
 
-            svtproc.StartInfo.Arguments = $"-alg svt -test rt -n {data.N} -m {data.M} -k {AlgoPack.TypicalTruncation} " +
+            grouseproc.StartInfo.Arguments = $"-alg grouse -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
-                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt " +
-                                             $"-xtra {TauScale}";
+                                             $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return svtproc;
+            return grouseproc;
         }
-        private void RunSVT(Process svtproc)
+        private void RunGrouse(Process grouseproc)
         {
-            svtproc.Start();
-            svtproc.WaitForExit();
+            grouseproc.Start();
+            grouseproc.WaitForExit();
                 
-            if (svtproc.ExitCode != 0)
+            if (grouseproc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] SVT returned code {svtproc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {svtproc.StartInfo.Arguments}";
+                    $"[WARNING] GROUSE returned code {grouseproc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {grouseproc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -90,7 +88,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunSVT(GetRuntimeSVTProcess(data, tcase));
+            RunGrouse(GetRuntimeGrouseProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,

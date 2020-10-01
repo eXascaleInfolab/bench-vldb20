@@ -35,8 +35,8 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
 
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.h`
     - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlg.cpp`
-    - `sed -i 's/MeanImpute/NewAlg/g' Algorithms/NewAlgAlgorithm.cs`
-    - `sed -i 's/meanimp/nalg/g' Algorithms/NewAlgAlgorithm.cs`
+    - `sed -i 's/MeanImpute/NewAlg/g' AlgoIntegration/NewAlgAlgorithm.cs`
+    - `sed -i 's/meanimp/nalg/g' AlgoIntegration/NewAlgAlgorithm.cs`
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
     
 ```bash
@@ -94,34 +94,37 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 ```bash
 cd ../../../TestingFramework/
-cp Algorithms/MeanImputeAlgorithm.cs Algorithms/ZeroImputeAlgorithm.cs
+cp AlgoIntegration/MeanImputeAlgorithm.cs AlgoIntegration/ZeroImputeAlgorithm.cs
 ```
 
 - Adjust  the .cs file
-    - Open `Algorithms/ZeroImputeAlgorithm.cs`
-    - Rename the class and constructor names from `MeanImputeAlgorithm` to `ZeroImputeAlgorithm` on lines 10 and 13.
-    - Change the algorithm code from `meanimp` into `zeroimp` on lines 49 and 66 in the cli arguments next to `-alg`.
+    - Open `AlgoIntegration/ZeroImputeAlgorithm.cs`
+    - Rename the class and constructor names from `MeanImputeAlgorithm` to `ZeroImputeAlgorithm` on lines 9 and 12.
+    - Change the algorithm code from `meanimp` into `zeroimp` on lines 46 and 63 in the cli arguments next to `-alg`.
 
 - Add the modified .cs file to the project
     - Open `TestingFramework.csproj`
-    - On line 65, insert this statement `<Compile Include="Algorithms\ZeroImputeAlgorithm.cs" />`
+    - On line 80, insert this statement `<Compile Include="AlgoIntegration\ZeroImputeAlgorithm.cs" />`
 
 
 - Add the key properties of the class to a package of executable algorithms.
-    - Open `Algorithms/AlgoPack.cs`
-    - On line 228, insert the following block: 
+    - Open `AlgoIntegration/AlgoPack.cs`
+    - On line 231, insert the following block: 
         ```C#
         public partial class ZeroImputeAlgorithm
         {
             public override string AlgCode => "zeroimp";
-            protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
+            protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
             protected override string SubFolderDataIn => "in/";
             protected override string SubFolderDataOut => "out/";
+            //public override bool IsMultiColumn => true;
         }
         ```
+    - In case your algorithm is able to handle multiple incomplete time series, uncomment the line with `IsMultiColumn` field
+    
     - On line 31, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
-    - Just below, add the name `ZeroImp` to the array `ListAlgorithms` and to the array `"ListAlgorithmsMulticolumn`(in case your algorithm is able to handle multiple incomplete time series).
+    - Just below, add the name `ZeroImp` to the array `ListAlgorithms`.
 
 - Rebuild the code and execute ZeroImpute on 1 dataset (airq) using 1 scenario (miss_perc). Use your short name `zeroimp` as an argument for `-alg` command.
 

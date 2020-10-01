@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using TestingFramework.Algorithms;
+using TestingFramework.AlgoIntegration;
 using TestingFramework.Testing;
 
 namespace TestingFramework
@@ -110,7 +110,7 @@ namespace TestingFramework
         {
             switch (alg)
             {
-                case IncrementalCentroidDecompositionAlgorithm instAlg:
+                case CentroidDecompositionRecoveryAlgorithm instAlg:
                     instAlg.KList = new List<int> { Int32.Parse(param) };
                     break;
                     
@@ -167,7 +167,7 @@ namespace TestingFramework
         {
             if (allAlgosInvoked)
             {
-                Console.WriteLine("`--algorithm all` was already passed to the tool");
+                Console.WriteLine("`--algorithm all` or `--algorithm full` was already passed to the tool");
                 Console.WriteLine("can't add more algorithms with --algorithm or --algorithm-param");
                 Environment.Exit(-1);
             }
@@ -201,14 +201,21 @@ namespace TestingFramework
             string subCmd;
             bool allAlgosInvoked = false;
 
+            if (args.Length == 0)
+            {
+                CLIPrintHelp();
+                Environment.Exit(0);
+            }
+
             for (int i = 0; i < args.Length; i++)
             {
                 switch (args[i].ToLower())
                 {
+                    case "[arguments]":
                     case "--help":
                     case "-h":
                         CLIPrintHelp();
-                        Environment.Exit(-1);
+                        Environment.Exit(0);
                         break;
 
                     case "--dataset":
@@ -242,6 +249,19 @@ namespace TestingFramework
                                 Console.WriteLine("`--algorithm all` can't be invoked any more");
                                 Environment.Exit(-1);
                             }
+                            // static list for vldb bench
+                            algos.AddRange(new[] { AlgoPack.Stmvl, AlgoPack.CdRec, AlgoPack.Tkcm, AlgoPack.Spirit, AlgoPack.Trmf, AlgoPack.Nnmf, AlgoPack.Grouse, AlgoPack.Svt, AlgoPack.SoftImpute, AlgoPack.ROSL, AlgoPack.DynaMMo, AlgoPack.SvdI });                            
+                            allAlgosInvoked = true;
+                        }
+                        else if (subCmd == "full")
+                        {
+                            if (algos.Count() != 0)
+                            {
+                                Console.WriteLine("Algorithms were already added with --algorithm or --algorithm-param");
+                                Console.WriteLine("`--algorithm full` can't be invoked any more");
+                                Environment.Exit(-1);
+                            }
+                            // left null and will be filled with ALL algorithms
                             allAlgosInvoked = true;
                         }
                         else if (subCmd.Contains(","))
@@ -383,7 +403,7 @@ namespace TestingFramework
 
             if (algos == null || algos.Count == 0)
             {
-                algos = AlgoPack.ListAlgorithms.Where(alg => alg.AlgCode != "meanimp" && alg.AlgCode != "linimp").ToList();
+                algos = AlgoPack.ListAlgorithms.ToList();
             }
 
             if (scenarios == null || scenarios.Count == 0)
@@ -391,20 +411,17 @@ namespace TestingFramework
                 scenarios = EnumMethods.AllExperimentScenarios().Select(EnumMethods.ToLongString).ToList();
             }
             AlgoPack.GlobalAlgorithmsLocation = "../../../Algorithms/";
-            
+            AlgoPack.GlobalNewAlgorithmsLocation = "../../../Algorithms/NewAlgorithms/";
+
             // verificaiton that all necessary entries are provided
-            
+
             if (codes == null || codes.Length == 0)
             {
                 throw new InvalidProgramException($"Invalid program state: no datasets found in {DataWorks.FolderData} folder");
             }
 
             AlgoPack.ListAlgorithms = algos.ToArray();
-
-            algos.Remove(AlgoPack.Tkcm);
-            algos.Remove(AlgoPack.Spirit);
-            algos.Remove(AlgoPack.Ssa);
-            AlgoPack.ListAlgorithmsMulticolumn = algos.ToArray();
+            AlgoPack.ListAlgorithmsMulticolumn = algos.Where(alg => alg.IsMultiColumn).ToArray();
             
             AlgoPack.CleanUncollectedResults();
             AlgoPack.EnsureFolderStructure(scenarios);
@@ -424,55 +441,6 @@ namespace TestingFramework
             
             FullRun(doPrecision, doRuntime);
             
-            //
-            // multi-run for 1...N runtime tests and averaging the results from them
-            //
-
-            #if false
-            {
-                for (int i = 1; i <= 3; i++)
-                {
-                    DataWorks.FolderPlotsRemote = DataWorks.FolderPlotsRemoteBase + i + "/";
-                    if (!Directory.Exists(DataWorks.FolderPlotsRemote))
-                    {
-                        Directory.CreateDirectory(DataWorks.FolderPlotsRemote);
-                        AlgoPack.EnsureFolderStructure();
-                    }
-
-                    FullRuntime();
-                    //FullStreaming();
-                }
-                DataWorks.FolderPlotsRemote = DataWorks.FolderPlotsRemoteBase;
-            }
-    
-            //SingularExperiments.AverageRTRuns(codes, codesLimited, 5);
-            #endif
-            
-            #if false
-            {
-                string cmptype = "meaninit_vert";
-                
-                var sw_prec = new StreamWriter(File.Open($"prec_report_{cmptype}.txt", FileMode.Create));
-                var sw_rt = new StreamWriter(File.Open($"rt_report_{cmptype}.txt", FileMode.Create));
-                
-                SingularExperiments.MsePerformanceReport(codes, codesLimited, sw_prec.WriteLine, cmptype);
-                SingularExperiments.SSVIterPerformanceReport(codes, codesLimited, sw_rt.WriteLine, cmptype);
-                
-                sw_prec.Close();
-                sw_rt.Close();
-            }
-            #endif  
-            //
-            // time series
-            //
-            
-            #if false
-            {
-                var data = DataWorks.TimeSeries("BAFU", "*.asc", 3, Utils.Specific.ParseWasserstand, new DateTime(2005, 1, 1), true);
-                DataWorks.TimeSeriesMerge(data, "BAFU_total.txt");
-            }
-            #endif
-
             FinalSequence();
         }
 

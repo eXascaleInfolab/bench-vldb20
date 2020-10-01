@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
-using TestingFramework.Algorithms;
+using TestingFramework.AlgoIntegration;
 
 namespace TestingFramework.Testing
 {
@@ -333,10 +333,10 @@ namespace TestingFramework.Testing
             }
             
             List<int> cdk = null;
-            if (es == ExperimentScenario.Fullrow && ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList.Count > 1)
+            if (es == ExperimentScenario.Fullrow && ((CentroidDecompositionRecoveryAlgorithm)AlgoPack.CdRec).KList.Count > 1)
             {
-                cdk = ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList;
-                ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList = new List<int>(new[] { 2, 1 });
+                cdk = ((CentroidDecompositionRecoveryAlgorithm)AlgoPack.CdRec).KList;
+                ((CentroidDecompositionRecoveryAlgorithm)AlgoPack.CdRec).KList = new List<int>(new[] { 2, 1 });
             }
             
             int nlimit = DataWorks.CountMatrixRows($"{code}/{code}_normal.txt");
@@ -614,7 +614,7 @@ namespace TestingFramework.Testing
             Console.WriteLine("Starting cleanup...");
             if (cdk != null)
             {
-                ((IncrementalCentroidDecompositionAlgorithm)AlgoPack.InCd).KList = cdk;
+                ((CentroidDecompositionRecoveryAlgorithm)AlgoPack.CdRec).KList = cdk;
             }
             AlgoPack.PurgeAllIntermediateFiles(); // handles algo's internal in/out fodlers
 
@@ -622,6 +622,7 @@ namespace TestingFramework.Testing
 
             Directory.EnumerateFiles(DataWorks.FolderResults)
                 .Where(x => !Directory.Exists(x)) // hacky-hacky
+                .Where(x => !x.StartsWith("scenarios_"))
                 .ForEach(File.Delete);
             
             Console.WriteLine("Results folder cleaned up");
@@ -643,14 +644,9 @@ namespace TestingFramework.Testing
             ExperimentType et, ExperimentScenario es,
             string code)
         {
-            if (et == ExperimentType.Streaming && es == ExperimentScenario.MultiColumnDisjoint)
-            {
-                throw new ArgumentException("ExperimentScenario.MissingMultiColumn is unsupported in combination with ExperimentType.Streaming");
-            }
-
             IEnumerable<Algorithm> algorithms =
                 et == ExperimentType.Streaming
-                    ? AlgoPack.ListAlgorithmsStreaming
+                    ? throw new Exception("streaming is unsupported")
                     : (
                         es.IsSingleColumn()
                             ? AlgoPack.ListAlgorithms
@@ -832,7 +828,7 @@ namespace TestingFramework.Testing
             
             IEnumerable<Algorithm> algorithms =
                 et == ExperimentType.Streaming
-                    ? AlgoPack.ListAlgorithmsStreaming
+                    ? throw new Exception("streaming is unsupported")
                     : (
                         es == ExperimentScenario.MultiColumnDisjoint
                             ? AlgoPack.ListAlgorithmsMulticolumn

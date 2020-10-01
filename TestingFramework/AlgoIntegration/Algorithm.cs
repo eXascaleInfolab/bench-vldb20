@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.IO;
 using System.Linq;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
     public abstract class Algorithm
     {
@@ -47,6 +48,8 @@ namespace TestingFramework.Algorithms
         
         public virtual bool IsPlottable => true;
 
+        public virtual bool IsMultiColumn => false;
+
         // virtual functions
         public virtual string[] EnumerateInputFiles(string dataCode, int tcase)
         {
@@ -66,9 +69,45 @@ namespace TestingFramework.Algorithms
         protected abstract void PrecisionExperiment(ExperimentType et, ExperimentScenario es, DataDescription data, int tcase);
         protected abstract void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data, int tcase);
 
-        public abstract void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
-            (int, int) rowRange, (int, int) columnRange);
-        
+        public virtual void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
+            (int, int) rowRange, (int, int) columnRange)
+        {
+            sourceFile = DataWorks.FolderData + sourceFile;
+
+            (int rFrom, int rTo) = rowRange;
+            (int cFrom, int cTo) = columnRange;
+
+            double[][] res = DataWorks.GetDataLimited(sourceFile, rTo - rFrom, cTo - cFrom);
+
+            int n = rTo > res.Length ? res.Length : rTo;
+            int m = cTo > res[0].Length ? res[0].Length : cTo;
+
+            var data = new StringBuilder();
+
+            for (int i = rFrom; i < n; i++)
+            {
+                string line = "";
+
+                for (int j = cFrom; j < m; j++)
+                {
+                    if (Utils.IsMissing(missingBlocks, i, j))
+                    {
+                        line += "NaN" + " ";
+                    }
+                    else
+                    {
+                        line += res[i][j] + " ";
+                    }
+                }
+                data.Append(line.Trim() + Environment.NewLine);
+            }
+
+            string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
+
+            if (File.Exists(destination)) File.Delete(destination);
+            File.AppendAllText(destination, data.ToString());
+        }
+
         // Concrete functions, work regardless of algorithm
         public void WriteDataIn(string sourceFolder, params string[] files)
         {

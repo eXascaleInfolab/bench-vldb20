@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class IncrementalCentroidDecompositionAlgorithm : Algorithm
+    public partial class CentroidDecompositionRecoveryAlgorithm : Algorithm
     {
         public List<int> KList = new List<int>(new[] { 3, 2 });
         //public List<int> KList = new List<int>(new[] { AlgoPack.TypicalTruncation });
 
         private static bool _init = false;
-        public IncrementalCentroidDecompositionAlgorithm() : base(ref _init)
+        public CentroidDecompositionRecoveryAlgorithm() : base(ref _init)
         { }
         
         public override string[] EnumerateOutputFiles(int tcase)
@@ -85,45 +85,6 @@ namespace TestingFramework.Algorithms
             {
                 KList.ForEach(k => RunCd(GetRuntimeCdProcess(data.N, data.M, data, tcase, k)));
             }
-        }
-
-        public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,
-            (int, int) rowRange, (int, int) columnRange)
-        {
-            sourceFile = DataWorks.FolderData + sourceFile;
-            
-            (int rFrom, int rTo) = rowRange;
-            (int cFrom, int cTo) = columnRange;
-            
-            double[][] res = DataWorks.GetDataLimited(sourceFile, rTo - rFrom, cTo - cFrom);
-            
-            int n = rTo > res.Length ? res.Length : rTo;
-            int m = cTo > res[0].Length ? res[0].Length : cTo;
-            
-            var data = new StringBuilder();
-
-            for (int i = rFrom; i < n; i++)
-            {
-                string line = "";
-
-                for (int j = cFrom; j < m; j++)
-                {
-                    if (Utils.IsMissing(missingBlocks, i, j))
-                    {
-                        line += "NaN" + " ";
-                    }
-                    else
-                    {
-                        line += res[i][j] + " ";
-                    }
-                }
-                data.Append(line.Trim() + Environment.NewLine);
-            }
-
-            string destination = EnvPath + SubFolderDataIn + $"{code}_m{tcase}.txt";
-            
-            if (File.Exists(destination)) File.Delete(destination);
-            File.AppendAllText(destination, data.ToString());
         }
 
         private Process GetRuntimeCdProcess(int n, int m, DataDescription data, int len, int k)

@@ -5,12 +5,12 @@ using System.IO;
 using System.Text;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
-    public partial class DynaMMoAlgorithm : Algorithm
+    public partial class ROSLAlgorithm : Algorithm
     {
         private static bool _init = false;
-        public DynaMMoAlgorithm() : base(ref _init)
+        public ROSLAlgorithm() : base(ref _init)
         { }
 
         public override string[] EnumerateInputFiles(string dataCode, int tcase)
@@ -18,7 +18,7 @@ namespace TestingFramework.Algorithms
             return new[] { $"{dataCode}_m{tcase}.txt" };
         }
         
-        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 4 lc rgbcolor \"red\" pointsize 1.2";
+        private static string Style => "linespoints lt 8 dt 2 lw 3 pt 7 lc rgbcolor \"dark-red\" pointsize 3";
 
         public override IEnumerable<SubAlgorithm> EnumerateSubAlgorithms()
         {
@@ -33,52 +33,52 @@ namespace TestingFramework.Algorithms
         protected override void PrecisionExperiment(ExperimentType et, ExperimentScenario es,
             DataDescription data, int tcase)
         {
-            RunDynaMMo(GetDynaMMoProcess(data, tcase));
+            RunROSL(GetROSLProcess(data, tcase));
         }
         
-        private Process GetDynaMMoProcess(DataDescription data, int len)
+        private Process GetROSLProcess(DataDescription data, int len)
         {
-            Process dynproc = new Process();
+            Process roslproc = new Process();
             
-            dynproc.StartInfo.WorkingDirectory = EnvPath;
-            dynproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            dynproc.StartInfo.CreateNoWindow = true;
-            dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            dynproc.StartInfo.UseShellExecute = false;
+            roslproc.StartInfo.WorkingDirectory = EnvPath;
+            roslproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            roslproc.StartInfo.CreateNoWindow = true;
+            roslproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            roslproc.StartInfo.UseShellExecute = false;
 
-            dynproc.StartInfo.Arguments = $"-alg dynammo -test o -n {data.N} -m {data.M} -k {Truncation} " +
+            roslproc.StartInfo.Arguments = $"-alg rosl -test o -n {data.N} -m {data.M} -k {Truncation} " +
                                          $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                          $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return dynproc;
+            return roslproc;
         }
         
-        private Process GetRuntimeDynaMMoProcess(DataDescription data, int len)
+        private Process GetRuntimeROSLProcess(DataDescription data, int len)
         {
-            Process dynproc = new Process();
+            Process roslproc = new Process();
             
-            dynproc.StartInfo.WorkingDirectory = EnvPath;
-            dynproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
-            dynproc.StartInfo.CreateNoWindow = true;
-            dynproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            dynproc.StartInfo.UseShellExecute = false;
+            roslproc.StartInfo.WorkingDirectory = EnvPath;
+            roslproc.StartInfo.FileName = EnvPath + "../cmake-build-debug/algoCollection";
+            roslproc.StartInfo.CreateNoWindow = true;
+            roslproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            roslproc.StartInfo.UseShellExecute = false;
 
-            dynproc.StartInfo.Arguments = $"-alg dynammo -test rt -n {data.N} -m {data.M} -k {Truncation} " +
+            roslproc.StartInfo.Arguments = $"-alg rosl -test rt -n {data.N} -m {data.M} -k {Truncation} " +
                                              $"-in ./{SubFolderDataIn}{data.Code}_m{len}.txt " +
                                              $"-out ./{SubFolderDataOut}{AlgCode}{len}.txt";
 
-            return dynproc;
+            return roslproc;
         }
-        private void RunDynaMMo(Process dynproc)
+        private void RunROSL(Process roslproc)
         {
-            dynproc.Start();
-            dynproc.WaitForExit();
+            roslproc.Start();
+            roslproc.WaitForExit();
                 
-            if (dynproc.ExitCode != 0)
+            if (roslproc.ExitCode != 0)
             {
                 string errText =
-                    $"[WARNING] DynaMMo returned code {dynproc.ExitCode} on exit.{Environment.NewLine}" +
-                    $"CLI args: {dynproc.StartInfo.Arguments}";
+                    $"[WARNING] ROSL returned code {roslproc.ExitCode} on exit.{Environment.NewLine}" +
+                    $"CLI args: {roslproc.StartInfo.Arguments}";
                 
                 Console.WriteLine(errText);
                 Utils.DelayedWarnings.Enqueue(errText);
@@ -88,7 +88,7 @@ namespace TestingFramework.Algorithms
         protected override void RuntimeExperiment(ExperimentType et, ExperimentScenario es, DataDescription data,
             int tcase)
         {
-            RunDynaMMo(GetRuntimeDynaMMoProcess(data, tcase));
+            RunROSL(GetRuntimeROSLProcess(data, tcase));
         }
 
         public override void GenerateData(string sourceFile, string code, int tcase, (int, int, int)[] missingBlocks,

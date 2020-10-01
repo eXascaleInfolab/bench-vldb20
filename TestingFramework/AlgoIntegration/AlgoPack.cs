@@ -4,16 +4,16 @@ using System.IO;
 using System.Linq;
 using TestingFramework.Testing;
 
-namespace TestingFramework.Algorithms
+namespace TestingFramework.AlgoIntegration
 {
     public static class AlgoPack
     {
         // points to the location of the Algorithms/ folder, all the subfolders are handled automatically
         public static string GlobalAlgorithmsLocation = null;
-        
+        public static string GlobalNewAlgorithmsLocation = null;
+
         // static
-        public static readonly Algorithm Cd = new CentroidDecompositionAlgorithm(); // a slower version of Recovery CD
-        public static readonly Algorithm InCd = new IncrementalCentroidDecompositionAlgorithm();
+        public static readonly Algorithm CdRec = new CentroidDecompositionRecoveryAlgorithm();
         public static readonly Algorithm Tkcm = new TkcmAlgorithm();
         public static readonly Algorithm Trmf = new TrmfAlgorithm();
         public static readonly Algorithm Spirit = new SpiritAlgorithm();
@@ -32,9 +32,8 @@ namespace TestingFramework.Algorithms
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, InCd, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa };
-        public static Algorithm[] ListAlgorithmsMulticolumn = { Stmvl, InCd, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, LinImp };
-        public static Algorithm[] ListAlgorithmsStreaming = { InCd, Tkcm, Spirit };
+        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa };
+        public static Algorithm[] ListAlgorithmsMulticolumn = null;
 
         public const int TypicalTruncation = 3;
 
@@ -80,20 +79,13 @@ namespace TestingFramework.Algorithms
     /*                         P A T H S                         */
     /*///////////////////////////////////////////////////////////*/
     
-    public partial class CentroidDecompositionAlgorithm
-    {
-        public override string AlgCode => "cd";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
-        protected override string SubFolderDataIn => "in/";
-        protected override string SubFolderDataOut => "out/";
-    }
-    
-    public partial class IncrementalCentroidDecompositionAlgorithm
+    public partial class CentroidDecompositionRecoveryAlgorithm
     {
         public override string AlgCode => "cdrec";
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
     }
 
     public partial class NnmfAlgorithm
@@ -102,6 +94,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public override bool IsPlottable => false;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
@@ -122,6 +115,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public double Alpha = 2.0;
     }
 
@@ -141,6 +135,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}trmf/trmf/";
         protected override string SubFolderDataIn => "../data/in/";
         protected override string SubFolderDataOut => "../data/out/";
+        public override bool IsMultiColumn => true;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
     
@@ -150,6 +145,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public override bool IsPlottable => false;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
@@ -160,6 +156,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public override bool IsPlottable => false;
         public double TauScale = 0.2;
     }
@@ -170,6 +167,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
     
@@ -179,6 +177,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public override bool IsPlottable => false;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
@@ -189,6 +188,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
     
@@ -198,6 +198,7 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}AlgoCollection/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
         public int Truncation = AlgoPack.TypicalTruncation;
     }
 
@@ -207,23 +208,24 @@ namespace TestingFramework.Algorithms
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ssa/tslib/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
-        //public override bool IsMulticolumn => false;
     }
     
     public partial class MeanImputeAlgorithm
     {
         public override string AlgCode => "meanimp";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
     }
 
     public partial class LinearImputeAlgorithm
     {
         public override string AlgCode => "linimp";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}NewAlgorithms/cpp/_data/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
     }
 
     /*///////////////////////////////////////////////////////////*/
@@ -238,11 +240,12 @@ namespace TestingFramework.Algorithms
         // * {{} + validFileName} should always be an eligible file destination to be copied or written to
 
         public override string AlgCode => "example"; // unique code
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}/TBA/"; // usually expected to be a working directory of an executable
+        protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}/TBA/"; // usually expected to be a working directory of an executable
         protected override string SubFolderDataIn => "todo/in/";
         protected override string SubFolderDataOut => "todo/out/";
-        
-        // optional override of a getter
+
+        // optional override of properties
+        public override bool IsMultiColumn => true; // only do if your algorithm can recover multiple time series
         public override bool IsPlottable => false;
     }
     
