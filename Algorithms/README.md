@@ -62,7 +62,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
-- `cd Algorithms/NewAlgorithms/cpp/`
+- `cd NewAlgorithms/cpp/`
 
 - Create the files .h and .cpp inside folder `Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.cpp to the folder.
     - `ZeroImpute.h` contains the class `ZeroImpute`
