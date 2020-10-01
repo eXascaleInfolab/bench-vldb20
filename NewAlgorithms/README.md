@@ -117,10 +117,10 @@ cp AlgoIntegration/MeanImputeAlgorithm.cs AlgoIntegration/ZeroImputeAlgorithm.cs
             protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
             protected override string SubFolderDataIn => "in/";
             protected override string SubFolderDataOut => "out/";
+            // In case your algorithm is able to handle multiple incomplete time series, uncomment the following line 
             //public override bool IsMultiColumn => true;
         }
         ```
-    - In case your algorithm is able to handle multiple incomplete time series, uncomment the line with `IsMultiColumn` field
     
     - On line 31, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
