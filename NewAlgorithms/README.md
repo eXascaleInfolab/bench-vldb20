@@ -2,7 +2,7 @@
 
 ___
 
-## Adding a C++ algorithm that uses armadillo
+## C++ algorithm using armadillo library
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add the corresponding .cpp and .h files, follow the same steps, and rebuild the program at the end.
 
 
@@ -138,12 +138,12 @@ mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 
 ___
 
-## Adding a C/C++ algorithm using a different algebra library (or STL/cstdlib only)
+## C/C++ algorithm using any algebra library (or STL/cstdlib only)
 
 [Under construction]
 
 ___
 
-## Adding an algorithm written in other languages
+## Python algorithm/ Matlab algorithm
 
 [Under construction]
