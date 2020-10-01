@@ -40,7 +40,7 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
     
 ```bash
-cd Algorithms/NewAlgorithms/cpp
+cd NewAlgorithms/cpp
 cp Algorithms/MeanImpute.h Algorithms/ZeroImpute.h
 cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 ```
@@ -93,7 +93,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Create the .cs file
 
 ```bash
-cd ../../../TestingFramework/
+cd ../../TestingFramework/
 cp AlgoIntegration/MeanImputeAlgorithm.cs AlgoIntegration/ZeroImputeAlgorithm.cs
 ```
 
