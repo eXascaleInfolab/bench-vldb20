@@ -38,7 +38,6 @@ namespace TestingFramework
             cw.UnIndent();
             cw.WriteLine();
             
-            cw.WriteLine("--scenario [scen]");
             cw.WriteLine("-scen [scen]");
             cw.Indent();
             cw.WriteLine("Adds a scenario to the benchmark");
