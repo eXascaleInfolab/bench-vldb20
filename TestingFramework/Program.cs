@@ -29,6 +29,18 @@ namespace TestingFramework
             cw.WriteLine();
             
             
+            cw.WriteLine("-d [dataset]");
+            cw.Indent();
+            cw.WriteLine("Adds a dataset to the benchmark");
+            cw.WriteLine("[dataset] - name of the dataset");
+            cw.Indent();
+            cw.WriteLine("or a comma-separated list of datasets");
+            cw.WriteLine("or \"all\" to include all datasets [default]");
+            cw.UnIndent();
+            cw.UnIndent();
+            cw.WriteLine();
+
+            
             cw.WriteLine("-scen [scenario]");
             cw.Indent();
             cw.WriteLine("Adds a scenario to the benchmark");
@@ -40,38 +52,18 @@ namespace TestingFramework
             cw.UnIndent();
             cw.WriteLine();
                       
-
-            cw.WriteLine("-d [dataset]");
-            cw.Indent();
-            cw.WriteLine("Adds a dataset to the benchmark");
-            cw.WriteLine("[dataset] - name of the dataset");
-            cw.Indent();
-            cw.WriteLine("or a comma-separated list of datasets");
-            cw.WriteLine("or \"all\" to include all datasets [default]");
-            cw.UnIndent();
-            cw.UnIndent();
-            cw.WriteLine();
             
+            cw.WriteLine("Optional commands:");
+            cw.WriteLine();
             
             cw.WriteLine("-algx [alg] [param]");
             cw.Indent();
             cw.WriteLine("Adds an algorithm with a custom parameter to the benchmark");
             cw.WriteLine("[alg] - name of the algorithm");
-            cw.WriteLine("[param] - individual parameter for the algorithm");
+            cw.WriteLine("[param] - numerical value for the most impactful parameter of the algorithm");
             cw.UnIndent();
-            cw.WriteLine();
+            cw.WriteLine();          
             
-            
-            
-            cw.WriteLine("Optional commands:");
-            cw.WriteLine();
-
-            cw.WriteLine("--help");
-            cw.WriteLine("-h");
-            cw.Indent();
-            cw.WriteLine("To see this help information");
-            cw.UnIndent();
-            cw.WriteLine();
 
             cw.WriteLine("-nort");
             cw.Indent();
@@ -87,7 +79,7 @@ namespace TestingFramework
 
             cw.WriteLine("-novis");
             cw.Indent();
-            cw.WriteLine("Disable the render of plots which show the recovered block");
+            cw.WriteLine("Disable the render of plots which shows the recovered block");
             cw.UnIndent();
             cw.WriteLine();
 
@@ -98,6 +90,14 @@ namespace TestingFramework
             cw.Indent();
             cw.WriteLine("default value - \"Results/\"");
             cw.UnIndent();
+            cw.UnIndent();
+            cw.WriteLine();
+            
+
+            cw.WriteLine("--help");
+            cw.WriteLine("-h");
+            cw.Indent();
+            cw.WriteLine("To see this help information");
             cw.UnIndent();
             cw.WriteLine();
 
