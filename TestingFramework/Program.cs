@@ -23,7 +23,7 @@ namespace TestingFramework
             cw.WriteLine("Adds an algorithm to the benchmark");
             cw.WriteLine("[alg] - name of the algorithm");
             cw.Indent();
-            cw.WriteLine("or a comma-separated list of algorithms");
+            cw.WriteLine("or a comma-separated (not space-separated) list of algorithms");
             cw.WriteLine("or \"all\" to include all algorithms [default]");
             cw.UnIndent();
             cw.UnIndent();
@@ -35,7 +35,7 @@ namespace TestingFramework
             cw.WriteLine("Adds a dataset to the benchmark");
             cw.WriteLine("[dataset] - name of the dataset");
             cw.Indent();
-            cw.WriteLine("or a comma-separated list of datasets");
+            cw.WriteLine("or a comma-separated (not space-separated) list of datasets");
             cw.WriteLine("or \"all\" to include all datasets [default]");
             cw.UnIndent();
             cw.UnIndent();
@@ -47,7 +47,7 @@ namespace TestingFramework
             cw.WriteLine("Adds a scenario to the benchmark");
             cw.WriteLine("[scen] - name of the scenario");
             cw.Indent();
-            cw.WriteLine("or a comma-separated list of scenarios");
+            cw.WriteLine("or a comma-separated (not space-separated) list of scenarios");
             cw.WriteLine("or \"all\" to include all scenarios [default]");
             cw.UnIndent();
             cw.UnIndent();
