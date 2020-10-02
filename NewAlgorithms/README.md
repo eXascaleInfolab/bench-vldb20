@@ -74,7 +74,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Call the algorithm with the input given by the testing framework
     - Open `Performance/Benchmark.cpp`
-    - On line 940, insert the following block to the last function `int64_t Recovery()`
+    - On line 94, insert the following block to the last function `int64_t Recovery()`
         ```C++
         else if (algorithm == "zeroimp")
         {
