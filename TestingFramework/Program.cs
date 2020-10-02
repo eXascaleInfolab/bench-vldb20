@@ -14,11 +14,11 @@ namespace TestingFramework
         {
             Utils.ContinuousWriter cw = new Utils.ContinuousWriter(Console.WriteLine);
 
+            cw.WriteLine();
             cw.WriteLine("Primary commands:");
             cw.WriteLine();
 
-            cw.WriteLine("--algorithm [alg]");
-            cw.WriteLine("-alg [alg]");
+            cw.WriteLine("-alg [algorithm]");
             cw.Indent();
             cw.WriteLine("Adds an algorithm to the benchmark");
             cw.WriteLine("[alg] - name of the algorithm");
@@ -29,17 +29,20 @@ namespace TestingFramework
             cw.UnIndent();
             cw.WriteLine();
             
-            cw.WriteLine("--algorithm-param [alg] [param]");
-            cw.WriteLine("-algx [alg] [param]");
+            
+            cw.WriteLine("-d [dataset]");
             cw.Indent();
-            cw.WriteLine("Adds an algorithm with a custom parameter to the benchmark");
-            cw.WriteLine("[alg] - name of the algorithm");
-            cw.WriteLine("[param] - individual parameter for the algorithm");
+            cw.WriteLine("Adds a dataset to the benchmark");
+            cw.WriteLine("[dataset] - name of the dataset");
+            cw.Indent();
+            cw.WriteLine("or a comma-separated list of datasets");
+            cw.WriteLine("or \"all\" to include all datasets [default]");
+            cw.UnIndent();
             cw.UnIndent();
             cw.WriteLine();
+
             
-            cw.WriteLine("--scenario [scen]");
-            cw.WriteLine("-scen [scen]");
+            cw.WriteLine("-scen [scenario]");
             cw.Indent();
             cw.WriteLine("Adds a scenario to the benchmark");
             cw.WriteLine("[scen] - name of the scenario");
@@ -49,51 +52,38 @@ namespace TestingFramework
             cw.UnIndent();
             cw.UnIndent();
             cw.WriteLine();
-
-            cw.WriteLine("--dataset [data]");
-            cw.WriteLine("-d [data]");
-            cw.Indent();
-            cw.WriteLine("Adds a dataset to the benchmark");
-            cw.WriteLine("[data] - name of the dataset");
-            cw.Indent();
-            cw.WriteLine("or a comma-separated list of datasets");
-            cw.WriteLine("or \"all\" to include all datasets [default]");
-            cw.UnIndent();
-            cw.UnIndent();
-            cw.WriteLine();
+                      
             
             cw.WriteLine("Optional commands:");
             cw.WriteLine();
-
-            cw.WriteLine("--help");
-            cw.WriteLine("-h");
+            
+            cw.WriteLine("-algx [alg] [param_val]");
             cw.Indent();
-            cw.WriteLine("To see this help information");
+            cw.WriteLine("Adds a parameterized algorithm to the benchmark");
+            cw.WriteLine("[alg] - name of the algorithm");
+            cw.WriteLine("[param] - numerical value for the most impactful parameter of the algorithm");
             cw.UnIndent();
-            cw.WriteLine();
+            cw.WriteLine();          
+            
 
-            cw.WriteLine("--no-runtime");
             cw.WriteLine("-nort");
             cw.Indent();
             cw.WriteLine("Disable runtime test of the algorithms");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("--no-precision");
             cw.WriteLine("-noprec");
             cw.Indent();
             cw.WriteLine("Disable precision test of the algorithms");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("---no-visualization");
             cw.WriteLine("-novis");
             cw.Indent();
-            cw.WriteLine("Disable the render of plots which show the recovered block");
+            cw.WriteLine("Disable the render of plots which shows the recovered block");
             cw.UnIndent();
             cw.WriteLine();
 
-            cw.WriteLine("--output [fodler]");
             cw.WriteLine("-out [folder]");
             cw.Indent();
             cw.WriteLine("Redirect results from default folder to a custom one");
@@ -101,6 +91,14 @@ namespace TestingFramework
             cw.Indent();
             cw.WriteLine("default value - \"Results/\"");
             cw.UnIndent();
+            cw.UnIndent();
+            cw.WriteLine();
+            
+
+            cw.WriteLine("--help");
+            cw.WriteLine("-h");
+            cw.Indent();
+            cw.WriteLine("To see this help information");
             cw.UnIndent();
             cw.WriteLine();
 

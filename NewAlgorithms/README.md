@@ -2,7 +2,7 @@
 
 ___
 
-## Adding a C++ algorithm that uses armadillo
+## C++ algorithm using armadillo library
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add the corresponding .cpp and .h files, follow the same steps, and rebuild the program at the end.
 
 
@@ -40,7 +40,7 @@ and set the class name to `NewAlgAlgorithm` and AlgCode field to `nalg`.
     - If your algorithm assumes that the matrix structure has time series as rows instead of columns - uncomment statements `mat = mat.t();` in the function (one before the call, one after).
     
 ```bash
-cd Algorithms/NewAlgorithms/cpp
+cd NewAlgorithms/cpp
 cp Algorithms/MeanImpute.h Algorithms/ZeroImpute.h
 cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 ```
@@ -62,7 +62,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
-- `cd Algorithms/NewAlgorithms/cpp/`
+- `cd NewAlgorithms/cpp/`
 
 - Create the files .h and .cpp inside folder `Algorithms`. We have added an example of ZeroImpute.h and ZeroImpute.cpp to the folder.
     - `ZeroImpute.h` contains the class `ZeroImpute`
@@ -93,7 +93,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 - Create the .cs file
 
 ```bash
-cd ../../../TestingFramework/
+cd ../../TestingFramework/
 cp AlgoIntegration/MeanImputeAlgorithm.cs AlgoIntegration/ZeroImputeAlgorithm.cs
 ```
 
@@ -117,10 +117,10 @@ cp AlgoIntegration/MeanImputeAlgorithm.cs AlgoIntegration/ZeroImputeAlgorithm.cs
             protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
             protected override string SubFolderDataIn => "in/";
             protected override string SubFolderDataOut => "out/";
+            // In case your algorithm is able to handle multiple incomplete time series, uncomment the following line 
             //public override bool IsMultiColumn => true;
         }
         ```
-    - In case your algorithm is able to handle multiple incomplete time series, uncomment the line with `IsMultiColumn` field
     
     - On line 31, insert this statement: `public static readonly Algorithm ZeroImp = new ZeroImputeAlgorithm();`
 
@@ -138,12 +138,12 @@ mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 
 ___
 
-## Adding a C/C++ algorithm using a different algebra library (or STL/cstdlib only)
+## C/C++ algorithm using any algebra library (or STL/cstdlib only)
 
 [Under construction]
 
 ___
 
-## Adding an algorithm written in other languages
+## Python algorithm/ Matlab algorithm
 
 [Under construction]
