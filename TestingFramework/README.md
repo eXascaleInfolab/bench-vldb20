@@ -1,11 +1,11 @@
-# Description of testing scenarios
+# Description of recovery scenarios
 
-## Basics
+## Setup
 - all data is z-score normalized
 - normalization occurs before trimming the length for tests where N_test < N
 - when percentage or division is mentioned, the result is floored down to nearest integer
 
-### Scenarios
+## Scenarios
 N = lentgh of time series 
 M = number of time series
 
