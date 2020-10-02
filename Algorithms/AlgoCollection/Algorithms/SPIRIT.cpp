@@ -2,6 +2,10 @@
 // Created on 09/01/19.
 //
 
+//
+// Code translated to C++ from the original: https://www.ifi.uzh.ch/en/dbtg/Staff/wellenzohn/dasa.html
+//
+
 #include <iostream>
 
 #include <cmath>

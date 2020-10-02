@@ -2,6 +2,10 @@
 // Created on 21/01/19.
 //
 
+//
+// Code translated to C++ from the original: https://github.com/iskandr/fancyimpute
+//
+
 #include "SoftImpute.h"
 #include "../Algebra/RSVD.h"
 

@@ -2,6 +2,10 @@
 // Created on 16/01/19.
 //
 
+//
+// Code translated to C++ from the original: https://statweb.stanford.edu/~candes/software/svt/code.html
+//
+
 #include "SVT.h"
 
 namespace Algorithms

@@ -2,6 +2,10 @@
 // Created on 04/01/19.
 //
 
+//
+// Code translated to C++ from the original: https://github.com/lileicc/dynammo
+//
+
 #include "DynaMMo.h"
 #include "../Algebra/Auxiliary.h"
 
