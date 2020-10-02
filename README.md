@@ -124,7 +124,7 @@ ___
 
 ## Algorithm and Dataset Insertion
 
-- To add your own algorithm to the benchmark, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Algorithms).
+- To add your own algorithm to the benchmark, please refer to this [tutorial](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms).
 - To add your own dataset:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
   - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
