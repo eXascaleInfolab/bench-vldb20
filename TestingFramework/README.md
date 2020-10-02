@@ -31,7 +31,7 @@ miss_over:
 - N = max; M = max;
 - Missing data - size = 2 * N/M for all columns except last; last column = N/M; position: in each time series = column_index * (size/2)
 
-mcar:
+mcar\*:
 - N = max; M = max;
 - Missing data - 10 to 100% time series are incomplete; Missing blocks - size = 10, removed from a random series at a random position until a total of W of all points of time series are missing.
 
