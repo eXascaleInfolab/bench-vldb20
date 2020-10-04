@@ -1,7 +1,7 @@
 # Adding C++ algorithm using armadillo library
 
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add the corresponding .cpp and .h files, follow the same steps, and rebuild the program at the end.
-
+___
 
 <!---
 The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework. 
