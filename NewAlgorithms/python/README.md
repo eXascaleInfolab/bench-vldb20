@@ -1,7 +1,7 @@
 # Adding an algorithm in Python
 
 
-This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to perform the process and insert your own code when indicated.
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing MeanImpute. If you want to include your own algorithm, then you need to perform the process and insert your own code when indicated.
 ___
 
 ## Prerequisites
@@ -23,20 +23,16 @@ ___
     mkdir out
 
 
-- Copy the template that contains the entry point to the python script (from an implementation of Mean Imputation algorithm)
+- Add your recovery.py here. The added file should contain a function recover_matrix(matrix) that reads a numpy matrix with NaN as missing values and returns a numpy matrix where those values are imputed.
+
     - `cp ../python/meanimpute.py zeroimpute.py
-    
-- Open `zeroimpute.py`
-    - In this file, we have a function `rmv_main` that handles reading the input/output files. The actual recovery function is `recover_matrix(matrix)`.
-    - This function has only one requirement - read a numpy matrix with NaN as missing values and return a numpy matrix where those values are imputed.
-    - Copy the code for Zero Imputation into the function `recover_matrix`
+    - Open `zeroimpute.py`and replace the code inside the function `recover_matrix` by
         ```python
         mask = np.isnan(matrix);
         matrix[mask] = 0.0;
         return matrix;
         ```
-    - When you add your algorithm, it should be executable from the root folder and importable as a function using python `import`.
-    - Replace the code inside the `recovery_function` function with either your algorithm, or import your algorithm and call it from the function.
+    - **Remark**: your algorithm should be executable from the root folder and importable as a function using python `import`.
 
 
 ## 2. TestingFramework
