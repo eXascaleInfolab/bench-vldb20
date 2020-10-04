@@ -23,7 +23,7 @@ ___
     mkdir out
     ```
 
-- Add your own imputation .py. The added file should contain a function recover_matrix(matrix) that reads a numpy matrix with NaN as missing values and returns a numpy matrix where those values are imputed.
+- Add your own imputation .py. The added file should contain a function `recover_matrix(matrix)` that reads a numpy matrix with missing values as NaN and returns a numpy matrix where the missing values are recovered.
 
     - `cp ../meanimpute.py zeroimpute.py`
     - Open `zeroimpute.py`and replace the code inside the function `recover_matrix` by
