@@ -140,8 +140,4 @@ ___
 
 [Under construction]
 
-___
 
-## Python algorithm/ Matlab algorithm
-
-[Under construction]
