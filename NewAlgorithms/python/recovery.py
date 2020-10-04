@@ -2,6 +2,8 @@
 import numpy as np
 import time
 
+#begin recovery_function
+
 def recover_matrix(matrix):
     meanval = [0.0] * len(matrix);
     
@@ -26,7 +28,7 @@ def recover_matrix(matrix):
     
     return matrix;
 
-#end function
+#end recovery_function
 
 
 def rmv_main(algcode, filename_input, filename_output, runtime):
