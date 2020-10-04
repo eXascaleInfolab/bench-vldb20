@@ -81,9 +81,9 @@ All results will be added to `Results` folder. The accuracy results and plots of
     $ mono TestingFramework.exe -alg cdrec -d drift10 -scen miss_perc
 ```
 
-2. Run two algorithms (spirit, cdrec) on a single dataset (drift10) using one scenario (missing percentage)
+2. Run two algorithms (cdrec, spirit) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
-    $ mono TestingFramework.exe -alg spirit,cdrec -d drift10 -scen miss_perc
+    $ mono TestingFramework.exe -alg cdrec,spirit -d drift10 -scen miss_perc
 ```
 
 3. Run point 2 without runtime results
