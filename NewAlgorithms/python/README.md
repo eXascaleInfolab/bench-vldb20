@@ -1,7 +1,7 @@
 # Adding an algorithm in Python
 
 
-This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing MeanImpute. If you want to include your own algorithm, then you need to perform the process and insert your own code when indicated.
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing MeanImpute. If you want to include your own algorithm, then you need to follow the same steps and insert your own code when indicated.
 ___
 
 ## Prerequisites
@@ -23,7 +23,7 @@ ___
     mkdir out
     ```
 
-- Create your imputation .py here. The added file should contain a function recover_matrix(matrix) that reads a numpy matrix with NaN as missing values and returns a numpy matrix where those values are imputed.
+- Add your own imputation .py. The added file should contain a function recover_matrix(matrix) that reads a numpy matrix with NaN as missing values and returns a numpy matrix where those values are imputed.
 
     - `cp ../meanimpute.py zeroimpute.py`
     - Open `zeroimpute.py`and replace the code inside the function `recover_matrix` by
