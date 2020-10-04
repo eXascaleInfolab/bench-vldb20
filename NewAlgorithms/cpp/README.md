@@ -1,8 +1,5 @@
-# Adding new algorithms
+# Adding C++ algorithm using armadillo library
 
-___
-
-## C++ algorithm using armadillo library
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add the corresponding .cpp and .h files, follow the same steps, and rebuild the program at the end.
 
 
@@ -11,7 +8,7 @@ The process is done in two main steps: 1) add the code of the algorithm to AlgoC
 The process will be illustrated on an example algorithm that we call MeanImpute, but while you follow the guide you can replace the names that are used with your own algorithm as you see fit, so long as they remain consistent. The algorithm is already implemented, so you can use its files as a template.
  --->
 
-### Prerequisites
+## Prerequisites
 
 - The benchmark needs to be executed once (see [execution section](https://github.com/eXascaleInfolab/bench-vldb20)). 
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK.
@@ -58,7 +55,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 --->
 
 
-### 1. AlgoCollection
+## 1. AlgoCollection
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
@@ -88,7 +85,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
         make all
     ```
 
-### 2. TestingFramework
+## 2. TestingFramework
 
 - Create the .cs file
 
