@@ -7,8 +7,7 @@ ___
 ## Prerequisites
 
 - The benchmark needs to be executed once (see [execution section](https://github.com/eXascaleInfolab/bench-vldb20)). 
-- Extra dependencies: any that can be installed on the same system which is a pre-requisite for benchmark and doesn't conflict with any of its depencencies.
-- Algorithm input: receive a NumPy matrix where the columns are time series, rows are time points and the missing values are designated as NaN. Algorithm should output the same NumPy matrix with all NaN values imputed. 
+- Algorithm input: a NumPy matrix where the columns are time series, rows are values, and the missing values are designated as NaN. Algorithm should output the same NumPy matrix where all NaN values are recovered. 
 
 
 ## Algorithm implementation (an example with python)
