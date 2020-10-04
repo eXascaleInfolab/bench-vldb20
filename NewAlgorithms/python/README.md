@@ -25,7 +25,7 @@ ___
 
 - Create your .py file here. The added file should contain a function recover_matrix(matrix) that reads a numpy matrix with NaN as missing values and returns a numpy matrix where those values are imputed.
 
-    - `cp ../python/meanimpute.py zeroimpute.py`
+    - `cp ../meanimpute.py zeroimpute.py`
     - Open `zeroimpute.py`and replace the code inside the function `recover_matrix` by
         ```python
         mask = np.isnan(matrix);
@@ -40,13 +40,13 @@ ___
 - Create the .cs file
 
 ```bash
-cd ../../TestingFramework/
+cd ../../../TestingFramework/
 cp AlgoIntegration/MeanImputePyAlgorithm.cs AlgoIntegration/ZeroImputePyAlgorithm.cs
 ```
 
 - Adjust the .cs file
     - Open `AlgoIntegration/ZeroImputePyAlgorithm.cs`
-    - Rename the class and constructor names from `MeanImputePyAlgorithm` to `ZeroImputePyAlgorithm` on lines 9 and 12.
+    - Rename the class and constructor names from `MeanImputePyAlgorithm` to `ZeroImputePyAlgorithm` on lines 11 and 14.
 
 - Add the modified .cs file to the project
     - Open `TestingFramework.csproj`
@@ -55,7 +55,7 @@ cp AlgoIntegration/MeanImputePyAlgorithm.cs AlgoIntegration/ZeroImputePyAlgorith
 
 - Add the key properties of the class to a package of executable algorithms.
     - Open `AlgoIntegration/AlgoPack.cs`
-    - On line 231, insert the following block: 
+    - On line 230, insert the following block: 
         ```C#
         public partial class ZeroImputePyAlgorithm
         {
