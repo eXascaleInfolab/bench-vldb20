@@ -14,24 +14,19 @@ ___
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImputePy` and `zeroimppy`, respectively.
 
-- `cd NewAlgorithms/`
-
-- Create a folder for your algorithm and enter it
+- Create a folder for your algorithm with the necessary structure
     ```bash
+    cd NewAlgorithms/python
     mkdir ZeroImputePy
     cd ZeroImputePy
-    ```
-
-- Populate the folder with necessary subfolders
-    ```bash
     mkdir in
     mkdir out
-    ```
+
 
 - Copy the template that contains the entry point to the python script (from an implementation of Mean Imputation algorithm)
-    - `cp ../python/recovery.py recovery.py
+    - `cp ../python/meanimpute.py zeroimpute.py
     
-- Open `src/recovery.py`
+- Open `zeroimpute.py`
     - In this file, we have a function `rmv_main` that handles reading the input/output files. The actual recovery function is `recover_matrix(matrix)`.
     - This function has only one requirement - read a numpy matrix with NaN as missing values and return a numpy matrix where those values are imputed.
     - Copy the code for Zero Imputation into the function `recover_matrix`
