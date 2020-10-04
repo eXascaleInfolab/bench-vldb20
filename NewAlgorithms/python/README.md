@@ -1,19 +1,17 @@
-# Adding new algorithms
+# Adding an algorithm in Python
 
+
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to perform the process and insert your own code when indicated.
 ___
 
-## Adding an algorithm in python
-This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to perform the process and insert your own code when indicated.
-
-
-### Prerequisites
+## Prerequisites
 
 - The benchmark needs to be executed once (see [execution section](https://github.com/eXascaleInfolab/bench-vldb20)). 
 - Extra dependencies: any that can be installed on the same system which is a pre-requisite for benchmark and doesn't conflict with any of its depencencies.
 - Algorithm input: receive a NumPy matrix where the columns are time series, rows are time points and the missing values are designated as NaN. Algorithm should output the same NumPy matrix with all NaN values imputed. 
 
 
-### Algorithm implementation (an example with python)
+## Algorithm implementation (an example with python)
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImputePy` and `zeroimppy`, respectively.
 
@@ -47,7 +45,7 @@ This tutorial shows how to add a new imputation algorithm to the benchmark. We w
     - Replace the code inside the `recovery_function` function with either your algorithm, or import your algorithm and call it from the function.
 
 
-### 2. TestingFramework
+## 2. TestingFramework
 
 - Create the .cs file
 
