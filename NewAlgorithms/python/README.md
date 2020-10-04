@@ -10,7 +10,7 @@ ___
 - Algorithm input: a NumPy matrix where the columns are time series, rows are values, and the missing values are designated as NaN. Algorithm should output the same NumPy matrix where all NaN values are recovered. 
 
 
-## Algorithm implementation (an example with python)
+## 1. AlgoCollection
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImputePy` and `zeroimppy`, respectively.
 
