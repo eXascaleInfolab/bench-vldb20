@@ -2,6 +2,10 @@
 // Created on 05.03.18.
 //
 
+//
+// Code translated to C++ from the original: https://www.ifi.uzh.ch/en/dbtg/research/amv/proto/cdrec.html
+//
+
 #include "CDMissingValueRecovery.h"
 #include "../Stats/Correlation.h"
 
