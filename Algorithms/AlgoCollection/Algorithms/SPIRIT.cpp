@@ -3,7 +3,8 @@
 //
 
 //
-// Code translated to C++ from the original: https://www.ifi.uzh.ch/en/dbtg/Staff/wellenzohn/dasa.html
+// Code translated to C++ from the original: https://www.cs.cmu.edu/afs/cs/project/spirit-1/www/#Download.
+// The original code was adpated for recovery in https://www.ifi.uzh.ch/en/dbtg/Staff/wellenzohn/dasa.html
 //
 
 #include <iostream>
