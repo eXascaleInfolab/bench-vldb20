@@ -3,7 +3,7 @@
 //
 
 //
-// Code translated to C++ from the original: TBA
+// Code translated to C++ from the original: https://www.microsoft.com/en-us/research/publication/st-mvl-filling-missing-values-in-geo-sensory-time-series-data/
 //
 
 #include <iostream>
