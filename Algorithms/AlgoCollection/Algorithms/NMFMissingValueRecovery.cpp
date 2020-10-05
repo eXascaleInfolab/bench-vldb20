@@ -2,6 +2,10 @@
 // Created on 14.01.19.
 //
 
+//
+// Code adapted and translated to C++ from the original: https://tel.archives-ouvertes.fr/tel-01693640/document
+//
+
 #include "NMFMissingValueRecovery.h"
 
 #include <iostream>
