@@ -3,7 +3,7 @@
 //
 
 //
-// Code translated to C++ from the original: TBA
+// Code translated to C++ from the original: https://gitlab.eecs.umich.edu/girasole/ProcIEEEstreamingPCA/blob/master/algorithms.py
 //
 
 #include <cmath>
