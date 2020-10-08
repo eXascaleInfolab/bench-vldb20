@@ -2,33 +2,12 @@
 import numpy as np
 import time
 
-#begin recovery_function
+from meanimpute import meanimpute_recovery
 
 def recover_matrix(matrix):
-    meanval = [0.0] * len(matrix);
-    
-    for j in range(0, len(matrix[0])):
-        count = 0;
-        for i in range(0, len(matrix)):
-            if not np.isnan(matrix[i][j]):
-                meanval[j] += matrix[i][j];
-                count += 1;
-            #end if
-        #end for
-        meanval[j] /= count;
-    #end for
-    
-    for j in range(0, len(matrix[0])):
-        for i in range(0, len(matrix)):
-            if np.isnan(matrix[i][j]):
-                matrix[i][j] = meanval[j];
-            #end if
-        #end for
-    #end for
-    
-    return matrix;
+    return meanimpute_recovery(matrix);
 
-#end recovery_function
+# end function
 
 
 def rmv_main(algcode, filename_input, filename_output, runtime):

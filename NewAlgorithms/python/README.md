@@ -19,20 +19,26 @@ ___
     cd NewAlgorithms/python
     mkdir ZeroImputePy
     cd ZeroImputePy
+    
     mkdir in
     mkdir out
+    touch __init__.py
+    cp ../MeanImputePy/recovery.py recovery.py
     ```
 
-- Add your own imputation recovery.py  (the file needs to have this name). The added file should contain a recovery function `recover_matrix(matrix)` that reads a numpy matrix with missing values as NaN and returns a numpy matrix where the missing values are recovered and a main funtion that computes the runtime.
-
-    - `cp ../meanimpute.py zeroimpute.py`
-    - Open `zeroimpute.py`and replace the code inside the function `recover_matrix` by
+- Add your own imputation algorithm to the folder.
+    - `touch zeroimpute.py`
+    - Open `zeroimpute.py` and paste the following code there
         ```python
-        mask = np.isnan(matrix);
-        matrix[mask] = 0.0;
-        return matrix;
+        import numpy as np
+        def zeroimpute_recovery(matrix):
+            mask = np.isnan(matrix);
+            matrix[mask] = 0.0;
+            return matrix;
         ```
-    - **Remark**: your algorithm should be executable from the root folder and importable as a function using python `import`.
+    - The file recovery.py is used for integration with the Testing Framework (the file needs to have this name). It contains a function `recover_matrix(matrix)` that reads a numpy matrix with missing values as NaN and returns a numpy matrix where the missing values are recovered. This function should be used to call your own algorithm.
+    - Open `recovery.py` and change the import statement to `from zeroimpute import zeroimpute_recovery` and the return statement on line 8 to `return zeroimpute_recovery(matrix);`
+    - **Remark**: your algorithm should be executable from the root folder and importable as a function using python `import` so it can be used as above.
 
 
 ## 2. Testing Framework
@@ -60,7 +66,7 @@ cp AlgoIntegration/MeanImputePyAlgorithm.cs AlgoIntegration/ZeroImputePyAlgorith
         public partial class ZeroImputePyAlgorithm
         {
             public override string AlgCode => "zeroimppy";
-            protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}python/";
+            protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}python/ZeroImputePy/";
             protected override string SubFolderDataIn => "in/";
             protected override string SubFolderDataOut => "out/";
             
