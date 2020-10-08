@@ -1,7 +1,7 @@
 # Adding an algorithm in Python
 
 
-This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute using MeanImpute as a template. If you want to include your own algorithm, then you need to follow the same steps and insert your own code when indicated.
+This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to follow the same steps and insert your own code when indicated.
 ___
 
 ## Prerequisites
