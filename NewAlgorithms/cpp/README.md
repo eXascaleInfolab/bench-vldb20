@@ -55,7 +55,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 --->
 
 
-## 1. AlgoCollection
+## 1. Code Integration 
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
@@ -85,7 +85,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
         make all
     ```
 
-## 2. TestingFramework
+## 2. Testing Framework
 
 - Create the .cs file
 
