@@ -37,7 +37,7 @@ ___
             return matrix;
         ```
 
-    - Open `recovery.py` and change the import statement to `from zeroimpute import zeroimpute_recovery` and the return statement on line 8 to `return zeroimpute_recovery(matrix);`
+    - Open `recovery.py` and change the import statement on line 5 to `from zeroimpute import zeroimpute_recovery` and the return statement on line 8 to `return zeroimpute_recovery(matrix);`
     - **Remark**: your algorithm should be executable from the root folder and importable as a function using python `import` so it can be used as above.
 
 
