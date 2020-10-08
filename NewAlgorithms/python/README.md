@@ -25,7 +25,7 @@ ___
     touch __init__.py
     cp ../MeanImputePy/recovery.py recovery.py
     ```
-    - The file recovery.py is used for integration with the Testing Framework (the file needs to have this name). It contains a function `recover_matrix(matrix)` that reads a numpy matrix with missing values as NaN and returns a numpy matrix where the missing values are recovered. This function should be used to call your own algorithm.
+    - The file recovery.py is used for integration with the Testing Framework. It contains a function `recover_matrix(matrix)` that reads a numpy matrix with missing values as NaN and returns a numpy matrix where the missing values are recovered. This function should be used to call your own algorithm.
 - Add your own imputation algorithm to the folder.
     - `touch zeroimpute.py`
     - Open `zeroimpute.py` and paste the following code there
