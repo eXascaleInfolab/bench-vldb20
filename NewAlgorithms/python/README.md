@@ -14,7 +14,7 @@ ___
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImputePy` and `zeroimppy`, respectively.
 
-- Create a folder for your algorithm with the necessary structure
+- Create a folder for your algorithm with the necessary structure from the root folder
     ```bash
     cd NewAlgorithms/python
     mkdir ZeroImputePy
