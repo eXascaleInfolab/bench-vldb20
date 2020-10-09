@@ -53,7 +53,7 @@ namespace TestingFramework.AlgoIntegration
             proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             proc.StartInfo.UseShellExecute = false;
             
-            string functionArgs = $"\"{SubFolderDataIn}{data.Code}_m{len}.txt\", \"{SubFolderDataOut}{AlgCode}{len}.txt\", 0";
+            string functionArgs = $"\"{SubFolderDataIn}{data.Code}_m{len}.txt\", \"{SubFolderDataOut}{AlgCode}{len}.txt\", {(runtime ? 1 : 0)}";
 
             proc.StartInfo.Arguments = "-c 'from recovery import rmv_main; " +
                                           $"rmv_main(\"{AlgCode}\", {functionArgs})'";
