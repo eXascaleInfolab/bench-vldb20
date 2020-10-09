@@ -2,9 +2,9 @@
 
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add your own .cpp and .h files when indicated, follow the same steps, and rebuild the program at the end.
 
+___
 ## C++ using armadillo library (Preferred)
 
-___
 
 <!---
 The process is done in two main steps: 1) add the code of the algorithm to AlgoCollection and 2) import it into the TestingFramework. 
@@ -138,11 +138,13 @@ mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 - The precision and runtime results will be added to the `Results` subfolder.
 
 ___
-___
 
 ## C/C++ algorithm using any math library (or STL/cstdlib)
 
 In this example we use C++ STL with `vector<>`, but the process is the same for any other library (e.g. Eigen3 with `Matrix<double>`). 
+
+### 1. Code Integration 
+
 
 - `cd NewAlgorithms/cpp/`
 
@@ -174,9 +176,9 @@ In this example we use C++ STL with `vector<>`, but the process is the same for 
                 mat_stl[i][j] = mat(i, j);
             }
         }
-    - Remark: be sure to never re-allocate the memory during copying procedure (auto-resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets. Matrix dimensions are known here, which is enough to be able to know in advance all the data type sizes to pre-allocate them.
+    - **Remark**: be sure to never re-allocate the memory during copying procedure (auto-resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets.
     - Update the call to `Recovery_ZeroImpute` to use `mat_stl` variable instead of `mat`.
-    - Afterwards, add the code that will fill the values from the other type back into the armadillo matrix after the `std::cout << ...` statement
+    - Add the code that will fill the values from the other type back into the armadillo matrix after the `std::cout << ...` statement
         ```C++
         for (uint64_t i = 0; i < mat.n_rows; ++i)
         {
@@ -189,4 +191,5 @@ In this example we use C++ STL with `vector<>`, but the process is the same for 
 
 - Rebuild the project with `make all`
 
-- Testing Framework doesn't require any modifications, the same `mono` command will run modified version of the algorithm.
+### 2. Testing Framework
+The same as above.
