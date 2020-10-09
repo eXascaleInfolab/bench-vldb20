@@ -79,7 +79,7 @@ cp AlgoIntegration/MeanImputePyAlgorithm.cs AlgoIntegration/ZeroImputePyAlgorith
 
     - Just below, add the name `ZeroImpPy` to the array `ListAlgorithms`.
 
-- Rebuild the code and execute ZeroImpute on 1 dataset (airq) using 1 scenario (miss_perc). Use your short name `zeroimp` as an argument for `-alg` command.
+- Rebuild the code and execute ZeroImpute on 1 dataset (airq) using 1 scenario (miss_perc). Use your short name `zeroimppy` as an argument for `-alg` command.
 
 ```bash
 msbuild TestingFramework.sln
