@@ -36,7 +36,7 @@ ___
         end
         ```
 
-    - Open `recovery.m` and change the statement on line 6 to `mx_rec = zeroimpute(mx_mis);`, the resulting matrix should be assigned to `mx_rec` variable
+    - Open `recovery.m` and change the statement on line 6 to `mx_rec = zeroimpute(mx_mis);`
     - **Remark**: your algorithm should be executable from the root folder and callable as a file-function so it can be used as above.
 
 
