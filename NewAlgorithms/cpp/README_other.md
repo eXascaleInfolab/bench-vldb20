@@ -40,7 +40,7 @@ ___
 - Call the new version of the algorithm with the input given by the testing framework
     - Open `Performance/Benchmark.cpp`
     - In the function `Recovery_ZeroImpute` (that you should already have) add the conversion from armadillo matrix to the type that your algorithm uses. `mat.n_rows` and `mat.n_cols` is matrix dimensions, `mat(i, j)` is element access for i-th row, j-th column.
-    - Before `begin = ...` add the following code that creates a two-dimensional `std::vector`, then add a loop that copies the contents of the armadillo matrix into the new instance:
+    - Before `begin = ...` add the following code that creates a two-dimensional `std::vector`, then the loop copies the contents of the armadillo matrix into the new instance:
         ```C++
         std::vector<std::vector<double>> mat_stl(mat.n_rows);
         
