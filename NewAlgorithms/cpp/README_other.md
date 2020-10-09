@@ -39,8 +39,8 @@ ___
 
 - Call the new version of the algorithm with the input given by the testing framework
     - Open `Performance/Benchmark.cpp`
-    - In the function `Recovery_ZeroImpute` that you should have already created add the conversion from armadillo matrix to the type that your algorithm uses.
-    - Before `begin = ...` add the following code that creates a matrix out of `std::vector` instances, then add a loop that copies the contents of the armadillo matrix into the new instance:
+    - In the function `Recovery_ZeroImpute` (that you should have already created) add the conversion from armadillo matrix to the type that your algorithm uses.
+    - Before `begin = ...` add the following code that creates a two-dimensional `std::vector`, then add a loop that copies the contents of the armadillo matrix into the new instance:
         ```C++
         std::vector<std::vector<double>> mat_stl(mat.n_rows);
         
@@ -52,9 +52,9 @@ ___
                 mat_stl[i].emplace_back(mat(i, j));
             }
         }
-    - Remark: be sure to never re-allocate the memory during copying procedure (with resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets. `mat.n_rows` and `mat.n_cols` are matrix dimensions, which is enough to be able to know in advance all the data type sizes to pre-allocate them.
+    - Remark: be sure to never re-allocate the memory during copying procedure (with auto-resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets. `mat.n_rows` and `mat.n_cols` are matrix dimensions, which is enough to be able to know in advance all the data type sizes to pre-allocate them.
     - Update the call to `Recovery_ZeroImpute` to use `mat_stl` variable instead of `mat`.
-    - Afterwards, add the code that will fill the values from the other type back into the armadillo matrix after the recovery and `end = ...` statement
+    - Afterwards, add the code that will fill the values from the other type back into the armadillo matrix after the `std::cout << ...` statement
         ```C++
         for (uint64_t i = 0; i < mat.n_rows; ++i)
         {
