@@ -136,7 +136,7 @@ mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 
 ___
 
-## C/C++ algorithm using any math library (or STL/cstdlib only)
+## C/C++ algorithm using any math library (or STL/cstdlib)
 
 - `cd NewAlgorithms/cpp/`
 
