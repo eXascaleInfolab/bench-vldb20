@@ -140,7 +140,7 @@ ___
 
 - `cd NewAlgorithms/cpp/`
 
-- In this example we use C++ STL with `vector<vector<double>>`, but the process is the same for any other library (e.g. Eigen3 with `Eigen::Matrix<double>`). It's also possible to use C pointers, but it has to be able to be compiled with a C++ compiler.
+- In this example we use C++ STL with `vector<>`, but the process is the same for any other library (e.g. Eigen3 with `Matrix<double>`). It's also possible to use C code, but it has to be adapted to compile with a C++ compiler.
 
 - Modify the .h and .cpp files inside folder `Algorithms`.
     - Open `ZeroImpute.h` and add all the headers your implementation needs. For C++ STL add the standard library header `#include <vector>`. Then replace the argument type in the function `ZeroImpute_Recovery` from `arma::mat &` to `std::vector<std::vector<double>> &`.
@@ -150,10 +150,7 @@ ___
         {
             for (uint64_t j = 0; j < input[i].size(); ++j)
             {
-                if (std::isnan(input[i][j])))
-                {
-                    input[i][j] = 0.0;
-                }
+                if (std::isnan(input[i][j])) input[i][j] = 0.0;
             }
         }
         ```
@@ -173,7 +170,7 @@ ___
                 mat_stl[i][j] = mat(i, j);
             }
         }
-    - Remark: be sure to never re-allocate the memory during copying procedure (with auto-resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets. Matrix dimensions are known here, which is enough to be able to know in advance all the data type sizes to pre-allocate them.
+    - Remark: be sure to never re-allocate the memory during copying procedure (auto-resizable lists or similar), as this can lead to a significant slowdown during testing routines on larger datasets. Matrix dimensions are known here, which is enough to be able to know in advance all the data type sizes to pre-allocate them.
     - Update the call to `Recovery_ZeroImpute` to use `mat_stl` variable instead of `mat`.
     - Afterwards, add the code that will fill the values from the other type back into the armadillo matrix after the `std::cout << ...` statement
         ```C++
@@ -186,9 +183,6 @@ ___
         }
         ```
 
-- Rebuild the project.
-    ```bash
-        make all
-    ```
+- Rebuild the project with `make all`
 
 - Testing Framework doesn't require any modifications, the same `mono` command will run modified version of the algorithm.
