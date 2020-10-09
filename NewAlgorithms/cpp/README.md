@@ -1,6 +1,9 @@
-# Adding an algorithm in C++ (using armadillo library) [Preferred]
+# Adding an algorithm in C++
 
 This tutorial shows how to add a new imputation algorithm to the benchmark. We will illustrate the process by implementing ZeroImpute. If you want to include your own algorithm, then you need to add your own .cpp and .h files when indicated, follow the same steps, and rebuild the program at the end.
+
+## C++ using armadillo library (Preferred)
+
 ___
 
 <!---
@@ -8,7 +11,7 @@ The process is done in two main steps: 1) add the code of the algorithm to AlgoC
 The process will be illustrated on an example algorithm that we call MeanImpute, but while you follow the guide you can replace the names that are used with your own algorithm as you see fit, so long as they remain consistent. The algorithm is already implemented, so you can use its files as a template.
  --->
 
-## Prerequisites
+### Prerequisites
 
 - The benchmark needs to be executed once (see [execution section](https://github.com/eXascaleInfolab/bench-vldb20)). 
 - Extra dependencies: any, provided they are compatible with C++14 and do not conflict with Armadillo, MLPACK, openBLAS, LAPACK, ARPACK.
@@ -55,7 +58,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
 --->
 
 
-## 1. Code Integration 
+### 1. Code Integration 
 
 - Choose a *long name* and a *short name* for your algorithm. We will use `ZeroImpute` and `zeroimp`, respectively.
 
@@ -85,7 +88,7 @@ cp Algorithms/MeanImpute.cpp Algorithms/ZeroImpute.cpp
         make all
     ```
 
-## 2. Testing Framework
+### 2. Testing Framework
 
 - Create the .cs file
 
@@ -135,12 +138,13 @@ mono TestingFramework.exe -alg zeroimp -d airq -scen miss_perc
 - The precision and runtime results will be added to the `Results` subfolder.
 
 ___
+___
 
 ## C/C++ algorithm using any math library (or STL/cstdlib)
 
-- `cd NewAlgorithms/cpp/`
+In this example we use C++ STL with `vector<>`, but the process is the same for any other library (e.g. Eigen3 with `Matrix<double>`). 
 
-- In this example we use C++ STL with `vector<>`, but the process is the same for any other library (e.g. Eigen3 with `Matrix<double>`). It's also possible to use C code, but it has to be adapted to compile with a C++ compiler.
+- `cd NewAlgorithms/cpp/`
 
 - Modify the .h and .cpp files inside folder `Algorithms`.
     - Open `ZeroImpute.h` and add all the headers your implementation needs. For C++ STL add the standard library header `#include <vector>`. Then replace the argument type in the function `ZeroImpute_Recovery` from `arma::mat &` to `std::vector<std::vector<double>> &`.
