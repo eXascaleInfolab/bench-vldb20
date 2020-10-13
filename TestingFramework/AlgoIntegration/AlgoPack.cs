@@ -23,6 +23,7 @@ namespace TestingFramework.AlgoIntegration
         public static readonly Algorithm Svt = new SVTAlgorithm();
         public static readonly Algorithm SoftImpute = new SoftImputeAlgorithm();
         public static readonly Algorithm Ssa = new SSAAlgorithm();
+        public static readonly Algorithm Mrnn = new MRNNAlgorithm();
         public static readonly Algorithm ROSL = new ROSLAlgorithm();
         public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
         public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
@@ -32,7 +33,7 @@ namespace TestingFramework.AlgoIntegration
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa };
+        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn };
         public static Algorithm[] ListAlgorithmsMulticolumn = null;
 
         public const int TypicalTruncation = 3;
@@ -208,6 +209,15 @@ namespace TestingFramework.AlgoIntegration
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ssa/tslib/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
+    }
+
+    public partial class MRNNAlgorithm
+    {
+        public override string AlgCode => "m-rnn";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}M-RNN/";
+        protected override string SubFolderDataIn => "data_in/";
+        protected override string SubFolderDataOut => "data_out/";
+        public override bool IsMultiColumn => true;
     }
     
     public partial class MeanImputeAlgorithm
