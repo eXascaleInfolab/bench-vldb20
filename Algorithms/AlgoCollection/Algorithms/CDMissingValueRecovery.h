@@ -30,7 +30,6 @@ class CDMissingValueRecovery
     double epsPrecision;
     std::vector<MissingBlock> missingBlocks;
     
-    uint64_t optimization = 0;
     bool disableCaching = false;
     bool useNormalization = false;
     
@@ -47,8 +46,6 @@ class CDMissingValueRecovery
     uint64_t getReduction();
     
     void setReduction(uint64_t k);
-    
-    void passSignVectorStrategy(CDSignVectorStrategy_2 strategy);
     
     void addMissingBlock(uint64_t col, uint64_t start, uint64_t size);
     
@@ -69,14 +66,6 @@ class CDMissingValueRecovery
     //
   private:
     void interpolate();
-    
-    void init_zero();
-    
-    void init_mean();
-    
-    void init_mean_horiz();
-    
-    void init_1NN();
     
     void determineReduction();
     
