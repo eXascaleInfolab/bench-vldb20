@@ -28,7 +28,7 @@ ___
 
 ## Build
 
-- Build the Testing Framework using the installation script located in the root folder (takes few minutes):
+- Build the Testing Framework using the installation script located in the root folder (takes several minutes):
 ```bash
     $ sh install_linux.sh
 ```
