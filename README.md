@@ -63,6 +63,7 @@ ___
  | tkcm     | *all*       |           |
  | trmf     |             |           |
  | ssa      |             |           |
+ | m-rnn    |             |           |
  | *all*    |             |           |
 
 
