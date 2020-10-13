@@ -32,7 +32,7 @@ ___
 ```bash
     $ sh install_linux.sh
 ```
-- [Optional] To run the algorithms in python you need to install the python packages using
+- [Optional] To run the algorithms in python you need to install the python packages using (takes ~2min): 
 ```bash
     $ sh install_extra.sh
 ```
