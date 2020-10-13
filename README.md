@@ -28,11 +28,11 @@ ___
 
 ## Build
 
-- Build all the Testing Framework using the installation script located in the root folder (takes ~1min):
+- Build the Testing Framework using the installation script located in the root folder (takes ~1min):
 ```bash
     $ sh install_linux.sh
 ```
-- To run the algorithms in python you need to install the python packages using
+- [Optional] To run the algorithms in python you need to install the python packages using
 ```bash
     $ sh install_extra.sh
 ```
