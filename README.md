@@ -86,7 +86,7 @@ All results will be added to `Results` folder. The accuracy results and plots of
 
 3. Run point 2 without runtime results
 ```bash
-    $ mono TestingFramework.exe -alg spirit,cdrec -d drift10 -scen miss_perc -nort
+    $ mono TestingFramework.exe -alg cdrec,spirit -d drift10 -scen miss_perc -nort
 ```
 
 4. Run the whole benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
