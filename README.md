@@ -20,7 +20,7 @@ ___
 
 - Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
-- Mono: Install mono from https://www.mono-project.com/download/stable/ (takes few minutes).
+- Mono: Install mono from https://www.mono-project.com/download/stable/ (takes ~1min).
 
 ___
 
@@ -28,11 +28,11 @@ ___
 
 ## Build
 
-- Build the Testing Framework using the installation script located in the root folder (takes ~1min):
+- Build the Testing Framework using the installation script located in the root folder (takes few minutes):
 ```bash
     $ sh install_linux.sh
 ```
-- [Optional] To run the algorithms in python, you need to install the extra packages using (takes ~2min): 
+- [Optional] To run the algorithms in python, you need to install the extra packages using (takes ~1min): 
 ```bash
     $ sh install_extra.sh
 ```
