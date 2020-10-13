@@ -71,6 +71,7 @@
     <Compile Include="AlgoIntegration\SpiritAlgorithm.cs" />
     <Compile Include="AlgoIntegration\StmvlAlgorithm.cs" />
     <Compile Include="AlgoIntegration\SSAAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\MRNNAlgorithm.cs" />
     <Compile Include="AlgoIntegration\SVDImputeAlgorithm.cs" />
     <Compile Include="AlgoIntegration\SVTAlgorithm.cs" />
     <Compile Include="AlgoIntegration\TkcmAlgorithm.cs" />

@@ -1,7 +1,7 @@
 CXX ?= g++
 CC ?= gcc
-CFLAGS = -Wall -Wconversion -g -fPIC -fopenmp -std=gnu++0x
-CFLAGS = -Wall -Wconversion -O2 -fPIC -fopenmp -std=gnu++0x
+CFLAGS = -Wall -Wconversion -Wno-unused-result -Wno-misleading-indentation -Wno-unused-function -g -fPIC -fopenmp -std=gnu++0x
+CFLAGS = -Wall -Wconversion -Wno-unused-result -Wno-misleading-indentation -Wno-unused-function -O2 -fPIC -fopenmp -std=gnu++0x
 BLASFLAGS = -llapack_atlas -lf77blas -lcblas -latlas -lgfortran -L/u/rofuyu/.local/lib
 BLASFLAGS = -lblas -llapack
 
