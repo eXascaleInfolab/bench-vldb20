@@ -3,7 +3,7 @@
 //
 
 //
-// Code translated to C++ from the original: https://www.ifi.uzh.ch/en/dbtg/research/amv/proto/cdrec.html
+// Code translated to C++ from the original: https://github.com/eXascaleInfolab/cdrec
 //
 
 #include "CDMissingValueRecovery.h"
