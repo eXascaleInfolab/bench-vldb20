@@ -124,11 +124,11 @@ ___
 
 ## Extension
 Our benchmark can be easily extended by adding new algorithms (in different languages), new datasets and new scenarios.
-- To add new algorithms in
-    - c/c++: check https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/cpp,
-    - Python: check https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/python,
-    - Matlab: check https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/matlab.
-- To add your own dataset:
+- To add new algorithms:
+    - C/C++: https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/cpp,
+    - Python: https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/python,
+    - Matlab: https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/matlab.
+- To add new datasets:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
   - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
 
