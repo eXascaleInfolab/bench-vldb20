@@ -9,7 +9,7 @@ PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
 - The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Algorithm and Dataset Insertion**](#algorithm-and-dataset-insertion)  | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
 
 ___
 
