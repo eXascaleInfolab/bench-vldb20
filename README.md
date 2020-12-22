@@ -89,7 +89,7 @@ All results and plots will be added to `Results` folder. The accuracy results of
     $ mono TestingFramework.exe -alg cdrec,spirit -d drift10 -scen miss_perc -nort
 ```
 
-4. Run the whole benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
+4. Run the whole VLDB'20 benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
