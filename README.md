@@ -28,11 +28,11 @@ ___
 
 ## Build
 
-- Build the Testing Framework using the installation script located in the root folder (takes several minutes):
+- Build the Testing Framework using the installation script located in the root folder (takes several minutes)
 ```bash
     $ sh install_linux.sh
 ```
-- [Optional] To run the new algorithms (in python), you need to install extra packages (takes ~1min): 
+- [Optional] This script installs all packages required by the newly added Python algorithms: SSA, MRNN and BRITS (takes several minutes)
 ```bash
     $ sh install_extra.sh
 ```
