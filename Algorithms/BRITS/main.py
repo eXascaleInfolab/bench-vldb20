@@ -27,8 +27,8 @@ from ipdb import set_trace
 from data_prep_tf import prepare_dat
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--epochs', type = int, default = 1000)
-parser.add_argument('--batch_size', type = int, default = 32)
+parser.add_argument('--epochs', type = int, default = 100)
+parser.add_argument('--batch_size', type = int, default = 64)
 parser.add_argument('--model', type = str)
 parser.add_argument('--input', type = str)
 parser.add_argument('--output', type = str)
