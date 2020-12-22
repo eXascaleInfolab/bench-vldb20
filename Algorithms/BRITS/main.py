@@ -1,3 +1,8 @@
+########################################
+## code copied and adapted from:      ##
+## https://github.com/lmluzern/BRITS/ ##
+########################################
+
 import copy
 import torch
 import torch.nn as nn
