@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="AlgoIntegration\AlgoPack.cs" />
     <Compile Include="AlgoIntegration\Algorithm.cs" />
+    <Compile Include="AlgoIntegration\BRITSAlgorithm.cs" />
     <Compile Include="AlgoIntegration\DynaMMoAlgorithm.cs" />
     <Compile Include="AlgoIntegration\GrouseAlgorithm.cs" />
     <Compile Include="AlgoIntegration\CentroidDecompositionRecoveryAlgorithm.cs" />

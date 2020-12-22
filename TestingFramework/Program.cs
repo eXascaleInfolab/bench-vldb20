@@ -155,9 +155,13 @@ namespace TestingFramework
                 case SVTAlgorithm instAlg:
                     instAlg.TauScale = Double.Parse(param);
                     break;
+                    
+                case BRITSAlgorithm instAlg:
+                    instAlg.Epochs = Int32.Parse(param);
+                    break;
 
                 default:
-                    throw new Exception("Implementation incomplete");
+                    throw new Exception("One or more algorithms given to -algx don't support parametrization");
             }
         }
 

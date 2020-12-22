@@ -23,6 +23,7 @@ namespace TestingFramework.AlgoIntegration
         public static readonly Algorithm Svt = new SVTAlgorithm();
         public static readonly Algorithm SoftImpute = new SoftImputeAlgorithm();
         public static readonly Algorithm Ssa = new SSAAlgorithm();
+        public static readonly Algorithm Brits = new BRITSAlgorithm();
         public static readonly Algorithm Mrnn = new MRNNAlgorithm();
         public static readonly Algorithm ROSL = new ROSLAlgorithm();
         public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
@@ -33,7 +34,7 @@ namespace TestingFramework.AlgoIntegration
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn };
+        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn, Brits };
         public static Algorithm[] ListAlgorithmsMulticolumn = null;
 
         public const int TypicalTruncation = 3;
@@ -209,6 +210,15 @@ namespace TestingFramework.AlgoIntegration
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ssa/tslib/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
+    }
+
+    public partial class BRITSAlgorithm
+    {
+        public override string AlgCode => "brits";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}BRITS/";
+        protected override string SubFolderDataIn => "data/in/";
+        protected override string SubFolderDataOut => "data/out/";
+        public int Epochs = 100;
     }
 
     public partial class MRNNAlgorithm
