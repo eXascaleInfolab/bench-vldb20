@@ -5,3 +5,4 @@ pip2 install pandas
 pip2 install ujson
 pip2 install ipdb
 pip2 install scikit-learn
+pip2 install future
