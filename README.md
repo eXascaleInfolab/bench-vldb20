@@ -32,7 +32,7 @@ ___
 ```bash
     $ sh install_linux.sh
 ```
-- [Optional] This script installs all Python packages required by the newly added algorithms (SSA, MRNN and BRITS):
+- [Optional] This script installs all the extra Python packages required by the newly added algorithms (SSA, MRNN and BRITS):
 ```bash
     $ sh install_extra.sh
 ```
