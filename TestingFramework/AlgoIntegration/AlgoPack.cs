@@ -134,7 +134,7 @@ namespace TestingFramework.AlgoIntegration
     public partial class TrmfAlgorithm
     {
         public override string AlgCode => "trmf";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}trmf/trmf/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/trmf/trmf/";
         protected override string SubFolderDataIn => "../data/in/";
         protected override string SubFolderDataOut => "../data/out/";
         public override bool IsMultiColumn => true;
@@ -207,7 +207,7 @@ namespace TestingFramework.AlgoIntegration
     public partial class SSAAlgorithm
     {
         public override string AlgCode => "ssa";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}ssa/tslib/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/ssa/tslib/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
     }
@@ -215,7 +215,7 @@ namespace TestingFramework.AlgoIntegration
     public partial class BRITSAlgorithm
     {
         public override string AlgCode => "brits";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}BRITS/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/BRITS/";
         protected override string SubFolderDataIn => "data/in/";
         protected override string SubFolderDataOut => "data/out/";
         public int Epochs = 100;
@@ -224,7 +224,7 @@ namespace TestingFramework.AlgoIntegration
     public partial class MRNNAlgorithm
     {
         public override string AlgCode => "m-rnn";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}M-RNN/";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/M-RNN/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
         public override bool IsMultiColumn => true;
