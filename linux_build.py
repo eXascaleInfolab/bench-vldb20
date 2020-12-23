@@ -48,7 +48,7 @@ launchProcess("msbuild", "TestingFramework.sln", "TestingFramework");
 ### build all algorithms
 
 # TRMF
-launchProcess(matlabExec, "--eval \"install\"", "Algorithms/trmf");
+launchProcess(matlabExec, "--eval \"install\"", "Algorithms/OtherAlgorithms/trmf");
 
 # All others
 launchProcess("make", "all", "Algorithms/AlgoCollection");
