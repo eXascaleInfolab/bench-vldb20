@@ -106,7 +106,7 @@ All results and plots will be added to `Results` folder. The accuracy results of
     $ mono TestingFramework.exe --help
 ```
 
-**Remark**: Algorithms `tkcm`,  `spirit` and `ssa` cannot handle multiple incomplete time series. These two allgorithms will not produce results for scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
+**Remark**: Algorithms `tkcm`,  `spirit`, `ssa` and `brits` cannot handle multiple incomplete time series. These allgorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ### Parametrized execution
 
