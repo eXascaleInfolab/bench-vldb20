@@ -55,6 +55,7 @@ def train(model, input):
     #end for    
     
     return (model, data_iter)
+#end function
 
 def evaluate(model, val_iter):
     model.eval()
@@ -65,22 +66,15 @@ def evaluate(model, val_iter):
     for idx, data in enumerate(val_iter):
         data = utils.to_var(data)
         ret = model.run_on_batch(data, None)
-
-        #eval_masks = ret['eval_masks'].data.cpu().numpy()
-        #eval_ = ret['evals'].data.cpu().numpy()
+        
         imputation = ret['imputations'].data.cpu().numpy()
-
-        #evals += eval_[np.where(eval_masks == 1)].tolist()
-        #imputations += imputation[np.where(eval_masks == 1)].tolist()
         imputations += imputation.tolist()
     #end for
 
     #evals = np.asarray(evals)
     imputations = np.asarray(imputations)
     return imputations
-
-    #print 'MAE', np.abs(evals - imputations).mean()
-    #print 'MRE', np.abs(evals - imputations).sum() / np.abs(evals).sum()
+#end function
 
 def run(input, output, rt = 0):
     matrix = np.loadtxt(input)
@@ -99,7 +93,7 @@ def run(input, output, rt = 0):
     end = time.time()
 
     if rt > 0:
-        np.savetxt(output, [(end - start) * 1000 * 1000])
+        np.savetxt(output, np.array([(end - start) * 1000 * 1000]))
     else:
         res = res.reshape(n)
         matrix[:, 0] = res
@@ -113,4 +107,4 @@ def run(input, output, rt = 0):
 if __name__ == '__main__':
     input = args.input
     output = args.output
-    run(input, output)
+    run(input, output, args.runtime)
