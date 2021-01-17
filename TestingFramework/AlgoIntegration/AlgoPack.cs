@@ -227,7 +227,7 @@ namespace TestingFramework.AlgoIntegration
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/M-RNN/";
         protected override string SubFolderDataIn => "data_in/";
         protected override string SubFolderDataOut => "data_out/";
-        public override bool IsMultiColumn => true;
+        public override bool IsMultiColumn => false;
     }
     
     public partial class MeanImputeAlgorithm
