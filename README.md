@@ -20,7 +20,7 @@ ___
 
 - Ubuntu 16 or Ubuntu 18 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
-- Mono: Install mono from https://www.mono-project.com/download/stable/ and reboot.
+- Mono: Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
 
 ___
 
