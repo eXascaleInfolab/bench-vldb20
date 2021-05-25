@@ -134,7 +134,8 @@ ___
     - Matlab: https://github.com/eXascaleInfolab/bench-vldb20/tree/master/NewAlgorithms/matlab
 - To add new datasets:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your data).
-  - Requirements: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
+  - **Requirements**: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
+  - **Note**: the benchmark can also run with rows>= 100 and columns>= 5, but with a limited number of scenarios and algorithms.
 
 
 ___
