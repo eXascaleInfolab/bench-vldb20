@@ -419,6 +419,14 @@ namespace TestingFramework.Testing
                     alg.GenerateData(dataSource, code, tcase, missingBlocks, rowRange, columnRange);
                     alg.RunExperiment(ex, et, es, data, tcase);
                 }
+                
+                if (alg.AlgCode == "mvexport")
+                {
+                    //just plain return, nothing more to do here
+                    // if this condition is true this is the only algo in the set
+                    // and it will leave no trash apart from the output
+                    return;
+                }
 
                 alg.CollectResults(ex, DataWorks.FolderResults,
                     lengths.Select(x => alg.EnumerateOutputFiles(x)).Flatten().ToArray());

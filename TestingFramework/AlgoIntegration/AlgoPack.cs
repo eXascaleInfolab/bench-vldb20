@@ -30,6 +30,8 @@ namespace TestingFramework.AlgoIntegration
         public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
         public static readonly Algorithm MeanImp = new MeanImputeAlgorithm();
         public static readonly Algorithm LinImp = new LinearImputeAlgorithm();
+        
+        public static readonly Algorithm MvExport = new MissingValueExportAlgorithm();
 
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();

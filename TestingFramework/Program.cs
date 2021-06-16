@@ -169,7 +169,7 @@ namespace TestingFramework
         {
             if (allAlgosInvoked)
             {
-                Console.WriteLine("`--algorithm all` or `--algorithm full` was already passed to the tool");
+                Console.WriteLine("`--algorithm all`, `--algorithm full` or `--algorithm mvexport` was already passed to the tool");
                 Console.WriteLine("can't add more algorithms with --algorithm or --algorithm-param");
                 Environment.Exit(-1);
             }
@@ -243,7 +243,19 @@ namespace TestingFramework
                         CLIVerifyInput(i + 1, args.Length, args[i], "algorithm name(s)");
                         subCmd = args[++i];
 
-                        if (subCmd == "all")
+                        if (subCmd == "mvexport")
+                        {
+                            if (algos.Count() != 0)
+                            {
+                                Console.WriteLine("Algorithms were already added with --algorithm or --algorithm-param");
+                                Console.WriteLine("`--algorithm mvexport` can't be invoked any more");
+                                Environment.Exit(-1);
+                            }
+                            algos.AddRange(new[] { AlgoPack.MvExport });
+                            allAlgosInvoked = true;
+                            doRuntime = false; //will just duplicate the result
+                        }
+                        else if (subCmd == "all")
                         {
                             if (algos.Count() != 0)
                             {
