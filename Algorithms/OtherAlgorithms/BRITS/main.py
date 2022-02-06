@@ -78,12 +78,11 @@ def evaluate(model, val_iter):
 
 def run(input, output, rt = 0):
     matrix = np.loadtxt(input)
-    np.savetxt(input + ".scol", matrix[:, 0])
     n = len(matrix)
-    prepare_dat(input + ".scol", input + ".tmp")
+    prepare_dat(input, input + ".tmp")
 
     start = time.time()
-    model = getattr(models, args.model).Model()
+    model = getattr(models, args.model).Model(n)
 
     if torch.cuda.is_available():
         model = model.cuda()
@@ -95,6 +94,7 @@ def run(input, output, rt = 0):
     if rt > 0:
         np.savetxt(output, np.array([(end - start) * 1000 * 1000]))
     else:
+        res = res[0,:n]
         res = res.reshape(n)
         matrix[:, 0] = res
         np.savetxt(output, matrix)

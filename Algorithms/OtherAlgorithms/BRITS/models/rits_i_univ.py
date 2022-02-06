@@ -58,8 +58,9 @@ class TemporalDecay(nn.Module):
         return gamma
 
 class Model(nn.Module):
-    def __init__(self):
+    def __init__(self, seq_len):
         super(Model, self).__init__()
+        self.seq_len = seq_len
         self.build()
 
     def build(self):
@@ -93,7 +94,7 @@ class Model(nn.Module):
 
         imputations = []
 
-        for t in range(SEQ_LEN):
+        for t in range(self.seq_len):
             x = values[:, t, :]
             m = masks[:, t, :]
             d = deltas[:, t, :]
@@ -122,7 +123,7 @@ class Model(nn.Module):
 
         y_h = F.sigmoid(y_h)
 
-        return {'loss': x_loss / SEQ_LEN + 0.1 *y_loss, 'predictions': y_h,\
+        return {'loss': x_loss / self.seq_len + 0.1 *y_loss, 'predictions': y_h,\
                 'imputations': imputations, 'labels': labels, 'is_train': is_train,\
                 'evals': evals, 'eval_masks': eval_masks}
 

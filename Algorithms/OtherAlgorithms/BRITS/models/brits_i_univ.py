@@ -21,13 +21,14 @@ RNN_HID_SIZE = 64
 
 
 class Model(nn.Module):
-    def __init__(self):
+    def __init__(self, seq_len):
         super(Model, self).__init__()
+        self.seq_len = seq_len
         self.build()
 
     def build(self):
-        self.rits_f = rits_i_univ.Model()
-        self.rits_b = rits_i_univ.Model()
+        self.rits_f = rits_i_univ.Model(self.seq_len)
+        self.rits_b = rits_i_univ.Model(self.seq_len)
 
     def forward(self, data):
         ret_f = self.rits_f(data, 'forward')
