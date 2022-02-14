@@ -1,18 +1,11 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optim
 
 from torch.autograd import Variable
 from torch.nn.parameter import Parameter
 
 import math
-import utils
-import argparse
-import data_loader
-
-from ipdb import set_trace
-from sklearn import metrics
 
 SEQ_LEN = 1000
 RNN_HID_SIZE = 64

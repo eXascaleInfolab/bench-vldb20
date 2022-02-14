@@ -1,12 +1,7 @@
-import os
-import time
-
 import ujson as json
 import numpy as np
-import pandas as pd
 
 import torch
-import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
 class MySet(Dataset):
@@ -35,13 +30,12 @@ def collate_fn(recs):
     backward = map(lambda x: x['backward'], recs)
 
     def to_tensor_dict(recs):
-        values = torch.FloatTensor(map(lambda r: map(lambda x: x['values'], r), recs))
-        masks = torch.FloatTensor(map(lambda r: map(lambda x: x['masks'], r), recs))
-        deltas = torch.FloatTensor(map(lambda r: map(lambda x: x['deltas'], r), recs))
-        forwards = torch.FloatTensor(map(lambda r: map(lambda x: x['forwards'], r), recs))
-
-        evals = torch.FloatTensor(map(lambda r: map(lambda x: x['evals'], r), recs))
-        eval_masks = torch.FloatTensor(map(lambda r: map(lambda x: x['eval_masks'], r), recs))
+        values = torch.FloatTensor(map(lambda r: r['values'], recs))
+        masks = torch.FloatTensor(map(lambda r: r['masks'], recs))
+        deltas = torch.FloatTensor(map(lambda r: r['deltas'], recs))
+        forwards = torch.FloatTensor(map(lambda r: r['forwards'], recs))
+        evals = torch.FloatTensor(map(lambda r: r['evals'], recs))
+        eval_masks = torch.FloatTensor(map(lambda r: r['eval_masks'], recs))
 
         return {'values': values, 'forwards': forwards, 'masks': masks, 'deltas': deltas, 'evals': evals, 'eval_masks': eval_masks}
 
