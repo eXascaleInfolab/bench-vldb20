@@ -3,12 +3,8 @@
 ## https://github.com/lmluzern/BRITS/ ##
 ########################################
 
-import copy
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
-from torch.optim.lr_scheduler import StepLR
 
 import numpy as np
 
@@ -17,12 +13,8 @@ import utils
 import models
 import argparse
 import data_loader
-import pandas as pd
-import ujson as json
 
 from sklearn import metrics
-
-from ipdb import set_trace
 
 from data_prep_tf import prepare_dat
 
@@ -60,7 +52,6 @@ def train(model, input):
 def evaluate(model, val_iter):
     model.eval()
 
-    #evals = []
     imputations = []
 
     for idx, data in enumerate(val_iter):
@@ -71,7 +62,6 @@ def evaluate(model, val_iter):
         imputations += imputation.tolist()
     #end for
 
-    #evals = np.asarray(evals)
     imputations = np.asarray(imputations)
     return imputations
 #end function
