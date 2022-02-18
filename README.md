@@ -100,7 +100,7 @@ All results and plots will be added to `Results` folder. The accuracy results of
 ```
 **Warning**: Running the whole benchmark will take a sizeable amount of time (up to 4 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
 
-5. Create files with missing values on one dataset (airq) using a single scenario (missing percentage)
+5. Create patterns of missing blocks on one complete dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg mvexport -d airq -scen miss_perc
 ```
