@@ -220,6 +220,7 @@ namespace TestingFramework.AlgoIntegration
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/BRITS/";
         protected override string SubFolderDataIn => "data/in/";
         protected override string SubFolderDataOut => "data/out/";
+        public override bool IsMultiColumn => true;
         public int Epochs = 100;
     }
 

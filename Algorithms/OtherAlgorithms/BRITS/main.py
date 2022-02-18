@@ -84,9 +84,10 @@ def run(input, output, rt = 0):
     if rt > 0:
         np.savetxt(output, np.array([(end - start) * 1000 * 1000]))
     else:
-        res = res[0,:n]
-        res = res.reshape(n)
-        matrix[:, 0] = res
+        for i in range(0, len(res)):
+            res_l = res[i, :n];
+            matrix[:, i] = res_l.reshape(n);
+        #end for
         np.savetxt(output, matrix)
     #end if
 
@@ -98,3 +99,4 @@ if __name__ == '__main__':
     input = args.input
     output = args.output
     run(input, output, args.runtime)
+
