@@ -6,7 +6,8 @@
 - when percentage or division is mentioned, the result is floored down to nearest integer
 
 ## Scenarios
-N = lentgh of time series 
+N = lentgh of time series
+
 M = number of time series
 
 W = 10% * N
