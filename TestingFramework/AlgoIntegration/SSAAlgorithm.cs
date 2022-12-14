@@ -42,7 +42,7 @@ namespace TestingFramework.AlgoIntegration
             Process ssaproc = new Process();
             
             ssaproc.StartInfo.WorkingDirectory = EnvPath;
-            ssaproc.StartInfo.FileName = "python";
+            ssaproc.StartInfo.FileName = "python2";
             ssaproc.StartInfo.CreateNoWindow = true;
             ssaproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             ssaproc.StartInfo.UseShellExecute = false;
@@ -60,7 +60,7 @@ namespace TestingFramework.AlgoIntegration
             Process ssaproc = new Process();
             
             ssaproc.StartInfo.WorkingDirectory = EnvPath;
-            ssaproc.StartInfo.FileName = "python";
+            ssaproc.StartInfo.FileName = "python2";
             ssaproc.StartInfo.CreateNoWindow = true;
             ssaproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             ssaproc.StartInfo.UseShellExecute = false;
