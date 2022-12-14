@@ -42,7 +42,7 @@ namespace TestingFramework.AlgoIntegration
             Process mrnnproc = new Process();
             
             mrnnproc.StartInfo.WorkingDirectory = EnvPath;
-            mrnnproc.StartInfo.FileName = "python";
+            mrnnproc.StartInfo.FileName = "python2";
             mrnnproc.StartInfo.CreateNoWindow = true;
             mrnnproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             mrnnproc.StartInfo.UseShellExecute = false;
@@ -60,7 +60,7 @@ namespace TestingFramework.AlgoIntegration
             Process mrnnproc = new Process();
             
             mrnnproc.StartInfo.WorkingDirectory = EnvPath;
-            mrnnproc.StartInfo.FileName = "python";
+            mrnnproc.StartInfo.FileName = "python2";
             mrnnproc.StartInfo.CreateNoWindow = true;
             mrnnproc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             mrnnproc.StartInfo.UseShellExecute = false;
