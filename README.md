@@ -18,7 +18,7 @@ ___
 
 ## Prerequisites
 
-- Ubuntu 18 or Ubuntu 20 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
+- Ubuntu 20 or Ubuntu 22 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
 - Mono: Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
 
