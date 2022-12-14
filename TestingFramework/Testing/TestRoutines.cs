@@ -612,7 +612,7 @@ namespace TestingFramework.Testing
             
             Console.WriteLine("Plotting results");
             
-            Utils.RunSimpleVoidProcess("python", rootDir, "scripts/precision/plotall.py");
+            Utils.RunSimpleVoidProcess("python2", rootDir, "scripts/precision/plotall.py");
             
             Console.WriteLine($"Sequence {ex.ToLongString()} / {et.ToLongString()} / {es.ToLongString()} for {code} completed");
             
