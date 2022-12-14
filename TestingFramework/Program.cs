@@ -264,7 +264,7 @@ namespace TestingFramework
                                 Environment.Exit(-1);
                             }
                             // static list for vldb bench
-                            algos.AddRange(new[] { AlgoPack.Stmvl, AlgoPack.CdRec, AlgoPack.Tkcm, AlgoPack.Spirit, AlgoPack.Trmf, AlgoPack.Nnmf, AlgoPack.Grouse, AlgoPack.Svt, AlgoPack.SoftImpute, AlgoPack.ROSL, AlgoPack.DynaMMo, AlgoPack.SvdI });                            
+                            algos.AddRange(new[] { AlgoPack.Stmvl, AlgoPack.CdRec, AlgoPack.Tkcm, AlgoPack.Spirit, AlgoPack.Nnmf, AlgoPack.Grouse, AlgoPack.Svt, AlgoPack.SoftImpute, AlgoPack.ROSL, AlgoPack.DynaMMo, AlgoPack.SvdI });                            
                             allAlgosInvoked = true;
                         }
                         else if (subCmd == "full")
