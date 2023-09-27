@@ -3,7 +3,23 @@
 ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our 
 PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python or Matlab), new datasets and new scenarios.  
 
-- The benchmark implements the following algorithms (in C++): [CDRec](https://rdcu.be/b32bv), [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078), [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html),  [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890), [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html), [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674), [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf), [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365), [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0), [TeNMF](http://proceedings.mlr.press/v70/mei17a.html), [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf), and [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf). We recently added these algorithms (in Python): [SSA](https://dl.acm.org/doi/10.1145/3287319), [MRNN](https://ieeexplore.ieee.org/document/8485748) and [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series).
+- The benchmark implements the following algorithms (in C++):
+   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
+   - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
+   - [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html): Global Convergence of a Grassmannian Gradient Descent Algorithm for Subspace Estimation, PMLR'16
+   - [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890): Robust Orthonormal Subspace Learning: Efficient Recovery of Corrupted Low-Rank Matrices, CVPR'14
+   - [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html): Spectral Regularization Algorithms for Learning Large Incomplete Matrices, JMLR'10
+   - [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674): Streaming pattern discovery in multiple time-series, VLDB'05
+   - [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf): ST-MVL: Filling Missing Values in Geo-Sensory Time Series Data, IJCAI'16
+   - [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365): Missing value estimation methods for DNA microarrays, BIOINFORMATICS'01
+   - [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0): A Singular Value Thresholding Algorithm for Matrix Completion, SIAM J. OPTIM'10
+   - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
+   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
+   - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf): Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
+- We recently added these algorithms (in Python):
+   - [SSA](https://dl.acm.org/doi/10.1145/3287319): Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
+   - [MRNN](https://ieeexplore.ieee.org/document/8485748): Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. ON Bio Eng.'19 
+   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
 - The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 - **Remark**: Algorithms `tkcm`,  `spirit`, `ssa`, and `mr-nn`  cannot handle multiple incomplete time series. These algorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
