@@ -1,7 +1,7 @@
 # ImputeBench:  Benchmark of Imputation Techniques in Time Series  
 
-ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our 
-PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python or Matlab), new datasets and new scenarios.  
+ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our 
+PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python, or Matlab), new datasets, and new scenarios.  
 
 - The benchmark implements the following algorithms (in C++):
    - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
@@ -48,7 +48,7 @@ ___
 ```bash
     $ sh install_linux.sh
 ```
-- To evaluate the recently added algorithms (SSA, MRNN and BRITS), please install the following packages (takes several minutes):
+- To evaluate the recently added algorithms (SSA, MRNN, and BRITS), please install the following packages (takes several minutes):
 ```bash
     $ sh install_extra.sh
 ```
@@ -120,7 +120,7 @@ All results and plots will be added to `Results` folder. The accuracy results of
 ```bash
     $ mono TestingFramework.exe -alg mvexport -d airq -scen miss_perc
 ```
-**Note**: You need to run each scenario seperately on one or multiple datasets. Each time you execute one scenario, the `Results` folder will be overwritten with the new files.
+**Note**: You need to run each scenario separately on one or multiple datasets. Each time you execute one scenario, the `Results` folder will be overwritten with the new files.
 
 6. Additional command-line parameters
 ```bash
@@ -137,13 +137,13 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
     $ mono TestingFramework.exe -algx svdimp 4 -d drift10 -scen ts_nbr
 ```
 
-- If you want to run some algorithms with default parameters, and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset and by varying the sequence length as follows:
+- If you want to run some algorithms with default parameters, and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset by varying the sequence length as follows:
 
 ```bash
     $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
 ```
 
-**Remark**: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
+**Remark**: The command `-algx` cannot be executed in a group and thus must precede the name of each algorithm.
 
 ___
 
