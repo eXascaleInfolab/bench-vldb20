@@ -65,6 +65,7 @@
     <Compile Include="AlgoIntegration\BRITSAlgorithm.cs" />
     <Compile Include="AlgoIntegration\DynaMMoAlgorithm.cs" />
     <Compile Include="AlgoIntegration\GrouseAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\IIMAlgorithm.cs" />
     <Compile Include="AlgoIntegration\CentroidDecompositionRecoveryAlgorithm.cs" />
     <Compile Include="AlgoIntegration\NnmfAlgorithm.cs" />
     <Compile Include="AlgoIntegration\ROSLAlgorithm.cs" />

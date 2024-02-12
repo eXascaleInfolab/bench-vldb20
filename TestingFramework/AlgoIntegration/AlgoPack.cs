@@ -24,6 +24,7 @@ namespace TestingFramework.AlgoIntegration
         public static readonly Algorithm SoftImpute = new SoftImputeAlgorithm();
         public static readonly Algorithm Ssa = new SSAAlgorithm();
         public static readonly Algorithm Brits = new BRITSAlgorithm();
+        public static readonly Algorithm Iim = new IIMAlgorithm();
         public static readonly Algorithm Mrnn = new MRNNAlgorithm();
         public static readonly Algorithm ROSL = new ROSLAlgorithm();
         public static readonly Algorithm DynaMMo = new DynaMMoAlgorithm();
@@ -36,7 +37,7 @@ namespace TestingFramework.AlgoIntegration
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn, Brits };
+        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn, Brits, Iim };
         public static Algorithm[] ListAlgorithmsMulticolumn = null;
 
         public const int TypicalTruncation = 3;
@@ -222,6 +223,16 @@ namespace TestingFramework.AlgoIntegration
         protected override string SubFolderDataOut => "data/out/";
         public override bool IsMultiColumn => true;
         public int Epochs = 100;
+    }
+
+    public partial class IIMAlgorithm
+    {
+        public override string AlgCode => "iim";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/IIM/";
+        protected override string SubFolderDataIn => "data/in/";
+        protected override string SubFolderDataOut => "data/out/";
+        public override bool IsMultiColumn => true;
+        public int Neighbors = 3;
     }
 
     public partial class MRNNAlgorithm
