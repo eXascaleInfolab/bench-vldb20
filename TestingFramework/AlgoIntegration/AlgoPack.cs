@@ -231,7 +231,7 @@ namespace TestingFramework.AlgoIntegration
         protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/IIM/";
         protected override string SubFolderDataIn => "data/in/";
         protected override string SubFolderDataOut => "data/out/";
-        public override bool IsMultiColumn => true;
+        public override bool IsMultiColumn => false;
         public int Neighbors = 3;
     }
 
