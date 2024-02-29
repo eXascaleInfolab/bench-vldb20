@@ -1,7 +1,7 @@
 # ImputeBench:  Benchmark of Imputation Techniques in Time Series  
 
 ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our 
-PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python, or Matlab), new datasets, and new scenarios.  
+PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.  
 
 - **Imputation Algorithms**: The benchmark implements the following algorithms (in C++):
    - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
@@ -16,19 +16,21 @@ PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">
    - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
    - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
    - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf): Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
-- We recently added these algorithms (in Python):
+  
+- **New Algorithms**: We recently expanded the benchmark with additional algorithms (in Python):
    - [IIM](https://ieeexplore.ieee.org/document/8731351): Learning Individual Models for Imputation, ICDE '19
    - [SSA](https://dl.acm.org/doi/10.1145/3287319): Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
    - [MRNN](https://ieeexplore.ieee.org/document/8485748): Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19 
    - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
-   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation*, SIGMOD'23
-   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series*, PVLDB'21
-   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation*, PVLDB'24
-
+   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333)*: Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
+   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf)*: Missing Value Imputation on Multidimensional Time Series, PVLDB'21
+   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf)*: Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
 
 - **Datasets**: All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
 - **Missingness Patterns**: The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
-- **Remark**: Algorithms `tkcm`,  `spirit`, `ssa`, `mr-nn`, and `iim`  cannot handle multiple incomplete time series. These algorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
+- **Notes**:
+   - Algorithms `tkcm`,  `spirit`, `ssa`, `mr-nn`, and `iim`  cannot handle multiple incomplete time series. These algorithms produce results only for the following scenarios: `miss_perc`, `ts_length`, and ` ts_nbr`.
+   - The algorithms marked with <sup>*</sup> are under integration.
 
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
@@ -95,7 +97,7 @@ ___
 
 
 ### Results
-All results and plots will be added to `Results` folder. The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/.../.../error/`. The runtime results of all algorithms will be added to: `Results/.../.../runtime/`. The plots of the recovered blocks will be added to the folder `Results/.../.../recovery/plots/`.
+All results and plots will be added to the `Results` folder. The accuracy results of all algorithms will be sequentially added for each scenario and dataset to: `Results/.../.../error/`. The runtime results of all algorithms will be added to: `Results/.../.../runtime/`. The plots of the recovered blocks will be added to the folder `Results/.../.../recovery/plots/`.
 
 
 ### Execution examples
@@ -120,13 +122,13 @@ All results and plots will be added to `Results` folder. The accuracy results of
 ```bash
     $ mono TestingFramework.exe -alg all -d all -scen all
 ```
-**Warning**: Running the whole benchmark will take a sizeable amount of time (up to 4 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
+**Warning**: Running the whole benchmark takes a sizeable amount of time (up to 4 days, depending on the hardware) and produces up to 15GB of output files with all recovered data and plots unless stopped early.
 
 5. Create patterns of missing blocks on one complete dataset (airq) using one scenario (missing percentage)
 ```bash
     $ mono TestingFramework.exe -alg mvexport -d airq -scen miss_perc
 ```
-**Note**: You need to run each scenario separately on one or multiple datasets. Each time you execute one scenario, the `Results` folder will be overwritten with the new files.
+**Note**: You must run each scenario separately on one or multiple datasets. Each time you execute one scenario, the `Results` folder will be overwritten with the new files.
 
 6. Additional command-line parameters
 ```bash
@@ -143,7 +145,7 @@ the svdimp algorithm with a reduction value of 4 on the drift dataset and by var
     $ mono TestingFramework.exe -algx svdimp 4 -d drift10 -scen ts_nbr
 ```
 
-- If you want to run some algorithms with default parameters, and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset by varying the sequence length as follows:
+- If you want to run some algorithms with default parameters and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset by varying the sequence length as follows:
 
 ```bash
     $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
@@ -161,7 +163,7 @@ ___
 - To add new datasets:
   - import the file to `TestingFramework/bin/Debug/data/{name}/{name}_normal.txt` (`name` is the name of your dataset).
   - **Requirements**: rows>= 1'000, columns>= 10, column separator: empty space, row separator: newline
-  - **Note**: the benchmark can also run with rows>= 100 and columns>= 5, but with a limited number of scenarios and algorithms.
+  - **Note**: the benchmark can also run with rows>= 100 and columns>= 5 but with a limited number of scenarios and algorithms.
 
 
 ___
