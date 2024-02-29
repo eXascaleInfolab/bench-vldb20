@@ -3,7 +3,7 @@
 ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our 
 PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python, or Matlab), new datasets, and new scenarios.  
 
-- The benchmark implements the following algorithms (in C++):
+- **Imputation Algorithms**: The benchmark implements the following algorithms (in C++):
    - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
    - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
    - [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html): Global Convergence of a Grassmannian Gradient Descent Algorithm for Subspace Estimation, PMLR'16
@@ -17,13 +17,18 @@ PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">
    - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
    - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf): Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
 - We recently added these algorithms (in Python):
+   - [IIM](https://ieeexplore.ieee.org/document/8731351): Learning Individual Models for Imputation, ICDE '19
    - [SSA](https://dl.acm.org/doi/10.1145/3287319): Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
    - [MRNN](https://ieeexplore.ieee.org/document/8485748): Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19 
    - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
-   - [IIM](https://ieeexplore.ieee.org/document/8731351): Learning Individual Models for Imputation, ICDE '19
-- All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
-- The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
-- **Remark**: Algorithms `tkcm`,  `spirit`, `ssa`, and `mr-nn`  cannot handle multiple incomplete time series. These algorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
+   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation*, SIGMOD'23
+   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series*, PVLDB'21
+   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation*, PVLDB'24
+
+
+- **Datasets**: All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
+- **Missingness Patterns**: The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
+- **Remark**: Algorithms `tkcm`,  `spirit`, `ssa`, `mr-nn`, and `iim`  cannot handle multiple incomplete time series. These algorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
