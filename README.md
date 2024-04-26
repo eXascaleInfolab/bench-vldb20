@@ -57,7 +57,7 @@ ___
 ```bash
     $ sh install_linux.sh
 ```
-- To evaluate the recently added algorithms (SSA, MRNN, and BRITS), please install the following packages (takes several minutes):
+- To evaluate the new algorithms built in Python (SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following packages (takes several minutes):
 ```bash
     $ sh install_extra.sh
 ```
