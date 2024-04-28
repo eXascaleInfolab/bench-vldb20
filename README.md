@@ -25,6 +25,7 @@ PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">
    - [MRNN](https://ieeexplore.ieee.org/document/8485748): Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19 
    - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
    - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333)*: Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
+   - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf)*: Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
 
 
 - **Datasets**: All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
