@@ -276,7 +276,7 @@ namespace TestingFramework.AlgoIntegration
     public partial class MPINAlgorithm
     {
         public override string AlgCode => "mpin";
-        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/MPIN";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/MPIN/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsMultiColumn => true;
