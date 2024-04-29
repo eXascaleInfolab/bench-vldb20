@@ -80,6 +80,8 @@
     <Compile Include="AlgoIntegration\TrmfAlgorithm.cs" />
     <Compile Include="AlgoIntegration\MeanImputeAlgorithm.cs" />
     <Compile Include="AlgoIntegration\LinearImputeAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\DeepMVIAlgorithm.cs" />
+    <Compile Include="AlgoIntegration\MPINAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing\DataWorks.cs" />
