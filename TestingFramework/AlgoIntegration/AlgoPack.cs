@@ -31,13 +31,15 @@ namespace TestingFramework.AlgoIntegration
         public static readonly Algorithm SvdI = new SVDImputeAlgorithm();
         public static readonly Algorithm MeanImp = new MeanImputeAlgorithm();
         public static readonly Algorithm LinImp = new LinearImputeAlgorithm();
+        public static readonly Algorithm Deepmvi = new DeepMVIAlgorithm();
+        public static readonly Algorithm Mpin = new MPINAlgorithm();
         
         public static readonly Algorithm MvExport = new MissingValueExportAlgorithm();
 
         //example:
         //    public static readonly Algorithm Example = new ExampleAlgorithm();
         
-        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn, Brits, Iim };
+        public static Algorithm[] ListAlgorithms = { Stmvl, CdRec, Tkcm, Spirit, Trmf, Nnmf, Grouse, Svt, SoftImpute, ROSL, DynaMMo, SvdI, MeanImp, LinImp, Ssa, Mrnn, Brits, Iim, Deepmvi, Mpin };
         public static Algorithm[] ListAlgorithmsMulticolumn = null;
 
         public const int TypicalTruncation = 3;
@@ -257,6 +259,24 @@ namespace TestingFramework.AlgoIntegration
     {
         public override string AlgCode => "linimp";
         protected override string _EnvPath => $"{AlgoPack.GlobalNewAlgorithmsLocation}cpp/_data/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
+    }
+    
+    public partial class DeepMVIAlgorithm
+    {
+        public override string AlgCode => "deepmvi";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/DeepMVI/";
+        protected override string SubFolderDataIn => "in/";
+        protected override string SubFolderDataOut => "out/";
+        public override bool IsMultiColumn => true;
+    }
+
+    public partial class MPINAlgorithm
+    {
+        public override string AlgCode => "mpin";
+        protected override string _EnvPath => $"{AlgoPack.GlobalAlgorithmsLocation}OtherAlgorithms/MPIN/";
         protected override string SubFolderDataIn => "in/";
         protected override string SubFolderDataOut => "out/";
         public override bool IsMultiColumn => true;
