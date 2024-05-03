@@ -1,6 +1,6 @@
 # ImputeBench: Benchmark of Imputation Techniques in Time Series
 
-ImputeBench implements over 15 SOTA recovery techniques for blocks of missing values in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
+ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
 PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
 - **Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
@@ -23,7 +23,7 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
   - [MRNN](https://ieeexplore.ieee.org/document/8485748)\*: Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
   - [SSA](https://dl.acm.org/doi/10.1145/3287319)\*: Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
-- **Algorithms Under Integration**:
+- **Algorithms under Integration**:
   - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
   - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf): Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
