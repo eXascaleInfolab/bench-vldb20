@@ -1,9 +1,9 @@
 # ImputeBench: Benchmark of Imputation Techniques in Time Series
 
-ImputeBench implements over 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
+ImputeBench implements over 15 SOTA recovery techniques for blocks of missing values in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
 PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
-- **Imputation Algorithms**: The benchmark implements the following algorithms (in C++):
+- **Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
   - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
   - [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html): Global Convergence of a Grassmannian Gradient Descent Algorithm for Subspace Estimation, PMLR'16
@@ -16,14 +16,14 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
   - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
   - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf)\*: Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
-- **New Algorithms**: We are continuously expanding the original benchmark with new algorithms (using their original implementation):
+- **New Algorithms**: We are continuously expanding the benchmark with new algorithms (using their original implementation):
   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
   - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
   - [MRNN](https://ieeexplore.ieee.org/document/8485748)\*: Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
   - [SSA](https://dl.acm.org/doi/10.1145/3287319)\*: Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
-- **Algorithms under integration**
+- **Algorithms under integration**:
   - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
   - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf): Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
@@ -59,7 +59,7 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
     $ sh install_extra.sh
 ```
 
-This will install a virtual environment (`bench-env`) under which the packages for this version will be installed. To use algorithms built using this Python verion (DeepMVI, MPIN) you need to activate this virtual environment (example provided in next section).
+This will install a virtual environment (`bench-env`) under which the packages for this version will be installed. To use algorithms built using this Python version (DeepMVI, MPIN), you need to activate this virtual environment (example provided in next section).
 
 ---
 
