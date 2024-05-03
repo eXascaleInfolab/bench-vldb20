@@ -3,6 +3,8 @@
 ImputeBench implements over 15 SOTA recovery techniques for blocks of missing values in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
 PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
+
+
 - **Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
   - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
@@ -33,7 +35,8 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
 - **Notes**:
   - Algorithms marked with <sup>\*</sup> cannot handle multiple incomplete time series. They produce results only for the following scenarios: `miss_perc`, `ts_length`, and ` ts_nbr`.
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension) | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+ [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension) | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+
 
 ---
 
