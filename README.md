@@ -20,11 +20,12 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
   - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
+  - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
   - [MRNN](https://ieeexplore.ieee.org/document/8485748)\*: Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
   - [SSA](https://dl.acm.org/doi/10.1145/3287319)\*: Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
+
 - **Algorithms under Integration**:
-  - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
   - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf): Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
   - [HKMF-T](https://ieeexplore.ieee.org/document/8979178): HKMF-T: Recover From Blackouts in Tagged Time Series With Hankel Matrix Factorization, TKDE'21
