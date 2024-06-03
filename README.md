@@ -16,7 +16,7 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
   - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
   - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf)\*: Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
-- **Additional Imputation Algorithms**: We are continuously expanding the benchmark with new algorithms (using their original implementation):
+- **Additional Imputation Algorithms**: We recently expanded the original benchmark with new algorithms (in their original implementation):
   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
   - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
