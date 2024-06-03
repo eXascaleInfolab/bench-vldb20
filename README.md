@@ -1,39 +1,42 @@
 # ImputeBench: Benchmark of Imputation Techniques in Time Series
 
-ImputeBench implements over 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
+ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
 PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
-- **Imputation Algorithms**: The benchmark implements the following algorithms (in C++):
+- **Original Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
   - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
   - [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html): Global Convergence of a Grassmannian Gradient Descent Algorithm for Subspace Estimation, PMLR'16
   - [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890): Robust Orthonormal Subspace Learning: Efficient Recovery of Corrupted Low-Rank Matrices, CVPR'14
   - [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html): Spectral Regularization Algorithms for Learning Large Incomplete Matrices, JMLR'10
-  - [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674): Streaming pattern discovery in multiple time-series, VLDB'05
+  - [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674)\*: Streaming pattern discovery in multiple time-series, VLDB'05
   - [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf): ST-MVL: Filling Missing Values in Geo-Sensory Time Series Data, IJCAI'16
   - [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365): Missing value estimation methods for DNA microarrays, BIOINFORMATICS'01
   - [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0): A Singular Value Thresholding Algorithm for Matrix Completion, SIAM J. OPTIM'10
   - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
-  - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf): Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
-- **New Algorithms**: We are continuously expanding the original benchmark with new algorithms (using their original implementation):
-
+  - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf)\*: Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
+- **Additional Imputation Algorithms**: We recently expanded the original benchmark with new algorithms (in their original implementation):
   - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
-  - [IIM](https://ieeexplore.ieee.org/document/8731351): Learning Individual Models for Imputation, ICDE '19
-  - [SSA](https://dl.acm.org/doi/10.1145/3287319): Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
-  - [MRNN](https://ieeexplore.ieee.org/document/8485748): Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
+  - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
+  - [MRNN](https://ieeexplore.ieee.org/document/8485748)\*: Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
-  - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333)\*: Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
-  - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf)\*: Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
+  - [SSA](https://dl.acm.org/doi/10.1145/3287319)\*: Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
+- **Algorithms under Integration**:
+  - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
+  - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
+  - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf): Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
+  - [HKMF-T](https://ieeexplore.ieee.org/document/8979178): HKMF-T: Recover From Blackouts in Tagged Time Series With Hankel Matrix Factorization, TKDE'21
+  - [NAOMI](https://proceedings.neurips.cc/paper_files/paper/2019/file/50c1f44e426560f3f2cdcb3e19e39903-Paper.pdf): NAOMI: Non-Autoregressive Multiresolution Sequence Imputation, NeurIPS'19
+  - [E2EGAN](https://www.ijcai.org/proceedings/2019/429): E²GAN: End-to-End Generative Adversarial Network for Multivariate Time Series Imputation, IJCAI'19
 
 - **Datasets**: All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
 - **Missingness Patterns**: The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
-- **Notes**:
-  - Algorithms `tkcm`, `spirit`, `ssa`, `mr-nn`, and `iim` cannot handle multiple incomplete time series. These algorithms produce results only for the following scenarios: `miss_perc`, `ts_length`, and ` ts_nbr`.
-  - The algorithms marked with <sup>\*</sup> are under integration.
+- **Notes**: The algorithms marked with <sup>\*</sup> cannot handle multiple incomplete time series. They produce results only for the following scenarios: `miss_perc`, `ts_length`, and ` ts_nbr`.
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension) | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+ [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension) | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+
 
 ---
 
@@ -41,11 +44,12 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
 
 - Ubuntu 20 or Ubuntu 22 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
-- Mono: Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
+
 
 ---
 
 ## Build
+- Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
 
 - Build the Testing Framework using the installation script located in the root folder (takes several minutes)
 
@@ -53,13 +57,15 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
     $ sh install_linux.sh
 ```
 
-- To evaluate the new algorithms built in Python (SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following packages (takes several minutes):
+- To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
 
 ```bash
     $ sh install_extra.sh
 ```
 
-This will install a virtual environment (`bench-env`) under which the packages for this version will be installed. To use algorithms built using this Python verion (DeepMVI, MPIN) you need to activate this virtual environment (example provided in next section).
+<!--- 
+This will install a virtual environment (`bench-env`) under which the packages for this version will be installed. To use algorithms built using this Python version (DeepMVI, MPIN), you need to activate this virtual environment (example provided in next section).
+-->
 
 ---
 
