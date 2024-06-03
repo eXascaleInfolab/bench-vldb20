@@ -44,11 +44,12 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
 
 - Ubuntu 20 or Ubuntu 22 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository.
-- Mono: Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
+
 
 ---
 
 ## Build
+- Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
 
 - Build the Testing Framework using the installation script located in the root folder (takes several minutes)
 
