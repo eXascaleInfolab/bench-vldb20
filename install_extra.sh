@@ -1,6 +1,6 @@
 pip2 install numpy scipy pandas
 pip2 install scikit-learn
-pip2 install tensorflow=1.14.0
+pip2 install tensorflow==1.14.0
 pip2 install torch torchvision
 pip2 install pandas
 pip2 install ujson
@@ -23,7 +23,7 @@ python3.8 -m pip install numpy
 python3.8 -m pip install pypots
 python3.8 -m pip install torch_geometric
 python3.8 -m pip install torch_scatter
-python3-8 -m pip install torch-sparse
+python3.8 -m pip install torch-sparse
 python3.8 -m pip install torch_cluster
 deactivate
 
