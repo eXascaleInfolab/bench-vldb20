@@ -57,7 +57,7 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
     $ sh install_linux.sh
 ```
 
-- To evaluate the new algorithms built in Python (SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following packages (takes several minutes):
+- To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
 
 ```bash
     $ sh install_extra.sh
