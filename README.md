@@ -106,6 +106,10 @@ This will install a virtual environment (`bench-env`) under which the packages f
 | m-rnn    |             |           |
 | brits    |             |           |
 | deepmvi  |             |           |
+| mpin     |             |           |
+| pristi   |             |           |
+
+
 
 ### Results
 
