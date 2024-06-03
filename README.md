@@ -108,6 +108,8 @@ This will install a virtual environment (`bench-env`) under which the packages f
 | deepmvi  |             |           |
 | mpin     |             |           |
 | pristi   |             |           |
+| iim      |             |           |
+
 
 
 
