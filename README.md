@@ -46,23 +46,18 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
 - Ubuntu 20 or Ubuntu 22 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repository
 
-```bash
-    $ git clone https://github.com/eXascaleInfolab/bench-vldb20 imputebench
-    $ cd imputebench/
-```
-
 ---
 
 ## Build
 - Install mono from https://www.mono-project.com/download/stable/ and reboot your terminal.
 
-- Build the Testing Framework using the installation script located in the root folder (takes several minutes)
+- Build the Testing Framework using the installation script located in the root folder 
 
 ```bash
     $ sh install_linux.sh
 ```
 
-- To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
+- [Optional] To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
 
 ```bash
     $ sh install_extra.sh
