@@ -57,12 +57,6 @@ PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">M
     $ sh install_linux.sh
 ```
 
-- [Optional] To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
-
-```bash
-    $ sh install_extra.sh
-```
-
 <!--- 
 This will install a virtual environment (`bench-env`) under which the packages for this version will be installed. To use algorithms built using this Python version (DeepMVI, MPIN), you need to activate this virtual environment (example provided in next section).
 -->
@@ -72,7 +66,6 @@ This will install a virtual environment (`bench-env`) under which the packages f
 ## Execution
 
 ```bash
-    $ source bench-env/bin/activate
     $ cd TestingFramework/bin/Debug/
     $ mono TestingFramework.exe [arguments]
 ```
@@ -172,6 +165,20 @@ All results and plots will be added to the `Results` folder. The accuracy result
 **Remark**: The command `-algx` cannot be executed in a group and thus must precede the name of each algorithm.
 
 ---
+
+## Executing New Algorithms
+
+
+- To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
+
+```bash
+    $ sh install_extra.sh
+    $ source bench-env/bin/activate
+    $ mono TestingFramework.exe [arguments]
+
+
+
+```
 
 ## Extension
 
