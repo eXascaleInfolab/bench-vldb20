@@ -169,13 +169,14 @@ All results and plots will be added to the `Results` folder. The accuracy result
 ## Executing New Algorithms
 
 
-- To evaluate the newly integrated algorithms (i.e., SSA, MRNN, BRITS, DeepMVI, and MPIN), please install the following Python packages (takes several minutes):
+- To evaluate the newly integrated algorithms, please install the following Python packages (takes several minutes):
 
 ```bash
     $ sh install_extra.sh
 ```
 
-- Execute the new algorithm
+- Activate the virtual environment and execute the new algorithms from the table above
+-  
 ```bash
     $ source bench-env/bin/activate
     $ mono TestingFramework.exe [arguments]
