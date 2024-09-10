@@ -176,7 +176,7 @@ All results and plots will be added to the `Results` folder. The accuracy result
 ```
 
 - Activate the virtual environment and execute the new algorithms from the table above
--  
+
 ```bash
     $ source bench-env/bin/activate
     $ mono TestingFramework.exe [arguments]
