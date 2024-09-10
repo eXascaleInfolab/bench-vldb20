@@ -173,12 +173,14 @@ All results and plots will be added to the `Results` folder. The accuracy result
 
 ```bash
     $ sh install_extra.sh
+```
+
+- Execute the new algorithm
+```bash
     $ source bench-env/bin/activate
     $ mono TestingFramework.exe [arguments]
-
-
-
 ```
+
 
 ## Extension
 
