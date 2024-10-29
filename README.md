@@ -1,7 +1,6 @@
 # ImputeBench: Benchmark of Imputation Techniques in Time Series
 
-ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found on our
-PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
+ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
 - **Original Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
