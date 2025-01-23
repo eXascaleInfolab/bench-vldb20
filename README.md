@@ -1,8 +1,8 @@
-# ImputeBench: Benchmark of Imputation Techniques in Time Series
+# ImputeBench: A Comprehensive Benchmark for Time Series Imputation Techniques
 
 ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
 
-- **Original Imputation Algorithms**: The original benchmark implements the following algorithms (in C++):
+- **Initial Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
   - [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078): DynaMMo: mining and summarization of coevolving sequences with missing values, KDD'09
   - [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html): Global Convergence of a Grassmannian Gradient Descent Algorithm for Subspace Estimation, PMLR'16
@@ -15,18 +15,19 @@ ImputeBench implements over 15 advanced imputation techniques for missing blocks
   - [TeNMF](http://proceedings.mlr.press/v70/mei17a.html): Nonnegative Matrix Factorization for Time Series Recovery From a Few Temporal Aggregates, PMLR'17
   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
   - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf)\*: Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
-- **Additional Imputation Algorithms**: We recently expanded the original benchmark with new algorithms (in their original implementation):
-  - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
+    
+- **Recently Integrated Algorithms**: We recently expanded the original benchmark with new algorithms (in their original implementation):
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
-  - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
   - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
+  - [GRIN](https://openreview.net/pdf?id=kOu3-S3wJ7): Filling the G_ap_s: Multivariate Time Series Imputation by Graph Neural Networks, ICLR'22
+  - [DeepMVI](http://vldb.org/pvldb/vol14/p2533-bansal.pdf): Missing Value Imputation on Multidimensional Time Series, PVLDB'21
+  - [IIM](https://ieeexplore.ieee.org/document/8731351)\*: Learning Individual Models for Imputation, ICDE '19
   - [MRNN](https://ieeexplore.ieee.org/document/8485748)\*: Estimating Missing Data in Temporal Data Streams Using Multi-Directional Recurrent Neural Networks, Trans. On Bio Eng.'19
   - [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series): BRITS: Bidirectional Recurrent Imputation for Time Series, NeurIPS'18
   - [SSA](https://dl.acm.org/doi/10.1145/3287319)\*: Model Agnostic Time Series Analysis via Matrix Estimation, Meas. Anal. Comput. Syst'18
 
 - **Algorithms under Integration**:
   - [DAMR](https://dl.acm.org/doi/abs/10.1145/3589333): Dynamic Adjacency Matrix Representation Learning for Multivariate Time Series Imputation, SIGMOD'23
-  - [EDIT](https://www.vldb.org/pvldb/vol15/p624-miao.pdf): Efficient and Effective Data Imputation with Influence Functions, PVLDB'23
   - [HKMF-T](https://ieeexplore.ieee.org/document/8979178): HKMF-T: Recover From Blackouts in Tagged Time Series With Hankel Matrix Factorization, TKDE'21
   - [NAOMI](https://proceedings.neurips.cc/paper_files/paper/2019/file/50c1f44e426560f3f2cdcb3e19e39903-Paper.pdf): NAOMI: Non-Autoregressive Multiresolution Sequence Imputation, NeurIPS'19
   - [E2EGAN](https://www.ijcai.org/proceedings/2019/429): E²GAN: End-to-End Generative Adversarial Network for Multivariate Time Series Imputation, IJCAI'19
@@ -197,13 +198,14 @@ All results and plots will be added to the `Results` folder. The accuracy result
 
 ## Contributors
 
-Mourad Khayati (mkhayati@exascale.info) and Zakhar Tymchenko (zakhar.tymchenko@unifr.ch).
+- Mourad Khayati (mkhayati@exascale.info)
+-  Zakhar Tymchenko (zakhar.tymchenko@unifr.ch).
 
 ---
 
 ## Award
 
-Imputebench has received the VLDB 2020 Most Reproducible Paper [Award](https://vldb2020.org/vldb-2020-awards.html).
+ImputeBench has received the VLDB 2020 Best Experiments and Analysis Paper [Award](https://vldb2020.org/vldb-2020-awards.html).
 
 ---
 
