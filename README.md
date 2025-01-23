@@ -1,6 +1,6 @@
 # ImputeBench: A Comprehensive Benchmark for Time Series Imputation Techniques
 
-ImputeBench implements over 15 advanced imputation techniques for missing blocks in time series. It evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and scenarios.
+ImputeBench implements over 20 advanced time series imputation algorithms. It evaluates their precision and runtime on eight real-world time series datasets using six missingness patterns. Technical details can be found in our PVLDB 2020 paper: <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easily extended with new algorithms (C/C++, Python, or Matlab), datasets, and missingness patterns.
 
 - **Initial Algorithms**: The original benchmark implements the following algorithms (in C++):
   - [CDRec](https://rdcu.be/b32bv): Scalable Recovery of Missing Blocks in Time Series with High and Low Cross-Correlations, KAIS'20
@@ -212,13 +212,23 @@ ImputeBench has received the VLDB 2020 Best Experiments and Analysis Paper [Awar
 ## Citation
 
 ```bibtex
-@inproceedings{imputebench2020vldb,
- author    = {Mourad Khayati and Alberto Lerner and Zakhar Tymchenko and Philippe Cudr{\'{e}}{-}Mauroux},
- title     = {Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series},
- booktitle = {Proceedings of the VLDB Endowment},
- volume    = {13},
- number    = {5},
- year      = {2020}
+@article{DBLP:journals/pvldb/KhayatiLTC20,
+  author       = {Mourad Khayati and
+                  Alberto Lerner and
+                  Zakhar Tymchenko and
+                  Philippe Cudr{\'{e}}{-}Mauroux},
+  title        = {Mind the Gap: An Experimental Evaluation of Imputation of Missing
+                  Values Techniques in Time Series},
+  journal      = {Proc. {VLDB} Endow.},
+  volume       = {13},
+  number       = {5},
+  pages        = {768--782},
+  year         = {2020},
+  url          = {http://www.vldb.org/pvldb/vol13/p768-khayati.pdf},
+  doi          = {10.14778/3377369.3377383},
+  timestamp    = {Sat, 30 Sep 2023 10:24:09 +0200},
+  biburl       = {https://dblp.org/rec/journals/pvldb/KhayatiLTC20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 ```
 
