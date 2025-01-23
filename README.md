@@ -16,7 +16,7 @@ ImputeBench implements over 15 advanced imputation techniques for missing blocks
   - [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf): Temporal Regularized Matrix Factorization for High-dimensional Time Series Prediction, NIPS'16
   - [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf)\*: Continuous Imputation of Missing Values in Streams of Pattern-Determining Time Series, EDBT'17
     
-- **Recently Integrated Algorithms**: We recently expanded the original benchmark with new algorithms (in their original implementation):
+- **Recently Integrated Algorithms**: We recently expanded the original benchmark with new algorithms (using their original code):
   - [MPIN](https://www.vldb.org/pvldb/vol17/p345-li.pdf): Missing Value Imputation for Multi-attribute Sensor Data Streams via Message Propagation, PVLDB'24
   - [PriSTI](https://ieeexplore.ieee.org/document/10184808): PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation, ICDE'23
   - [GRIN](https://openreview.net/pdf?id=kOu3-S3wJ7): Filling the G_ap_s: Multivariate Time Series Imputation by Graph Neural Networks, ICLR'22
